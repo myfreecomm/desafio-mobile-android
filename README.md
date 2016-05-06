@@ -30,7 +30,7 @@ Ao tocar em um item, deve abrir no browser a página do Pull Request em questão
 
 Você pode se basear neste mockup para criar as telas:
 
-TODO inserir imagem
+![mockup](https://raw.githubusercontent.com/myfreecomm/desafio-mobile-android/master/mockup-android.png)
 
 Sua aplicação deve:
 
