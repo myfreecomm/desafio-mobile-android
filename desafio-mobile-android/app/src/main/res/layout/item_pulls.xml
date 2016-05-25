@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Titulo"
+                android:id="@+id/title_pull"
+                android:textColor="@color/colorTextPrimary"
+                android:layout_weight="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Descrição fsdkmfsdlifsdfnosdnfsdfhsdhfhsdhfuhsdhfusdfsdfhusdhfhsdiuhfhsdufhisdiufhiusdhfiusdhifhisdhfhsduhfsdhifuhisudhfshdiufhiusdhfihdishf"
+                android:id="@+id/body_pull"
+                android:textColor="@color/colorTextDark" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/imageUser"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center|left"
+                fresco:roundAsCircle="true"
+                fresco:placeholderImage="@drawable/ic_user_placeh"
+                fresco:placeholderImageScaleType="fitCenter"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:gravity="left">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="username"
+                    android:id="@+id/username"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:gravity="left"
+                    android:layout_gravity="left" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10/11/2011"
+                    android:id="@+id/created"
+                    android:textColor="@color/colorTextGray"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:gravity="left"
+                    android:layout_gravity="left" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

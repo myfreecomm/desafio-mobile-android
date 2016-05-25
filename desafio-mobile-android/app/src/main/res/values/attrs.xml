@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="ic_star_png" format="reference"/>
+    <attr name="ic_star" format="reference"/>
+    <attr name="ic_fork_png" format="reference"/>
+    <attr name="ic_fork" format="reference"/>
+</resources>
