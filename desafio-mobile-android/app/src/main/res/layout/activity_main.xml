@@ -30,16 +30,36 @@
     </android.support.design.widget.AppBarLayout>
 
 
-    <android.support.v4.widget.DrawerLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/drawer_layout"
-        android:layout_below="@+id/toolbar_layout"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        tools:openDrawer="start">
+        android:layout_below="@+id/toolbar_layout">
+
+        <LinearLayout
+            android:id="@+id/connection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#cccccc"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal">
+            <ImageView
+                android:layout_marginLeft="20dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/warning"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/no_connection"
+                android:padding="5dp"
+                android:layout_gravity="center" />
+        </LinearLayout>
+
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefreshLayout"
             android:layout_width="match_parent"
@@ -54,20 +74,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp" />
         </android.support.v4.widget.SwipeRefreshLayout>
-
-        <android.support.design.widget.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:fitsSystemWindows="true"
-            app:headerLayout="@layout/nav_header_main"
-            app:menu="@menu/activity_main_drawer"
-            android:focusable="false"
-            android:background="#eeeeee" />
-
-    </android.support.v4.widget.DrawerLayout>
-
+    </LinearLayout>
 
 
 </RelativeLayout>

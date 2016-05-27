@@ -9,17 +9,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.app.githubclient.R;
 import com.app.githubclient.adapters.PullsListAdapter;
 import com.app.githubclient.extras.DividerItemDecoration;
+import com.app.githubclient.extras.SaveSharedPreference;
 import com.app.githubclient.models.Pull;
 import com.app.githubclient.models.Repository;
 import com.app.githubclient.services.CustomCallback;
 import com.app.githubclient.services.RestApi;
+import com.google.gson.Gson;
+import com.google.gson.internal.Streams;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -29,6 +32,8 @@ public class PullsActivity extends AppCompatActivity {
 
     RecyclerView listRepositories;
 
+    public static final String REPOSITORY_KEY = "REPOSITORY_KEY";
+    public static final String PULLS_KEY = "PULLS_KEY";
     int currentPage = 1;
     int maxPages;
     boolean loading;
@@ -38,11 +43,17 @@ public class PullsActivity extends AppCompatActivity {
     private ConnectivityManager connectivityManager;
     private NetworkInfo activeNetwork;
     private SwipeRefreshLayout mSwipeRefreshLayout;
+    Gson gson;
+    Type listOfTestObject = new TypeToken<List<Pull>>(){}.getType();
+    private String jsonActual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        gson = new Gson();
+        listOfTestObject = new TypeToken<List<Pull>>(){}.getType();
 
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
@@ -50,10 +61,16 @@ public class PullsActivity extends AppCompatActivity {
                 repository = null;
                 finish();
             } else {
-                repository = (Repository) extras.getSerializable("REPO");
+                repository = (Repository) extras.getSerializable(REPOSITORY_KEY);
             }
         } else {
-            repository = (Repository) savedInstanceState.getSerializable("REPO");
+            repository = (Repository) savedInstanceState.getSerializable(REPOSITORY_KEY);
+            String pullsJsonSave = savedInstanceState.getString(PULLS_KEY);
+            if(pullsJsonSave != "" || pullsJsonSave != null){
+                List<Pull> listAux = gson.fromJson(pullsJsonSave, listOfTestObject);
+                currentPage = 1;
+                addPullsOnList(listAux);
+            }
         }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -94,34 +111,21 @@ public class PullsActivity extends AppCompatActivity {
                                 requirePulls(currentPage, callbackGetPulls);
                             }
                         }
-                        if ((visibleItemCount + pastVisibleItems) >= totalItemCount) {
-                            if (checkConnection()) {
-                                LoadState(true);
-                            }
-                        }
                     }
                 }
+
             });
         }
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                // Refresh items
-                requirePulls(1, new CustomCallback<List<Pull>>() {
-                    @Override
-                    public void succefull(final List<Pull> response) {
-                        addNewsRepositoriesOnList(response);
-                    }
-
-                    @Override
-                    public void failure(Throwable t) {
-                        LoadState(false);
-                    }
-                });
-            }
-        });
+             @Override
+             public void onRefresh() {
+                 // Refresh items
+                 currentPage = 1;
+                 requirePulls(currentPage, callbackGetPulls);
+             }
+         });
         mSwipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
@@ -132,24 +136,36 @@ public class PullsActivity extends AppCompatActivity {
 
             @Override
             public void succefull(final List<Pull> response) {
+
                 addPullsOnList(response);
+                jsonActual = gson.toJson(response, listOfTestObject);
             }
 
             @Override
             public void failure(Throwable t) {
                 LoadState(false);
                 mSwipeRefreshLayout.setEnabled(false);
+                finish();
             }
         };
 
         if (checkConnection()) {
             mSwipeRefreshLayout.setEnabled(true);
             requirePulls(currentPage, callbackGetPulls);
-        } else {
-            //mErrorText.setVisibility(View.VISIBLE);
-            //mButtonTryAgain.setVisibility(View.VISIBLE);
         }
+    }
 
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        // Save the user's current game state
+        //savedInstanceState.putInt(STATE_SCORE, mCurrentScore);
+        //savedInstanceState.putInt(STATE_LEVEL, mCurrentLevel);
+
+        savedInstanceState.putSerializable(REPOSITORY_KEY, repository);
+        savedInstanceState.putString(PULLS_KEY, jsonActual);
+
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
     }
 
     private void requirePulls(int page, CustomCallback<List<Pull>> callback) {
@@ -178,22 +194,11 @@ public class PullsActivity extends AppCompatActivity {
 
                     @Override
                     public void run() {
-                        pullsListAdapter.addPulls(pulls);
-                        LoadState(false);
-                    }
-                });
-            }
-        }.start();
-    }
-
-    private void addNewsRepositoriesOnList(final List<Pull> pulls) {
-        new Thread() {
-            public void run() {
-                runOnUiThread(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        pullsListAdapter.addNewPulls(pulls);
+                        if(currentPage <= 1){
+                            pullsListAdapter.addNewPulls(pulls);
+                        }else {
+                            pullsListAdapter.addPulls(pulls);
+                        }
                         LoadState(false);
                     }
                 });
@@ -213,36 +218,8 @@ public class PullsActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-
-    @Override
     public void onBackPressed() {
         super.onBackPressed();
         finish();
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        if(id == android.R.id.home){
-            finish();
-        }
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-
 }

@@ -26,7 +26,7 @@ public class RepoClickListener implements View.OnClickListener {
 
             Repository repo = (Repository) v.getTag();
             Intent intent = new Intent(context, PullsActivity.class);
-            intent.putExtra("REPO", repo);
+            intent.putExtra(PullsActivity.REPOSITORY_KEY, repo);
             context.startActivity(intent);
         }
     }

@@ -55,7 +55,7 @@ public class RepoListAdapter extends RecyclerView.Adapter<RepoHolder> {
         notifyDataSetChanged();
     }
 
-    public void addNewRepos(List<Repository> Repos) {
+    public void newRepos(List<Repository> Repos) {
         if (item == null)
             item = new ArrayList<Repository>();
         item.clear();
