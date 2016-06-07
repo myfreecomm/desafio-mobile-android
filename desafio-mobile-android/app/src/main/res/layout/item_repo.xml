@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3.5"
+            android:baselineAligned="false">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Nome do repositório"
+                android:id="@+id/name_repo"
+                android:textColor="@color/colorTextPrimary"
+                android:layout_weight="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Descrição fsdkmfsdlifsdfnosdnfsdfhsdhfhsdhfuhsdhfusdfsdfhusdhfhsdiuhfhsdufhisdiufhiusdhfiusdhifhisdhfhsduhfsdhifuhisudhfshdiufhiusdhfihdishf"
+                android:id="@+id/description_repo"
+                android:textColor="@color/colorTextDark" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="10"
+                    android:id="@+id/forks"
+                    android:drawablePadding="3dip"
+                    android:textColor="@color/colorAccent"
+                    android:drawableLeft="@drawable/ic_fork"
+                    android:layout_marginLeft="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="40"
+                    android:id="@+id/stars"
+                    android:textColor="@color/colorAccent"
+                    android:drawableLeft="@drawable/ic_star"
+                    android:layout_marginLeft="5dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/imageUser"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                fresco:roundAsCircle="true"
+                fresco:placeholderImage="@drawable/ic_user_placeh"
+                fresco:placeholderImageScaleType="fitCenter"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="username"
+                android:id="@+id/username"
+                android:layout_gravity="center_horizontal|bottom"
+                android:textColor="@color/colorTextPrimary"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:gravity="bottom" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
