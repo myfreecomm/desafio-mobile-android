@@ -1,0 +1,1 @@
+Para rodar a aplicação é necessário abrir no Android Studio com Gradle 2.2.1, em um aparelho android com a versão Ice Cream Sandwich ou superior.

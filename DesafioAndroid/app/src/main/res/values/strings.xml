@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Desafio Android</string>
+    <string name="unknown_exception">Ocorreu um problema com o Desafio Android</string>
+    <string name="timeout_exception">A requisição atingiu o tempo limite</string>
+    <string name="unknown_host_exception">Não foi possível conectar ao servidor, cheque sua conexão e tente novamente</string>
+    <string name="no_internet_permission">O aplicativo não pode funcionar sem a permissão de internet</string>
+</resources>
