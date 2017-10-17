@@ -9,7 +9,12 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import br.com.arthurcordova.controller.GithubController;
+import br.com.arthurcordova.tools.ArthurCordovaDialog;
+
 public class MainActivity extends AppCompatActivity {
+
+    private GithubController mGithubController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,14 +23,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        mGithubController =new GithubController(this, new ArthurCordovaDialog());
+        mGithubController.start();
+
+        mGithubController.getGithubRepositories();
+
     }
 
     @Override
