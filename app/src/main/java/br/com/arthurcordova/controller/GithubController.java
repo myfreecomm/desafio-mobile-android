@@ -5,10 +5,16 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 import br.com.arthurcordova.R;
+import br.com.arthurcordova.adapter.RVARepository;
 import br.com.arthurcordova.model.GithubRepositoryModel;
+import br.com.arthurcordova.model.Items;
 import br.com.arthurcordova.service.GithubService;
 import br.com.arthurcordova.tools.ArthurCordovaDialog;
 import retrofit2.Call;
@@ -25,6 +31,8 @@ public class GithubController extends Controller implements Callback<GithubRepos
     private Context ctx;
     private ArthurCordovaDialog dialog;
     private Activity activity;
+    private RVARepository adapter;
+    private RecyclerView recyclerView;
 
     public void getGithubRepositories() {
         showDialog();
@@ -32,10 +40,11 @@ public class GithubController extends Controller implements Callback<GithubRepos
         call.enqueue(this);
     }
 
-    public GithubController(Context ctx, ArthurCordovaDialog dialog) {
+    public GithubController(Context ctx, ArthurCordovaDialog dialog, RecyclerView recyclerView) {
         this.ctx = ctx;
         this.dialog = dialog;
         this.activity = ((Activity) ctx);
+        this.recyclerView = recyclerView;
     }
 
     private void showDialog() {
@@ -61,8 +70,10 @@ public class GithubController extends Controller implements Callback<GithubRepos
         dismissDialog();
         Log.e("SUCCESS", response.body().toString());
         if (response.isSuccessful()) {
-            GithubRepositoryModel user = response.body();
-//            new TaskUserDao(database, ctx, TaskUserDao.TASK_USER_SAVE).execute(user);
+            GithubRepositoryModel githubRepositoryModel = response.body();
+
+            adapter  = new RVARepository(githubRepositoryModel.getItems());
+            recyclerView.setAdapter(adapter);
 
         } else {
             new AlertDialog.Builder(ctx, R.style.ArthurCordovaDialog)
@@ -74,7 +85,6 @@ public class GithubController extends Controller implements Callback<GithubRepos
                             dialog.dismiss();
                         }
                     }).show();
-
         }
     }
 

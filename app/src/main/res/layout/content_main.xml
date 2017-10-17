@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fafafa"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="br.com.arthurcordova.MainActivity"
     tools:showIn="@layout/activity_main">
@@ -16,7 +17,8 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_repositories"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </android.support.v4.widget.SwipeRefreshLayout>
 

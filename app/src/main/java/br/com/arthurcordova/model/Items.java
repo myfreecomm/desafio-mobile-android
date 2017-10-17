@@ -9,6 +9,8 @@ public class Items {
     private String name;
     private String description;
     private Owner owner;
+    private Integer forks;
+    private Integer stargazers_count;
 
     public String getName() {
         return name;
@@ -32,5 +34,21 @@ public class Items {
 
     public void setOwner(Owner owner) {
         this.owner = owner;
+    }
+
+    public Integer getForks() {
+        return forks;
+    }
+
+    public void setForks(Integer forks) {
+        this.forks = forks;
+    }
+
+    public Integer getStargazers_count() {
+        return stargazers_count;
+    }
+
+    public void setStargazers_count(Integer stargazers_count) {
+        this.stargazers_count = stargazers_count;
     }
 }
