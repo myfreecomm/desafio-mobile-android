@@ -2,8 +2,6 @@ package br.com.arthurcordova.model;
 
 import java.io.Serializable;
 
-import br.com.arthurcordova.BuildConfig;
-
 /**
  * Created by acstapassoli on 16/10/17.
  */
