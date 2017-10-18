@@ -19,8 +19,12 @@
 
 
         <android.support.constraint.ConstraintLayout
+            android:id="@+id/view_clickable"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true">
 
             <TextView
                 android:id="@+id/tv_repo_name"

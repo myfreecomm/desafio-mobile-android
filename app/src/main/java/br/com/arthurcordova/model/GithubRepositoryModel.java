@@ -1,12 +1,13 @@
 package br.com.arthurcordova.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by acstapassoli on 16/10/17.
  */
 
-public class GithubRepositoryModel {
+public class GithubRepositoryModel implements Serializable {
 
     private String total_count;
     private List<Items> items;

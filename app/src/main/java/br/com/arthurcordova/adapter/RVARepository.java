@@ -1,5 +1,6 @@
 package br.com.arthurcordova.adapter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import br.com.arthurcordova.DetailActivity;
 import br.com.arthurcordova.R;
 import br.com.arthurcordova.model.Items;
 import br.com.arthurcordova.tools.CropImage;
@@ -19,7 +21,7 @@ import br.com.arthurcordova.tools.CropImage;
  * Created by acstapassoli on 17/10/17.
  */
 
-public class RVARepository extends RecyclerView.Adapter<RVARepository.ViewHolder> {
+public class RVARepository extends RecyclerView.Adapter<RVARepository.ViewHolder>{
 
     private List<Items> mList;
 
@@ -52,6 +54,15 @@ public class RVARepository extends RecyclerView.Adapter<RVARepository.ViewHolder
                 .transform(new CropImage())
                 .into(holder.imgAvatar);
 
+        holder.viewClickable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent(view.getContext(), DetailActivity.class);
+                it.putExtra(DetailActivity.EXTRA_MODEL, model);
+                view.getContext().startActivity(it);
+            }
+        });
+
     }
 
     public void setFilter(List<Items> list) {
@@ -75,6 +86,7 @@ public class RVARepository extends RecyclerView.Adapter<RVARepository.ViewHolder
         TextView tvForks;
         TextView tvStargazers;
         ImageView imgAvatar;
+        View viewClickable;
 
         ViewHolder(View view) {
             super(view);
@@ -84,7 +96,7 @@ public class RVARepository extends RecyclerView.Adapter<RVARepository.ViewHolder
             tvOwnerName = view.findViewById(R.id.tv_owner_name);
             tvStargazers = view.findViewById(R.id.tv_stargazers);
             imgAvatar = view.findViewById(R.id.image_avatar);
-
+            viewClickable = view.findViewById(R.id.view_clickable);
         }
     }
 }

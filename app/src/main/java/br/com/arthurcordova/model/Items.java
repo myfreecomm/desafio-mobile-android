@@ -1,16 +1,27 @@
 package br.com.arthurcordova.model;
 
+import java.io.Serializable;
+
 /**
  * Created by acstapassoli on 16/10/17.
  */
 
-public class Items {
+public class Items implements Serializable{
 
+    private Integer id;
     private String name;
     private String description;
     private Owner owner;
     private Integer forks;
     private Integer stargazers_count;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
