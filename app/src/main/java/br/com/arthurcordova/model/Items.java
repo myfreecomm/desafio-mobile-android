@@ -2,7 +2,7 @@ package br.com.arthurcordova.model;
 
 import java.io.Serializable;
 
-import br.com.arthurcordova.tools.Constants;
+import br.com.arthurcordova.BuildConfig;
 
 /**
  * Created by acstapassoli on 16/10/17.
@@ -67,9 +67,6 @@ public class Items implements Serializable{
     }
 
     public String getPulls_url() {
-        if (pulls_url != null) {
-            return pulls_url.replace(Constants.URL_BASE, "").replace("{/number}", "");
-        }
         return pulls_url;
     }
 
