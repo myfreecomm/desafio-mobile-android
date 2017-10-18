@@ -1,27 +1,20 @@
 package br.com.arthurcordova;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.util.ArrayList;
-
-import br.com.arthurcordova.adapter.RVARepository;
-import br.com.arthurcordova.controller.GithubController;
-import br.com.arthurcordova.model.Items;
+import br.com.arthurcordova.controller.RepositoriesController;
 import br.com.arthurcordova.tools.ArthurCordovaDialog;
 
 public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
-    private GithubController mGithubController;
+    private RepositoriesController mRepositoriesController;
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
@@ -38,9 +31,9 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         mRecyclerView = findViewById(R.id.rv_repositories);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mGithubController = new GithubController(this, new ArthurCordovaDialog(), mRecyclerView);
-        mGithubController.start();
-        mGithubController.getGithubRepositories();
+        mRepositoriesController = new RepositoriesController(this, new ArthurCordovaDialog(), mRecyclerView);
+        mRepositoriesController.start();
+        mRepositoriesController.getGithubRepositories();
     }
 
     @Override
@@ -61,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     @Override
     public void onRefresh() {
-        mGithubController.getGithubRepositories();
+        mRepositoriesController.getGithubRepositories();
         mSwipeRefreshLayout.setRefreshing(false);
     }
 }

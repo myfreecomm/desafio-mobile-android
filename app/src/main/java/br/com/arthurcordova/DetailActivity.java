@@ -1,16 +1,26 @@
 package br.com.arthurcordova;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
-public class DetailActivity extends AppCompatActivity {
+import br.com.arthurcordova.controller.PullsController;
+import br.com.arthurcordova.controller.RepositoriesController;
+import br.com.arthurcordova.model.Items;
+import br.com.arthurcordova.tools.ArthurCordovaDialog;
+
+public class DetailActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
     public static final String EXTRA_MODEL = "model";
+
+    private PullsController mPullsController;
+    private RecyclerView mRecyclerView;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
+    private Items mItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +30,19 @@ public class DetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        mItem = (Items) getIntent().getSerializableExtra(EXTRA_MODEL);
+
+        getSupportActionBar().setTitle(mItem.getName());
+
+        mSwipeRefreshLayout = findViewById(R.id.sr_pulls);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+
+        mRecyclerView = findViewById(R.id.rv_pulls);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mPullsController = new PullsController(this, new ArthurCordovaDialog(), mRecyclerView);
+        mPullsController.start();
+        mPullsController.getGithubPulls(mItem);
     }
 
     @Override
@@ -30,6 +53,12 @@ public class DetailActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onRefresh() {
+        mPullsController.getGithubPulls(mItem);
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 
 }

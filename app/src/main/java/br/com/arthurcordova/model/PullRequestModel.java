@@ -12,6 +12,7 @@ public class PullRequestModel implements Serializable{
     private String state;
     private String title;
     private String body;
+    private String html_url;
     private User user;
 
     public Integer getId() {
@@ -44,6 +45,14 @@ public class PullRequestModel implements Serializable{
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public String getHtml_url() {
+        return html_url;
+    }
+
+    public void setHtml_url(String html_url) {
+        this.html_url = html_url;
     }
 
     public User getUser() {

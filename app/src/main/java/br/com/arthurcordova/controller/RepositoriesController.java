@@ -25,7 +25,7 @@ import retrofit2.Response;
  * Created by acstapassoli on 16/10/17.
  */
 
-public class GithubController extends Controller implements Callback<GithubRepositoryModel> {
+public class RepositoriesController extends Controller implements Callback<GithubRepositoryModel> {
 
     private GithubService api;
     private Context ctx;
@@ -40,7 +40,7 @@ public class GithubController extends Controller implements Callback<GithubRepos
         call.enqueue(this);
     }
 
-    public GithubController(Context ctx, ArthurCordovaDialog dialog, RecyclerView recyclerView) {
+    public RepositoriesController(Context ctx, ArthurCordovaDialog dialog, RecyclerView recyclerView) {
         this.ctx = ctx;
         this.dialog = dialog;
         this.activity = ((Activity) ctx);

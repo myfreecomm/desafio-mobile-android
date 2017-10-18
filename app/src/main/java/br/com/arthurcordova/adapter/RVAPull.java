@@ -1,6 +1,7 @@
 package br.com.arthurcordova.adapter;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,39 +16,38 @@ import java.util.List;
 import br.com.arthurcordova.DetailActivity;
 import br.com.arthurcordova.R;
 import br.com.arthurcordova.model.Items;
+import br.com.arthurcordova.model.PullRequestModel;
 import br.com.arthurcordova.tools.CropImage;
 
 /**
  * Created by acstapassoli on 17/10/17.
  */
 
-public class RVARepository extends RecyclerView.Adapter<RVARepository.ViewHolder>{
+public class RVAPull extends RecyclerView.Adapter<RVAPull.ViewHolder>{
 
-    private List<Items> mList;
+    private List<PullRequestModel> mList;
 
-    public RVARepository(List<Items> list) {
+    public RVAPull(List<PullRequestModel> list) {
         mList = list;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemLayoutView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_repository, null);
+                .inflate(R.layout.item_pull, null);
         ViewHolder viewHolder = new ViewHolder(itemLayoutView);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int index) {
-        final Items model = mList.get(index);
-        holder.tvName.setText(model.getName());
-        holder.tvDesc.setText(model.getDescription());
-        holder.tvForks.setText(String.valueOf(model.getForks()));
-        holder.tvStargazers.setText(String.valueOf(model.getStargazers_count()));
-        holder.tvOwnerName.setText(String.valueOf(model.getOwner().getLogin()));
+        final PullRequestModel model = mList.get(index);
+        holder.tvName.setText(model.getTitle());
+        holder.tvDesc.setText(model.getBody());
+        holder.tvOwnerName.setText(model.getUser().getLogin());
 
         Picasso.with(holder.imgAvatar.getContext())
-                .load(model.getOwner().getAvatar_url())
+                .load(model.getUser().getAvatar_url())
                 .resize(160, 160)
                 .placeholder(R.drawable.sem_foto)
                 .transform(new CropImage())
@@ -56,15 +56,14 @@ public class RVARepository extends RecyclerView.Adapter<RVARepository.ViewHolder
         holder.viewClickable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it = new Intent(view.getContext(), DetailActivity.class);
-                it.putExtra(DetailActivity.EXTRA_MODEL, model);
-                view.getContext().startActivity(it);
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(model.getHtml_url()));
+                view.getContext().startActivity(browserIntent);
             }
         });
 
     }
 
-    public void setFilter(List<Items> list) {
+    public void setFilter(List<PullRequestModel> list) {
         if (!mList.isEmpty()) {
             mList.clear();
         }
@@ -82,8 +81,6 @@ public class RVARepository extends RecyclerView.Adapter<RVARepository.ViewHolder
         TextView tvName;
         TextView tvDesc;
         TextView tvOwnerName;
-        TextView tvForks;
-        TextView tvStargazers;
         ImageView imgAvatar;
         View viewClickable;
 
@@ -91,9 +88,7 @@ public class RVARepository extends RecyclerView.Adapter<RVARepository.ViewHolder
             super(view);
             tvName = view.findViewById(R.id.tv_repo_name);
             tvDesc = view.findViewById(R.id.tv_repo_desc);
-            tvForks = view.findViewById(R.id.tv_forks);
             tvOwnerName = view.findViewById(R.id.tv_owner_name);
-            tvStargazers = view.findViewById(R.id.tv_stargazers);
             imgAvatar = view.findViewById(R.id.image_avatar);
             viewClickable = view.findViewById(R.id.view_clickable);
         }

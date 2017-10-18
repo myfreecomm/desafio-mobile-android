@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import br.com.arthurcordova.R;
-import br.com.arthurcordova.controller.GithubController;
 
 /**
  * Created by acstapassoli on 16/10/17.
