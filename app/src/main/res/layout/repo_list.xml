@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <RelativeLayout
+        android:layout_marginTop="15sp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txtPullTitle"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Titulo Repositorio"/>
+
+        <TextView
+            android:id="@+id/txtRepoForks"
+            android:textColor="@color/colorOrange"
+            android:layout_below="@+id/txtPullBody"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginTop="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="640"/>
+
+        <TextView
+            android:id="@+id/txtRepoStars"
+            android:textColor="@color/colorOrange"
+            android:layout_below="@+id/txtPullBody"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginLeft="60sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="80"/>
+
+        <ImageView
+            android:id="@+id/imgPullUserPic"
+            android:layout_marginRight="10sp"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="50sp"
+            android:layout_height="50sp" />
+
+        <TextView
+            android:id="@+id/txtPullUsername"
+            android:text="username"
+            android:textSize="12sp"
+            android:layout_marginRight="12sp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/colorPrimary"
+            android:layout_below="@+id/imgPullUserPic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/txtPullBody"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtPullTitle"
+            android:layout_marginRight="70sp"
+            android:textColor="@color/colorBlack"
+            android:text="Descricao Repositorio lorem asd asdadasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd"/>
+
+        <View
+            android:layout_marginTop="10sp"
+            android:layout_below="@+id/txtRepoStars"
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:background="@android:color/darker_gray"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
