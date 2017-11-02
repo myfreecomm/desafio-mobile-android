@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Teste Mongeral</string>
+
+    <string name="alert_no_internet">Sem internet</string>
+
+    <string name="error_get_repositories">Não foi possîvel carregat os repositórios.</string>
+
+    <string name="clone_ur">Clone URL:</string>
+    <string name="date">Data:</string>
+    <string name="forks">Forks:</string>
+    <string name="name">Nome:</string>
+    <string name="pullresquests">Pullrequests</string>
+    <string name="title">Título:</string>
+    <string name="searching_repositories">Procurando repositórios</string>
+    <string name="searching_pullrequests">Procurando pullrequests</string>
+    <string name="stars">Estrelas:</string>
+    <string name="wait">Aguarde...</string>
+</resources>
