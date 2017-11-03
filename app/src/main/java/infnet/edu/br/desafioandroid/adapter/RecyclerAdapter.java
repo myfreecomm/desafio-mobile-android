@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import infnet.edu.br.desafioandroid.R;
@@ -47,7 +49,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter <RecyclerAdapter.MyVie
         holder.txt_stars.setText(repository.getStars());
 
         String imagem = repository.repo_owners.getAvatar_url();
-
+        Picasso.with(this.context).load(imagem).into(holder.img_avatar);
     }
 
     @Override
