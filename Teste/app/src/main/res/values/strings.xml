@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Teste Mongeral</string>
+    
+    <string name="alert_no_internet">No internet</string>
+
+    <string name="error_get_repositories">Could not possible get repositories.</string>
+
+    <string name="clone_ur">Clone URL:</string>
+    <string name="date">Date:</string>
+    <string name="forks">Forks:</string>
+    <string name="name">Name:</string>
+    <string name="pullresquests">Pullrequests</string>
+    <string name="title">Title:</string>
+    <string name="searching_repositories">Searching repositories</string>
+    <string name="searching_pullrequests">Searching pullrequests</string>
+    <string name="stars">Stars:</string>
+    <string name="wait">Wait...</string>
+
+</resources>
