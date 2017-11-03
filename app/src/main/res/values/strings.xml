@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DesafioAndroid</string>
+    <string name="lorem_lipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac dui at nisl pharetra scelerisque eget ac justo. Curabitur auctor faucibus lorem, sed finibus ex faucibus ac. Sed eu nulla at nibh eleifend imperdiet. Duis sem eros, vulputate ac libero et, scelerisque consequat lacus. Sed dui est, dapibus a nisi a, sollicitudin imperdiet neque. Mauris molestie, nisi id porttitor posuere, ante odio luctus libero, vitae tincidunt justo ex ut nisl</string>
+    <string name="numbers">123</string>
+    <string name="username">Username</string>
+    <string name="repository_name">Repository Name</string>
+</resources>
