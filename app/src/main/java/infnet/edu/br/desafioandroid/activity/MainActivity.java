@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
 
     private GitHubApi gitHubApi;
+    private static final String TAG = "joao";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,15 +57,15 @@ public class MainActivity extends AppCompatActivity {
                     recyclerRepoAdapter.notifyDataSetChanged();
 
                 } else {
-                    Log.i("joao" , "retornou com erro" + response.toString());
-                }
-            }
+                    Log.i(TAG , "retornou com erro" + response.toString());
+                } // End else
+            } // End onResponse
 
             @Override
             public void onFailure(Call<GitHubCatalog> call, Throwable t) {
-                Log.i("joao" , "failure" + t.getMessage());
+                Log.i(TAG , "failure: " + t.getMessage());
             }
-        });
+        }); // End catalogCall.enqueue
 
     } // End onCreate
 }
