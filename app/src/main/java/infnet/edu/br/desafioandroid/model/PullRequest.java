@@ -2,13 +2,11 @@ package infnet.edu.br.desafioandroid.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-
 /**
  * Created by joaoluisdomingosxavier on 03/11/17.
  */
 
-public class PullRequest implements Serializable {
+public class PullRequest {
 
     @SerializedName("user")
     public User user;

@@ -40,8 +40,11 @@ public class PullRequestActivity extends AppCompatActivity {
 
         pullRequests = new ArrayList<>();
 
+        String username = getIntent().getStringExtra("username");
+        String repo = getIntent().getStringExtra("repository");
+
         gitHubApi = ApiClient.getGitHubApi().create(GitHubApi.class);
-        Call<List<GitHubCatalog>> catalogCall = gitHubApi.getPullRequest();
+        Call<List<GitHubCatalog>> catalogCall = gitHubApi.getPullRequest(repo, username);
 
         catalogCall.enqueue(new Callback<List<GitHubCatalog>>() {
             @Override

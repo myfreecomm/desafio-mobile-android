@@ -2,15 +2,11 @@ package infnet.edu.br.desafioandroid.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.stream.Stream;
-
 /**
  * Created by joaoluisdomingosxavier on 03/11/17.
  */
 
-public class User extends ArrayList<User> implements Serializable {
+public class User {
 
     @SerializedName("login")
     private String login;
@@ -25,11 +21,10 @@ public class User extends ArrayList<User> implements Serializable {
     private String gravatarId;
 
     // GETTERS AND SETTERS
+
     public String getLogin() {
         return login;
     }
-
-    // GETTER AND SETTER
 
     public void setLogin(String login) {
         this.login = login;
@@ -59,8 +54,4 @@ public class User extends ArrayList<User> implements Serializable {
         this.gravatarId = gravatarId;
     }
 
-    @Override
-    public Stream<User> stream() {
-        return null;
-    }
 }

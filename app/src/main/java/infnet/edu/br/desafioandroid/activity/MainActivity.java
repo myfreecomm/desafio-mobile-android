@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_list);
         linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(linearLayoutManager);
+        // setting SampleAdapter with nothing inside for recycler view just for everything be ok
         recyclerView.setAdapter(new RecyclerSampleAdapter());
 
         repositories = new ArrayList<>();
@@ -62,16 +64,23 @@ public class MainActivity extends AppCompatActivity {
                     recyclerRepoAdapter.notifyDataSetChanged();
 
                 } else {
+                    Toast.makeText(MainActivity.this,
+                            "Falha ao carregar lista de repositórios.",
+                            Toast.LENGTH_SHORT)
+                            .show();
                     Log.i(TAG , "retornou com erro" + response.toString());
                 } // End else
             } // End onResponse
 
             @Override
             public void onFailure(Call<GitHubCatalog> call, Throwable t) {
+                Toast.makeText(MainActivity.this,
+                        "Erro ao carregar lista de repositórios.",
+                        Toast.LENGTH_SHORT)
+                        .show();
                 Log.i(TAG , "failure: " + t.getMessage());
             }
         }); // End catalogCall.enqueue
 
     } // End onCreate
-
 }

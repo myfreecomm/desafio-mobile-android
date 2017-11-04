@@ -41,6 +41,7 @@ public class DetailsActivity extends AppCompatActivity {
         String url                  = getIntent().getExtras().getString("url");
         String avatar_url           = getIntent().getExtras().getString("avatar_url");
 
+        // inserting data info in TextViews
         tv_details_name.setText(user);
         tv_details_repository.setText(repo);
         tv_details_description.setText(description);
@@ -53,6 +54,7 @@ public class DetailsActivity extends AppCompatActivity {
         tv_details_url.setMovementMethod(LinkMovementMethod.getInstance());
     } // End on Create
 
+    // closing activity when user go back to other Activity
     @Override
     protected void onStop() {
         super.onStop();

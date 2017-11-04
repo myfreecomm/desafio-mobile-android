@@ -2,14 +2,13 @@ package infnet.edu.br.desafioandroid.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by joaoluisdomingosxavier on 03/11/17.
  */
 
-public class GitHubCatalog implements Serializable {
+public class GitHubCatalog {
     @SerializedName("items")
     private List<Repository> repositories;
 
