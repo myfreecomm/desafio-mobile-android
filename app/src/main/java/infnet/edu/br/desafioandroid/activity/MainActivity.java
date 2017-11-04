@@ -23,9 +23,13 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Repository> repositories;
     private RecyclerAdapter recyclerRepoAdapter;
+    private LinearLayoutManager linearLayoutManager;
     private RecyclerView recyclerView;
 
+    private Call<GitHubCatalog> catalogCall;
+
     private GitHubApi gitHubApi;
+
     private static final String TAG = "joao";
 
     @Override
@@ -34,13 +38,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(new RecyclerSampleAdapter());
 
         repositories = new ArrayList<>();
 
         gitHubApi = ApiClient.getGitHubApi().create(GitHubApi.class);
-        Call<GitHubCatalog> catalogCall = gitHubApi.getCatalog();
+        catalogCall = gitHubApi.getCatalog();
 
         catalogCall.enqueue(new Callback<GitHubCatalog>() {
             @Override
@@ -68,4 +73,5 @@ public class MainActivity extends AppCompatActivity {
         }); // End catalogCall.enqueue
 
     } // End onCreate
+
 }

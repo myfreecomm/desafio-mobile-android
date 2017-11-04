@@ -1,6 +1,7 @@
 package infnet.edu.br.desafioandroid.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import infnet.edu.br.desafioandroid.R;
+import infnet.edu.br.desafioandroid.activity.DetailsActivity;
 import infnet.edu.br.desafioandroid.model.Repository;
 
 /**
@@ -48,16 +50,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter <RecyclerAdapter.MyVie
         holder.txt_forks.setText(repository.getForks());
         holder.txt_stars.setText(repository.getStars());
 
-        String imagem = repository.repo_owners.getAvatar_url();
-        Picasso.with(this.context).load(imagem).into(holder.img_avatar);
-    }
+        String image = repository.repo_owners.getAvatar_url();
+        Picasso.with(this.context).load(image).into(holder.img_avatar);
+    } // End onBindViewHolder
 
     @Override
     public int getItemCount() {
         return repositories.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView txt_name, txt_description, txt_username, txt_forks, txt_stars;
         ImageView img_avatar;
@@ -82,9 +84,21 @@ public class RecyclerAdapter extends RecyclerView.Adapter <RecyclerAdapter.MyVie
         @Override
         public void onClick(View view) {
 
+            int position = getAdapterPosition();
+            Repository repository = this.repositories.get(position);
+            Intent intent = new Intent(context, DetailsActivity.class);
 
+            intent.putExtra("username", repository.repo_owners.getLogin());
+            intent.putExtra("repository", repository.getName());
+            intent.putExtra("description", repository.getDescription());
+            intent.putExtra("stars", repository.getStars());
+            intent.putExtra("forks", repository.getForks());
+            intent.putExtra("url", repository.getUrl());
+            intent.putExtra("avatar_url", repository.repo_owners.getAvatar_url());
 
-        }
-    }
+            this.context.startActivity(intent);
+
+        } // End onClick
+    } // End MyViewHolder
 
 }
