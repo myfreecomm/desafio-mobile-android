@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#343438"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/layRc"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/ic_back_red" />
+
+    <TextView
+        android:id="@+id/txtTittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/layRc"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="17dp"
+        android:text="@string/tittle_name"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/layRc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar">
+
+        <com.southernbox.parallaxrecyclerview.ParallaxRecyclerView
+            android:id="@+id/rcList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layAvi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/colorPrimaryDarkTrans">
+
+        <TextView
+            android:id="@+id/txtLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/avi"
+            android:layout_centerHorizontal="true"
+            android:text="@string/loading"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/avi"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="visible"
+            app:indicatorColor="#343438"
+            app:indicatorName="PacmanIndicator" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Desafio mobile android</string>
+    <string name="ipsum_repo_description">Descrição do repositório lorem ipsum \ndolor sit amet lorem ipsum dolor...</string>
+    <string name="name_repo">Nome Repositório</string>
+    <string name="nousername">username</string>
+    <string name="nofullname">Nome Sobrenome</string>
+    <string name="loading">Aguarde...</string>
+    <string name="challenge">Desafio Mobile Android</string>
+    <string name="my_name">Eduardo Augusto Petreca</string>
+    <string name="attention_empty">Atenção!</string>
+    <string name="error_connetion">Seu aparelho não possui conexão com a internet tente novamente mais tarde!</string>
+    <string name="ok">OK</string>
+    <string name="nodata">Nenhuma informação encontrada!</string>
+    <string name="loadMore">Ver mais...</string>
+    <string name="tittle_name">Github JavaPop</string>
+    <string name="exit">SAIR</string>
+    <string name="cancel">CANCELAR</string>
+    <string name="exit_confirm">Deseja sair do aplicativo?</string>
+
+
+</resources>
