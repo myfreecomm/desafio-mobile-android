@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Github JavaPop</string>
+    <string name="start_proccess">Início do processo</string>
+    <string name="wait_proccess">Por favor, aguarde</string>
+    <string name="bar">/</string>
+</resources>
