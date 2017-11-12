@@ -45,11 +45,7 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.7.3'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.7.3'
 
-    // Test
-    compile group: 'org.apache.httpcomponents', name: 'httpclient-android', version: '4.3.3'
-
-
-
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
 
 repositories {

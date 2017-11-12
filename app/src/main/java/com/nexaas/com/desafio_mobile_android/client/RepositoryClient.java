@@ -12,11 +12,6 @@ import java.util.List;
 
 public class RepositoryClient extends BaseClient {
 
-    public List<RepositoryEntity> getListRepository2(int page){
-        ResponseRepository  responseRepository = this.restTemplate.getForObject(this.url, ResponseRepository.class);
-        return Arrays.asList(responseRepository.getItems());
-    }
-
     public List<RepositoryEntity> getListRepository(int page){
         ResponseRepository responseRepository = this.restTemplate.getForObject(this.url + "&page=" + page, ResponseRepository.class);
         return Arrays.asList(responseRepository.getItems());

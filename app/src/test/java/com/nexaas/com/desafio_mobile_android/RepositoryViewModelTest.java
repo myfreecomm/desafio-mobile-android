@@ -4,6 +4,7 @@ import com.nexaas.com.desafio_mobile_android.model.RepositoryEntity;
 import com.nexaas.com.desafio_mobile_android.viewModel.RepositoryVewModel;
 
 import org.junit.Test;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 

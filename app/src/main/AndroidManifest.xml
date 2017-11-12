@@ -13,12 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.RepositoryActivity">
+        <activity android:name=".Activity.RepositoryActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".Activity.PullRequestActivity"
+            android:parentActivityName=".Activity.RepositoryActivity"
+            android:configChanges="orientation|keyboard|keyboardHidden">
         </activity>
     </application>
 
