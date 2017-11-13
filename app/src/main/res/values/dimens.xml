@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="TestAppDefaultHorizontalMargin">16dp</dimen>
+    <dimen name="TestAppDefaultVerticalMargin">16dp</dimen>
+    <dimen name="TestAppDefaultVerticalMarginHalf">8dp</dimen>
+
+    <dimen name="TestAppListItemImageSize">50dp</dimen>
+
+    <dimen name="TestAppListItemHeight">160dp</dimen>
+
+</resources>

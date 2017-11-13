@@ -1,0 +1,56 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="TestAppToolBarTheme"  parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorControlNormal">@color/colorSecondary</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="TestAppErrorTv" parent="android:style/Widget.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:layout_marginLeft">40dp</item>
+        <item name="android:layout_marginRight">40dp</item>
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TestAppSecondaryTitle" parent="android:style/Widget.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/TestAppYellow</item>
+    </style>
+
+    <style name="TestAppItemTitle" parent="android:style/Widget.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/TestAppTitleColor</item>
+    </style>
+
+    <style name="TestAppDefaultText" parent="android:style/Widget.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/TestAppDefaultTextColor</item>
+    </style>
+
+    <style name="TestAppYellowText" parent="android:style/Widget.TextView">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/TestAppYellow</item>
+    </style>
+
+    <style name="TestAppSmallTitle" parent="android:style/Widget.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/TestAppSmallTitleColor</item>
+    </style>
+
+</resources>

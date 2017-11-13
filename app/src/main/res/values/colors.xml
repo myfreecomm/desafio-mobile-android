@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorSecondary">#ffffff</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="TestItemLineColor">#bbbbbb</color>
+
+    <color name="TestAppTitleColor">#3977aa</color>
+    <color name="TestAppSmallTitleColor">#3977aa</color>
+    <color name="TestAppDefaultTextColor">#000000</color>
+    <color name="TestAppYellow">#df9305</color>
+    <color name="TestAppGrayLight">#dddddd</color>
+</resources>

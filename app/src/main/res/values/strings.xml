@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TestApp</string>
+
+    <string name="testapp_repository_fragment_name">Repositories</string>
+
+    <string name="testapp_repository_detail_fragment_count_text">%d opened / %d closed</string>
+</resources>
