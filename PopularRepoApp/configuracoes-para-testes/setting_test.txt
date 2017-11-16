@@ -1,0 +1,4 @@
+
+Passos para as configurações de Testes:
+
+Run/Debug Configurations: clique no botão (Android Instrumented Tests), marque a opção Class, informe a classe para teste desejada (UITestNavegation, UnitTestValidRequest)

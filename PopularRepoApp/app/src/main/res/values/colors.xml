@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorDodgerBlue">#1E90FF</color>
+    <color name="colorDeepSkyBlue">#00BFFF</color>
+    <color name="colorGoldenrod">#DAA520</color>
+    <color name="colorLightGrey">#DCDCDC</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+</resources>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relative_layout">
+
+    <LinearLayout
+        android:id="@+id/linear_layout_inf_repository"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignTop="@+id/linear_layout_data_user"
+        android:layout_toLeftOf="@+id/linear_layout_data_user"
+        android:layout_alignStart="@+id/linearLayout"
+        android:paddingRight="@dimen/medium_margin">
+
+        <TextView
+            android:id="@+id/txt_view_repository_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome do Repositório"
+            android:textColor="@color/colorDodgerBlue"
+            android:textSize="@dimen/font_title"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:ellipsize="end" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:id="@+id/image_view_fork"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:drawableTint="@color/colorGoldenrod"
+                android:src="@drawable/icon_fork_48"
+                android:layout_gravity="center"
+                android:background="@null"/>
+
+            <TextView
+                android:id="@+id/txt_count_forks"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/medium_font"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/colorGoldenrod" />
+
+            <ImageView
+                android:id="@+id/image_view_start"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="@dimen/medium_margin"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_star_black_24dp"
+                android:background="@null"/>
+
+            <TextView
+                android:id="@+id/txt_count_starts"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:textSize="@dimen/medium_font"
+                android:textColor="@color/colorGoldenrod"
+                android:gravity="center"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_data_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        android:layout_alignParentEnd="true"
+        android:padding="12dp">
+
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:id="@+id/img_user_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:siBorderWidth="1dp"
+            app:siBorderColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/txt_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorDeepSkyBlue"
+            android:layout_gravity="center"
+            android:lines="1"
+            android:text="username"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:text="Nome Sobrenome"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        android:layout_below="@+id/linear_layout_data_user"
+        android:layout_marginLeft="12dp"
+        android:background="@android:color/darker_gray">
+
+    </LinearLayout>
+
+</RelativeLayout>

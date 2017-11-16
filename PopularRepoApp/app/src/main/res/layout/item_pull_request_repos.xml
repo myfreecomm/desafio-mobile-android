@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/linear_layout_inf_repository"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:layout_alignStart="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/txt_view_pull_request_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome do Repositório"
+            android:textColor="@color/colorDodgerBlue"
+            android:textSize="@dimen/font_title"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_description_pull_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:ellipsize="end"
+            android:paddingRight="40dp" />
+
+        <TextView
+            android:id="@+id/txt_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="6dp"
+            android:visibility="gone"
+            android:textColor="@color/colorDeepSkyBlue"/>
+
+        <LinearLayout
+            android:id="@+id/linear_layout_data_user_pull_request"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="10dp"
+            android:orientation="horizontal">
+
+            <com.github.siyamed.shapeimageview.CircularImageView
+                android:id="@+id/img_user_avatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                app:siBorderWidth="1dp"
+                app:siBorderColor="@android:color/white"/>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_data_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:orientation="vertical" >
+
+
+                <TextView
+                    android:id="@+id/txt_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:textColor="@color/colorDeepSkyBlue"
+                    android:text="username"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:visibility="gone"
+                    android:text="Nome Sobrenome"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/linear_layout_inf_repository"
+        android:background="@android:color/darker_gray" >
+
+    </LinearLayout>
+
+</RelativeLayout>
