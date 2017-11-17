@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="180dp"
+    android:layout_marginTop="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        card_view:cardElevation="15dp"
+        android:padding="2dp"
+        card_view:contentPadding="5dp"
+        card_view:cardMaxElevation="2dp"
+        card_view:cardCornerRadius="4dp"
+        android:layout_marginLeft="4dp"
+        card_view:layout_constraintLeft_toLeftOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="8dp">
+        <android.support.constraint.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp">
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+
+                android:maxLines="2"
+                android:text="tv_title"
+                android:textColor="@color/colorBlueLight"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/iv_avatar_url"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:src="@mipmap/ic_launcher"
+                app:civ_border_color="@color/colorGray"
+                app:civ_border_width="2dp"
+                app:civ_circle_background_color="@color/colorGray"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_html_url" />
+            <TextView
+                android:id="@+id/tv_html_url"
+                android:layout_width="wrap_content"
+                android:maxLines="2"
+                android:layout_height="34dp"
+                android:text="tv_description"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent" />
+                <TextView
+                android:id="@+id/tv_created_at"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tvcreated_at"
+                android:layout_below="@+id/tv_html_url"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_body"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_created_at"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="4dp"
+                    android:text="tv_body"
+                    android:textSize="12sp"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_avatar_url"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_login" />
+
+                <TextView
+                    android:id="@+id/tv_login"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlueLight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="tv_login"
+                    android:layout_below="@+id/iv_avatar_url"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_avatar_url"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_html_url" />
+        </android.support.constraint.ConstraintLayout >
+    </android.support.v7.widget.CardView>
+</android.support.constraint.ConstraintLayout>
