@@ -13,6 +13,7 @@ import retrofit2.*;
 public class IteractorRepository implements IiteractorRepository {
 
     IpresenterRepository.PresenterInteracor presenterInteracor;
+    private int page;
 
     public IteractorRepository(IpresenterRepository.PresenterInteracor presenterInteracor) {
         this.presenterInteracor = presenterInteracor;
@@ -21,7 +22,7 @@ public class IteractorRepository implements IiteractorRepository {
     @Override
     public void fechtData() {
 
-        GithubApi.create().getRepository().enqueue(new Callback<Repository>() {
+        GithubApi.create().getRepository(page).enqueue(new Callback<Repository>() {
             @Override
             public void onResponse(Call<Repository> call, Response<Repository> response) {
                 presenterInteracor.success(response.body());
@@ -32,5 +33,7 @@ public class IteractorRepository implements IiteractorRepository {
                 presenterInteracor.failure(t.getLocalizedMessage());
             }
         });
+
+        page+=1;
     }
 }

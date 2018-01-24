@@ -14,7 +14,10 @@ import retrofit2.http.*;
     public interface GithubService {
 
         @GET("/search/repositories?q=language:Java&sort=stars&page=1")
-        Call<Repository> getRepository();
+        Call<Repository> getRepository(
+                @Query("page") int page
+        );
+
 
         @GET("/repos/{creator}/{repository}/pulls")
         Call<ArrayList<PullRequest>> getPullRequest(@Path("creator") String creator, @Path("repository") String repository);
