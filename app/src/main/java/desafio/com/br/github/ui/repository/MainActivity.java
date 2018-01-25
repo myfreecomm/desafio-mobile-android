@@ -9,9 +9,10 @@ import android.support.v7.widget.*;
 import butterknife.*;
 import desafio.com.br.github.R;
 import desafio.com.br.github.data.network.model.repository.*;
+import desafio.com.br.github.ui.*;
 import desafio.com.br.github.util.*;
 
-public class MainActivity extends Activity implements IviewRepository {
+public class MainActivity extends BaseActivity implements IviewRepository {
 
     @BindView(R.id.repositories_list)
     RecyclerView repositoriesRecyclerView;
@@ -26,7 +27,6 @@ public class MainActivity extends Activity implements IviewRepository {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
         presenterRepository = new PresenterRepository(this);
         presenterRepository.fetchData();
 

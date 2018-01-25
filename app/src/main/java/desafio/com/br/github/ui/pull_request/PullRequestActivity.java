@@ -7,6 +7,7 @@ import java.util.*;
 import butterknife.*;
 import desafio.com.br.github.R;
 import desafio.com.br.github.data.network.model.pull_request.*;
+import desafio.com.br.github.ui.*;
 
 
 /**
@@ -14,7 +15,7 @@ import desafio.com.br.github.data.network.model.pull_request.*;
  */
 
 
-public class PullRequestActivity extends Activity implements IviewPullRequest{
+public class PullRequestActivity extends BaseActivity implements IviewPullRequest{
     @BindView(R.id.repositories_list)
     RecyclerView repositoriesRecyclerView;
     IpresenterPullRequest.PresenterView presenterPullRequest;
@@ -29,7 +30,6 @@ public class PullRequestActivity extends Activity implements IviewPullRequest{
         presenterPullRequest = new PresenterPullRequest(this);
         presenterPullRequest.fetchData(getIntent().getStringExtra("creator"),getIntent().getStringExtra("repository"));
 
-        ButterKnife.bind(this);
     }
 
     @Override
