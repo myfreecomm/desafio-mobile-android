@@ -1,6 +1,6 @@
 package desafio.com.br.github.ui.repository;
 
-import android.content.Context;
+import android.content.*;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +13,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import desafio.com.br.github.*;
 import desafio.com.br.github.data.network.model.repository.*;
+import desafio.com.br.github.ui.pull_request.*;
 
 
 public class repositoryAdapter extends RecyclerView.Adapter<repositoryAdapter.ViewHolder>
@@ -108,6 +109,10 @@ public class repositoryAdapter extends RecyclerView.Adapter<repositoryAdapter.Vi
                 @Override
                 public void onClick(View v) {
 
+                    Intent intent = new Intent(context, PullRequestActivity.class);
+                    intent.putExtra("creator",data.getItems().get(getAdapterPosition()).getOwner().getLogin());
+                    intent.putExtra("repository",data.getItems().get(getAdapterPosition()).getName());
+                    context.startActivity(intent);
 
                     Log.d(TAG,"onClick"+Log.d(TAG,"onClick "));
                 }

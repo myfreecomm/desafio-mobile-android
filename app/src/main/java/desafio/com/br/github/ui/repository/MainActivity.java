@@ -1,6 +1,7 @@
 package desafio.com.br.github.ui.repository;
 
 
+import android.app.*;
 import android.os.*;
 import android.support.v7.app.*;
 import android.support.v7.widget.*;
@@ -10,7 +11,7 @@ import desafio.com.br.github.R;
 import desafio.com.br.github.data.network.model.repository.*;
 import desafio.com.br.github.util.*;
 
-public class MainActivity extends AppCompatActivity implements IviewRepository {
+public class MainActivity extends Activity implements IviewRepository {
 
     @BindView(R.id.repositories_list)
     RecyclerView repositoriesRecyclerView;
