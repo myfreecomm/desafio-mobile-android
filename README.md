@@ -34,6 +34,7 @@ Você pode se basear neste mockup para criar as telas:
 
 Sua aplicação deve:
 
+- estar escrita em Java e/ou Kotlin
 - usar um sistema de build. Ex: Gradle
 - fazer mapeamento json -> Objeto . Ex: GSON / Jackson / Moshi / etc
 - usar um arquivo .gitignore no seu repositório
