@@ -36,20 +36,9 @@ class MainActivity : DaggerAppCompatActivity(), MainAdapter.OnItemClickListener 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
         init()
-
-        //  if (savedInstanceState != null) {
-        //        stateObserver2(false)
-        //page.pageNumber = savedInstanceState.getInt(Helpers.PAGE_NUMBER)
-        //} else {
-        // stateObserver()
-        //getRepoListFromViewModel()
-        //}
-
-//        if (page.pageNumber == 0)
-        //          init()
     }
-
 
     private fun init() {
         initViewModel()
@@ -61,8 +50,6 @@ class MainActivity : DaggerAppCompatActivity(), MainAdapter.OnItemClickListener 
     private fun initViewModel() {
         viewModel = ViewModelProviders.of(this, viewModelFactory)
                 .get(MainViewModel::class.java)
-
-
     }
 
     private fun stateObserver() {
@@ -85,31 +72,6 @@ class MainActivity : DaggerAppCompatActivity(), MainAdapter.OnItemClickListener 
                     }
                 })
     }
-
-    /*    private fun stateObserver2(isConfiguration: Boolean){
-            var state  = viewModel.reposStateLive
-
-
-            viewModel.reposStateLive.observe(this,
-                    Observer<GenericEntityTransactionState> {
-                        it?.let {
-                            when (it) {
-                                is GenericEntityTransactionState.IsLoading -> {
-                                    //if(!isConfiguration) {}
-                                    pb_loading.visibility = if (it.isloading) View.VISIBLE else View.GONE
-                                }
-                                is GenericEntityTransactionState.IsSuccess<*> -> {
-                                    @Suppress("UNCHECKED_CAST")
-                                    recyclerAdapter.rangeItems(it.entity as MutableList<Repo>)
-                                }
-                                is GenericEntityTransactionState.Error -> {
-                                    it.idResource
-                                    // showMessage(it.msg)
-                                }
-                            }
-                        }
-                    })
-        }*/
 
     public override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
