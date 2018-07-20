@@ -1,14 +1,24 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.valderas.leonardo.nexaasdesafio"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
     }
     buildTypes {
         release {
@@ -16,13 +26,94 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding.enabled = true
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // support
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.android.support:design:$supportLibraryVersion"
+    implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+    implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
+    implementation "com.android.support:cardview-v7:$supportLibraryVersion"
+    implementation "com.android.support:support-v4:$supportLibraryVersion"
+    implementation "com.android.support:support-vector-drawable:$supportLibraryVersion"
+    implementation "com.android.support:exifinterface:$supportLibraryVersion"
+
+    //kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    //dagger
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation 'com.android.support:support-v4:27.1.1'
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+
+    //rxjava
+    implementation "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroidVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlinVersion"
+
+    //databinding
+    implementation "com.jakewharton.rxbinding:rxbinding-kotlin:$rxbindingVersion"
+    implementation "com.jakewharton.rxbinding:rxbinding-recyclerview-v7-kotlin:$rxbindingVersion"
+    compileOnly "javax.annotation:jsr250-api:1.0"
+
+    //lifecycle
+    implementation "android.arch.lifecycle:runtime:$lifecycleVersion"
+    implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
+    kapt "android.arch.lifecycle:compiler:$lifecycleVersion"
+
+    //picasso
+    implementation "com.squareup.picasso:picasso:$picassoVersion"
+
+    //navigation
+    implementation "devlight.io:navigationtabbar:$navigationTabbar"
+
+    //textview expandable
+    implementation "com.ms-square:expandableTextView:$expandableTextView"
+
+    //anko
+    implementation "org.jetbrains.anko:anko:$ankoVersion"
+
+    // dbflow
+    kapt "com.github.Raizlabs.DBFlow:dbflow-processor:$dbflowVersion"
+    implementation "com.github.Raizlabs.DBFlow:dbflow-core:$dbflowVersion"
+    implementation "com.github.Raizlabs.DBFlow:dbflow:$dbflowVersion"
+    implementation "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:$dbflowVersion"
+    implementation 'com.facebook.stetho:stetho:1.4.2'
+
+    //test
+    testImplementation "junit:junit:$unitTest"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    androidTestImplementation "com.android.support.test:runner:$runnerTest"
+    androidTestImplementation "com.android.support.test:rules:$rulesTest"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoCoreTest"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$espressoIntentsTest"
+    androidTestImplementation("com.android.support.test.espresso:espresso-contrib:$espressoContribTest") {
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude module: 'support-annotations'
+        exclude module: 'recyclerview-v7'
+    }
+
+    testImplementation "com.nhaarman:mockito-kotlin-kt1.1:$mockitoKotlin"
+    testImplementation "com.google.truth:truth:$truthTest"
+    testImplementation "android.arch.core:core-testing:$archCoreTest"
+}
+repositories {
+    mavenCentral()
 }

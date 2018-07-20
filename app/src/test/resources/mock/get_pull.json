@@ -1,0 +1,14 @@
+[
+  {
+    "id": 202187031,
+    "html_url": "https://github.com/iluwatar/java-design-patterns/pull/774",
+    "title": "Add an 'Override' annotaion",
+    "user": {
+      "login": "zenuo",
+      "id": 22318999,
+      "avatar_ur": "https://avatars1.githubusercontent.com/u/22318999?v=4"
+    },
+    "body": "Add an annotation 'Override' to mothod 'AppClient.TcpLoggingClient#run'.",
+    "updated_at": "2018-07-18T09:15:13Z"
+  }
+]
