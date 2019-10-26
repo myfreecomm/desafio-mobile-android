@@ -26,6 +26,16 @@ android {
 }
 
 dependencies {
+    // Libs Version control
+    def koinVersion = "2.0.1"
+    def rxKotlinVersion = "2.2.0"
+    def picassoVersion = "2.71828"
+    def gsonVersion = "2.8.5"
+
+    // Link to DomainLayer
+    implementation project(':data_layer')
+    implementation project(':domain_layer')
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -33,6 +43,21 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-core:2.23.0'
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0"
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    testImplementation "org.koin:koin-test:$koinVersion"
+    androidTestImplementation 'com.android.support:support-annotations:28.0.0'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // Koin for Android - [https://github.com/InsertKoinIO/koin]
+    implementation "org.koin:koin-android:$koinVersion"
+
+    // RxKotlin - [https://github.com/ReactiveX/RxKotlin]
+    implementation "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}"
+
+    // Picasso - [http://square.github.io/picasso/]
+    implementation "com.squareup.picasso:picasso:${picassoVersion}"
+
+    // GSON - [https://github.com/google/gson]
+    implementation "com.google.code.gson:gson:${gsonVersion}"
 }
