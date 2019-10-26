@@ -5,7 +5,7 @@ import com.nexaas.challenge.data.remote.service.ApiServicesFactory
 import com.nexaas.challenge.domain.interactor.GetProductsList
 import com.nexaas.challenge.domain.model.ProductDomain
 import com.nexaas.challenge.domain.repository.ApiRepository
-import io.reactivex.Observable
+import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -20,10 +20,11 @@ internal class ApiRepositoryImpl (private val apiServicesFactory: ApiServicesFac
         e.printStackTrace()
     }
 
-    override fun getProductsList(): Observable<List<ProductDomain>> {
+    override fun getProductsList(): Single<List<ProductDomain>> {
         return apiServicesFactory
             .getApiServices()
             .getProductsList()
+            .doOnSuccess { onRequestSuccess(GetProductsList.TAG, it.toString()) }
             .doOnError { onRequestError(GetProductsList.TAG, it) }
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
@@ -34,7 +35,7 @@ internal class ApiRepositoryImpl (private val apiServicesFactory: ApiServicesFac
                     .toList()
                     .let { modifiedList ->
                         // TODO: Add cache logic
-                        Observable.just(modifiedList)
+                        Single.just(modifiedList)
                     }
             }
     }
