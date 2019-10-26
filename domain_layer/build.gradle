@@ -32,6 +32,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     testImplementation 'junit:junit:4.12'
 
+    // Libs Version control
+    def rxKotlinVersion = "2.4.0"
+
     // RxKotlin - [https://github.com/ReactiveX/RxKotlin]
-    implementation("io.reactivex.rxjava2:rxkotlin:2.4.0")
+    implementation("io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}")
 }
