@@ -2,13 +2,18 @@ package com.nexaas.challenge.domain.interactor
 
 import com.nexaas.challenge.domain.core.Interactor
 import com.nexaas.challenge.domain.model.ProductDomain
+import com.nexaas.challenge.domain.repository.ApiRepository
 import io.reactivex.Observable
 import io.reactivex.Single
 
-class GetProductsList: Interactor<Observable<ArrayList<ProductDomain>>> {
+class GetProductsList(private val apiRepository: ApiRepository): Interactor<Observable<List<ProductDomain>>> {
 
-    override fun execute(): Observable<ArrayList<ProductDomain>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    companion object {
+        const val TAG = "GET_PRODUCTS_LIST"
+    }
+
+    override fun execute(): Observable<List<ProductDomain>> {
+        return apiRepository.getProductsList()
     }
 
 }

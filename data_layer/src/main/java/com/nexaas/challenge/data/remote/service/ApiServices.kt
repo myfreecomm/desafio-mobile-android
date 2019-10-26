@@ -7,6 +7,6 @@ import retrofit2.http.GET
 internal interface ApiServices {
 
     @GET("myfreecomm/desafio-mobile-android/master/api/data.json")
-    fun getProductsList(): Observable<ArrayList<Product>>
+    fun getProductsList(): Observable<List<Product>>
 
 }
