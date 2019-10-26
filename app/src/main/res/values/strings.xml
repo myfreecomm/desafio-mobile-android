@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NexaasDesafio</string>
+    <string name="connection_error">Verify your Internet connection</string>
+    <string name="generic_error">Opss! we have a problem, please try again</string>
+</resources>
