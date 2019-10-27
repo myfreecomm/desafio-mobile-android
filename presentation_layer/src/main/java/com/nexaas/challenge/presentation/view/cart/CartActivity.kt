@@ -26,10 +26,14 @@ internal class CartActivity: BaseActivity(),CartView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
         presenter.attachView(this)
-        presenter.getProductsList()
 
         productsList.adapter = ProductsListAdapter(this, this, presenter.lastProductsList)
         productsList.layoutManager = LinearLayoutManager(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.getProductsList()
     }
 
     override fun startShimmer() {
