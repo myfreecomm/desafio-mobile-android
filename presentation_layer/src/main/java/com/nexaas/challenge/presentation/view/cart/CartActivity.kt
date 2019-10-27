@@ -1,4 +1,4 @@
-package com.nexaas.challenge.presentation.view.list
+package com.nexaas.challenge.presentation.view.cart
 
 import android.os.Bundle
 import com.nexaas.challenge.presentation.R
@@ -6,9 +6,9 @@ import com.nexaas.challenge.presentation.core.mvp.BaseActivity
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-internal class ProductsListActivity: BaseActivity(),ProductsListView {
+internal class CartActivity: BaseActivity(),CartView {
 
-    private val presenter: ProductsListPresenter by inject { parametersOf(this) }
+    private val presenter: CartPresenter by inject { parametersOf(this) }
 
     override fun onDestroy() {
         super.onDestroy()
@@ -17,7 +17,7 @@ internal class ProductsListActivity: BaseActivity(),ProductsListView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_products_list)
+        setContentView(R.layout.activity_cart)
         presenter.attachView(this)
         presenter.getProductsList()
     }

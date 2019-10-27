@@ -1,4 +1,4 @@
-package com.nexaas.challenge.presentation.view.list
+package com.nexaas.challenge.presentation.view.cart
 
 import com.nexaas.challenge.domain.interactor.GetProductsList
 import com.nexaas.challenge.domain.model.ProductDomain
@@ -11,11 +11,11 @@ import java.lang.NullPointerException
 class ProductsListPresenterTest {
 
     private val getProductsListInteractor = Mockito.mock(GetProductsList::class.java)
-    private lateinit var presenter: ProductsListPresenter
+    private lateinit var presenter: CartPresenter
 
     @Before
     fun init() {
-        presenter = ProductsListPresenter(getProductsListInteractor)
+        presenter = CartPresenter(getProductsListInteractor)
     }
 
     @Test

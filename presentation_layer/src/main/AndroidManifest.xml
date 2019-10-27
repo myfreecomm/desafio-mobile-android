@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name=".view.list.ProductsListActivity"
+            android:name=".view.cart.CartActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
         </activity>
 
         <activity
-            android:name=".view.product.ProductActivity"
+            android:name=".view.productdetails.ProductDetailsActivity"
             android:screenOrientation="portrait" />
     </application>
 

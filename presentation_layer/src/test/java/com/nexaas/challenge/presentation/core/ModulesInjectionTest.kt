@@ -1,8 +1,8 @@
 package com.nexaas.challenge.presentation.core
 
 import android.app.Activity
-import com.nexaas.challenge.presentation.view.list.ProductsListPresenter
-import com.nexaas.challenge.presentation.view.product.ProductPresenter
+import com.nexaas.challenge.presentation.view.cart.CartPresenter
+import com.nexaas.challenge.presentation.view.productdetails.ProductDetailsPresenter
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.koin.android.ext.koin.androidContext
@@ -34,8 +34,8 @@ class ModulesInjectionTest: KoinTest {
             modules(listOf(commonModule, dataModule, domainModule, presentationModule, overrideNativeModule))
         }.checkModules {
             // Presenters Test
-            create<ProductsListPresenter> { parametersOf(mockActivity) }
-            create<ProductPresenter> { parametersOf(mockActivity) }
+            create<CartPresenter> { parametersOf(mockActivity) }
+            create<ProductDetailsPresenter> { parametersOf(mockActivity) }
         }
     }
 

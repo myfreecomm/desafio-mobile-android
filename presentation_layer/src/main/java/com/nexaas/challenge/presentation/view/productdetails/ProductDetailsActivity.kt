@@ -1,4 +1,4 @@
-package com.nexaas.challenge.presentation.view.product
+package com.nexaas.challenge.presentation.view.productdetails
 
 import android.os.Bundle
 import com.nexaas.challenge.presentation.R
@@ -6,9 +6,9 @@ import com.nexaas.challenge.presentation.core.mvp.BaseActivity
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
 
-internal class ProductActivity: BaseActivity(), ProductView {
+internal class ProductDetailsActivity: BaseActivity(), ProductDetailsView {
 
-    private val presenter: ProductPresenter by inject { parametersOf(this) }
+    private val presenter: ProductDetailsPresenter by inject { parametersOf(this) }
 
     override fun onDestroy() {
         super.onDestroy()
@@ -17,7 +17,7 @@ internal class ProductActivity: BaseActivity(), ProductView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_product)
+        setContentView(R.layout.activity_product_details)
         presenter.attachView(this)
     }
 

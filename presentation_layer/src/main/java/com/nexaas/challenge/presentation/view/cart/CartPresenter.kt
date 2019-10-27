@@ -1,10 +1,10 @@
-package com.nexaas.challenge.presentation.view.list
+package com.nexaas.challenge.presentation.view.cart
 
 import com.nexaas.challenge.domain.interactor.GetProductsList
 import com.nexaas.challenge.presentation.core.mvp.BasePresenter
 import com.nexaas.challenge.presentation.model.Product
 
-internal class ProductsListPresenter(private val getProductsList: GetProductsList): BasePresenter<ProductsListView>() {
+internal class CartPresenter(private val getProductsList: GetProductsList): BasePresenter<CartView>() {
 
     var lastProductsList: List<Product>? = null
 
