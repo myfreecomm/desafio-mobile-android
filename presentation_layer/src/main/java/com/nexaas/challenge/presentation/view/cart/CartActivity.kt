@@ -25,6 +25,7 @@ internal class CartActivity: BaseActivity(), CartView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
+        setupToolbar("Cart")
         presenter.attachView(this)
 
         /* Update layout informations */

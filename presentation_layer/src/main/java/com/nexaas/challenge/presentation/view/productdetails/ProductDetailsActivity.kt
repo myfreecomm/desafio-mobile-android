@@ -22,6 +22,7 @@ internal class ProductDetailsActivity: BaseActivity(), ProductDetailsView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_details)
+        setupToolbar("Product details", true)
         presenter.attachView(this)
 
         /* Retrieve product from bundle */
