@@ -39,6 +39,7 @@ internal class CartPresenter(private val getProductsList: GetProductsList): Base
             .subscribe({ list ->
                 this.lastProductsList = list.map { domainObject -> Product.fromDomainObject(domainObject) }
             }, {
+                view?.showErrorAlert()
                 throw it
             })
     }

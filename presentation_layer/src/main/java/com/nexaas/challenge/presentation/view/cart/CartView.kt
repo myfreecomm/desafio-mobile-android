@@ -6,4 +6,5 @@ internal interface CartView: BaseView {
     fun startShimmer()
     fun stopShimmer()
     fun onProductListUpdated()
+    fun showErrorAlert()
 }

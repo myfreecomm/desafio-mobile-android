@@ -5,6 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nexaas.challenge.presentation.R
 import com.nexaas.challenge.presentation.core.mvp.BaseActivity
+import com.nexaas.challenge.presentation.custom.CustomAlert
 import com.nexaas.challenge.presentation.view.cart.adapter.ProductsListAdapter
 import kotlinx.android.synthetic.main.activity_cart.*
 import org.koin.android.ext.android.inject
@@ -80,5 +81,9 @@ internal class CartActivity: BaseActivity(),CartView {
         tax.text = numberFormat.format(presenter.taxSum)
 
         stopShimmer()
+    }
+
+    override fun showErrorAlert() {
+        CustomAlert.error(this, "Something ain't right. Try again later.").show()
     }
 }
