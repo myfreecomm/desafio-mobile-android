@@ -19,6 +19,10 @@ internal class ProductsListActivity: BaseActivity(),ProductsListView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_products_list)
         presenter.attachView(this)
+        presenter.getProductsList()
     }
 
+    override fun updateList() {
+
+    }
 }

@@ -13,6 +13,7 @@ internal class ProductsListPresenter(private val getProductsList: GetProductsLis
             .execute()
             .subscribe({ list ->
                 this.lastProductsList = list.map { domainObject -> Product.fromDomainObject(domainObject) }
+                view?.updateList()
             }, {
                 throw it
             })
