@@ -1,6 +1,7 @@
 package com.nexaas.challenge.presentation.core
 
 import com.nexaas.challenge.data.remote.ApiRepositoryImpl
+import com.nexaas.challenge.domain.interactor.GetProductsList
 import com.nexaas.challenge.domain.repository.ApiRepository
 import org.koin.dsl.module
 
@@ -19,6 +20,7 @@ val dataModule = module {
  * Domain Module
  */
 val domainModule = module {
+    single<GetProductsList> { GetProductsList(get()) }
 }
 
 /**

@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.IllegalArgumentException
 import java.util.concurrent.TimeUnit
 
-object RetrofitFactory {
+internal object RetrofitFactory {
     private val gson = GsonBuilder().setPrettyPrinting().serializeNulls().create()
     private val connectTimeout = 60L
     private val readTimeout = 60L
