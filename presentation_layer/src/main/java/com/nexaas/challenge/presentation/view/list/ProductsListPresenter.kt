@@ -1,4 +1,6 @@
 package com.nexaas.challenge.presentation.view.list
 
-internal class ProductsListPresenter {
+import com.nexaas.challenge.presentation.core.mvp.BasePresenter
+
+internal class ProductsListPresenter: BasePresenter<ProductsListView>() {
 }

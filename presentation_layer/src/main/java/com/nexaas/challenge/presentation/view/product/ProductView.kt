@@ -1,4 +1,6 @@
 package com.nexaas.challenge.presentation.view.product
 
-internal interface ProductView {
+import com.nexaas.challenge.presentation.core.mvp.BaseView
+
+internal interface ProductView: BaseView {
 }
