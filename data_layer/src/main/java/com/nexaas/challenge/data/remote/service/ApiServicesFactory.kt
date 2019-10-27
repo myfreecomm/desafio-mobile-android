@@ -1,27 +1,40 @@
 package com.nexaas.challenge.data.remote.service
 
-import com.nexaas.challenge.data.core.RequestManager
+import com.nexaas.challenge.data.core.RetrofitFactory
+import com.nexaas.challenge.data.core.exceptions.InvalidApiBaseUrl
 
-internal class ApiServicesFactory(private val requestManager: RequestManager,
-                                  private var apiBaseUrl: String = "https://raw.githubusercontent.com/") {
+internal object ApiServicesFactory {
 
+    private var apiBaseUrl: String? = null
     private var apiServices: ApiServices? = null
+
+    /**
+     * Changes the API base url
+     */
+    fun with(apiBaseUrl: String): ApiServicesFactory {
+        if (apiBaseUrl.isEmpty())
+            throw InvalidApiBaseUrl("The API base url can't be empty.")
+
+        if (apiBaseUrl == this. apiBaseUrl)
+            return ApiServicesFactory
+
+        this.apiBaseUrl = apiBaseUrl
+
+        // Invalidate previously instantiated services
+        apiServices = null
+
+        return ApiServicesFactory
+    }
 
     /**
      * Gets the API Services instanced by Retrofit.
      */
     fun getApiServices(): ApiServices {
-        apiServices = this.apiServices ?: requestManager.provideRetrofit(apiBaseUrl).create(ApiServices::class.java)
-        return apiServices!!
-    }
+        if (apiBaseUrl.isNullOrEmpty())
+            throw InvalidApiBaseUrl("The API base url isn't defined yet.")
 
-    /**
-     * Changes the default baseURL
-     */
-    fun with(apiBaseUrl: String): ApiServicesFactory {
-        this.apiBaseUrl = apiBaseUrl
-        apiServices = this.apiServices ?: requestManager.provideRetrofit(apiBaseUrl).create(ApiServices::class.java)
-        return this
+        apiServices = this.apiServices ?: RetrofitFactory.provideRetrofit(apiBaseUrl!!).create(ApiServices::class.java)
+        return apiServices!!
     }
 
 }

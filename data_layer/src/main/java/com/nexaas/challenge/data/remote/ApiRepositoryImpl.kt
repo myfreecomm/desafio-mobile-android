@@ -9,7 +9,7 @@ import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-internal class ApiRepositoryImpl (private val apiServicesFactory: ApiServicesFactory): ApiRepository {
+class ApiRepositoryImpl(private val apiBaseUrl: String): ApiRepository {
 
     override fun onRequestSuccess(tag: String, obj: String) {
         Log.d(tag, "onRequestSuccess: $obj")
@@ -21,7 +21,8 @@ internal class ApiRepositoryImpl (private val apiServicesFactory: ApiServicesFac
     }
 
     override fun getProductsList(): Single<List<ProductDomain>> {
-        return apiServicesFactory
+        return ApiServicesFactory
+            .with(apiBaseUrl)
             .getApiServices()
             .getProductsList()
             .doOnSuccess { onRequestSuccess(GetProductsList.TAG, it.toString()) }
