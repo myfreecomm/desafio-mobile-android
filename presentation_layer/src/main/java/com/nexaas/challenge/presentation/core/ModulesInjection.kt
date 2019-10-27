@@ -1,18 +1,18 @@
 package com.nexaas.challenge.presentation.core
 
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
+import com.nexaas.challenge.data.remote.ApiRepositoryImpl
+import com.nexaas.challenge.domain.repository.ApiRepository
 import org.koin.dsl.module
 
 /* Objects common to the entire application */
 val commonModule = module {
-    single<Gson> { GsonBuilder().setPrettyPrinting().serializeNulls().create() }
 }
 
 /**
  * Data Module
  */
 val dataModule = module {
+    single<ApiRepository> { ApiRepositoryImpl("https://raw.githubusercontent.com") }
 }
 
 /**

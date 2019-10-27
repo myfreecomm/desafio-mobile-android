@@ -1,15 +1,17 @@
 package com.nexaas.challenge.data.core
 
-import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import io.reactivex.plugins.RxJavaPlugins
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.IllegalArgumentException
 import java.util.concurrent.TimeUnit
 
-class RequestManager(private val gson: Gson) {
+object RetrofitFactory {
+    private val gson = GsonBuilder().setPrettyPrinting().serializeNulls().create()
     private val connectTimeout = 60L
     private val readTimeout = 60L
     private val writeTimeout = 60L
@@ -34,6 +36,7 @@ class RequestManager(private val gson: Gson) {
         return clientBuilder.build()
     }
 
+    @Throws(IllegalArgumentException::class)
     fun provideRetrofit(baseURL: String): Retrofit {
         provideRxDefaultErrorHandler()
         return Retrofit.Builder()

@@ -1,9 +1,5 @@
 package com.nexaas.challenge.data.remote
 
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import com.nexaas.challenge.data.core.RequestManager
-import com.nexaas.challenge.data.remote.service.ApiServicesFactory
 import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.plugins.RxJavaPlugins
 import io.reactivex.schedulers.Schedulers
@@ -21,9 +17,6 @@ class ApiRepositoryImplTest {
     private val serverPort = 9999
     private val serverPath = "mockserver/"
 
-    private lateinit var gson: Gson
-    private lateinit var requestManager: RequestManager
-    private lateinit var apiServicesFactory: ApiServicesFactory
     private lateinit var repositoryImpl: ApiRepositoryImpl
 
     @Before
@@ -36,11 +29,7 @@ class ApiRepositoryImplTest {
         mockWebServer = MockWebServer()
         mockWebServer.start(serverPort)
 
-        gson = GsonBuilder().setPrettyPrinting().serializeNulls().create()
-        requestManager = RequestManager(gson)
-        apiServicesFactory = ApiServicesFactory(requestManager)
-        apiServicesFactory.with(mockWebServer.url(serverPath).toString())
-        repositoryImpl = ApiRepositoryImpl(apiServicesFactory)
+        repositoryImpl = ApiRepositoryImpl(mockWebServer.url(serverPath).toString())
     }
 
     @After
