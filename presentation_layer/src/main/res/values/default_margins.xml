@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_start_margin">32dp</dimen>
+    <dimen name="default_end_margin">32dp</dimen>
+    <dimen name="default_top_margin">16dp</dimen>
+    <dimen name="default_bottom_margin">32dp</dimen>
+</resources>

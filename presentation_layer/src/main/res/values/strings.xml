@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Nexaas Challenge</string>
+    <string name="cart_products_quantity">%d items in your cart</string>
 </resources>
