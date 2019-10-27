@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.nexaas.challenge.presentation.R
+import com.nexaas.challenge.presentation.custom.Formatter
 import com.nexaas.challenge.presentation.model.Product
 import com.nexaas.challenge.presentation.view.cart.CartView
 import com.squareup.picasso.Picasso
@@ -24,8 +25,7 @@ internal class ProductsListAdapter(private val view: CartView,
         val product = productsList[position]
         holder.title.text = "${product.quantity}x ${product.name}"
 
-        val numberFormat = NumberFormat.getCurrencyInstance(Locale.US)
-        holder.price.text = numberFormat.format(product.price)
+        holder.price.text = Formatter.currency(product.price)
         holder.information.text =
             if (product.quantity > 1) context.getString(R.string.products_in_stock)
             else context.getString(R.string.few_products_in_stock, product.quantity)

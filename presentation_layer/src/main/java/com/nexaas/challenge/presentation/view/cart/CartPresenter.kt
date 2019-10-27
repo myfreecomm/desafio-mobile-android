@@ -34,6 +34,10 @@ internal class CartPresenter(private val navigationManager: NavigationManager,
 
         }
 
+    /**
+     * Executes the interactor that calls the API
+     * and retrieve a new product list.
+     */
     fun getProductsList() {
         view?.startShimmer()
         disposable = getProductsList
@@ -46,6 +50,10 @@ internal class CartPresenter(private val navigationManager: NavigationManager,
             })
     }
 
+    /**
+     * Handle user navigation to product details
+     * activity.
+     */
     fun navigateToProductDetails(selectedProduct: Product) {
         navigationManager.navigateToProductDetails(selectedProduct)
     }

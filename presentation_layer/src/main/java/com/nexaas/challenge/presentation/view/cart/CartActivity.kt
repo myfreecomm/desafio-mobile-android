@@ -6,13 +6,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.nexaas.challenge.presentation.R
 import com.nexaas.challenge.presentation.core.mvp.BaseActivity
 import com.nexaas.challenge.presentation.custom.CustomAlert
+import com.nexaas.challenge.presentation.custom.Formatter
 import com.nexaas.challenge.presentation.model.Product
 import com.nexaas.challenge.presentation.view.cart.adapter.ProductsListAdapter
 import kotlinx.android.synthetic.main.activity_cart.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
-import java.text.NumberFormat
-import java.util.*
 
 internal class CartActivity: BaseActivity(), CartView {
 
@@ -28,6 +27,7 @@ internal class CartActivity: BaseActivity(), CartView {
         setContentView(R.layout.activity_cart)
         presenter.attachView(this)
 
+        /* Update layout informations */
         productsList.adapter = ProductsListAdapter(this, this, presenter.lastProductsList)
         productsList.layoutManager = LinearLayoutManager(this)
     }
@@ -37,6 +37,10 @@ internal class CartActivity: BaseActivity(), CartView {
         presenter.getProductsList()
     }
 
+    /**
+     * Starts a shimmer on certains fields
+     * to simulate a loading.
+     */
     override fun startShimmer() {
         totalShimmer.visibility = View.VISIBLE
         subtotalShimmer.visibility = View.VISIBLE
@@ -54,6 +58,10 @@ internal class CartActivity: BaseActivity(), CartView {
         tax.visibility = View.GONE
     }
 
+    /**
+     * Stops the shimmer and shows the fields
+     * filled with API values.
+     */
     override fun stopShimmer() {
         totalShimmer.visibility = View.GONE
         subtotalShimmer.visibility = View.GONE
@@ -71,6 +79,10 @@ internal class CartActivity: BaseActivity(), CartView {
         tax.visibility = View.VISIBLE
     }
 
+    /**
+     * Everytime that product list is updated
+     * sets the new values to user.
+     */
     override fun onProductListUpdated() {
         productsList.adapter = ProductsListAdapter(this, this, presenter.lastProductsList)
         productsList.adapter!!.notifyDataSetChanged()
@@ -79,19 +91,26 @@ internal class CartActivity: BaseActivity(), CartView {
             if (presenter.lastProductsList.isEmpty()) getString(R.string.no_items_in_cart)
             else resources.getQuantityString(R.plurals.cart_products_quantity, presenter.lastProductsList.size, presenter.lastProductsList.size)
 
-        val numberFormat = NumberFormat.getCurrencyInstance(Locale.US)
-        total.text = numberFormat.format(presenter.total)
-        subtotal.text = numberFormat.format(presenter.subtotalSum)
-        shipping.text = numberFormat.format(presenter.shippingSum)
-        tax.text = numberFormat.format(presenter.taxSum)
+        total.text = Formatter.currency(presenter.total)
+        subtotal.text = Formatter.currency(presenter.subtotalSum)
+        shipping.text = Formatter.currency(presenter.shippingSum)
+        tax.text = Formatter.currency(presenter.taxSum)
 
         stopShimmer()
     }
 
+    /**
+     * Handle product selection came from
+     * ProductsListAdapter.
+     */
     override fun onProductSelected(productSelected: Product) {
         presenter.navigateToProductDetails(productSelected)
     }
 
+    /**
+     * Shows a generic custom alert to notify
+     * that's something ain't right on execution
+     */
     override fun showErrorAlert() {
         CustomAlert.error(this, "Something ain't right. Try again later.").show()
     }

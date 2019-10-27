@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/productImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
@@ -26,7 +26,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/productImage">
 
         <TextView
             android:id="@+id/productPrice"
@@ -90,8 +90,8 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/productDescription"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:text="Product description..." />
             </LinearLayout>
