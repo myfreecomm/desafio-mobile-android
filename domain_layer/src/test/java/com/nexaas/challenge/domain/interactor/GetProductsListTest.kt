@@ -3,6 +3,7 @@ package com.nexaas.challenge.domain.interactor
 import com.nexaas.challenge.domain.model.ProductDomain
 import com.nexaas.challenge.domain.repository.ApiRepository
 import io.reactivex.Observable
+import io.reactivex.Single
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito
@@ -19,7 +20,7 @@ class GetProductsListTest {
 
     @Test
     fun testEmptyProductsList() {
-        Mockito.`when`(apiRepository.getProductsList()).thenReturn(Observable.just(listOf()))
+        Mockito.`when`(apiRepository.getProductsList()).thenReturn(Single.just(listOf()))
 
         val productsList = interactor.execute()
         productsList.subscribe()
@@ -27,7 +28,7 @@ class GetProductsListTest {
         val testObservable = productsList.test()
         testObservable.assertOf { !it.isCancelled }
 
-        assert(productsList.blockingFirst().isNullOrEmpty())
+        assert(productsList.toObservable().blockingFirst().isNullOrEmpty())
 
         testObservable.dispose()
     }
@@ -38,7 +39,7 @@ class GetProductsListTest {
             ProductDomain("product1", 33.2, 3, "url", 23.3, 321, 213, "Testing"),
             ProductDomain("product2", 33.2, 3, "url", 23.3, 321, 213, "Testing")
         )
-        Mockito.`when`(apiRepository.getProductsList()).thenReturn(Observable.just(validProductsList))
+        Mockito.`when`(apiRepository.getProductsList()).thenReturn(Single.just(validProductsList))
 
         val productsList = interactor.execute()
         productsList.subscribe()
@@ -46,8 +47,8 @@ class GetProductsListTest {
         val testObservable = productsList.test()
         testObservable.assertOf { !it.isCancelled }
 
-        assert(productsList.blockingFirst().isNotEmpty())
-        assert(productsList.blockingFirst().size == 2)
+        assert(productsList.toObservable().blockingFirst().isNotEmpty())
+        assert(productsList.toObservable().blockingFirst().size == 2)
 
         testObservable.dispose()
     }

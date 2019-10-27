@@ -21,7 +21,7 @@ internal abstract class BasePresenter<T : BaseView> {
         detachView()
     }
 
-    private fun cancelDisposable() {
+    fun cancelDisposable() {
         disposable?.dispose()
         disposable = null
     }

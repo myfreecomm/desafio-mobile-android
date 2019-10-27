@@ -6,13 +6,15 @@ import com.nexaas.challenge.presentation.model.Product
 
 internal class ProductsListPresenter(private val getProductsList: GetProductsList): BasePresenter<ProductsListView>() {
 
+    var lastProductsList: List<Product>? = null
+
     fun getProductsList() {
         disposable = getProductsList
             .execute()
             .subscribe({ list ->
-                val productsList = list.map { domainObject -> Product.fromDomainObject(domainObject) }
+                this.lastProductsList = list.map { domainObject -> Product.fromDomainObject(domainObject) }
             }, {
-
+                throw it
             })
     }
 
