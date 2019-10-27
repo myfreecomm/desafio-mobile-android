@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Nexaas Challenge</string>
-    <string name="cart_products_quantity">%d items in your cart</string>
+    <plurals name="cart_products_quantity">
+        <item quantity="one">%d item in your cart</item>
+        <item quantity="other">%d items in your cart</item>
+    </plurals>
+    <string name="total">Total</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="shipping">Shipping</string>
+    <string name="tax">Tax</string>
+    <string name="no_items_in_cart">There\'s no items in your cart</string>
+    <string name="products_in_stock">in stock</string>
+    <string name="few_products_in_stock">only %d left in stock</string>
 </resources>

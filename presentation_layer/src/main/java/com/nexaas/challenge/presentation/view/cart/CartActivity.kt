@@ -6,6 +6,8 @@ import com.nexaas.challenge.presentation.core.mvp.BaseActivity
 import kotlinx.android.synthetic.main.activity_cart.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
+import java.text.NumberFormat
+import java.util.*
 
 internal class CartActivity: BaseActivity(),CartView {
 
@@ -24,6 +26,14 @@ internal class CartActivity: BaseActivity(),CartView {
     }
 
     override fun onProductListUpdated() {
-        cartProductsQuantity.text = getString(R.string.cart_products_quantity, presenter.lastProductsList.size)
+        cartProductsQuantity.text =
+            if (presenter.lastProductsList.isEmpty()) getString(R.string.no_items_in_cart)
+            else resources.getQuantityString(R.plurals.cart_products_quantity, presenter.lastProductsList.size, presenter.lastProductsList.size)
+
+        val numberFormat = NumberFormat.getCurrencyInstance(Locale.US)
+        total.text = numberFormat.format(presenter.total)
+        subtotal.text = numberFormat.format(presenter.subtotalSum)
+        shipping.text = numberFormat.format(presenter.shippingSum)
+        tax.text = numberFormat.format(presenter.taxSum)
     }
 }

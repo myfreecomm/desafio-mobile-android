@@ -3,12 +3,12 @@ package com.nexaas.challenge.presentation.model
 import com.nexaas.challenge.domain.model.ProductDomain
 
 internal data class Product (val name: String?,
-                             val quantity: Number?,
-                             val stock: Number?,
+                             val quantity: Double?,
+                             val stock: Double?,
                              val imageUrl: String?,
-                             val price: Number?,
-                             val tax: Number?,
-                             val shipping: Number?,
+                             val price: Double?,
+                             val tax: Double?,
+                             val shipping: Double?,
                              val description: String?) {
 
     companion object {
