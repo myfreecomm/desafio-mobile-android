@@ -1,7 +1,10 @@
 package com.nexaas.challenge.presentation.model
 
+import android.os.Parcelable
 import com.nexaas.challenge.domain.model.ProductDomain
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 internal data class Product (val name: String,
                              val quantity: Int,
                              val stock: Int,
@@ -9,7 +12,7 @@ internal data class Product (val name: String,
                              val price: Double,
                              val tax: Double,
                              val shipping: Double,
-                             val description: String) {
+                             val description: String): Parcelable {
 
     companion object {
         fun fromDomainObject(domainModel: ProductDomain): Product {
