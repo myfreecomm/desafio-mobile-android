@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/default_start_margin"
         android:layout_marginEnd="@dimen/default_end_margin"
-        android:layout_marginBottom="@dimen/default_bottom_margin"
+        android:layout_marginBottom="64dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,8 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_weight="1"
-                android:background="@color/black_300">
-            </com.facebook.shimmer.ShimmerFrameLayout>
+                android:background="@color/black_300"></com.facebook.shimmer.ShimmerFrameLayout>
 
             <TextView
                 android:id="@+id/total"
@@ -88,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="14dp"
                 android:layout_weight="1"
-                android:background="@color/black_300"/>
+                android:background="@color/black_300" />
 
             <TextView
                 android:id="@+id/subtotal"
@@ -123,7 +122,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="14dp"
                 android:layout_weight="1"
-                android:background="@color/black_300"/>
+                android:background="@color/black_300" />
 
             <TextView
                 android:id="@+id/shipping"
@@ -133,8 +132,8 @@
                 android:textAlignment="textEnd"
                 android:textColor="@color/black_600"
                 android:textSize="12sp"
-                tools:text="$12312,23"
-                android:visibility="gone" />
+                android:visibility="gone"
+                tools:text="$12312,23" />
         </LinearLayout>
 
         <LinearLayout
@@ -157,7 +156,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="14dp"
                 android:layout_weight="1"
-                android:background="@color/black_300"/>
+                android:background="@color/black_300" />
 
             <TextView
                 android:id="@+id/tax"
@@ -177,7 +176,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/default_top_margin"
-        android:layout_marginBottom="@dimen/default_bottom_margin"
         android:overScrollMode="never"
         app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
