@@ -15,6 +15,8 @@ internal data class Product (val name: String,
                              val description: String): Parcelable {
 
     companion object {
+        const val BUNDLE_KEY = "Product"
+
         fun fromDomainObject(domainModel: ProductDomain): Product {
             return Product(
                 domainModel.name!!,

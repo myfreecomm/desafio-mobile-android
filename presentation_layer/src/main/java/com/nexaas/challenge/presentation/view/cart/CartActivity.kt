@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.nexaas.challenge.presentation.R
 import com.nexaas.challenge.presentation.core.mvp.BaseActivity
 import com.nexaas.challenge.presentation.custom.CustomAlert
+import com.nexaas.challenge.presentation.model.Product
 import com.nexaas.challenge.presentation.view.cart.adapter.ProductsListAdapter
 import kotlinx.android.synthetic.main.activity_cart.*
 import org.koin.android.ext.android.inject
@@ -13,7 +14,7 @@ import org.koin.core.parameter.parametersOf
 import java.text.NumberFormat
 import java.util.*
 
-internal class CartActivity: BaseActivity(),CartView {
+internal class CartActivity: BaseActivity(), CartView {
 
     private val presenter: CartPresenter by inject { parametersOf(this) }
 
@@ -85,6 +86,10 @@ internal class CartActivity: BaseActivity(),CartView {
         tax.text = numberFormat.format(presenter.taxSum)
 
         stopShimmer()
+    }
+
+    override fun onProductSelected(productSelected: Product) {
+        presenter.navigateToProductDetails(productSelected)
     }
 
     override fun showErrorAlert() {

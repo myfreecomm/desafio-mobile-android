@@ -34,6 +34,8 @@ internal class ProductsListAdapter(private val view: CartView,
             .load(product.imageUrl)
             .fit()
             .into(holder.image)
+
+        holder.itemView.setOnClickListener { view.onProductSelected(product) }
     }
 
     override fun getItemCount(): Int {

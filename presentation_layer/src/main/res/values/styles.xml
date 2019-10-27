@@ -6,6 +6,11 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Activity transitions -->
+        <item name="android:windowActivityTransitions">true</item>
+<!--        <item name="android:windowEnterTransition">@transition/exp</item>-->
+<!--        <item name="android:windowExitTransition">@transition/explode</item>-->
     </style>
 
     <style name="CustomAlert.Top" parent="Base.Theme.AppCompat.Dialog">

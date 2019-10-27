@@ -1,10 +1,12 @@
 package com.nexaas.challenge.presentation.view.cart
 
 import com.nexaas.challenge.domain.interactor.GetProductsList
+import com.nexaas.challenge.presentation.core.NavigationManager
 import com.nexaas.challenge.presentation.core.mvp.BasePresenter
 import com.nexaas.challenge.presentation.model.Product
 
-internal class CartPresenter(private val getProductsList: GetProductsList): BasePresenter<CartView>() {
+internal class CartPresenter(private val navigationManager: NavigationManager,
+                             private val getProductsList: GetProductsList): BasePresenter<CartView>() {
 
     var subtotalSum: Double = 0.0
     var shippingSum: Double = 0.0
@@ -42,6 +44,10 @@ internal class CartPresenter(private val getProductsList: GetProductsList): Base
                 view?.showErrorAlert()
                 throw it
             })
+    }
+
+    fun navigateToProductDetails(selectedProduct: Product) {
+        navigationManager.navigateToProductDetails(selectedProduct)
     }
 
 }
