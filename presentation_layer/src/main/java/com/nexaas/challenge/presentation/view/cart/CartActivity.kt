@@ -1,6 +1,7 @@
 package com.nexaas.challenge.presentation.view.cart
 
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nexaas.challenge.presentation.R
 import com.nexaas.challenge.presentation.core.mvp.BaseActivity
@@ -30,6 +31,40 @@ internal class CartActivity: BaseActivity(),CartView {
         productsList.layoutManager = LinearLayoutManager(this)
     }
 
+    override fun startShimmer() {
+        totalShimmer.visibility = View.VISIBLE
+        subtotalShimmer.visibility = View.VISIBLE
+        shippingShimmer.visibility = View.VISIBLE
+        taxShimmer.visibility = View.VISIBLE
+
+        totalShimmer.startShimmer()
+        subtotalShimmer.startShimmer()
+        shippingShimmer.startShimmer()
+        taxShimmer.startShimmer()
+
+        total.visibility = View.GONE
+        subtotal.visibility = View.GONE
+        shipping.visibility = View.GONE
+        tax.visibility = View.GONE
+    }
+
+    override fun stopShimmer() {
+        totalShimmer.visibility = View.GONE
+        subtotalShimmer.visibility = View.GONE
+        shippingShimmer.visibility = View.GONE
+        taxShimmer.visibility = View.GONE
+
+        totalShimmer.stopShimmer()
+        subtotalShimmer.stopShimmer()
+        shippingShimmer.stopShimmer()
+        taxShimmer.stopShimmer()
+
+        total.visibility = View.VISIBLE
+        subtotal.visibility = View.VISIBLE
+        shipping.visibility = View.VISIBLE
+        tax.visibility = View.VISIBLE
+    }
+
     override fun onProductListUpdated() {
         productsList.adapter = ProductsListAdapter(this, this, presenter.lastProductsList)
         productsList.adapter!!.notifyDataSetChanged()
@@ -43,5 +78,7 @@ internal class CartActivity: BaseActivity(),CartView {
         subtotal.text = numberFormat.format(presenter.subtotalSum)
         shipping.text = numberFormat.format(presenter.shippingSum)
         tax.text = numberFormat.format(presenter.taxSum)
+
+        stopShimmer()
     }
 }

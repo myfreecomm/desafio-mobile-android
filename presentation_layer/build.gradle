@@ -31,6 +31,7 @@ dependencies {
     def rxKotlinVersion = "2.2.0"
     def picassoVersion = "2.71828"
     def gsonVersion = "2.8.5"
+    def shimmerVersion = "0.5.0"
 
     // Link to DataLayer and DomainLayer
     implementation project(':data_layer')
@@ -62,4 +63,7 @@ dependencies {
 
     // GSON - [https://github.com/google/gson]
     implementation "com.google.code.gson:gson:${gsonVersion}"
+
+    // Facebook Shimmer - [https://github.com/facebook/shimmer-android]
+    implementation "com.facebook.shimmer:shimmer:${shimmerVersion}"
 }

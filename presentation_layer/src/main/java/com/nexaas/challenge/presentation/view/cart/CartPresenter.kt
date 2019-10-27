@@ -33,6 +33,7 @@ internal class CartPresenter(private val getProductsList: GetProductsList): Base
         }
 
     fun getProductsList() {
+        view?.startShimmer()
         disposable = getProductsList
             .execute()
             .subscribe({ list ->
