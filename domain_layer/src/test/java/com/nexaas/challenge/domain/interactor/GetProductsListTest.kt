@@ -36,8 +36,8 @@ class GetProductsListTest {
     @Test
     fun testValidProductsList() {
         val validProductsList = listOf(
-            ProductDomain("product1", 33.2, 3, "url", 23.3, 321, 213, "Testing"),
-            ProductDomain("product2", 33.2, 3, "url", 23.3, 321, 213, "Testing")
+            ProductDomain("product1", 33, 3, "url", 23.3, 321.0, 213.1, "Testing"),
+            ProductDomain("product2", 33, 3, "url", 23.3, 321.2, 213.5, "Testing")
         )
         Mockito.`when`(apiRepository.getProductsList()).thenReturn(Single.just(validProductsList))
 

@@ -145,11 +145,22 @@
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/default_top_margin"
         android:layout_marginBottom="@dimen/default_bottom_margin"
-        android:paddingStart="@dimen/default_start_margin"
-        android:paddingEnd="@dimen/default_end_margin"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cartProductsQuantity" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/default_start_margin"
+        android:layout_marginEnd="@dimen/default_end_margin"
+        android:layout_marginBottom="@dimen/default_bottom_margin"
+        android:background="@color/black_300"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,9 +16,9 @@ internal class CartPresenter(private val getProductsList: GetProductsList): Base
             field = value
 
             if (value.isNotEmpty()) {
-                this.subtotalSum = lastProductsList.map { (it.quantity!! * it.price!!) }.sum()
-                this.shippingSum = lastProductsList.map { it.shipping!! }.sum()
-                this.taxSum = lastProductsList.map { it.tax!! }.sum()
+                this.subtotalSum = lastProductsList.map { (it.quantity * it.price) }.sum()
+                this.shippingSum = lastProductsList.map { it.shipping }.sum()
+                this.taxSum = lastProductsList.map { it.tax }.sum()
                 this.total = subtotalSum + shippingSum + taxSum
                 view?.onProductListUpdated()
             }

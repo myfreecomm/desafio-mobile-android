@@ -5,8 +5,8 @@ import com.nexaas.challenge.data.core.Entity
 import com.nexaas.challenge.domain.model.ProductDomain
 
 internal data class Product (@SerializedName("name") val name: String?,
-                             @SerializedName("quantity") val quantity: Double?,
-                             @SerializedName("stock") val stock: Double?,
+                             @SerializedName("quantity") val quantity: Int?,
+                             @SerializedName("stock") val stock: Int?,
                              @SerializedName("image_url") val imageUrl: String?,
                              @SerializedName("price") val price: Double?,
                              @SerializedName("tax") val tax: Double?,
