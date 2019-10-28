@@ -13,5 +13,4 @@ internal class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemV
     val price = itemView.findViewById<TextView>(R.id.productPrice)
     val title = itemView.findViewById<TextView>(R.id.productTitle)
     val information = itemView.findViewById<TextView>(R.id.productInformation)
-    val productDetails = itemView.findViewById<LinearLayout>(R.id.productDetails)
 }

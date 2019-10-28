@@ -1,19 +1,21 @@
 package com.nexaas.challenge.presentation.view.cart.adapter
 
-import android.content.Context
 import android.util.Pair
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.nexaas.challenge.presentation.R
+import com.nexaas.challenge.presentation.core.mvp.BaseActivity
 import com.nexaas.challenge.presentation.custom.Formatter
 import com.nexaas.challenge.presentation.custom.PicassoFactory
 import com.nexaas.challenge.presentation.model.Product
 import com.nexaas.challenge.presentation.view.cart.CartView
+import com.squareup.picasso.Callback
 
 internal class ProductsListAdapter(private val view: CartView,
-                                   private val context: Context,
+                                   private val activity: BaseActivity,
                                    private val productsList: List<Product>): RecyclerView.Adapter<ProductViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -27,20 +29,31 @@ internal class ProductsListAdapter(private val view: CartView,
 
         holder.price.text = Formatter.currency(product.price)
         holder.information.text =
-            if (product.quantity > 1) context.getString(R.string.products_in_stock)
-            else context.getString(R.string.few_products_in_stock, product.quantity)
+            if (product.quantity > 1) activity.getString(R.string.products_in_stock)
+            else activity.getString(R.string.few_products_in_stock, product.quantity)
 
+        ViewCompat.setTransitionName(holder.image, product.name)
         PicassoFactory
-            .getPicasso(context)
+            .getPicasso(activity)
             .load(product.imageUrl)
+            .placeholder(R.drawable.ic_camera)
             .fit()
-            .into(holder.image)
+            .into(holder.image, object : Callback {
+                override fun onSuccess() {
+                    activity.supportStartPostponedEnterTransition()
+                }
+
+                override fun onError(e: Exception?) {
+                    activity.supportStartPostponedEnterTransition()
+                }
+            })
 
         holder.itemView.setOnClickListener {
             val imagePair = Pair(holder.image as View, holder.image.transitionName)
             val pricePair = Pair(holder.price as View, holder.price.transitionName)
-            val detailsPair = Pair(holder.productDetails as View, holder.productDetails.transitionName)
-            view.onProductSelected(product, imagePair, pricePair, detailsPair)
+            val titlePair = Pair(holder.title as View, holder.title.transitionName)
+            val informationPair = Pair(holder.information as View, holder.information.transitionName)
+            view.onProductSelected(product, imagePair, pricePair, titlePair, informationPair)
         }
     }
 

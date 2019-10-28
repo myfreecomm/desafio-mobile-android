@@ -6,10 +6,10 @@ import com.nexaas.challenge.presentation.core.mvp.BaseActivity
 import com.nexaas.challenge.presentation.custom.Formatter
 import com.nexaas.challenge.presentation.custom.PicassoFactory
 import com.nexaas.challenge.presentation.model.Product
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_details.*
 import org.koin.android.ext.android.inject
 import org.koin.core.parameter.parametersOf
+
 
 internal class ProductDetailsActivity: BaseActivity(), ProductDetailsView {
 
@@ -37,9 +37,11 @@ internal class ProductDetailsActivity: BaseActivity(), ProductDetailsView {
             if (presenter.selectedProduct.quantity > 1) getString(R.string.products_in_stock)
             else getString(R.string.few_products_in_stock, presenter.selectedProduct.quantity)
 
+        productImage.transitionName = presenter.selectedProduct.name
         PicassoFactory
             .getPicasso(this)
             .load(presenter.selectedProduct.imageUrl)
+            .placeholder(R.drawable.ic_camera)
             .fit()
             .into(productImage)
     }
