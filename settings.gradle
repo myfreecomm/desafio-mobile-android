@@ -1,0 +1,2 @@
+include ':presentation_layer', ':domain_layer', ':data_layer'
+rootProject.name='Nexaas Challenge'
