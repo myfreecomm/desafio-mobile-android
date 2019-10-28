@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -26,11 +27,12 @@
         android:textColor="@color/green_700"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout2"
-        tools:text="$12312,31" />
+        app:layout_constraintTop_toTopOf="@+id/productDetails"
+        tools:text="$12312,31"
+        android:transitionName="product_price_transition"/>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/productDetails"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -39,7 +41,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/productImage"
         app:layout_constraintEnd_toStartOf="@+id/productPrice"
         app:layout_constraintStart_toEndOf="@+id/productImage"
-        app:layout_constraintTop_toTopOf="@+id/productImage">
+        app:layout_constraintTop_toTopOf="@+id/productImage" >
 
         <TextView
             android:id="@+id/productTitle"
@@ -48,7 +50,8 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:textColor="@color/black_900"
-            tools:text="Pencil" />
+            tools:text="Pencil"
+            android:transitionName="product_title_transition"/>
 
         <TextView
             android:id="@+id/productInformation"
@@ -58,6 +61,7 @@
             android:gravity="center_vertical"
             android:textColor="@color/black_600"
             android:textSize="12sp"
-            tools:text="@string/few_products_in_stock" />
+            tools:text="@string/few_products_in_stock"
+            android:transitionName="product_information_transition" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

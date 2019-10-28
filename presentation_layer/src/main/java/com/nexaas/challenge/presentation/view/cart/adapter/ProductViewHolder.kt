@@ -2,7 +2,9 @@ package com.nexaas.challenge.presentation.view.cart.adapter
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.nexaas.challenge.presentation.R
 

@@ -1,10 +1,14 @@
 package com.nexaas.challenge.presentation.view.cart
 
+import android.util.Pair
+import android.view.View
 import com.nexaas.challenge.domain.interactor.GetProductsList
+import com.nexaas.challenge.presentation.core.NavigationManager
 import com.nexaas.challenge.presentation.core.mvp.BasePresenter
 import com.nexaas.challenge.presentation.model.Product
 
-internal class CartPresenter(private val getProductsList: GetProductsList): BasePresenter<CartView>() {
+internal class CartPresenter(private val navigationManager: NavigationManager,
+                             private val getProductsList: GetProductsList): BasePresenter<CartView>() {
 
     var subtotalSum: Double = 0.0
     var shippingSum: Double = 0.0
@@ -32,6 +36,10 @@ internal class CartPresenter(private val getProductsList: GetProductsList): Base
 
         }
 
+    /**
+     * Executes the interactor that calls the API
+     * and retrieve a new product list.
+     */
     fun getProductsList() {
         view?.startShimmer()
         disposable = getProductsList
@@ -39,8 +47,17 @@ internal class CartPresenter(private val getProductsList: GetProductsList): Base
             .subscribe({ list ->
                 this.lastProductsList = list.map { domainObject -> Product.fromDomainObject(domainObject) }
             }, {
+                view?.showErrorAlert()
                 throw it
             })
+    }
+
+    /**
+     * Handle user navigation to product details
+     * activity.
+     */
+    fun navigateToProductDetails(selectedProduct: Product, vararg transitions: Pair<View, String>) {
+        navigationManager.navigateToProductDetails(selectedProduct, *transitions)
     }
 
 }

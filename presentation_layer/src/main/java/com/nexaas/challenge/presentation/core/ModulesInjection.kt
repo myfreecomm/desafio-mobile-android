@@ -3,6 +3,7 @@ package com.nexaas.challenge.presentation.core
 import com.nexaas.challenge.data.remote.ApiRepositoryImpl
 import com.nexaas.challenge.domain.interactor.GetProductsList
 import com.nexaas.challenge.domain.repository.ApiRepository
+import com.nexaas.challenge.presentation.core.mvp.BaseActivity
 import com.nexaas.challenge.presentation.view.cart.CartPresenter
 import com.nexaas.challenge.presentation.view.productdetails.ProductDetailsPresenter
 import org.koin.dsl.module
@@ -29,7 +30,7 @@ val domainModule = module {
  * Presentation Module
  */
 val presentationModule = module {
-    factory<CartPresenter> { CartPresenter(get()) }
+    factory<CartPresenter> { (activity: BaseActivity) -> CartPresenter(NavigationManager(activity), get()) }
     factory<ProductDetailsPresenter> { ProductDetailsPresenter() }
 }
 
