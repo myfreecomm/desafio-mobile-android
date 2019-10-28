@@ -1,6 +1,7 @@
 package com.nexaas.challenge.presentation.view.cart
 
 import android.os.Bundle
+import android.util.Pair
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nexaas.challenge.presentation.R
@@ -27,15 +28,11 @@ internal class CartActivity: BaseActivity(), CartView {
         setContentView(R.layout.activity_cart)
         setupToolbar("Cart")
         presenter.attachView(this)
+        presenter.getProductsList()
 
         /* Update layout informations */
         productsList.adapter = ProductsListAdapter(this, this, presenter.lastProductsList)
         productsList.layoutManager = LinearLayoutManager(this)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        presenter.getProductsList()
     }
 
     /**
@@ -104,8 +101,8 @@ internal class CartActivity: BaseActivity(), CartView {
      * Handle product selection came from
      * ProductsListAdapter.
      */
-    override fun onProductSelected(productSelected: Product) {
-        presenter.navigateToProductDetails(productSelected)
+    override fun onProductSelected(productSelected: Product, vararg transitions: Pair<View, String>) {
+        presenter.navigateToProductDetails(productSelected, *transitions)
     }
 
     /**

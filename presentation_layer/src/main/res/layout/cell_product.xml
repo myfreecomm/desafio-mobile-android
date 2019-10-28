@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -17,7 +18,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        android:transitionName="product_image_transition" />
 
     <TextView
         android:id="@+id/productPrice"
@@ -26,11 +28,12 @@
         android:textColor="@color/green_700"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        tools:text="$12312,31" />
+        app:layout_constraintTop_toTopOf="@+id/productDetails"
+        tools:text="$12312,31"
+        android:transitionName="product_price_transition"/>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/productDetails"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -39,7 +42,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/productImage"
         app:layout_constraintEnd_toStartOf="@+id/productPrice"
         app:layout_constraintStart_toEndOf="@+id/productImage"
-        app:layout_constraintTop_toTopOf="@+id/productImage">
+        app:layout_constraintTop_toTopOf="@+id/productImage"
+        android:transitionName="product_details_transition" >
 
         <TextView
             android:id="@+id/productTitle"

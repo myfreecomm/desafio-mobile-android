@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.nexaas.challenge.presentation.R
 import com.nexaas.challenge.presentation.core.mvp.BaseActivity
 import com.nexaas.challenge.presentation.custom.Formatter
+import com.nexaas.challenge.presentation.custom.PicassoFactory
 import com.nexaas.challenge.presentation.model.Product
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_details.*
@@ -36,7 +37,8 @@ internal class ProductDetailsActivity: BaseActivity(), ProductDetailsView {
             if (presenter.selectedProduct.quantity > 1) getString(R.string.products_in_stock)
             else getString(R.string.few_products_in_stock, presenter.selectedProduct.quantity)
 
-        Picasso.get()
+        PicassoFactory
+            .getPicasso(this)
             .load(presenter.selectedProduct.imageUrl)
             .fit()
             .into(productImage)

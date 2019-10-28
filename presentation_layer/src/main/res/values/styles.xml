@@ -10,8 +10,10 @@
 
         <!-- Activity transitions -->
         <item name="android:windowActivityTransitions">true</item>
-<!--        <item name="android:windowEnterTransition">@transition/exp</item>-->
-<!--        <item name="android:windowExitTransition">@transition/explode</item>-->
+        <item name="android:windowEnterTransition">@transition/explode_transition</item>
+        <item name="android:windowExitTransition">@transition/explode_transition</item>
+        <item name="android:windowSharedElementEnterTransition">@transition/shared_element_transition</item>
+        <item name="android:windowSharedElementExitTransition">@transition/shared_element_transition</item>
     </style>
 
     <style name="Toolbar" parent="Theme.AppCompat.DayNight.DarkActionBar">
