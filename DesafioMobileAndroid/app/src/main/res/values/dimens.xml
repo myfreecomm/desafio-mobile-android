@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="username">10dp</dimen>
+    <dimen name="nomeSobrenome">8dp</dimen>
+    <dimen name="descricao">10dp</dimen>
+</resources>
