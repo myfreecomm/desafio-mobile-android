@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:paddingBottom="20dp">
+
+    <TextView
+         android:id="@+id/item_nome_pull_request"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textStyle="bold"
+         android:textColor="@color/colorPrimary"
+         android:textSize="18sp"
+         android:gravity="center_horizontal"
+         android:layout_gravity="center_horizontal"/>
+
+    <TextView
+         android:id="@+id/item_descricao_pull_request"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="5dp"
+         android:ellipsize="end"
+         android:maxLines="4"
+         android:textSize="16sp"
+         android:textColor="@color/colorPrimary"/>
+
+
+    <LinearLayout
+        android:id="@+id/containerPullRequestProfileDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="15dp">
+
+<!--        <com.loopj.android.image.SmartImageView
+            android:id="@+id/pull_request_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/person"
+            android:background="#00A8EC" /> -->
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/pull_request_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/item_username_pull_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

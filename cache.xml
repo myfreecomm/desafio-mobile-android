@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\AppGitHubJava\app\gson-2.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="C:\Users\user\Desktop\AppGitHubJava\app\build\intermediates\transforms\dex\debug\folders\1000\2\gson-2.3.1_14e07df75457fd94437e151b088cf8915df43467\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\logging-interceptor\3.9.0\3bf7f8d6a20c90ffe9fc3f3c9118193c7720ecf1\logging-interceptor-3.9.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3bf7f8d6a20c90ffe9fc3f3c9118193c7720ecf1">
+        <dex dex="C:\Users\user\Desktop\AppGitHubJava\app\build\intermediates\transforms\dex\debug\folders\1000\10\logging-interceptor-3.9.0_2d19dc7e844b9aab9cf0a31f43e2b72657a07486\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\AppGitHubJava\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\Users\user\Desktop\AppGitHubJava\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_aa3264a0c9e836c394bf2a2ad8b89ce4ceff8547\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\AppGitHubJava\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d3940acf5f140ebb36c4e7c5f172a35d359ceb75">
+        <dex dex="C:\Users\user\Desktop\AppGitHubJava\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_a11930aa64a9f57d0de68be64b1a99aa14ce0565\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="C:\Users\user\Desktop\AppGitHubJava\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.7_026658e7d34d00d2914c79312e3528e2bb459332\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\AppGitHubJava\app\universal-image-loader-1.9.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375">
+        <dex dex="C:\Users\user\Desktop\AppGitHubJava\app\build\intermediates\transforms\dex\debug\folders\1000\2\universal-image-loader-1.9.5_8eda7f4f55dfc83986fbd7a77ecc71cd3079bc40\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.3.0\9e09011e9767bb76b5e27c9b8223476b93b14631\converter-gson-2.3.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9e09011e9767bb76b5e27c9b8223476b93b14631">
+        <dex dex="C:\Users\user\Desktop\AppGitHubJava\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.3.0_0d03bebd9f8aefc89a1bc34b14cbdf0e798d94ca\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.9.0\1b6c10b5120995a7542c1a31b7828fb8593c8ba\okhttp-3.9.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="01b6c10b5120995a7542c1a31b7828fb8593c8ba">
+        <dex dex="C:\Users\user\Desktop\AppGitHubJava\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.9.0_85782bf11d4d11d10ca1cc48fa36a589d1a63463\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\user\Desktop\AppGitHubJava\app\android-smart-image-view-1.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d76ea8c3e9a60101244d6d04aff8cc75888570f0">
+        <dex dex="C:\Users\user\Desktop\AppGitHubJava\app\build\intermediates\transforms\dex\debug\folders\1000\2\android-smart-image-view-1.0.0_5022f1de7e4318a3a3db554032e4ac56ab43ff31\classes.dex" />
+    </item>
+
+</items>
