@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -35,6 +36,8 @@ android {
 }
 
 dependencies {
+    implementation project(":data")
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation "androidx.recyclerview:recyclerview:1.1.0"
@@ -50,4 +53,9 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     // Optional : Kotlin extension (https://d.android.com/kotlin/ktx)
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    kapt "com.google.dagger:dagger-compiler:2.22"
+    implementation "com.google.dagger:dagger:2.24"
+    kapt 'com.google.dagger:dagger-compiler:2.22'
+    compileOnly 'javax.annotation:jsr250-api:1.0'
 }
