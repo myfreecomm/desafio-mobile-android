@@ -5,5 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".main.MainActivity">
 
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_games_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/rv_game_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

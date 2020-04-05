@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/activity_margin">
+
+    <ImageView
+        android:id="@+id/iv_team_shield"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_team_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_margin"
+        android:layout_marginEnd="@dimen/activity_margin"
+        app:layout_constraintEnd_toStartOf="@+id/tv_team_score"
+        app:layout_constraintStart_toEndOf="@+id/iv_team_shield"
+        app:layout_constraintTop_toTopOf="@+id/iv_team_shield"
+        tools:text="@tools:sample/lorem" />
+
+    <TextView
+        android:id="@+id/tv_team_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_margin"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_team_shield"
+        tools:text="2x0" />
+
+    <TextView
+        android:id="@+id/tv_match_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_team_shield"
+        app:layout_constraintTop_toBottomOf="@+id/tv_team_name"
+        tools:text="@tools:sample/date/ddmmyy" />
+</androidx.constraintlayout.widget.ConstraintLayout>
