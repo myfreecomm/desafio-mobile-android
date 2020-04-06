@@ -11,6 +11,8 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MainView {
 
+    private lateinit var adapter: MainActivityAdapter
+
     @Inject
     lateinit var presenter: MainActivityPresenter
 
@@ -19,7 +21,8 @@ class MainActivity : AppCompatActivity(), MainView {
         setContentView(R.layout.activity_main)
         injectDependencies()
         title = getString(R.string.games_list)
-        rv_games_list.adapter = MainActivityAdapter()
+        adapter = MainActivityAdapter()
+        rv_games_list.adapter = adapter
         presenter.setView(this)
         presenter.getMatchList()
     }
@@ -34,10 +37,15 @@ class MainActivity : AppCompatActivity(), MainView {
     override fun showLoading(show: Boolean) {
     }
 
-    override fun onMatchListApiSuccess(list: List<Match>?) {
+    override fun onMatchListApiSuccess(list: List<Match>) {
+        adapter.setMatchList(list)
+        adapter.notifyDataSetChanged()
     }
 
     override fun onMatchListApiFailure() {
+    }
+
+    override fun onMatchListApiEmpty() {
     }
 
     override fun onMatchListCacheSuccess() {

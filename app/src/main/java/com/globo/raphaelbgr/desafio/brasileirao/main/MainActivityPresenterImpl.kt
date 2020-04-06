@@ -30,8 +30,10 @@ class MainActivityPresenterImpl(
             withContext(Dispatchers.Main) {
                 val response = api.getMatchListAsync().await()
                 try {
-                    if (response.isSuccessful && response.body() != null) {
-                        view.onMatchListApiSuccess(response.body()?.matchList)
+                    if (response.isSuccessful && response.body() != null && response.body()?.matchList?.isEmpty()!!) {
+                        view.onMatchListApiEmpty()
+                    } else if (response.isSuccessful && response.body() != null) {
+                        view.onMatchListApiSuccess(response.body()?.matchList!!)
                     } else {
                         view.onMatchListApiFailure()
                     }
