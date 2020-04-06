@@ -1,8 +1,6 @@
-package com.globo.raphaelbgr.desafio.model.matchlist
+package com.globo.raphaelbgr.desafio.data.network.response.matchlist
 
 
-import com.globo.raphaelbgr.desafio.model.matchlist.Away
-import com.globo.raphaelbgr.desafio.model.matchlist.Home
 import com.google.gson.annotations.SerializedName
 
 data class MatchTeams(

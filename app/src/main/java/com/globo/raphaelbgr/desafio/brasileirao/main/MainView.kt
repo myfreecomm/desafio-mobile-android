@@ -1,9 +1,11 @@
 package com.globo.raphaelbgr.desafio.brasileirao.main
 
+import com.globo.raphaelbgr.desafio.data.network.response.matchlist.Match
+
 interface MainView {
     fun showLoading(show: Boolean)
-    fun onGamesListApiSuccess()
-    fun onGamesListApiFailure()
-    fun onGamesListCacheSuccess()
-    fun onGamesListCacheEmpty()
+    fun onMatchListApiSuccess(list: List<Match>?)
+    fun onMatchListApiFailure()
+    fun onMatchListCacheSuccess()
+    fun onMatchListCacheEmpty()
 }

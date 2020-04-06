@@ -1,4 +1,4 @@
-package com.globo.raphaelbgr.desafio.model.matchlist
+package com.globo.raphaelbgr.desafio.data.network.response.matchlist
 
 
 import com.google.gson.annotations.SerializedName

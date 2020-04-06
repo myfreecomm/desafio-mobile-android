@@ -3,8 +3,9 @@ package com.globo.raphaelbgr.desafio.brasileirao.main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.globo.raphaelbgr.desafio.brasileirao.R
-import com.globo.raphaelbgr.desafio.brasileirao.main.di.MainActivityModule
 import com.globo.raphaelbgr.desafio.brasileirao.main.di.DaggerMainActivityComponent
+import com.globo.raphaelbgr.desafio.brasileirao.main.di.MainActivityModule
+import com.globo.raphaelbgr.desafio.data.network.response.matchlist.Match
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -19,6 +20,8 @@ class MainActivity : AppCompatActivity(), MainView {
         injectDependencies()
         title = getString(R.string.games_list)
         rv_games_list.adapter = MainActivityAdapter()
+        presenter.setView(this)
+        presenter.getMatchList()
     }
 
     private fun injectDependencies() {
@@ -29,22 +32,17 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun showLoading(show: Boolean) {
-        TODO("Not yet implemented")
     }
 
-    override fun onGamesListApiSuccess() {
-        TODO("Not yet implemented")
+    override fun onMatchListApiSuccess(list: List<Match>?) {
     }
 
-    override fun onGamesListApiFailure() {
-        TODO("Not yet implemented")
+    override fun onMatchListApiFailure() {
     }
 
-    override fun onGamesListCacheSuccess() {
-        TODO("Not yet implemented")
+    override fun onMatchListCacheSuccess() {
     }
 
-    override fun onGamesListCacheEmpty() {
-        TODO("Not yet implemented")
+    override fun onMatchListCacheEmpty() {
     }
 }
