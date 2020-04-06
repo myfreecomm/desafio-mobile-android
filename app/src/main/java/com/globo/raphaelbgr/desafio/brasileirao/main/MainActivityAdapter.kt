@@ -34,6 +34,7 @@ class MainActivityAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         holder.itemView.tv_away_team_score.text =
             list[position].matchTeams?.away?.matchScore.toString()
         holder.itemView.tv_match_date.text = BrasileiraoUtil.parseDate(list[position].matchDate)
+
         loadShieldImage(
             holder.itemView.iv_home_team_shield,
             list[position].matchTeams?.home?.teamShield

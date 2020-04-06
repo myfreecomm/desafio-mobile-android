@@ -1,7 +1,5 @@
 package com.globo.raphaelbgr.desafio.data.di
 
-import com.globo.raphaelbgr.desafio.data.local.LocalRepository
-import com.globo.raphaelbgr.desafio.data.local.LocalRepositoryImpl
 import com.globo.raphaelbgr.desafio.data.network.ApiService
 import com.globo.raphaelbgr.desafio.data.network.RestClient
 import com.google.gson.FieldNamingPolicy
@@ -35,11 +33,5 @@ class DataModule {
     @Singleton
     fun provideApiService(restClient: RestClient): ApiService {
         return restClient.apiInstance
-    }
-
-    @Provides
-    @Singleton
-    fun provideLocalRepository(): LocalRepository {
-        return LocalRepositoryImpl()
     }
 }

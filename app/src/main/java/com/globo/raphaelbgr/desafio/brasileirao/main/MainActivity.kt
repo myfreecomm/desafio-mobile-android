@@ -1,6 +1,8 @@
 package com.globo.raphaelbgr.desafio.brasileirao.main
 
 import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,12 +45,14 @@ class MainActivity : AppCompatActivity(), MainView {
 
     private fun injectDependencies() {
         DaggerMainActivityComponent.builder()
-            .mainActivityModule(MainActivityModule())
+            .mainActivityModule(MainActivityModule(this))
             .build()
             .inject(this)
     }
 
     override fun showLoading(show: Boolean) {
+        iv_camp_logo_loading.visibility = if (show) VISIBLE else GONE
+        progress_bar_loading.visibility = if (show) VISIBLE else GONE
     }
 
     override fun onMatchListApiSuccess(list: List<Match>) {

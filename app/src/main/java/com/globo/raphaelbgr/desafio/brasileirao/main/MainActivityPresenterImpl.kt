@@ -2,6 +2,7 @@ package com.globo.raphaelbgr.desafio.brasileirao.main
 
 import com.globo.raphaelbgr.desafio.data.local.LocalRepository
 import com.globo.raphaelbgr.desafio.data.network.ApiService
+import com.globo.raphaelbgr.desafio.data.network.response.matchlist.Match
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,12 +21,16 @@ class MainActivityPresenterImpl(
     }
 
     override fun getMatchList() {
-//        val localMatches = local.loadMatchListAsync().await()
+        view.showLoading(true)
+        CoroutineScope(Dispatchers.IO).launch {
+            withContext(Dispatchers.Main) {
+                val localMatches = local.loadMatchListAsync().await()
+            }
+        }
         getOnlineMatchList()
     }
 
     private fun getOnlineMatchList() {
-        view.showLoading(true)
         CoroutineScope(Dispatchers.IO).launch {
             withContext(Dispatchers.Main) {
                 val response = api.getMatchListAsync().await()
@@ -33,6 +38,7 @@ class MainActivityPresenterImpl(
                     if (response.isSuccessful && response.body() != null && response.body()?.matchList?.isEmpty()!!) {
                         view.onMatchListApiEmpty()
                     } else if (response.isSuccessful && response.body() != null) {
+                        response.body()!!.matchList?.let { saveDataToDb(it) }
                         view.onMatchListApiSuccess(response.body()?.matchList!!)
                     } else {
                         view.onMatchListApiFailure()
@@ -43,6 +49,14 @@ class MainActivityPresenterImpl(
                 } finally {
                     view.showLoading(false)
                 }
+            }
+        }
+    }
+
+    private fun saveDataToDb(list: List<Match>) {
+        CoroutineScope(Dispatchers.IO).launch {
+            withContext(Dispatchers.Main) {
+                local.saveMatchesToDbAsync(list).await()
             }
         }
     }

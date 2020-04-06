@@ -13,7 +13,7 @@ class ApplicationModule(private val context: Context) {
     @Provides
     @Singleton
     fun provideAppDatabase(): AppDatabase {
-        return Room.databaseBuilder(context, AppDatabase::class.java, "brasileirao-db")
+        return Room.databaseBuilder(context, AppDatabase::class.java, "brasileirao.db")
             .build()
     }
 }

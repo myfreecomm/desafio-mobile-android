@@ -6,6 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".main.MainActivity">
 
+    <ImageView
+        android:id="@+id/iv_camp_logo_loading"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="24dp"
+        android:src="@drawable/logo_camp_bras"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/progress_bar_loading"
+        app:layout_constraintEnd_toEndOf="@+id/progress_bar_loading"
+        app:layout_constraintStart_toStartOf="@+id/progress_bar_loading"
+        app:layout_constraintTop_toTopOf="@+id/progress_bar_loading" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar_loading"
+        android:layout_width="102dp"
+        android:layout_height="102dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_games_list"
         android:layout_width="match_parent"
