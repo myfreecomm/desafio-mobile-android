@@ -2,12 +2,15 @@ package com.globo.raphaelbgr.desafio.brasileirao.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.globo.raphaelbgr.desafio.brasileirao.R
 import com.globo.raphaelbgr.desafio.brasileirao.main.di.DaggerMainActivityComponent
 import com.globo.raphaelbgr.desafio.brasileirao.main.di.MainActivityModule
 import com.globo.raphaelbgr.desafio.data.network.response.matchlist.Match
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
+
 
 class MainActivity : AppCompatActivity(), MainView {
 
@@ -21,10 +24,21 @@ class MainActivity : AppCompatActivity(), MainView {
         setContentView(R.layout.activity_main)
         injectDependencies()
         title = getString(R.string.games_list)
-        adapter = MainActivityAdapter()
-        rv_games_list.adapter = adapter
+
+        setupRecyclerView()
         presenter.setView(this)
         presenter.getMatchList()
+    }
+
+    private fun setupRecyclerView() {
+        adapter = MainActivityAdapter()
+        rv_games_list.adapter = adapter
+
+        val dividerItemDecoration = DividerItemDecoration(
+            rv_games_list.context,
+            (rv_games_list.layoutManager as LinearLayoutManager).orientation
+        )
+        rv_games_list.addItemDecoration(dividerItemDecoration)
     }
 
     private fun injectDependencies() {
