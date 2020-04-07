@@ -75,6 +75,6 @@ class MainActivity : BaseActivity(), MainView, MatchListListener {
     }
 
     override fun onMatchClick(match: Match) {
-        navigatorUtil.navigateToMatchDetails(this, match)
+        navigatorUtil.navigateToMatchDetails(match)
     }
 }

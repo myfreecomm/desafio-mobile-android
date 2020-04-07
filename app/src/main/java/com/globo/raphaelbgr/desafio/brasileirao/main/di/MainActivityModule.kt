@@ -2,6 +2,7 @@ package com.globo.raphaelbgr.desafio.brasileirao.main.di
 
 import android.content.Context
 import com.globo.raphaelbgr.desafio.brasileirao.application.BrasileiraoApplication
+import com.globo.raphaelbgr.desafio.brasileirao.base.di.BaseActivityModule
 import com.globo.raphaelbgr.desafio.brasileirao.main.MainActivityPresenter
 import com.globo.raphaelbgr.desafio.brasileirao.main.MainActivityPresenterImpl
 import com.globo.raphaelbgr.desafio.data.local.LocalRepository
@@ -12,7 +13,7 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class MainActivityModule(val context: Context) {
+class MainActivityModule(private val context: Context) : BaseActivityModule(context) {
 
     @Provides
     @Singleton
