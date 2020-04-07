@@ -66,7 +66,9 @@ class MainActivity : AppCompatActivity(), MainView {
     override fun onMatchListApiEmpty() {
     }
 
-    override fun onMatchListCacheSuccess() {
+    override fun onMatchListCacheSuccess(localMatches: List<Match>) {
+        adapter.setMatchList(localMatches)
+        adapter.notifyDataSetChanged()
     }
 
     override fun onMatchListCacheEmpty() {

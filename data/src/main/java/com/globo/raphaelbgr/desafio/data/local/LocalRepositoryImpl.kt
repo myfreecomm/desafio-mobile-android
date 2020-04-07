@@ -1,18 +1,22 @@
 package com.globo.raphaelbgr.desafio.data.local
 
 import com.globo.raphaelbgr.desafio.data.local.mapper.MatchMapper
+import com.globo.raphaelbgr.desafio.data.local.mapper.TeamMapper
 import com.globo.raphaelbgr.desafio.data.network.response.matchlist.Match
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
-public class LocalRepositoryImpl(private val db: AppDatabase) : LocalRepository {
+class LocalRepositoryImpl(private val db: AppDatabase) : LocalRepository {
     override suspend fun loadMatchListAsync() = GlobalScope.async {
-//        MatchMapper().map(appDatabase.matchDao().getMatchList())
-        ArrayList<Match>()
+        val matches = MatchMapper().mapToModel(db.matchDao().fetchAll(), db.teamDao().fetchAll())
+        matches
     }
 
     override suspend fun saveMatchesToDbAsync(list: List<Match>) = GlobalScope.async {
-        db.matchDao().insert(MatchMapper().mapToEntity(list))
+        val matchEntities = MatchMapper().mapToEntity(list)
+        val teamEntities = TeamMapper().mapToEntity(list)
+        db.matchDao().insert(matchEntities)
+        db.teamDao().insert(teamEntities)
     }
 
 }

@@ -9,7 +9,7 @@ import com.globo.raphaelbgr.desafio.data.local.entities.MatchEntity
 @Dao
 interface MatchDao {
     @Query("SELECT * FROM MatchEntity")
-    suspend fun fetch(): List<MatchEntity>
+    suspend fun fetchAll(): List<MatchEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(matches: List<MatchEntity>)

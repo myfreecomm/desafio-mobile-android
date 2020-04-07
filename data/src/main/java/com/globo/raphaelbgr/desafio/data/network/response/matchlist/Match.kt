@@ -13,5 +13,5 @@ data class Match(
     @SerializedName("match_teams")
     val matchTeams: MatchTeams?
 ) {
-    constructor(matchEntity: MatchEntity) : this(matchEntity.id, matchEntity.matchDate, null)
+    constructor(matchEntity: MatchEntity, matchTeams: MatchTeams) : this(matchEntity.id, matchEntity.matchDate, matchTeams)
 }

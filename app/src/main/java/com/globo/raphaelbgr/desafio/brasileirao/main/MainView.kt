@@ -7,6 +7,6 @@ interface MainView {
     fun onMatchListApiSuccess(list: List<Match>)
     fun onMatchListApiFailure()
     fun onMatchListApiEmpty()
-    fun onMatchListCacheSuccess()
+    fun onMatchListCacheSuccess(localMatches: List<Match>)
     fun onMatchListCacheEmpty()
 }

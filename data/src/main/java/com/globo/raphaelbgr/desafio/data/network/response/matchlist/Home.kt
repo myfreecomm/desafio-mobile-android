@@ -5,11 +5,11 @@ import com.google.gson.annotations.SerializedName
 
 data class Home(
     @SerializedName("id")
-    val id: Int?,
+    override val id: Int?,
     @SerializedName("match_score")
-    val matchScore: Int?,
+    override val matchScore: Int?,
     @SerializedName("team_name")
-    val teamName: String?,
+    override val teamName: String?,
     @SerializedName("team_shield")
-    val teamShield: String?
-)
+    override val teamShield: String?
+) : Team

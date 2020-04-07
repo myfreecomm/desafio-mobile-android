@@ -25,9 +25,14 @@ class MainActivityPresenterImpl(
         CoroutineScope(Dispatchers.IO).launch {
             withContext(Dispatchers.Main) {
                 val localMatches = local.loadMatchListAsync().await()
+                if (!localMatches.isNullOrEmpty()) {
+                    view.onMatchListCacheSuccess(localMatches)
+                    view.showLoading(false)
+                } else {
+                    getOnlineMatchList()
+                }
             }
         }
-        getOnlineMatchList()
     }
 
     private fun getOnlineMatchList() {
