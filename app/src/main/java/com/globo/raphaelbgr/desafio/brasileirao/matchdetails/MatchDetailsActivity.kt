@@ -1,6 +1,7 @@
 package com.globo.raphaelbgr.desafio.brasileirao.matchdetails
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.globo.raphaelbgr.desafio.brasileirao.R
@@ -8,11 +9,12 @@ import com.globo.raphaelbgr.desafio.brasileirao.util.BrasileiraoUtil
 import com.globo.raphaelbgr.desafio.data.network.response.matchlist.Match
 import kotlinx.android.synthetic.main.activity_match_details.*
 
-class MatchDetails : AppCompatActivity() {
+class MatchDetailsActivity : AppCompatActivity() {
 
     private var match: Match? = null
 
     companion object {
+        private const val MATCH_PARAM_STAVE_STATE = "MATCH_PARAM_STAVE_STATE"
         const val MATCH_PARAM = "MATCH_PARAM"
     }
 
@@ -21,7 +23,10 @@ class MatchDetails : AppCompatActivity() {
         setContentView(R.layout.activity_match_details)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        match = intent?.getParcelableExtra(MATCH_PARAM)
+        match = savedInstanceState?.getParcelable(MATCH_PARAM_STAVE_STATE)
+        if (match == null) {
+            match = intent?.getParcelableExtra(MATCH_PARAM)
+        }
         if (match == null) finish()
 
         title = BrasileiraoUtil.getMatchName(match?.matchTeams)
@@ -54,5 +59,11 @@ class MatchDetails : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        if (match == null) return
+        outState.putParcelable(MATCH_PARAM_STAVE_STATE, match)
+        super.onSaveInstanceState(outState, outPersistentState)
     }
 }

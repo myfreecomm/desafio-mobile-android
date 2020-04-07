@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:foreground="?attr/selectableItemBackground"
     android:padding="@dimen/activity_margin"
-    tools:context=".matchdetails.MatchDetails"
+    tools:context=".matchdetails.MatchDetailsActivity"
     tools:ignore="UnusedAttribute">
 
     <ImageView
