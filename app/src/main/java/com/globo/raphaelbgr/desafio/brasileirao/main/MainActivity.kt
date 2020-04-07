@@ -3,10 +3,10 @@ package com.globo.raphaelbgr.desafio.brasileirao.main
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.globo.raphaelbgr.desafio.brasileirao.R
+import com.globo.raphaelbgr.desafio.brasileirao.base.BaseActivity
 import com.globo.raphaelbgr.desafio.brasileirao.main.di.DaggerMainActivityComponent
 import com.globo.raphaelbgr.desafio.brasileirao.main.di.MainActivityModule
 import com.globo.raphaelbgr.desafio.data.network.response.matchlist.Match
@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 
-class MainActivity : AppCompatActivity(), MainView {
+class MainActivity : BaseActivity(), MainView, MatchListListener {
 
     private lateinit var adapter: MainActivityAdapter
 
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     private fun setupRecyclerView() {
-        adapter = MainActivityAdapter()
+        adapter = MainActivityAdapter(this)
         rv_games_list.adapter = adapter
 
         val dividerItemDecoration = DividerItemDecoration(
@@ -72,5 +72,9 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun onMatchListCacheEmpty() {
+    }
+
+    override fun onMatchClick(match: Match) {
+        navigatorUtil.navigateToMatchDetails(this, match)
     }
 }

@@ -13,8 +13,9 @@ import com.globo.raphaelbgr.desafio.data.network.response.matchlist.Match
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.rv_game_item.view.*
 
-class MainActivityAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var list: List<Match> = ArrayList()
+class MainActivityAdapter(private val listener: MatchListListener) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private var matchList: List<Match> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return MatchViewHolder(
@@ -23,26 +24,29 @@ class MainActivityAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return list.size
+        return matchList.size
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        holder.itemView.tv_home_team_name.text = list[position].matchTeams?.home?.teamName
-        holder.itemView.tv_away_team_name.text = list[position].matchTeams?.away?.teamName
+        holder.itemView.tv_home_team_name.text = matchList[position].matchTeams?.home?.teamName
+        holder.itemView.tv_away_team_name.text = matchList[position].matchTeams?.away?.teamName
         holder.itemView.tv_home_team_score.text =
-            list[position].matchTeams?.home?.matchScore.toString()
+            matchList[position].matchTeams?.home?.matchScore.toString()
         holder.itemView.tv_away_team_score.text =
-            list[position].matchTeams?.away?.matchScore.toString()
-        holder.itemView.tv_match_date.text = BrasileiraoUtil.parseDate(list[position].matchDate)
+            matchList[position].matchTeams?.away?.matchScore.toString()
+        holder.itemView.tv_match_date.text =
+            BrasileiraoUtil.parseDate(matchList[position].matchDate)
 
         loadShieldImage(
             holder.itemView.iv_home_team_shield,
-            list[position].matchTeams?.home?.teamShield
+            matchList[position].matchTeams?.home?.teamShield
         )
         loadShieldImage(
             holder.itemView.iv_away_team_shield,
-            list[position].matchTeams?.away?.teamShield
+            matchList[position].matchTeams?.away?.teamShield
         )
+
+        holder.itemView.setOnClickListener { listener.onMatchClick(matchList[position]) }
     }
 
     private fun loadShieldImage(imageView: ImageView, url: String?) {
@@ -59,7 +63,7 @@ class MainActivityAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     fun setMatchList(list: List<Match>) {
-        this.list = list
+        this.matchList = list
     }
 
     class MatchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)

@@ -1,6 +1,7 @@
 package com.globo.raphaelbgr.desafio.brasileirao.application.di
 
 import com.globo.raphaelbgr.desafio.brasileirao.application.BrasileiraoApplication
+import com.globo.raphaelbgr.desafio.brasileirao.base.BaseActivity
 import com.globo.raphaelbgr.desafio.data.di.DataModule
 import dagger.Component
 import javax.inject.Singleton
@@ -10,4 +11,5 @@ import javax.inject.Singleton
 interface ApplicationComponent {
 
     fun inject(brasileiraoApplication: BrasileiraoApplication)
+    fun inject(baseActivity: BaseActivity)
 }
