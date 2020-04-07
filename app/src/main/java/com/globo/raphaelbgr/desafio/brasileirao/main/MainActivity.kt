@@ -1,6 +1,7 @@
 package com.globo.raphaelbgr.desafio.brasileirao.main
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -29,7 +30,14 @@ class MainActivity : BaseActivity(), MainView, MatchListListener {
 
         setupRecyclerView()
         presenter.setView(this)
-        presenter.getMatchList()
+
+        val savedList = savedInstanceState?.getParcelableArrayList<Match>(MATCH_PARAM_STAVE_STATE)
+        if (savedList.isNullOrEmpty()) {
+            presenter.getMatchList()
+        } else {
+            adapter.setMatchList(savedList)
+            adapter.notifyDataSetChanged()
+        }
     }
 
     private fun setupRecyclerView() {
@@ -76,5 +84,16 @@ class MainActivity : BaseActivity(), MainView, MatchListListener {
 
     override fun onMatchClick(match: Match) {
         navigatorUtil.navigateToMatchDetails(match)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        val list = adapter.getMatchList()
+        if (list.isNullOrEmpty()) return
+        outState.putParcelableArrayList(MATCH_PARAM_STAVE_STATE, adapter.getMatchList())
+        super.onSaveInstanceState(outState, outPersistentState)
+    }
+
+    companion object {
+        private const val MATCH_PARAM_STAVE_STATE: String = "MATCH_PARAM_STAVE_STATE"
     }
 }

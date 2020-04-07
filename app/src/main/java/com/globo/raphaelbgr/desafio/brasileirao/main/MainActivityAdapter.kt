@@ -66,5 +66,9 @@ class MainActivityAdapter(private val listener: MatchListListener) :
         this.matchList = list
     }
 
+    fun getMatchList(): ArrayList<Match> {
+        return matchList as ArrayList<Match>
+    }
+
     class MatchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 }
