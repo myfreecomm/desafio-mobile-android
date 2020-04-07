@@ -3,14 +3,10 @@ package com.globo.raphaelbgr.desafio.brasileirao.main
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.URLUtil
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.globo.raphaelbgr.desafio.brasileirao.BuildConfig
 import com.globo.raphaelbgr.desafio.brasileirao.R
 import com.globo.raphaelbgr.desafio.brasileirao.util.BrasileiraoUtil
 import com.globo.raphaelbgr.desafio.data.network.response.matchlist.Match
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.rv_game_item.view.*
 
 class MainActivityAdapter(private val listener: MatchListListener) :
@@ -37,29 +33,16 @@ class MainActivityAdapter(private val listener: MatchListListener) :
         holder.itemView.tv_match_date.text =
             BrasileiraoUtil.parseDate(matchList[position].matchDate)
 
-        loadShieldImage(
+        BrasileiraoUtil.loadShieldImage(
             holder.itemView.iv_home_team_shield,
             matchList[position].matchTeams?.home?.teamShield
         )
-        loadShieldImage(
+        BrasileiraoUtil.loadShieldImage(
             holder.itemView.iv_away_team_shield,
             matchList[position].matchTeams?.away?.teamShield
         )
 
         holder.itemView.setOnClickListener { listener.onMatchClick(matchList[position]) }
-    }
-
-    private fun loadShieldImage(imageView: ImageView, url: String?) {
-        if (!URLUtil.isValidUrl(url))
-            return
-        val picasso = Picasso.get()
-        picasso.setIndicatorsEnabled(BuildConfig.DEBUG)
-        picasso.isLoggingEnabled = BuildConfig.DEBUG
-        picasso.load(url)
-            .fit()
-            .error(R.drawable.logo_camp_bras)
-            .placeholder(R.drawable.logo_camp_bras)
-            .into(imageView)
     }
 
     fun setMatchList(list: List<Match>) {

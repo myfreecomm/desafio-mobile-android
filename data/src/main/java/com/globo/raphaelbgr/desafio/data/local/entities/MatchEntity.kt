@@ -9,6 +9,7 @@ import java.util.*
 data class MatchEntity(
     @PrimaryKey val id: Int?,
     @ColumnInfo(name = "match_date") val matchDate: Date?,
+    @ColumnInfo(name = "match_place") val matchPlace: String?,
     @ColumnInfo(name = "home_team_id") val homeTeamId: Int?,
     @ColumnInfo(name = "home_team_score") val homeTeamScore: Int?,
     @ColumnInfo(name = "away_team_id") val awayTeamId: Int?,

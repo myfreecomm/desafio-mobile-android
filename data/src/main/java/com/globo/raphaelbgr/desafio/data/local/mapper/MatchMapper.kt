@@ -21,19 +21,23 @@ class MatchMapper {
             if (teamList.filter { it.id == matchEntity.awayTeamId }.none()) continue
             list.add(
                 Match(
-                    matchEntity.id, matchEntity.matchDate,
+                    matchEntity.id,
+                    matchEntity.matchDate,
                     MatchTeams(
                         Away(
-                            matchEntity.awayTeamId, matchEntity.awayTeamScore,
+                            matchEntity.awayTeamId,
+                            matchEntity.awayTeamScore,
                             teamList.filter { it.id == matchEntity.awayTeamId }[0].teamName,
                             teamList.filter { it.id == matchEntity.awayTeamId }[0].teamShield
                         ),
                         Home(
-                            matchEntity.homeTeamId, matchEntity.homeTeamScore,
+                            matchEntity.homeTeamId,
+                            matchEntity.homeTeamScore,
                             teamList.filter { it.id == matchEntity.homeTeamId }[0].teamName,
                             teamList.filter { it.id == matchEntity.homeTeamId }[0].teamShield
                         )
-                    )
+                    ),
+                    matchEntity.matchPlace
                 )
             )
         }
@@ -50,7 +54,9 @@ class MatchMapper {
 
     private fun mapToEntity(match: Match): MatchEntity {
         return MatchEntity(
-            match.id, match.matchDate,
+            match.id,
+            match.matchDate,
+            match.matchPlace,
             match.matchTeams?.home?.id,
             match.matchTeams?.home?.matchScore,
             match.matchTeams?.away?.id,

@@ -14,11 +14,14 @@ data class Match(
     @SerializedName("match_date")
     val matchDate: Date?,
     @SerializedName("match_teams")
-    val matchTeams: MatchTeams?
+    val matchTeams: MatchTeams?,
+    @SerializedName("match_place")
+    val matchPlace: String?
 ) : Parcelable {
     constructor(matchEntity: MatchEntity, matchTeams: MatchTeams) : this(
         matchEntity.id,
         matchEntity.matchDate,
-        matchTeams
+        matchTeams,
+        matchEntity.matchPlace
     )
 }

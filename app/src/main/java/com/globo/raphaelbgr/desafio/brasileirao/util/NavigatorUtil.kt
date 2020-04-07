@@ -10,7 +10,7 @@ class NavigatorUtil(private val context: Context) {
 
     fun navigateToMatchDetails(match: Match) {
         val intent = Intent(context, MatchDetails::class.java)
-        intent.extras?.putParcelable(MATCH_PARAM, match)
+        intent.putExtra(MATCH_PARAM, match)
         context.startActivity(intent)
     }
 }
