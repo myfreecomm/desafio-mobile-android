@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 class MainActivity : BaseActivity(), MainView, MatchListListener {
 
-    private lateinit var adapter: MainActivityAdapter
+    private var adapter: MainActivityAdapter? = null
 
     @Inject
     lateinit var presenter: MainActivityPresenter
@@ -35,13 +35,14 @@ class MainActivity : BaseActivity(), MainView, MatchListListener {
         if (savedList.isNullOrEmpty()) {
             presenter.getMatchList()
         } else {
-            adapter.setMatchList(savedList)
-            adapter.notifyDataSetChanged()
+            adapter?.setMatchList(savedList)
+            adapter?.notifyDataSetChanged()
         }
     }
 
     private fun setupRecyclerView() {
-        adapter = MainActivityAdapter(this)
+        if (adapter == null)
+            adapter = MainActivityAdapter(this)
         rv_games_list.adapter = adapter
 
         val dividerItemDecoration = DividerItemDecoration(
@@ -64,8 +65,8 @@ class MainActivity : BaseActivity(), MainView, MatchListListener {
     }
 
     override fun onMatchListApiSuccess(list: List<Match>) {
-        adapter.setMatchList(list)
-        adapter.notifyDataSetChanged()
+        adapter?.setMatchList(list)
+        adapter?.notifyDataSetChanged()
     }
 
     override fun onMatchListApiFailure() {
@@ -75,8 +76,8 @@ class MainActivity : BaseActivity(), MainView, MatchListListener {
     }
 
     override fun onMatchListCacheSuccess(localMatches: List<Match>) {
-        adapter.setMatchList(localMatches)
-        adapter.notifyDataSetChanged()
+        adapter?.setMatchList(localMatches)
+        adapter?.notifyDataSetChanged()
     }
 
     override fun onMatchListCacheEmpty() {
@@ -87,9 +88,9 @@ class MainActivity : BaseActivity(), MainView, MatchListListener {
     }
 
     override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
-        val list = adapter.getMatchList()
+        val list = adapter?.getMatchList()
         if (list.isNullOrEmpty()) return
-        outState.putParcelableArrayList(MATCH_PARAM_STAVE_STATE, adapter.getMatchList())
+        outState.putParcelableArrayList(MATCH_PARAM_STAVE_STATE, adapter?.getMatchList())
         super.onSaveInstanceState(outState, outPersistentState)
     }
 
