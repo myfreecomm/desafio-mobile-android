@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.globo.raphaelbgr.desafio.brasileirao.R
@@ -12,6 +13,7 @@ import com.globo.raphaelbgr.desafio.brasileirao.main.di.DaggerMainActivityCompon
 import com.globo.raphaelbgr.desafio.brasileirao.main.di.MainActivityModule
 import com.globo.raphaelbgr.desafio.data.network.response.matchlist.Match
 import kotlinx.android.synthetic.main.activity_main.*
+import timber.log.Timber
 import javax.inject.Inject
 
 
@@ -73,9 +75,18 @@ class MainActivity : BaseActivity(), MainView, MatchListListener {
     }
 
     override fun onMatchListApiFailure() {
+        AlertDialog.Builder(this)
+            .setMessage(getString(R.string.cound_not_load))
+            .setPositiveButton(getString(R.string.try_again)) { _, _ -> presenter.getOnlineMatchListForced() }
+            .setNegativeButton(R.string.cancel) { d, _ -> d.dismiss() }
+            .show()
     }
 
     override fun onMatchListApiEmpty() {
+        AlertDialog.Builder(this)
+            .setMessage(getString(R.string.no_games_to_load))
+            .setPositiveButton(R.string.ok) { d, _ -> d.dismiss() }
+            .show()
     }
 
     override fun onMatchListCacheSuccess(localMatches: List<Match>) {
@@ -84,6 +95,7 @@ class MainActivity : BaseActivity(), MainView, MatchListListener {
     }
 
     override fun onMatchListCacheEmpty() {
+        Timber.d("No games found in local DB!")
     }
 
     override fun onMatchClick(match: Match) {

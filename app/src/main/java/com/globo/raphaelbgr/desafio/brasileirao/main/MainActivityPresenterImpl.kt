@@ -43,8 +43,8 @@ class MainActivityPresenterImpl(
     private fun getOnlineMatchList() {
         CoroutineScope(Dispatchers.IO).launch {
             withContext(Dispatchers.Main) {
-                val response = api.getMatchListAsync().await()
                 try {
+                    val response = api.getMatchListAsync().await()
                     if (response.isSuccessful && response.body() != null && response.body()?.matchList?.isEmpty()!!) {
                         view.onMatchListApiEmpty()
                     } else if (response.isSuccessful && response.body() != null) {
