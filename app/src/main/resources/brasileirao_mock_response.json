@@ -1,0 +1,71 @@
+{
+	"match_list": [
+		{
+			"id": "1",
+			"match_date": "2020-02-05T08:40:51.620Z",
+			"match_place": "Maracanã, Rio - RJ",
+			"match_is_over": true,
+			"match_teams": {
+				"home": {
+					"id": 1,
+					"team_name": "Flamengo",
+					"team_shield": "http://s.glbimg.com/es/sde/f/equipes/2014/04/14/flamengo_60x60.png",
+					"match_score": 2
+				},
+				"away": {
+					"id": 2,
+					"team_name": "Vasco",
+					"team_shield": "http://s.glbimg.com/es/sde/f/equipes/2014/04/14/vasco_60x60.png",
+					"match_score": 0
+				}
+			},
+			"match_highlights": [
+				{
+					"id": 1,
+					"match_id": 1,
+			eir		"type": "match_start",
+					"description": "Início de partida",
+					"match_time": "00m 00s"
+				},
+				{
+					"id": 2,
+					"match_id": 1,
+					"type": "goal",
+					"description": "Gol de Gabriel Barbosa",
+					"match_time": "35m 17s",
+					"favored_team_id": 1
+				},
+				{
+					"id": 3,
+					"match_id": 1,
+					"type": "goal",
+					"description": "Gol de Bruno Henrique",
+					"match_time": "77m 23s",
+					"favored_team_id": 1
+				},
+				{   
+					"id": 4,
+					"match_id": 1,
+					"type": "var_lookout",
+					"description": "Consulta ao VAR",
+					"match_time": "80m 03s"
+				},
+				{
+					"id": 5,
+					"match_id": 1,
+					"type": "penalty",
+					"description": "Penalty de Rodrigo Caio em cima de Pikachu",
+					"match_time": "82m 13s",
+					"favored_team_id": 2
+				},
+				{
+					"id": 6,
+					"match_id": 1,
+					"type": "match_end",
+					"description": "Fim de jogo",
+					"match_time": "90m 00s"
+				}
+			]
+		}
+	]
+}

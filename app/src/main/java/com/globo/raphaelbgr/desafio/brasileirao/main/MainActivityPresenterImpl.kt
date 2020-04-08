@@ -10,6 +10,7 @@ import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 class MainActivityPresenterImpl(
+    val coroutineScope: CoroutineScope,
     val api: ApiService,
     val local: LocalRepository
 ) : MainActivityPresenter {
@@ -22,7 +23,7 @@ class MainActivityPresenterImpl(
 
     override fun getMatchList() {
         view.showLoading(true)
-        CoroutineScope(Dispatchers.IO).launch {
+        coroutineScope.launch {
             withContext(Dispatchers.Main) {
                 val localMatches = local.loadMatchListAsync().await()
                 if (!localMatches.isNullOrEmpty()) {
@@ -41,7 +42,7 @@ class MainActivityPresenterImpl(
     }
 
     private fun getOnlineMatchList() {
-        CoroutineScope(Dispatchers.IO).launch {
+        coroutineScope.launch {
             withContext(Dispatchers.Main) {
                 try {
                     val response = api.getMatchListAsync().await()
@@ -64,7 +65,7 @@ class MainActivityPresenterImpl(
     }
 
     private fun saveDataToDb(list: List<Match>) {
-        CoroutineScope(Dispatchers.IO).launch {
+        coroutineScope.launch {
             withContext(Dispatchers.Main) {
                 local.saveMatchesToDbAsync(list).await()
             }
