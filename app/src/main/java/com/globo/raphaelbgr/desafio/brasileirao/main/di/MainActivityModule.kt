@@ -24,7 +24,7 @@ class MainActivityModule(private val context: Context) : BaseActivityModule(cont
 
     @Provides
     @Singleton
-    fun provideLocalRepository(): LocalRepository {
-        return LocalRepositoryImpl((context.applicationContext as BrasileiraoApplication).db)
+    fun provideLocalRepository(coroutineScope: CoroutineScope): LocalRepository {
+        return LocalRepositoryImpl(coroutineScope, (context.applicationContext as BrasileiraoApplication).db)
     }
 }

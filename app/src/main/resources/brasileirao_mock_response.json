@@ -23,7 +23,7 @@
 				{
 					"id": 1,
 					"match_id": 1,
-			eir		"type": "match_start",
+					"type": "match_start",
 					"description": "Início de partida",
 					"match_time": "00m 00s"
 				},
