@@ -1,4 +1,4 @@
-O que foi feito
+# O que foi feito
 
 - A persistência usa o RoomDb e os dados estão separadas em três tabelas que se relacionam: uma de Partidas, outra de Times e outra de Lances.
 - A arquitetura do app usa MVP e está separada em módulos, uma do app em sí e outra de dados.
@@ -9,14 +9,14 @@ O que foi feito
 - Suporte a rotação de tela.
 - Mapeador para separa modelos do Android e Modelos do banco, com isso é possível trocar o banco para qualquer outra fonte de dados.
 
-Qual foi o foco
+## Qual foi o foco
 
 - Preocupação em manter o banco de dados local bem normalizado para futura escalabilidade.
 - Fazer um app estável, sem leaks de memória e com o lifecycle apenas de Acvivities sem Fragments.
 - Linguagem ubíquia para o melhor entendimento do código.
 
 
-O que poderia melhorar
+## O que poderia melhorar
 
 - Não foi possível separar toda a camada de dados no módulo de dados, pois o banco de dados Room é dependente direto de contexto (Android).
 - As queries de partidas poderiam ter JOIN com a tabela de times, mas por questões de tempo decidi não fazer.
@@ -27,12 +27,12 @@ O que poderia melhorar
 - Design: tenho noção do material design mas foquei muito mais em arquitetura e lógica.
 
 
-O que seria legal ter
+## O que seria legal ter
 
 - Deeplink que levam para uma partida específica com stack de navegação caso o usuário volte (muitos apps não tem stack).
 
 
-O app obedece a seguinte estrutura de dados vinda de uma API em JSON
+## O app obedece a seguinte estrutura de dados vinda de uma API em JSON
 
 	{
 		"match_list": [
@@ -106,7 +106,7 @@ O app obedece a seguinte estrutura de dados vinda de uma API em JSON
 		]
 	}
 
-====================================================================================================
+===================================================================================
 
 # Raphael Bernardo
 Android Produtos
