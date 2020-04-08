@@ -38,6 +38,8 @@ class MainActivity : BaseActivity(), MainView, MatchListListener {
             adapter?.setMatchList(savedList)
             adapter?.notifyDataSetChanged()
         }
+
+        fab_main.setOnClickListener { presenter.getOnlineMatchListForced() }
     }
 
     private fun setupRecyclerView() {
@@ -60,6 +62,7 @@ class MainActivity : BaseActivity(), MainView, MatchListListener {
     }
 
     override fun showLoading(show: Boolean) {
+        fab_main.isEnabled = !show
         iv_camp_logo_loading.visibility = if (show) VISIBLE else GONE
         progress_bar_loading.visibility = if (show) VISIBLE else GONE
     }

@@ -35,6 +35,11 @@ class MainActivityPresenterImpl(
         }
     }
 
+    override fun getOnlineMatchListForced() {
+        view.showLoading(true)
+        getOnlineMatchList()
+    }
+
     private fun getOnlineMatchList() {
         CoroutineScope(Dispatchers.IO).launch {
             withContext(Dispatchers.Main) {
