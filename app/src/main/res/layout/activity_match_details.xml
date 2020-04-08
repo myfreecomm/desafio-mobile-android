@@ -137,9 +137,10 @@
         android:id="@+id/bt_highlights"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:foreground="?attr/selectableItemBackground"
         android:text="@string/highlights"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
