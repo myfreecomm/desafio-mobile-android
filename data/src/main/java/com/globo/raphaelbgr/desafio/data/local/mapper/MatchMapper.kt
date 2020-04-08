@@ -1,5 +1,6 @@
 package com.globo.raphaelbgr.desafio.data.local.mapper
 
+import com.globo.raphaelbgr.desafio.data.local.entities.HighlightEntity
 import com.globo.raphaelbgr.desafio.data.local.entities.MatchEntity
 import com.globo.raphaelbgr.desafio.data.local.entities.TeamEntity
 import com.globo.raphaelbgr.desafio.data.network.response.matchlist.Away
@@ -14,7 +15,8 @@ class MatchMapper {
      */
     fun mapToModel(
         matchEntityList: List<MatchEntity>,
-        teamList: List<TeamEntity>
+        teamList: List<TeamEntity>,
+        highLightList: List<HighlightEntity>
     ): List<Match> {
         val list = ArrayList<Match>()
         for (matchEntity in matchEntityList) {
@@ -37,7 +39,8 @@ class MatchMapper {
                             teamList.filter { it.id == matchEntity.homeTeamId }[0].teamShield
                         )
                     ),
-                    matchEntity.matchPlace
+                    matchEntity.matchPlace,
+                    HighlightMapper().mapToModel(highLightList)
                 )
             )
         }

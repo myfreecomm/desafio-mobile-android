@@ -16,12 +16,15 @@ data class Match(
     @SerializedName("match_teams")
     val matchTeams: MatchTeams?,
     @SerializedName("match_place")
-    val matchPlace: String?
+    val matchPlace: String?,
+    @SerializedName("match_highlights")
+    val matchHighlights: List<Highlight>?
 ) : Parcelable {
-    constructor(matchEntity: MatchEntity, matchTeams: MatchTeams) : this(
+    constructor(matchEntity: MatchEntity, matchTeams: MatchTeams, highlightList: List<Highlight>?) : this(
         matchEntity.id,
         matchEntity.matchDate,
         matchTeams,
-        matchEntity.matchPlace
+        matchEntity.matchPlace,
+        highlightList
     )
 }
