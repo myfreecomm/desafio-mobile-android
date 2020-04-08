@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Brasileirao</string>
     <string name="games_list">Lista de jogos</string>
+    <string name="highlights">Lance a lance</string>
 </resources>

@@ -34,7 +34,18 @@ class BrasileiraoUtil {
             else "$homeName x $awayName".toUpperCase(Locale.getDefault())
         }
 
-        fun loadShieldImage(imageView: ImageView, url: String?) {
+        fun getMatchNameHighlights(matchTeams: MatchTeams?, suffix: String): String {
+            val homeName = matchTeams?.home?.teamName
+            val awayName = matchTeams?.away?.teamName
+
+            return if (homeName != null && awayName != null && homeName.length >= 3 && awayName.length >= 3)
+                "${homeName.substring(0, 3)
+                    .toUpperCase(Locale.getDefault())} x ${awayName.substring(0, 3)
+                    .toUpperCase(Locale.getDefault())} - $suffix"
+            else "$homeName x ${awayName?.toUpperCase(Locale.getDefault())} - $suffix"
+        }
+
+        fun loadImage(imageView: ImageView, url: String?) {
             if (!URLUtil.isValidUrl(url))
                 return
             val picasso = Picasso.get()

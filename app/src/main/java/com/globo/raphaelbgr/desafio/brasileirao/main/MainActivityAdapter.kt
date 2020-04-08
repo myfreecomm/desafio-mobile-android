@@ -33,11 +33,11 @@ class MainActivityAdapter(private val listener: MatchListListener) :
         holder.itemView.tv_match_date.text =
             BrasileiraoUtil.parseDate(matchList[position].matchDate)
 
-        BrasileiraoUtil.loadShieldImage(
+        BrasileiraoUtil.loadImage(
             holder.itemView.iv_home_team_shield,
             matchList[position].matchTeams?.home?.teamShield
         )
-        BrasileiraoUtil.loadShieldImage(
+        BrasileiraoUtil.loadImage(
             holder.itemView.iv_away_team_shield,
             matchList[position].matchTeams?.away?.teamShield
         )
