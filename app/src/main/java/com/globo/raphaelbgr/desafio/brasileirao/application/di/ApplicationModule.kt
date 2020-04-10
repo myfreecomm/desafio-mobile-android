@@ -8,11 +8,11 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class ApplicationModule(private val context: Context) {
+open class ApplicationModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun provideAppDatabase(): AppDatabase {
+    open fun provideAppDatabase(): AppDatabase {
         return Room.databaseBuilder(context, AppDatabase::class.java, "brasileirao.db")
             .build()
     }

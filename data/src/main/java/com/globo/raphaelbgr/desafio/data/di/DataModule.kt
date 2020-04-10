@@ -10,19 +10,19 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class DataModule {
+open class DataModule {
 
     private val dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 
     @Provides
     @Singleton
-    fun provideRestClient(gson: Gson): RestClient {
+    open fun provideRestClient(gson: Gson): RestClient {
         return RestClient(gson)
     }
 
     @Provides
     @Singleton
-    fun provideGson(): Gson {
+    open fun provideGson(): Gson {
         return GsonBuilder()
             .setFieldNamingStrategy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
             .setDateFormat(dateFormat)
@@ -31,7 +31,7 @@ class DataModule {
 
     @Provides
     @Singleton
-    fun provideApiService(restClient: RestClient): ApiService {
+    open fun provideApiService(restClient: RestClient): ApiService {
         return restClient.apiInstance
     }
 }

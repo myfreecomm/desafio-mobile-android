@@ -10,7 +10,7 @@ import timber.log.Timber
 import timber.log.Timber.DebugTree
 import javax.inject.Inject
 
-class BrasileiraoApplication : Application() {
+open class BrasileiraoApplication : Application() {
 
     private lateinit var applicationComponent: ApplicationComponent
 

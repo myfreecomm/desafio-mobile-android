@@ -17,6 +17,7 @@ import javax.inject.Singleton
 class RestClient(gson: Gson) {
 
     val apiInstance: ApiService
+    var baseUrl = BuildConfig.BASE_URL
 
     init {
         val interceptor = HttpLoggingInterceptor { message -> Timber.tag("OkHttp").d(message) }
@@ -32,7 +33,7 @@ class RestClient(gson: Gson) {
         val builder = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(gson))
 
-        apiInstance = builder.baseUrl(BuildConfig.BASE_URL)
+        apiInstance = builder.baseUrl(baseUrl)
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .addConverterFactory(GsonConverterFactory.create(gson))
             .client(clientBuilder)
