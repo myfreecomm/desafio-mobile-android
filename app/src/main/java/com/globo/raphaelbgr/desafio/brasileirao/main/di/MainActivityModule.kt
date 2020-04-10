@@ -18,7 +18,7 @@ class MainActivityModule(private val context: Context) : BaseActivityModule(cont
 
     @Provides
     @Singleton
-    fun provideMainActivityPresenter(coroutineScope: CoroutineScope,api: ApiService, local: LocalRepository): MainActivityPresenter {
+    fun provideMainActivityPresenter(coroutineScope: CoroutineScope, api: ApiService, local: LocalRepository): MainActivityPresenter {
         return MainActivityPresenterImpl(coroutineScope, api, local)
     }
 

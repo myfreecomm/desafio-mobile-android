@@ -7,13 +7,11 @@ import dagger.Provides
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import javax.inject.Singleton
 
 @Module
 open class BaseActivityModule(private val context: Context) {
 
     @Provides
-    @Singleton
     fun provideAppNavigatorUtil(): NavigatorUtil {
         return NavigatorUtil(context)
     }

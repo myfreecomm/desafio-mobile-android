@@ -95,5 +95,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     // Optional -- UI testing with UI Automator
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+    // Mock web server
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:3.9.0"
 
 }
