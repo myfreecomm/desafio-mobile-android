@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.NoMatchingViewException
 import androidx.test.espresso.ViewAssertion
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry
@@ -27,6 +29,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.net.HttpURLConnection
 
 @RunWith(AndroidJUnit4::class)
 @LargeTest
@@ -66,6 +69,71 @@ class MainActivityInstrumentedTest {
         )
     }
 
+    @Test
+    fun loadApiMatchListDataCheck() {
+        server.enqueue(MockResponse().setBody(TestUtilInstrumented.loadBrasileiraoRawMockResponse()))
+        mActivityRule.launchActivity(Intent())
+        Thread.sleep(3000)
+        onView(withId(R.id.rv_games_list)).check(
+            RecyclerViewItemCountAssertion(equalTo(1))
+        )
+        onView(withText("Flamengo")).check(
+            matches(isDisplayed())
+        )
+        onView(withText("Vasco")).check(
+            matches(isDisplayed())
+        )
+        onView(withText("2")).check(
+            matches(isDisplayed())
+        )
+        onView(withText("0")).check(
+            matches(isDisplayed())
+        )
+        onView(withText("05/02/20 08:40")).check(
+            matches(isDisplayed())
+        )
+    }
+
+    @Test
+    fun loadApiMatchListErrorWithNoCacheAndTryAgain() {
+        server.enqueue(MockResponse().setResponseCode(HttpURLConnection.HTTP_NOT_FOUND))
+        server.enqueue(MockResponse().setBody(TestUtilInstrumented.loadBrasileiraoRawMockResponse()))
+        mActivityRule.launchActivity(Intent())
+        Thread.sleep(3000)
+        onView(withText("Não foi possível carregar a lista de jogos, por favor, tente novamente.")).check(
+            matches(isDisplayed())
+        )
+        onView(withText("TENTAR NOVAMENTE")).perform(click())
+        Thread.sleep(2000)
+        onView(withId(R.id.rv_games_list)).check(
+            RecyclerViewItemCountAssertion(equalTo(1))
+        )
+    }
+
+    @Test
+    fun loadApiMatchEmptyWithNoCacheAndReload() {
+        server.enqueue(MockResponse().setBody(TestUtilInstrumented.loadBrasileiraoEmptyRawMockResponse()))
+        server.enqueue(MockResponse().setBody(TestUtilInstrumented.loadBrasileiraoRawMockResponse()))
+        mActivityRule.launchActivity(Intent())
+        Thread.sleep(3000)
+        onView(withText("No momento não há jogos para serem carregados, tente novamente mais tarde.")).check(
+            matches(isDisplayed())
+        )
+        onView(withText("OK")).perform(click())
+        Thread.sleep(2000)
+        onView(withId(R.id.rv_games_list)).check(
+            RecyclerViewItemCountAssertion(equalTo(0))
+        )
+        onView(withId(R.id.fab_main)).check(
+            matches(isDisplayed())
+        )
+        onView(withId(R.id.fab_main)).perform(click())
+        Thread.sleep(2000)
+        onView(withId(R.id.rv_games_list)).check(
+            RecyclerViewItemCountAssertion(equalTo(1))
+        )
+    }
+
     @After
     fun tearDown() {
         server.shutdown()
@@ -74,7 +142,7 @@ class MainActivityInstrumentedTest {
     internal class RecyclerViewItemCountAssertion(private val matcher: Matcher<Int>) :
         ViewAssertion {
         override fun check(
-            view: View,
+            view: View?,
             noViewFoundException: NoMatchingViewException?
         ) {
             if (noViewFoundException != null) {
