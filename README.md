@@ -1,5 +1,8 @@
+# Raphael Bernardo
+
 # O que foi feito
 
+- App feito todo em linguagem Kotlin.
 - A persistência usa o RoomDb e os dados estão separadas em três tabelas que se relacionam: uma de Partidas, outra de Times e outra de Lances.
 - A arquitetura do app usa MVP e está separada em módulos, uma do app em sí e outra de dados.
 - Para injeção de dependência utilizei o Dagger2 e as instâncias estão em escopo de instância única.
@@ -11,9 +14,10 @@
 - Teste unitário da camada Presenter.
 - Teste instrumentado para todas as telas.
 
+
 ## Qual foi o foco
 
-- Preocupação em manter o banco de dados local bem normalizado para futura escalabilidade.
+- Preocupação em manter o banco de dados local bem normalizado para futura escalabilidade. Por isso foram criadas 3 tabelas.
 - Fazer um app estável, sem leaks de memória e com o lifecycle apenas de Acvivities sem Fragments.
 - Linguagem ubíquia para o melhor entendimento do código.
 
@@ -22,7 +26,6 @@
 
 - Não foi possível separar toda a camada de dados no módulo de dados, pois o banco de dados Room é dependente direto de contexto (Android).
 - As queries de partidas poderiam ter JOIN com a tabela de times, mas por questões de tempo decidi não fazer.
-- Poderia ter mais uma camada de Repositório, porém por questões de tempo, deixei a lógica de busca de dados na camada Presenter.
 - Utilização do Proguard ou R8 para ofuscamento de código (não deu tempo).
 - Design: tenho noção do material design mas foquei muito mais em arquitetura e lógica.
 
@@ -107,6 +110,8 @@
 	}
 
 ===================================================================================
+
+# (README ORIGINAL)
 
 # Raphael Bernardo
 Android Produtos
