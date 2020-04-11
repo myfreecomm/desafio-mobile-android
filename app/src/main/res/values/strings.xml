@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Brasileirao</string>
+    <string name="games_list">Lista de jogos</string>
+    <string name="highlights">Lance a lance</string>
+    <string name="cound_not_load">Não foi possível carregar a lista de jogos, por favor, tente novamente.</string>
+    <string name="try_again">Tentar novamente</string>
+    <string name="cancel">Cancelar</string>
+    <string name="no_games_to_load">No momento não há jogos para serem carregados, tente novamente mais tarde.</string>
+    <string name="ok">Ok</string>
+</resources>

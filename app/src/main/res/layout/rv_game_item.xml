@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?attr/selectableItemBackground"
+    android:padding="@dimen/activity_margin">
+
+    <ImageView
+        android:id="@+id/iv_home_team_shield"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/iv_away_team_shield"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_home_team_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_margin"
+        app:layout_constraintEnd_toStartOf="@+id/tv_away_team_name"
+        app:layout_constraintStart_toEndOf="@+id/iv_home_team_shield"
+        app:layout_constraintTop_toTopOf="@+id/iv_home_team_shield"
+        tools:text="Flamengo" />
+
+    <TextView
+        android:id="@+id/tv_away_team_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_margin"
+        android:layout_marginEnd="@dimen/activity_margin"
+        android:gravity="end"
+        app:layout_constraintEnd_toStartOf="@+id/iv_away_team_shield"
+        app:layout_constraintStart_toEndOf="@+id/tv_home_team_name"
+        app:layout_constraintTop_toTopOf="@+id/iv_home_team_shield"
+        tools:text="Vasco da Gama" />
+
+    <TextView
+        android:id="@+id/tv_home_team_score"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_half_margin"
+        android:gravity="center_horizontal"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/iv_home_team_shield"
+        app:layout_constraintStart_toStartOf="@+id/iv_home_team_shield"
+        app:layout_constraintTop_toBottomOf="@+id/iv_home_team_shield"
+        tools:text="2" />
+
+    <TextView
+        android:id="@+id/tv_away_team_score"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_half_margin"
+        android:gravity="center_horizontal"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/iv_away_team_shield"
+        app:layout_constraintStart_toStartOf="@+id/iv_away_team_shield"
+        app:layout_constraintTop_toBottomOf="@+id/iv_away_team_shield"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/tv_match_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iv_away_team_shield"
+        app:layout_constraintStart_toEndOf="@+id/iv_home_team_shield"
+        app:layout_constraintTop_toBottomOf="@+id/tv_x"
+        tools:text="@tools:sample/date/ddmmyy" />
+
+    <TextView
+        android:id="@+id/tv_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_home_team_score"
+        app:layout_constraintEnd_toStartOf="@+id/tv_away_team_score"
+        app:layout_constraintStart_toEndOf="@+id/tv_home_team_score"
+        app:layout_constraintTop_toTopOf="@+id/tv_home_team_score" />
+</androidx.constraintlayout.widget.ConstraintLayout>
