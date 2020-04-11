@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 open class BrasileiraoApplication : Application() {
 
-    private lateinit var applicationComponent: ApplicationComponent
+    lateinit var applicationComponent: ApplicationComponent
 
     @Inject
     lateinit var db: AppDatabase
@@ -29,7 +29,7 @@ open class BrasileiraoApplication : Application() {
         }
     }
 
-    private fun injectDependencies() {
+    open fun injectDependencies() {
         applicationComponent = DaggerApplicationComponent.builder()
             .applicationModule(ApplicationModule(applicationContext))
             .build()
@@ -37,7 +37,9 @@ open class BrasileiraoApplication : Application() {
         applicationComponent.inject(this)
     }
 
-    fun getApplicationComponent(): ApplicationComponent {
-        return this.applicationComponent
+    companion object {
+        fun getApplicationComponent(brasileiraoApplication: BrasileiraoApplication): ApplicationComponent {
+            return brasileiraoApplication.applicationComponent
+        }
     }
 }

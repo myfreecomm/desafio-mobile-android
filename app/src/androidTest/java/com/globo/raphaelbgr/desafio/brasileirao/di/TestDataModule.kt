@@ -5,16 +5,12 @@ import com.globo.raphaelbgr.desafio.data.network.RestClient
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 @Module
-class TestDataModule : DataModule() {
+class TestDataModule(private val baseUrl: String) : DataModule() {
 
     @Provides
-    @Singleton
     override fun provideRestClient(gson: Gson): RestClient {
-        val client = RestClient(gson)
-        client.baseUrl = com.globo.raphaelbgr.desafio.data.BuildConfig.TEST_BASE_URL
-        return RestClient(gson)
+        return RestClient(gson, baseUrl)
     }
 }

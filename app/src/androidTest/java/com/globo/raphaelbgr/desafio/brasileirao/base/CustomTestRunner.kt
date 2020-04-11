@@ -3,6 +3,7 @@ package com.globo.raphaelbgr.desafio.brasileirao.base
 import android.app.Application
 import android.content.Context
 import androidx.test.runner.AndroidJUnitRunner
+import com.globo.raphaelbgr.desafio.brasileirao.application.BrasileiraoApplication
 
 class CustomTestRunner : AndroidJUnitRunner() {
 
@@ -11,6 +12,6 @@ class CustomTestRunner : AndroidJUnitRunner() {
         className: String?,
         context: Context?
     ): Application {
-        return super.newApplication(cl, TestBrasileiraoApplication::class.java.name, context)
+        return super.newApplication(cl, BrasileiraoApplication::class.java.name, context)
     }
 }

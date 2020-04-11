@@ -1,13 +1,12 @@
 package com.globo.raphaelbgr.desafio.brasileirao.main.di
 
+import com.globo.raphaelbgr.desafio.brasileirao.application.di.ApplicationComponent
 import com.globo.raphaelbgr.desafio.brasileirao.main.MainActivity
-import com.globo.raphaelbgr.desafio.data.di.DataModule
 import dagger.Component
-import javax.inject.Singleton
 
-@Singleton
 @Component(
-    modules = [MainActivityModule::class, DataModule::class]
+    dependencies = [ApplicationComponent::class],
+    modules = [MainActivityModule::class]
 )
 interface MainActivityComponent {
 

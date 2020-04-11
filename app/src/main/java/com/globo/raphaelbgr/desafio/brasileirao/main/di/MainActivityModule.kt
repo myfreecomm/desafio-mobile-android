@@ -11,19 +11,16 @@ import com.globo.raphaelbgr.desafio.data.network.ApiService
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.CoroutineScope
-import javax.inject.Singleton
 
 @Module
 class MainActivityModule(private val context: Context) : BaseActivityModule(context) {
 
     @Provides
-    @Singleton
     fun provideMainActivityPresenter(coroutineScope: CoroutineScope, api: ApiService, local: LocalRepository): MainActivityPresenter {
         return MainActivityPresenterImpl(coroutineScope, api, local)
     }
 
     @Provides
-    @Singleton
     fun provideLocalRepository(coroutineScope: CoroutineScope): LocalRepository {
         return LocalRepositoryImpl(coroutineScope, (context.applicationContext as BrasileiraoApplication).db)
     }

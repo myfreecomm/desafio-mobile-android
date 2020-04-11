@@ -30,6 +30,6 @@ abstract class BaseActivity : AppCompatActivity() {
      * Get the Main Application component for dependency injection.
      */
     protected open fun getApplicationComponent(): ApplicationComponent {
-        return (application as BrasileiraoApplication).getApplicationComponent()
+        return BrasileiraoApplication.getApplicationComponent((application as BrasileiraoApplication))
     }
 }

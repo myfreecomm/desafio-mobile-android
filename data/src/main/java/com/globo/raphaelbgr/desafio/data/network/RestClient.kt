@@ -1,6 +1,5 @@
 package com.globo.raphaelbgr.desafio.data.network
 
-import com.globo.raphaelbgr.desafio.data.BuildConfig
 import com.google.gson.Gson
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
@@ -10,21 +9,26 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
+import java.util.logging.Logger
 import javax.inject.Singleton
 
 
 @Singleton
-class RestClient(gson: Gson) {
+class RestClient(gson: Gson, baseUrl: String) {
 
     val apiInstance: ApiService
-    var baseUrl = BuildConfig.BASE_URL
 
     init {
-        val interceptor = HttpLoggingInterceptor { message -> Timber.tag("OkHttp").d(message) }
-        interceptor.level = BODY
+        val logging =
+            HttpLoggingInterceptor(object : Logger("OkHttp", null), HttpLoggingInterceptor.Logger {
+                override fun log(message: String) {
+                    Timber.tag("OkHttp").d(message)
+                }
+            })
+        logging.level = BODY
 
         val clientBuilder = OkHttpClient.Builder()
-            .addInterceptor(interceptor)
+            .addInterceptor(logging)
             .connectTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)

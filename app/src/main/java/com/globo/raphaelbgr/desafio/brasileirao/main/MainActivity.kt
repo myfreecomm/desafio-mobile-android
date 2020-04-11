@@ -58,6 +58,7 @@ class MainActivity : BaseActivity(), MainView, MatchListListener {
 
     private fun injectDependencies() {
         DaggerMainActivityComponent.builder()
+            .applicationComponent(getApplicationComponent())
             .mainActivityModule(MainActivityModule(this))
             .build()
             .inject(this)
