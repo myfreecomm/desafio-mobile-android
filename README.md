@@ -11,16 +11,17 @@
 - Foi utilizado o Apiary para simular o backend.
 - Telas redimensionáveis utilizando ConstraintLayout para todos os tamanhos de tela.
 - Suporte a rotação de tela com salvamento temporário de dados (onSavestate())
-- Mapeador para separa modelos do Android e Modelos do banco, com isso é possível trocar o banco para qualquer outra fonte de dados.
+- Mapeador para que modelos do Android e Modelos do banco, com isso é possível trocar o banco para qualquer outra fonte de dados.
 - Teste unitário da camada Presenter.
 - Teste instrumentado para todas as telas.
 
 
 ## Qual foi o foco
 
-- Preocupação em manter o banco de dados local bem normalizado para futura escalabilidade. Por isso foram criadas 3 tabelas.
+- Preocupação em manter o banco de dados local bem normalizado para futura escalabilidade. Por isso foram criadas 3 tabelas onde em cada uma há uma coluna de chave estrangeira para as demais.
 - Fazer um app estável, sem leaks de memória e com o lifecycle apenas de Acvivities sem Fragments.
 - Linguagem ubíquia para o melhor entendimento do código.
+- Simplicidade e escalabilidade da arquitetura.
 
 
 ## O que poderia melhorar
@@ -34,6 +35,7 @@
 ## O que seria legal ter
 
 - Deeplink que levam para uma partida específica com stack de navegação caso o usuário volte (muitos apps não tem stack).
+- Notificações de jogos que estão próximos de acontecer.
 
 
 ## O app obedece a seguinte estrutura de dados vinda de uma API em JSON
