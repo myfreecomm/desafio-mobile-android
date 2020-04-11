@@ -1,8 +1,14 @@
 package com.globo.raphaelbgr.desafio.brasileirao.base.util
 
+import android.view.View
+import androidx.recyclerview.widget.RecyclerView
+import androidx.test.espresso.NoMatchingViewException
+import androidx.test.espresso.ViewAssertion
 import com.globo.raphaelbgr.desafio.data.network.response.MatchList
 import com.globo.raphaelbgr.desafio.data.network.response.matchlist.Match
 import com.google.gson.Gson
+import org.hamcrest.Matcher
+import org.hamcrest.MatcherAssert
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
@@ -51,6 +57,21 @@ class TestUtilInstrumented {
             }
             inputStream?.close()
             return Gson().fromJson(json.toString(), MatchList::class.java).matchList?.get(0)!!
+        }
+    }
+
+    class RecyclerViewItemCountAssertion(private val matcher: Matcher<Int>) :
+        ViewAssertion {
+        override fun check(
+            view: View?,
+            noViewFoundException: NoMatchingViewException?
+        ) {
+            if (noViewFoundException != null) {
+                throw noViewFoundException
+            }
+            val recyclerView = view as RecyclerView
+            val adapter = recyclerView.adapter
+            MatcherAssert.assertThat(adapter!!.itemCount, matcher)
         }
     }
 }

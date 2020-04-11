@@ -1,11 +1,7 @@
 package com.globo.raphaelbgr.desafio.brasileirao
 
 import android.content.Intent
-import android.view.View
-import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.NoMatchingViewException
-import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
@@ -21,8 +17,6 @@ import com.globo.raphaelbgr.desafio.brasileirao.di.TestDataModule
 import com.globo.raphaelbgr.desafio.brasileirao.main.MainActivity
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
-import org.hamcrest.Matcher
-import org.hamcrest.MatcherAssert
 import org.hamcrest.Matchers.equalTo
 import org.junit.After
 import org.junit.Before
@@ -65,7 +59,7 @@ class MainActivityInstrumentedTest {
         mActivityRule.launchActivity(Intent())
         Thread.sleep(3000)
         onView(withId(R.id.rv_games_list)).check(
-            RecyclerViewItemCountAssertion(equalTo(1))
+            TestUtilInstrumented.RecyclerViewItemCountAssertion(equalTo(1))
         )
     }
 
@@ -75,7 +69,7 @@ class MainActivityInstrumentedTest {
         mActivityRule.launchActivity(Intent())
         Thread.sleep(3000)
         onView(withId(R.id.rv_games_list)).check(
-            RecyclerViewItemCountAssertion(equalTo(1))
+            TestUtilInstrumented.RecyclerViewItemCountAssertion(equalTo(1))
         )
         onView(withText("Flamengo")).check(
             matches(isDisplayed())
@@ -106,7 +100,7 @@ class MainActivityInstrumentedTest {
         onView(withText("TENTAR NOVAMENTE")).perform(click())
         Thread.sleep(2000)
         onView(withId(R.id.rv_games_list)).check(
-            RecyclerViewItemCountAssertion(equalTo(1))
+            TestUtilInstrumented.RecyclerViewItemCountAssertion(equalTo(1))
         )
     }
 
@@ -122,7 +116,7 @@ class MainActivityInstrumentedTest {
         onView(withText("OK")).perform(click())
         Thread.sleep(2000)
         onView(withId(R.id.rv_games_list)).check(
-            RecyclerViewItemCountAssertion(equalTo(0))
+            TestUtilInstrumented.RecyclerViewItemCountAssertion(equalTo(0))
         )
         onView(withId(R.id.fab_main)).check(
             matches(isDisplayed())
@@ -130,27 +124,12 @@ class MainActivityInstrumentedTest {
         onView(withId(R.id.fab_main)).perform(click())
         Thread.sleep(2000)
         onView(withId(R.id.rv_games_list)).check(
-            RecyclerViewItemCountAssertion(equalTo(1))
+            TestUtilInstrumented.RecyclerViewItemCountAssertion(equalTo(1))
         )
     }
 
     @After
     fun tearDown() {
         server.shutdown()
-    }
-
-    internal class RecyclerViewItemCountAssertion(private val matcher: Matcher<Int>) :
-        ViewAssertion {
-        override fun check(
-            view: View?,
-            noViewFoundException: NoMatchingViewException?
-        ) {
-            if (noViewFoundException != null) {
-                throw noViewFoundException
-            }
-            val recyclerView = view as RecyclerView
-            val adapter = recyclerView.adapter
-            MatcherAssert.assertThat(adapter!!.itemCount, matcher)
-        }
     }
 }
