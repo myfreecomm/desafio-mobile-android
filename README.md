@@ -8,7 +8,8 @@
 - Telas redimensionáveis utilizando ConstraintLayout para todos os tamanhos de tela.
 - Suporte a rotação de tela com salvamento temporário de dados (onSavestate())
 - Mapeador para separa modelos do Android e Modelos do banco, com isso é possível trocar o banco para qualquer outra fonte de dados.
-- Teste unitário da camada Presenter
+- Teste unitário da camada Presenter.
+- Teste instrumentado para todas as telas.
 
 ## Qual foi o foco
 
@@ -23,7 +24,6 @@
 - As queries de partidas poderiam ter JOIN com a tabela de times, mas por questões de tempo decidi não fazer.
 - Poderia ter mais uma camada de Repositório, porém por questões de tempo, deixei a lógica de busca de dados na camada Presenter.
 - Utilização do Proguard ou R8 para ofuscamento de código (não deu tempo).
-- Testes instrumentados.
 - Design: tenho noção do material design mas foquei muito mais em arquitetura e lógica.
 
 
