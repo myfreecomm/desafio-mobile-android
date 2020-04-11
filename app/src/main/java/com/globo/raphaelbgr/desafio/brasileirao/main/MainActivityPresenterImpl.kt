@@ -1,19 +1,18 @@
 package com.globo.raphaelbgr.desafio.brasileirao.main
 
+import com.globo.raphaelbgr.desafio.brasileirao.base.BasePresenter
 import com.globo.raphaelbgr.desafio.data.local.LocalRepository
 import com.globo.raphaelbgr.desafio.data.network.ApiService
 import com.globo.raphaelbgr.desafio.data.network.response.matchlist.Match
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 
 class MainActivityPresenterImpl(
-    val coroutineScope: CoroutineScope,
     val api: ApiService,
     val local: LocalRepository
-) : MainActivityPresenter {
+) : MainActivityPresenter, BasePresenter() {
 
     private lateinit var view: MainView
 

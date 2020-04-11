@@ -16,12 +16,18 @@ import kotlinx.coroutines.CoroutineScope
 class MainActivityModule(private val context: Context) : BaseActivityModule(context) {
 
     @Provides
-    fun provideMainActivityPresenter(coroutineScope: CoroutineScope, api: ApiService, local: LocalRepository): MainActivityPresenter {
-        return MainActivityPresenterImpl(coroutineScope, api, local)
+    fun provideMainActivityPresenter(
+        api: ApiService,
+        local: LocalRepository
+    ): MainActivityPresenter {
+        return MainActivityPresenterImpl(api, local)
     }
 
     @Provides
     fun provideLocalRepository(coroutineScope: CoroutineScope): LocalRepository {
-        return LocalRepositoryImpl(coroutineScope, (context.applicationContext as BrasileiraoApplication).db)
+        return LocalRepositoryImpl(
+            coroutineScope,
+            (context.applicationContext as BrasileiraoApplication).db
+        )
     }
 }
