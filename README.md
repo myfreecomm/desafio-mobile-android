@@ -3,9 +3,10 @@
 # O que foi feito
 
 - App feito todo em linguagem Kotlin.
+- Foi utilizado o Kotlin Coroutines, com injeção de escopo via Dagger2 para poder executa-los em testes unitários.
 - A persistência usa o RoomDb e os dados estão separadas em três tabelas que se relacionam: uma de Partidas, outra de Times e outra de Lances.
 - A arquitetura do app usa MVP e está separada em módulos, uma do app em sí e outra de dados.
-- Para injeção de dependência utilizei o Dagger2 e as instâncias estão em escopo de instância única.
+- Para injeção de dependência utilizei o Dagger2.
 - Foi utilizado o picasso, retrofit e okhttp para gerenciamento de imagens, e download de dados.
 - Foi utilizado o Apiary para simular o backend.
 - Telas redimensionáveis utilizando ConstraintLayout para todos os tamanhos de tela.
