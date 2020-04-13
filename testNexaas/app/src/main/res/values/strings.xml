@@ -3,4 +3,5 @@
 
     <string name="total">TOTAL</string>
     <string name="productQtd">%d items in your cart</string>
+    <string name="getProductsError">Não foi possível recarregar</string>
 </resources>

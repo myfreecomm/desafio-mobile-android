@@ -4,6 +4,7 @@ import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.testnexaas.R
 import com.example.testnexaas.modules.product.model.Product
 import kotlinx.android.synthetic.main.product_item.view.*
 
@@ -24,6 +25,7 @@ class ProductViewHolder(private val view: View) : RecyclerView.ViewHolder(view) 
 
             Glide.with(this)
                 .load(product.imageUrl)
+                .placeholder(R.drawable.ic_image_placeholder)
                 .override(
                     ConstraintLayout.LayoutParams.WRAP_CONTENT,
                     ConstraintLayout.LayoutParams.WRAP_CONTENT

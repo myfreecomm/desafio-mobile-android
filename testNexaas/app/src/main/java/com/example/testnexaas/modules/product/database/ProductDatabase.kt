@@ -19,7 +19,8 @@ abstract class ProductDatabase : RoomDatabase() {
                 context,
                 ProductDatabase::class.java,
                 "products"
-            ).build()
+            )
+                .build()
         }
     }
 }

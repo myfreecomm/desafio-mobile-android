@@ -1,6 +1,7 @@
 package com.example.testnexaas.modules.product.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import com.example.testnexaas.modules.product.viewmodel.ProductsViewModelFactory
 import com.example.testnexaas.modules.product.viewmodel.ProductsViewmodel
 import com.example.testnexaas.R
 import com.example.testnexaas.modules.product.adapter.ProductsAdapter
+import com.example.testnexaas.modules.product.database.ProductDatabase
 import com.example.testnexaas.modules.product.repository.ProductRepository
 import kotlinx.android.synthetic.main.fragment_products.*
 
@@ -48,10 +50,13 @@ class ProductsFragment : Fragment() {
     }
 
     private fun setupViewmodel() {
+
+        val db = ProductDatabase.create(context!!)
+
         productsViewmodel = ViewModelProvider(
             this.activity!!,
             ProductsViewModelFactory(
-                ProductRepository()
+                ProductRepository(db)
             )
         ).get(ProductsViewmodel::class.java)
     }
@@ -72,7 +77,8 @@ class ProductsFragment : Fragment() {
             })
 
             onError.observe(viewLifecycleOwner, Observer { errorMessage ->
-                Toast.makeText(context, "error: $errorMessage", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getString(R.string.getProductsError), Toast.LENGTH_SHORT).show()
+                Log.e("GET-PRODUCTS-ERROR", "error: $errorMessage")
             })
 
             products.observe(viewLifecycleOwner, Observer { newProducts ->

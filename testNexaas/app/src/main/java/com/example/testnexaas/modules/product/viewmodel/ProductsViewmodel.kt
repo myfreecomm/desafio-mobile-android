@@ -24,6 +24,9 @@ class ProductsViewmodel(
             onError = { errorMessage ->
                 onError.value = errorMessage
                 onLoadFinished.call()
+            },
+            showOfflineProducts = { offlineProducts ->
+                products.value = offlineProducts
             }
         )
     }
