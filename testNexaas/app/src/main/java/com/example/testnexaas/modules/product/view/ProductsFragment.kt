@@ -10,12 +10,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.testnexaas.modules.product.viewmodel.ProductsViewModelFactory
-import com.example.testnexaas.modules.product.viewmodel.ProductsViewmodel
 import com.example.testnexaas.R
+import com.example.testnexaas.core.util.PRODUCT_ID
 import com.example.testnexaas.modules.product.adapter.ProductsAdapter
 import com.example.testnexaas.modules.product.database.ProductDatabase
 import com.example.testnexaas.modules.product.repository.ProductRepository
+import com.example.testnexaas.modules.product.viewmodel.ProductsViewModelFactory
+import com.example.testnexaas.modules.product.viewmodel.ProductsViewmodel
 import kotlinx.android.synthetic.main.fragment_products.*
 
 class ProductsFragment : Fragment() {
@@ -37,8 +38,11 @@ class ProductsFragment : Fragment() {
             ProductsAdapter(
                 clickListener = {
                     val args = Bundle()
-                    args.putString("productId", it.toString())
-                    findNavController().navigate(R.id.action_productsFragment_to_productDetailFragment, args)
+                    args.putString(PRODUCT_ID, it.toString())
+                    findNavController().navigate(
+                        R.id.action_productsFragment_to_productDetailFragment,
+                        args
+                    )
                 })
 
         setupViewmodel()
@@ -82,7 +86,8 @@ class ProductsFragment : Fragment() {
             })
 
             onError.observe(viewLifecycleOwner, Observer { errorMessage ->
-                Toast.makeText(context, getString(R.string.getProductsError), Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getString(R.string.getProductsError), Toast.LENGTH_SHORT)
+                    .show()
                 Log.e("GET-PRODUCTS-ERROR", "error: $errorMessage")
             })
 

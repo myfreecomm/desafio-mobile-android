@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.testnexaas.R
 import com.example.testnexaas.modules.product.model.Product
+import kotlinx.android.synthetic.main.fragment_product_detail.*
 import kotlinx.android.synthetic.main.product_item.view.*
 
 class ProductViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
@@ -19,9 +20,15 @@ class ProductViewHolder(private val view: View) : RecyclerView.ViewHolder(view) 
 
             setOnClickListener { clickListener(product.id) }
 
+            productTextStock.text = when(product.stock) {
+                0 -> resources.getString(R.string.out_stock)
+                1 -> resources.getString(R.string.only_one)
+                else -> resources.getString(R.string.in_stock)
+            }
+
+            productTextPrice.text =  "${product?.price}.00"
+
             productTextName.text = product.name
-            productTextStock.text = product.stock.toString()
-            productTextPrice.text = product.price.toString()
 
             Glide.with(this)
                 .load(product.imageUrl)

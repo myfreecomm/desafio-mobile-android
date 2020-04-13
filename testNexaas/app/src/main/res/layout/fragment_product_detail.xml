@@ -3,16 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        style="@style/Widget.App.Toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_close"
+        app:menu="@menu/product_details_menu"
+        app:title="Product details"
+        android:clickable="true"
+        android:focusable="true">
+
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <ImageView
         android:id="@+id/imageProductDetail"
         android:layout_width="0dp"
         android:layout_height="230dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <TextView

@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.testnexaas.R
+import com.example.testnexaas.core.util.PRODUCT_ID
 import com.example.testnexaas.modules.product.database.ProductDatabase
 import com.example.testnexaas.modules.product.model.Product
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -29,11 +31,15 @@ class ProductDetailFragment : Fragment() {
         )
     }
 
-    @SuppressLint("CheckResult")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val productId: String = arguments?.getString("productId") ?: ""
+        getProductDetailFromDb()
+    }
+
+    @SuppressLint("CheckResult")
+    private fun getProductDetailFromDb() {
+        val productId: String = arguments?.getString(PRODUCT_ID) ?: ""
 
         val db = ProductDatabase.create(context!!).productsDao()
 
@@ -49,8 +55,15 @@ class ProductDetailFragment : Fragment() {
 
     private fun setupView(product: Product?) {
         textProductDetailName.text = product?.name
-        textProductDetailStock.text = product?.stock.toString()
-        textProductDetailPrice.text = product?.price.toString()
+
+        textProductDetailStock.text = when(product?.stock) {
+            0 -> getString(R.string.out_stock)
+            1 -> getString(R.string.only_one)
+            else -> getString(R.string.in_stock)
+        }
+
+        textProductDetailPrice.text =  "${product?.price}.00"
+
         textProductDetailDescription.text = product?.description
 
         Glide.with(this)

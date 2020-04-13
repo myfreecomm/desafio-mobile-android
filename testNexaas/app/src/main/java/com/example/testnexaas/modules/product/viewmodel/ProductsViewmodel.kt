@@ -13,7 +13,7 @@ class ProductsViewmodel(
     var products: MutableLiveData<List<Product>> = MutableLiveData()
     var onLoadFinished =
         SingleLiveEvent<Void>()
-    var onError = MutableLiveData<String>()
+    var onError = SingleLiveEvent<String>()
 
     fun getProducts() {
         productsRepository.getProducts(
@@ -23,6 +23,7 @@ class ProductsViewmodel(
             },
             onError = { errorMessage ->
                 onError.value = errorMessage
+                onError.call()
                 onLoadFinished.call()
             },
             showOfflineProducts = { offlineProducts ->
