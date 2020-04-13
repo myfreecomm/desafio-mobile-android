@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.testnexaas.modules.product.viewmodel.ProductsViewModelFactory
 import com.example.testnexaas.modules.product.viewmodel.ProductsViewmodel
 import com.example.testnexaas.R
@@ -34,7 +35,11 @@ class ProductsFragment : Fragment() {
 
         productsAdapter =
             ProductsAdapter(
-                clickListener = { })
+                clickListener = {
+                    val args = Bundle()
+                    args.putString("productId", it.toString())
+                    findNavController().navigate(R.id.action_productsFragment_to_productDetailFragment, args)
+                })
 
         setupViewmodel()
 
@@ -51,7 +56,7 @@ class ProductsFragment : Fragment() {
 
     private fun setupViewmodel() {
 
-        val db = ProductDatabase.create(context!!)
+        val db = ProductDatabase.create(context!!).productsDao()
 
         productsViewmodel = ViewModelProvider(
             this.activity!!,

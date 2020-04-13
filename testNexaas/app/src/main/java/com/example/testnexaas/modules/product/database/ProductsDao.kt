@@ -21,4 +21,7 @@ interface ProductsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(products: List<Product>)
+
+    @Query("SELECT * FROM products WHERE ID=:id")
+    fun getProduct(id: String): Observable<Product>
 }

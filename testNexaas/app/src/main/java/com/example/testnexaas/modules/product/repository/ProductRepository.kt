@@ -3,6 +3,7 @@ package com.example.testnexaas.modules.product.repository
 import android.annotation.SuppressLint
 import android.util.Log
 import com.example.testnexaas.modules.product.database.ProductDatabase
+import com.example.testnexaas.modules.product.database.ProductsDao
 import com.example.testnexaas.modules.product.model.Product
 import com.example.testnexaas.modules.product.networking.ProductNetworking
 import io.reactivex.Completable
@@ -12,7 +13,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 open class ProductRepository(
-    private val db: ProductDatabase
+    private val db: ProductsDao
 ) {
 
     fun getProducts(
@@ -44,7 +45,7 @@ open class ProductRepository(
         onSuccess: (products: List<Product>) -> Unit,
         onError: (error: String) -> Unit
     ) {
-        db.productsDao().getProducts()
+        db.getProducts()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ productsDb ->
@@ -57,7 +58,7 @@ open class ProductRepository(
     private fun updateProductsToDb(products: List<Product>) {
 
         Completable.fromAction {
-            db.productsDao().deleteAndInsert(products)
+            db.deleteAndInsert(products)
         }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : CompletableObserver {
                 override fun onComplete() {

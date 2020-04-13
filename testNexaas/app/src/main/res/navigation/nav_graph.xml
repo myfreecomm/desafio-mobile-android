@@ -11,11 +11,12 @@
         android:label="fragment_products"
         tools:layout="@layout/fragment_products" >
         <action
-            android:id="@+id/action_productsFragment_to_productDetailsFragment"
+            android:id="@+id/action_productsFragment_to_productDetailFragment"
             app:destination="@id/productDetailFragment" />
-        <action
-            android:id="@+id/action_productsFragment_to_productDetailsFragment2"
-            app:destination="@id/productDetailFragment" />
+
+        <argument
+            android:name="productId"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/productDetailFragment"
