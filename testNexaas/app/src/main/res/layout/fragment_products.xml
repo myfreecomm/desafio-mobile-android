@@ -120,4 +120,14 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="@+id/textView8" />
 
+    <ProgressBar
+        android:id="@+id/productsLoading"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/line1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/recyclerviewProducts"
+        app:layout_constraintTop_toTopOf="@+id/recyclerviewProducts" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

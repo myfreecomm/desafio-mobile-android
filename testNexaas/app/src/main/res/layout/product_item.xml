@@ -7,7 +7,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/productImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -35,19 +35,19 @@
         android:layout_marginStart="16dp"
         android:textColor="@color/eclipseAlpha"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/productTextDisponibility"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/productTextStock"
+        app:layout_constraintStart_toEndOf="@+id/productImage"
+        app:layout_constraintTop_toTopOf="@+id/productImage"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="Pencil" />
 
     <TextView
-        android:id="@+id/productTextDisponibility"
+        android:id="@+id/productTextStock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:textColor="@color/boulder"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/productImage"
         app:layout_constraintStart_toStartOf="@+id/productTextName"
         app:layout_constraintTop_toBottomOf="@+id/productTextName"
         tools:text="In stock" />

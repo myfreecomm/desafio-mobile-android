@@ -9,7 +9,7 @@ data class Product(
 
     @PrimaryKey(autoGenerate = true)
     @field:SerializedName("id")
-    var id: Long = 0,
+    var id: Int = 0,
 
     @field:SerializedName("name")
     val name: String,
