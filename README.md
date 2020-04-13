@@ -1,3 +1,15 @@
+
+## Ferramentas/Libs Usadas
+
+ - Constraints
+ - Cache dos Dados (Room)
+ - Livedata e viewmodel (Google AAC)
+ - Arquitetura MVVM
+ - Testes Unitários
+ - Tratamento de erros
+ - RxJava
+ - Android Navigations (Google AAC)
+
 Teste de Android Developer Nexaas
 ===================
 
@@ -81,3 +93,4 @@ Publicação
 -------------
 
 Crie um **Fork** do repositório para realizar o teste, e depois de finalizado envie um **Pull Request** para nossa equipe interna avaliar
+
