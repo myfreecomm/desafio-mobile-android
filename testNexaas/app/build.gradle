@@ -61,4 +61,8 @@ dependencies {
     kapt "androidx.room:room-compiler:2.2.5"
     implementation "androidx.room:room-ktx:2.2.5"
     implementation 'com.google.android.material:material:1.2.0-alpha05'
+    testImplementation 'org.mockito:mockito-core:2.25.0'
+    testImplementation 'com.nhaarman:mockito-kotlin:1.6.0'
+    testImplementation "io.mockk:mockk:1.9.3"
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
 }

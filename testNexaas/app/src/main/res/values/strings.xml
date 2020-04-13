@@ -8,4 +8,5 @@
     <string name="out_stock">Out of stock</string>
     <string name="in_stock">In stock</string>
     <string name="only_one">Only 1 left in stock</string>
+    <string name="remove_from_cart">REMOVE FROM CART</string>
 </resources>

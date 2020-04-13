@@ -13,9 +13,10 @@
         <action
             android:id="@+id/action_productsFragment_to_productDetailFragment"
             app:destination="@id/productDetailFragment"
-            app:enterAnim="@anim/fragment_open_enter"
+            app:enterAnim="@anim/fragment_close_enter"
             app:exitAnim="@anim/fragment_close_exit"
-            app:popExitAnim="@anim/fragment_close_exit" />
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
 
         <argument
             android:name="productId"

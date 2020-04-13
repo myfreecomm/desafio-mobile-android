@@ -62,7 +62,7 @@ class ProductDetailFragment : Fragment() {
             else -> getString(R.string.in_stock)
         }
 
-        textProductDetailPrice.text =  "${product?.price}.00"
+        textProductDetailPrice.text =  "$ ${product?.price}.00"
 
         textProductDetailDescription.text = product?.description
 
