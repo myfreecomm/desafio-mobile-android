@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -74,6 +75,8 @@ class ProductsFragment : Fragment() {
         with(recyclerviewProducts) {
             setHasFixedSize(true)
             adapter = productsAdapter
+            layoutAnimation =
+                AnimationUtils.loadLayoutAnimation(this.context, R.anim.layout_animation_fall_down)
         }
     }
 

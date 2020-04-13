@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.testnexaas.R
 import com.example.testnexaas.core.util.PRODUCT_ID
@@ -35,6 +35,16 @@ class ProductDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getProductDetailFromDb()
+
+        configClick()
+    }
+
+    private fun configClick() {
+        materialToolbar.setNavigationOnClickListener {
+            findNavController().navigate(
+                R.id.action_productDetailFragment_to_productsFragment
+            )
+        }
     }
 
     @SuppressLint("CheckResult")
@@ -56,13 +66,13 @@ class ProductDetailFragment : Fragment() {
     private fun setupView(product: Product?) {
         textProductDetailName.text = product?.name
 
-        textProductDetailStock.text = when(product?.stock) {
+        textProductDetailStock.text = when (product?.stock) {
             0 -> getString(R.string.out_stock)
             1 -> getString(R.string.only_one)
             else -> getString(R.string.in_stock)
         }
 
-        textProductDetailPrice.text =  "$ ${product?.price}.00"
+        textProductDetailPrice.text = "$ ${product?.price}.00"
 
         textProductDetailDescription.text = product?.description
 
