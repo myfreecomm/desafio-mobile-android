@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">testNexaas</string>
+
+    <string name="total">TOTAL</string>
+    <string name="productQtd">%d items in your cart</string>
+    <string name="getProductsError">Não foi possível recarregar</string>
+    <string name="search">Pesquisar</string>
+    <string name="out_stock">Out of stock</string>
+    <string name="in_stock">In stock</string>
+    <string name="only_one">Only 1 left in stock</string>
+    <string name="remove_from_cart">REMOVE FROM CART</string>
+</resources>

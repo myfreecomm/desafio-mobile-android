@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/productsFragment">
+
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.example.testnexaas.modules.product.view.ProductsFragment"
+        android:label="fragment_products"
+        tools:layout="@layout/fragment_products" >
+        <action
+            android:id="@+id/action_productsFragment_to_productDetailFragment"
+            app:destination="@id/productDetailFragment"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+
+        <argument
+            android:name="productId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.testnexaas.modules.product.view.ProductDetailFragment"
+        android:label="fragment_product_detail"
+        tools:layout="@layout/fragment_product_detail" >
+        <action
+            android:id="@+id/action_productDetailFragment_to_productsFragment"
+            app:destination="@id/productsFragment" />
+    </fragment>
+</navigation>

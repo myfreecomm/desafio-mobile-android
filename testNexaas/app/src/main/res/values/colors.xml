@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="eclipse">#FF383838</color>
+    <color name="eclipseAlpha">#CC000000</color>
+    <color name="boulder">#FF787878</color>
+    <color name="boulderAlpha">#80000000</color>
+    <color name="wildSand">#FFE3E3E3</color>
+
+</resources>
