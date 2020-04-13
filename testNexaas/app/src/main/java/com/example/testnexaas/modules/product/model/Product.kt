@@ -1,4 +1,4 @@
-package com.example.testnexaas
+package com.example.testnexaas.modules.product.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

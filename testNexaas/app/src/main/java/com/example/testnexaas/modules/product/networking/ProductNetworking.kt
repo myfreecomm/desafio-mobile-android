@@ -1,6 +1,8 @@
-package com.example.testnexaas
+package com.example.testnexaas.modules.product.networking
 
 import android.annotation.SuppressLint
+import com.example.testnexaas.core.network.BaseNetwork
+import com.example.testnexaas.modules.product.model.Product
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -18,7 +20,7 @@ object ProductNetworking : BaseNetwork() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ products ->
                 products?.let {
-                    onSuccess(products)
+                    onSuccess(it)
                 }
             }, { error ->
                 onError(error)

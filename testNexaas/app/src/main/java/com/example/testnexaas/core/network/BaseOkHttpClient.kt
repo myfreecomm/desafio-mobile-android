@@ -1,4 +1,4 @@
-package com.example.testnexaas
+package com.example.testnexaas.core.network
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

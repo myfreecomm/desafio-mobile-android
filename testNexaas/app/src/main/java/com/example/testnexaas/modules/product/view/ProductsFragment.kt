@@ -1,4 +1,4 @@
-package com.example.testnexaas
+package com.example.testnexaas.modules.product.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.testnexaas.modules.product.viewmodel.ProductsViewModelFactory
+import com.example.testnexaas.modules.product.viewmodel.ProductsViewmodel
+import com.example.testnexaas.R
+import com.example.testnexaas.modules.product.adapter.ProductsAdapter
+import com.example.testnexaas.modules.product.repository.ProductRepository
 import kotlinx.android.synthetic.main.fragment_products.*
 
 class ProductsFragment : Fragment() {
@@ -25,14 +30,30 @@ class ProductsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        productsViewmodel = ViewModelProvider(
-            this.activity!!
-        ).get(ProductsViewmodel::class.java)
+        productsAdapter =
+            ProductsAdapter(
+                clickListener = { })
 
-        productsAdapter = ProductsAdapter(clickListener = { })
+        setupViewmodel()
 
         setupRecyclerView()
+
         subscribeUI()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        productsViewmodel.getProducts()
+    }
+
+    private fun setupViewmodel() {
+        productsViewmodel = ViewModelProvider(
+            this.activity!!,
+            ProductsViewModelFactory(
+                ProductRepository()
+            )
+        ).get(ProductsViewmodel::class.java)
     }
 
     private fun setupRecyclerView() {
@@ -40,14 +61,14 @@ class ProductsFragment : Fragment() {
             setHasFixedSize(true)
             adapter = productsAdapter
         }
-
     }
 
     private fun subscribeUI() {
         with(productsViewmodel) {
 
             onLoadFinished.observe(viewLifecycleOwner, Observer {
-                productsLoading.visibility = View.GONE
+                loadingLayout.visibility = View.GONE
+                contentLayout.visibility = View.VISIBLE
             })
 
             onError.observe(viewLifecycleOwner, Observer { errorMessage ->
@@ -56,6 +77,7 @@ class ProductsFragment : Fragment() {
 
             products.observe(viewLifecycleOwner, Observer { newProducts ->
                 productsAdapter.update(newProducts)
+                textProductsQtd.text = getString(R.string.productQtd, newProducts.size)
             })
         }
     }

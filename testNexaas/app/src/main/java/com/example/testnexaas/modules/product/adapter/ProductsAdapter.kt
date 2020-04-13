@@ -1,8 +1,11 @@
-package com.example.testnexaas
+package com.example.testnexaas.modules.product.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.testnexaas.modules.product.view.ProductViewHolder
+import com.example.testnexaas.R
+import com.example.testnexaas.modules.product.model.Product
 
 class ProductsAdapter(
     private val clickListener: (productId: Int) -> Unit

@@ -7,16 +7,19 @@
 
     <fragment
         android:id="@+id/productsFragment"
-        android:name="com.example.testnexaas.modules.Products.view.ProductsFragment"
+        android:name="com.example.testnexaas.modules.product.view.ProductsFragment"
         android:label="fragment_products"
         tools:layout="@layout/fragment_products" >
         <action
             android:id="@+id/action_productsFragment_to_productDetailsFragment"
-            app:destination="@id/productDetailsFragment" />
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/action_productsFragment_to_productDetailsFragment2"
+            app:destination="@id/productDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/productDetailsFragment"
-        android:name="com.example.testnexaas.modules.Products.view.ProductDetailsFragment"
-        android:label="fragment_product_details"
-        tools:layout="@layout/fragment_product_details" />
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.testnexaas.modules.product.view.ProductDetailFragment"
+        android:label="fragment_product_detail"
+        tools:layout="@layout/fragment_product_detail" />
 </navigation>

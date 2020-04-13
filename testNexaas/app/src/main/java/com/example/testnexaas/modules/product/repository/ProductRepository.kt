@@ -1,4 +1,7 @@
-package com.example.testnexaas
+package com.example.testnexaas.modules.product.repository
+
+import com.example.testnexaas.modules.product.model.Product
+import com.example.testnexaas.modules.product.networking.ProductNetworking
 
 open class ProductRepository {
 

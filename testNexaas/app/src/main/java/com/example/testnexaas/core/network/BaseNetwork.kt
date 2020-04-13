@@ -1,4 +1,4 @@
-package com.example.testnexaas
+package com.example.testnexaas.core.network
 
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -8,7 +8,7 @@ abstract class BaseNetwork {
 
     companion object {
         const val BASE_URL =
-            "https://raw.githubusercontent.com/myfreecomm/desafio-mobile-android/master/api/data.json"
+            "https://raw.githubusercontent.com/myfreecomm/desafio-mobile-android/master/api/"
     }
 
     protected fun getRetrofitBuilder(): Retrofit.Builder {

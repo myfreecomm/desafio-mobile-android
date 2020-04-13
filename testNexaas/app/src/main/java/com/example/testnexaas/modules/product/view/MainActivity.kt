@@ -1,7 +1,8 @@
-package com.example.testnexaas
+package com.example.testnexaas.modules.product.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.testnexaas.R
 
 class MainActivity : AppCompatActivity() {
 
