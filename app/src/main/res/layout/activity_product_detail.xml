@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="presenter"
+                  type="com.hotmail.fignunes.desafio_mobile.presentation.productdetail.ProductDetailPresenter"/>
+    </data>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <RelativeLayout
+                    android:id="@+id/relativeLayoutImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:gravity="center">
+
+                <ImageView
+                        android:id="@+id/productImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:scaleType="fitCenter"
+                        tools:src="@drawable/ic_launcher_foreground"
+                        android:background="#DCDCDC"/>
+
+
+                <ProgressBar
+                        android:id="@+id/productProgressBar"
+                        android:indeterminateTint="@color/colorPrimary"
+                        android:indeterminateDrawable="@drawable/progress_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayoutImage"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/linearLayout2" android:layout_marginStart="16dp" android:layout_marginEnd="16dp">
+
+                <TextView
+                        tools:text="@string/name"
+                        android:textSize="22dp"
+                        android:text="@={presenter.name}"
+                        android:textColor="@color/black"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+                <TextView
+                        android:textSize="22dp"
+                        tools:text="@string/price"
+                        android:text="@={presenter.price}"
+                        android:textColor="@color/gray"
+                        android:textAlignment="textEnd"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+            >
+
+                <TextView
+                        tools:text="@string/stock"
+                        android:text="@={presenter.stock}"
+                        android:textColor="@color/gray"
+                        android:textSize="18dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                <TextView
+                        android:layout_marginTop="40dp"
+                        android:text="@={presenter.description}"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        tools:text="@string/description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                <TextView
+                        android:id="@+id/buttonRemoveFromCart"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="30dp"
+                        android:textColor="@color/black"
+                        android:text="@string/remove_from_cart"
+                        android:onClick="@{_ -> presenter.removeFromCart()}"
+                        android:background="@drawable/textview_border"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

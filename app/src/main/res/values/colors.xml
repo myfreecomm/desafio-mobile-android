@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#836FFF</color>
+    <color name="colorPrimaryDark">#6A5ACD</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="vpIndicatorSelected">#80F0F0F7</color>
+    <color name="vpIndicatorUnselected">#80FFFFFF</color>
+    <color name="commonTextColor">#F0F0F7</color>
+    <color name="whiteLight">#CCFFFFFF</color>
+    <color name="whiteLightTitle">#CC50FFFF</color>
+
+    <color name="stock">#D9D9D9</color>
+    <color name="title">#808080</color>
+    <color name="line">#80836FFF</color>
+    <color name="gray">#A9A9A9</color>
+    <color name="black">#000000</color>
+    <color name="black80">#80000000</color>
+    <color name="white">#ffffff</color>
+
+
+
+</resources>

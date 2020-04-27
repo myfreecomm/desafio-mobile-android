@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Cart</string>
+
+    <string name="erro_get_product">Erro ao buscar produtos</string>
+    <string name="unavailable_service">Serviço indisponível</string>
+    <string name="error_unexpected">Erro inesperado</string>
+    <string name="service_unhandled_error">Erro não tratado</string>
+    <string name="without_internet_connection">Sem conexão com a Internet</string>
+    <string name="quantity_products_in_list">4 items in your cart</string>
+    <string name="items_in_your_cart">Items in your cart</string>
+    <string name="in_stock">in stock</string>
+    <string name="only_one_in_stock">only 1 left in stock</string>
+    <string name="procuct_details">Product details</string>
+    <string name="remove_from_cart">REMOVE FROM CART</string>
+    <string name="checkout">CHECKOUT</string>
+    <string name="total">TOTAL</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="shipping">Shipping</string>
+    <string name="tax">Tax</string>
+    <string name="name">Name</string>
+    <string name="price">Price</string>
+    <string name="stock">Stock</string>
+    <string name="description">Description</string>
+
+</resources>
