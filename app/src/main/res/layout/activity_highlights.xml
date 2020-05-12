@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".matchhighlights.MatchHighlightsActivity">
 
-    <com.globo.raphaelbgr.desafio.brasileirao.util.StatefulRecyclerView
+    <com.challenge.raphaelbgr.desafio.brasileirao.util.StatefulRecyclerView
         android:id="@+id/rv_games_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

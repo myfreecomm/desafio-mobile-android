@@ -8,7 +8,7 @@ android {
     buildToolsVersion "29.0.2"
 
     defaultConfig {
-        applicationId "com.globo.raphaelbgr.desafio.brasileirao"
+        applicationId "com.challenge.raphaelbgr.desafio.brasileirao"
         minSdkVersion 18
         targetSdkVersion 29
         versionCode 1
@@ -16,7 +16,7 @@ android {
 
         vectorDrawables.useSupportLibrary = true
 
-        testInstrumentationRunner "com.globo.raphaelbgr.desafio.brasileirao.base.CustomTestRunner"
+        testInstrumentationRunner "com.challenge.raphaelbgr.desafio.brasileirao.base.CustomTestRunner"
 
         javaCompileOptions {
             annotationProcessorOptions {
