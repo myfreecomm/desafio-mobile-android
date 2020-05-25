@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.squareup.moshi:moshi-adapters:1.9.2@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.moshi/moshi-adapters/1.9.2/44720009d4ea72bae70dee43cecdd0a0adc12401/moshi-adapters-1.9.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.moshi/moshi-adapters/1.9.2/5181b491fff0a5b2585d1da4189b231713aba2db/moshi-adapters-1.9.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.moshi/moshi-adapters/1.9.2/b7ce952501fe9616519ca7e8c3848c2931cde055/moshi-adapters-1.9.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

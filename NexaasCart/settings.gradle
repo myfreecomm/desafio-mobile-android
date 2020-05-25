@@ -1,0 +1,4 @@
+rootProject.name='NexaasCart'
+include ':app'
+include ':features'
+include ':datalayer'

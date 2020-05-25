@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/NexaasCart.iml" filepath="$PROJECT_DIR$/NexaasCart.iml" group="NexaasCart" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="NexaasCart/app" />
+      <module fileurl="file://$PROJECT_DIR$/datalayer/datalayer.iml" filepath="$PROJECT_DIR$/datalayer/datalayer.iml" group="NexaasCart/datalayer" />
+      <module fileurl="file://$PROJECT_DIR$/features/features.iml" filepath="$PROJECT_DIR$/features/features.iml" group="NexaasCart/features" />
+    </modules>
+  </component>
+</project>
