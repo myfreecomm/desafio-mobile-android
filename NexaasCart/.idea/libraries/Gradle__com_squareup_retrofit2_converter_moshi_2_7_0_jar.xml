@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.squareup.retrofit2:converter-moshi:2.7.0@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-moshi/2.7.0/bf713e9f9e61f3a81cb378492dcea3711a9a060f/converter-moshi-2.7.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-moshi/2.7.0/958d3ebbfa7f8dd7de93afdae95cf60d0cdf6084/converter-moshi-2.7.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-moshi/2.7.0/e30e14988c247400480a27e1587b94a096063efd/converter-moshi-2.7.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
