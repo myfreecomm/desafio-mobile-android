@@ -119,7 +119,7 @@
 # Raphael Bernardo
 Android Produtos
 
-**Globo.com: coding challenge**
+**Coding challenge**
 
 ## O Desafio
 
