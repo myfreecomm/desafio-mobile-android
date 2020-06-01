@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Cart</string>
+    <string name="cart_button">Checkout</string>
+    <string name="tv_tax">Tax</string>
+    <string name="tv_shipping">Shipping</string>
+    <string name="tv_subtotal">Subtotal</string>
+    <string name="tv_total">Total</string>
+    <string name="detail_button">Remove from cart</string>
+    <string name="tv_empty_value">-</string>
+    <string name="im_detail_image">Detail image</string>
+</resources>
