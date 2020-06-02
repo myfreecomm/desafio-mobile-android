@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/favorite"
+        android:icon="@drawable/ic_favorite_white_24dp"
+        android:title="@string/favorite"
+        android:contentDescription="@string/content_description_favorite"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_search_white_24dp"
+        android:title="@string/search"
+        android:contentDescription="@string/content_description_search"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/more"
+        android:title="@string/more"
+        android:icon="@drawable/ic_more_vert_white_24dp"
+        android:contentDescription="@string/content_description_more"
+        app:showAsAction="always" />
+
+</menu>

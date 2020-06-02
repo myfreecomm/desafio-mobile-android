@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/transicaoId"
+    app:startDestination="@id/FragmentoProdId">
+
+    <fragment
+        android:id="@+id/FragmentoProdId"
+        android:name="com.appdesafio.cart.ui.activities.ProdutosActivity"
+        android:label="Lista Produtos"
+        tools:layout="@layout/produtos" >
+        <action
+            android:id="@+id/transicaoParaDetalhesId"
+            app:destination="@id/FragmentoProdDtId"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" />
+
+        <argument
+            android:name="produtoArgId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/FragmentoProdDtId"
+        android:name="com.appdesafio.cart.ui.activities.detalhesProdutosActivity"
+        android:label="Detalhes de Produtos"
+        tools:layout="@layout/detalhes_produtos" >
+        <action
+            android:id="@+id/transicaoVerProdutosId"
+            app:destination="@id/FragmentoProdId" />
+    </fragment>
+</navigation>
