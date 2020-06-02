@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Cart</string>
+    <string name="search">Search</string>
+    <string name="content_description_search">Search Content</string>
+    <string name="checkout">CHECKOUT</string>
+    <string name="remove_from_cart">REMOVE FROM CART</string>
+    <string name="qtdProds">4 items in your cart</string>
+    <string name="favorite">Favorite</string>
+    <string name="content_description_favorite">Favorite Content</string>
+    <string name="more">More</string>
+    <string name="content_description_more">More Content</string>
+    <string name="cart">Cart</string>
+    <string name="_3_24">3.24</string>
+    <string name="shipping">Shipping</string>
+    <string name="_41_24">$41.24</string>
+    <string name="total">total</string>
+    <string name="out_stock">out stock</string>
+    <string name="only_one">only 1 left in stock</string>
+    <string name="in_stock">in stock</string>
+
+</resources>

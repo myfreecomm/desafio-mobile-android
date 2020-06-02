@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?android:attr/selectableItemBackground"
+    >
+
+    <ImageView
+        android:id="@+id/imagemProdId"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/produto" />
+
+    <TextView
+        android:id="@+id/precoId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/darkGray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtItemId"
+        tools:text="$1.50"/>
+
+    <TextView
+        android:id="@+id/txtItemId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/darkGray"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtEstItemId"
+        app:layout_constraintStart_toEndOf="@+id/imagemProdId"
+        app:layout_constraintTop_toTopOf="@+id/imagemProdId"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Item" />
+
+    <TextView
+        android:id="@+id/txtEstItemId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/corPrecos"
+        app:layout_constraintBottom_toBottomOf="@+id/imagemProdId"
+        app:layout_constraintStart_toStartOf="@+id/txtItemId"
+        app:layout_constraintTop_toBottomOf="@+id/txtItemId"
+        tools:text="In stock" />
+</androidx.constraintlayout.widget.ConstraintLayout>
