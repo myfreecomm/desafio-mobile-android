@@ -11,4 +11,8 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="home_second">Home Second</string>
+    <string name="txt_total_cart">TOTAL</string>
+    <string name="txt_subtotal">Subtotal</string>
+    <string name="txt_shipping">Shipping</string>
+    <string name="txt_tax">Tax</string>
 </resources>

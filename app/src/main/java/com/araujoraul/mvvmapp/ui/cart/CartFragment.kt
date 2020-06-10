@@ -12,18 +12,13 @@ import com.araujoraul.mvvmapp.R
 
 class CartFragment : Fragment() {
 
-    private lateinit var cartViewModel: CartViewModel
+    private val viewModel by lazy { ViewModelProviders.of(this).get(CartViewModel::class.java) }
 
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        cartViewModel =
-                ViewModelProviders.of(this).get(CartViewModel::class.java)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_cart, container, false)
         val textView: TextView = root.findViewById(R.id.text_home)
-        cartViewModel.text.observe(viewLifecycleOwner, Observer {
+
+        viewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
