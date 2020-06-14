@@ -8,6 +8,20 @@
     android:background="?attr/colorPrimary"
     app:titleTextAppearance="@style/TextAppearance.AppCompat.Title"
     app:titleTextColor="@android:color/white"
-    android:elevation="8dp"
-    />
+    android:elevation="8dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <androidx.appcompat.widget.SearchView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+
+            />
+
+    </RelativeLayout>
+
+</androidx.appcompat.widget.Toolbar>
 

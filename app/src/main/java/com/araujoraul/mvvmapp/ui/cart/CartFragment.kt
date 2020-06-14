@@ -16,7 +16,7 @@ class CartFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_cart, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
+        val textView: TextView = root.findViewById(R.id.txtCountItems)
 
         viewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
