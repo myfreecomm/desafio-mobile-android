@@ -2,8 +2,6 @@ package com.araujoraul.mvvmapp
 
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -28,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setSupportActionBar(toolbar)
+        supportActionBar?.title = getString(R.string.menu_cart)
 
         appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_cart), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)

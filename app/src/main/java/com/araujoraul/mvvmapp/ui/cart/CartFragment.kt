@@ -5,19 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.araujoraul.mvvmapp.R
 
 class CartFragment : Fragment(R.layout.fragment_cart) {
 
-    private val viewModel by lazy { ViewModelProviders.of(this).get(CartViewModel::class.java) }
+    private val viewModel by lazy { ViewModelProvider(this).get(CartViewModel::class.java) }
     private val txtItemCount by lazy { view?.findViewById<TextView>(R.id.txtCountItems) }
-
+    private val toolbar by lazy { view?.findViewById<Toolbar>(R.id.toolbar) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
         viewModel.text.observe(viewLifecycleOwner, Observer {
             txtItemCount?.text = it

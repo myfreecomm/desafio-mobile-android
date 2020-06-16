@@ -9,10 +9,7 @@
         android:id="@+id/nav_cart"
         android:name="com.araujoraul.mvvmapp.ui.cart.CartFragment"
         android:label="@string/menu_cart"
-        tools:layout="@layout/fragment_cart">
-
-
-    </fragment>
+        tools:layout="@layout/fragment_cart"/>
 
 
 
