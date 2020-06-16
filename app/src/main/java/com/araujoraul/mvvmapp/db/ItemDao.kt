@@ -9,10 +9,13 @@ import androidx.room.Query
 @Dao
 interface ItemDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun save(item: ItemEntity)
+    @Query("SELECT * FROM item_table ORDER BY :itemId ASC")
+    fun getItems(itemId: Int) : LiveData<ItemEntity>
 
-    @Query("SELECT * FROM ItemEntity WHERE id = :itemId")
-    fun load(itemId: Int) : LiveData<ItemEntity>
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(item: ItemEntity)
+
+    @Query("DELETE FROM item_table")
+    suspend fun deleteAll()
 
 }

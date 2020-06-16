@@ -10,17 +10,19 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.araujoraul.mvvmapp.R
 
-class CartFragment : Fragment() {
+class CartFragment : Fragment(R.layout.fragment_cart) {
 
     private val viewModel by lazy { ViewModelProviders.of(this).get(CartViewModel::class.java) }
+    private val txtItemCount by lazy { view?.findViewById<TextView>(R.id.txtCountItems) }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val root = inflater.inflate(R.layout.fragment_cart, container, false)
-        val textView: TextView = root.findViewById(R.id.txtCountItems)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         viewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            txtItemCount?.text = it
         })
-        return root
+
     }
+
 }
