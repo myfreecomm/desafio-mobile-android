@@ -3,7 +3,6 @@ package com.araujoraul.mvvmapp.ui.cart
 import android.app.Application
 import androidx.lifecycle.*
 import com.araujoraul.mvvmapp.data.api.ItemRepository
-import com.araujoraul.mvvmapp.db.ItemDatabase
 import com.araujoraul.mvvmapp.db.ItemEntity
 
 class CartViewModel(application: Application): AndroidViewModel(application) {

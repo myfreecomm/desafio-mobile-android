@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.araujoraul.mvvmapp.R
 import com.araujoraul.mvvmapp.db.ItemEntity
 import com.araujoraul.mvvmapp.extension.loadImage
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 class CartAdapter(private var itemsList: List<ItemEntity>): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
@@ -37,11 +39,20 @@ class CartAdapter(private var itemsList: List<ItemEntity>): RecyclerView.Adapter
 
     fun bind(items: ItemEntity?){
         items?.let {
-            itemTitle.text = items.item.name
-            itemStock.text = items.item.stock.toString()
-            itemPrice.text = items.item.price.toString()
+            itemTitle.text = items.name
 
-            itemImage.loadImage(items.item.imageUrl)
+            if (items.stock != null && items.stock == 1){
+                itemStock.text = "only "+items.stock.toString()+" left in stock"
+            }
+            else if (items.stock != null && items.stock > 1) {
+                itemStock.text = items.stock.toString()+" in stock"
+            } else {
+                itemStock.text = items.stock.toString()
+            }
+
+            itemPrice.text = items.price.toString()
+
+            itemImage.loadImage(items.imageUrl)
 
         }
     }

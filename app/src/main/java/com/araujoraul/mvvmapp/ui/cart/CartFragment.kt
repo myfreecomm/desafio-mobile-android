@@ -1,15 +1,11 @@
 package com.araujoraul.mvvmapp.ui.cart
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.araujoraul.mvvmapp.R
@@ -23,11 +19,6 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        recyclerView.let {
-            it?.adapter = adapter
-            it?.layoutManager = LinearLayoutManager(activity)
-        }
 
         viewModel.loadItems()
 
@@ -43,7 +34,14 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
         viewModel.itemList.observe(viewLifecycleOwner, Observer {
             adapter.setItems(it)
         })
+            setupRecyclerView()
+    }
 
+    fun setupRecyclerView(){
+        recyclerView.let {
+            it?.adapter = adapter
+            it?.layoutManager = LinearLayoutManager(activity)
+        }
     }
 
 }
