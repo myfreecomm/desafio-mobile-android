@@ -10,7 +10,12 @@ import com.araujoraul.mvvmapp.R
 import com.araujoraul.mvvmapp.db.ItemEntity
 import com.araujoraul.mvvmapp.extension.loadImage
 
-class CartAdapter(private var cart: List<ItemEntity>): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+class CartAdapter(private var itemsList: List<ItemEntity>): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+
+    fun setItems(itemsList: List<ItemEntity>){
+        this.itemsList = itemsList
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_cart, parent, false)
@@ -18,11 +23,11 @@ class CartAdapter(private var cart: List<ItemEntity>): RecyclerView.Adapter<Cart
     }
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
-        val item = cart[position]
-        if (item != null) holder.bind(item)
+        val item = itemsList[position]
+        holder.bind(item)
     }
 
-    override fun getItemCount(): Int = cart.count()
+    override fun getItemCount(): Int = itemsList.count()
 
     inner class CartViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val itemTitle by lazy { itemView.findViewById<TextView>(R.id.item_txtTitle) }
@@ -30,13 +35,13 @@ class CartAdapter(private var cart: List<ItemEntity>): RecyclerView.Adapter<Cart
         val itemPrice by lazy { itemView.findViewById<TextView>(R.id.item_price) }
         val itemImage by lazy { itemView.findViewById<ImageView>(R.id.item_image) }
 
-    fun bind(cart: ItemEntity?){
-        cart?.let {
-            itemTitle.text = cart.item.name
-            itemStock.text = cart.item.stock.toString()
-            itemPrice.text = cart.item.price.toString()
+    fun bind(items: ItemEntity?){
+        items?.let {
+            itemTitle.text = items.item.name
+            itemStock.text = items.item.stock.toString()
+            itemPrice.text = items.item.price.toString()
 
-            itemImage.loadImage(cart.item.imageUrl)
+            itemImage.loadImage(items.item.imageUrl)
 
         }
     }

@@ -1,11 +1,10 @@
 package com.araujoraul.mvvmapp.ui.cart
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.araujoraul.mvvmapp.data.api.ApiService
+import androidx.lifecycle.*
+import com.araujoraul.mvvmapp.data.api.ItemRepository
+import com.araujoraul.mvvmapp.db.ItemDatabase
+import com.araujoraul.mvvmapp.db.ItemEntity
 
 class CartViewModel(application: Application): AndroidViewModel(application) {
 
@@ -14,5 +13,13 @@ class CartViewModel(application: Application): AndroidViewModel(application) {
     }
     val text: LiveData<String> = _text
 
+
+   private val repository = ItemRepository(application)
+
+    val itemList: LiveData<List<ItemEntity>> = repository.itemList
+
+    fun loadItems(){
+        repository.loadItems()
+    }
 
 }
