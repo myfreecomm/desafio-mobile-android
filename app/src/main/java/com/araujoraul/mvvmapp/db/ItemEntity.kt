@@ -1,10 +1,13 @@
 package com.araujoraul.mvvmapp.db
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(tableName = "item_table")
 data class ItemEntity(
     @PrimaryKey(autoGenerate = true)@ColumnInfo(name = "id_column") val id: Long,
@@ -16,4 +19,4 @@ data class ItemEntity(
     @SerializedName("tax")@ColumnInfo(name = "tax_column") val tax: Int?,
     @SerializedName("shipping")@ColumnInfo(name = "shipping_column") val shipping: Int?,
     @SerializedName("description")@ColumnInfo(name = "description_column") val description: String?
-)
+) : Parcelable

@@ -2,7 +2,6 @@ package com.araujoraul.mvvmapp.ui.cart
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.araujoraul.mvvmapp.data.api.ItemRepository
 import com.araujoraul.mvvmapp.db.ItemEntity
 
 class CartViewModel(application: Application): AndroidViewModel(application) {
@@ -20,5 +19,12 @@ class CartViewModel(application: Application): AndroidViewModel(application) {
     fun loadItems(){
         repository.loadItems()
     }
+
+    val showProgress: LiveData<Boolean> = repository.showProgress
+
+    fun changeState(){
+        repository.changeState()
+    }
+
 
 }

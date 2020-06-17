@@ -21,7 +21,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
+        android:paddingBottom="24dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,6 +29,19 @@
         app:layout_constraintTop_toBottomOf="@+id/txtCountItems"
         tools:listitem="@layout/item_cart"
         tools:itemCount="7"
+        />
+
+    <ProgressBar
+        android:id="@+id/progressBar_cart"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView_cart"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView_cart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         />
 
     <View
