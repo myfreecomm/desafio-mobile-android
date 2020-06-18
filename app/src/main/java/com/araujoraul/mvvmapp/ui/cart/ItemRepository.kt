@@ -18,12 +18,8 @@ import retrofit2.Response
 class ItemRepository(var application: Application) {
 
     val showProgress = MutableLiveData<Boolean>()
-
     val itemList = MutableLiveData<List<ItemEntity>>()
-
-    fun changeState() {
-        showProgress.value = !(showProgress.value != null && showProgress.value!! )
-    }
+    val noInternet = MutableLiveData<Boolean>()
 
     fun loadItems(){
 
@@ -35,7 +31,10 @@ class ItemRepository(var application: Application) {
             call.enqueue(object : Callback<List<ItemEntity>>{
 
                 override fun onFailure(call: Call<List<ItemEntity>>, t: Throwable) {
-                    Toast.makeText(application, "Error while getting data", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(application, "Error while getting data. \n" +
+                            "Maybe you don't have an active internet connection?", Toast.LENGTH_LONG).show()
+                    showProgress.value = false
+                    noInternet.value = true
                 }
 
                 override fun onResponse(call: Call<List<ItemEntity>>, response: Response<List<ItemEntity>>) {
@@ -43,6 +42,7 @@ class ItemRepository(var application: Application) {
                     showProgress.value = false
                     insert(response.body()!!)
                     itemList.value = response.body()
+
                 }
 
             })

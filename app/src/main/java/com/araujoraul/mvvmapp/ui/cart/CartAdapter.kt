@@ -37,7 +37,6 @@ class CartAdapter(private var itemsList: List<ItemEntity>, private val clickList
         val itemStock by lazy { itemView.findViewById<TextView>(R.id.txtStock) }
         val itemPrice by lazy { itemView.findViewById<TextView>(R.id.txtPrice) }
         val itemImage by lazy { itemView.findViewById<ImageView>(R.id.item_image) }
-        val itemDescription by lazy { itemView.findViewById<TextView>(R.id.txtDescription) }
 
 
 
@@ -55,14 +54,8 @@ class CartAdapter(private var itemsList: List<ItemEntity>, private val clickList
             }
 
             itemPrice.text = items.price.toString()
-
             itemImage.loadImage(items.imageUrl)
-
-            itemView.setOnClickListener{
-
-                clickListener.onItemClick(items)
-
-            }
+            itemView.setOnClickListener{ clickListener.onItemClick(items) }
 
         }
     }

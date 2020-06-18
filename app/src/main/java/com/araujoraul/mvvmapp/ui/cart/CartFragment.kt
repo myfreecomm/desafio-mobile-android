@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -20,6 +19,7 @@ class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
     private val adapter by lazy { CartAdapter(emptyList(), this) }
     private val recyclerView by lazy { view?.findViewById<RecyclerView>(R.id.recyclerView_cart) }
     private val progressBar by lazy { view?.findViewById<ProgressBar>(R.id.progressBar_cart) }
+    private val txtNoInternet by lazy { view?.findViewById<TextView>(R.id.noInternet) }
     private val fragManager by lazy { activity?.supportFragmentManager }
     private val fullDialog = DetailsDialogFragment()
 
@@ -35,6 +35,11 @@ class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
 
         viewModel.text.observe(viewLifecycleOwner, Observer {
             txtItemCount?.text = it
+        })
+
+        viewModel.txtNoInternet.observe(viewLifecycleOwner, Observer {
+            if(it) txtNoInternet?.visibility = View.VISIBLE
+            else txtNoInternet?.visibility = View.GONE
         })
 
         viewModel.showProgress.observe(viewLifecycleOwner, Observer {

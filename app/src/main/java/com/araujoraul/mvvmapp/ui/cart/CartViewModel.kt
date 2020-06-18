@@ -7,7 +7,8 @@ import com.araujoraul.mvvmapp.db.ItemEntity
 class CartViewModel(application: Application): AndroidViewModel(application) {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "4 Items in your cart"
+
+        value =  "4 Items in your cart"
     }
     val text: LiveData<String> = _text
 
@@ -21,10 +22,6 @@ class CartViewModel(application: Application): AndroidViewModel(application) {
     }
 
     val showProgress: LiveData<Boolean> = repository.showProgress
-
-    fun changeState(){
-        repository.changeState()
-    }
-
+    val txtNoInternet : LiveData<Boolean> = repository.noInternet
 
 }
