@@ -33,8 +33,8 @@ class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.text.observe(viewLifecycleOwner, Observer {
-            txtItemCount?.text = it
+        viewModel.cartSize.observe(viewLifecycleOwner, Observer {
+            txtItemCount?.text = "$it Items in your cart"
         })
 
         viewModel.txtNoInternet.observe(viewLifecycleOwner, Observer {
@@ -43,12 +43,8 @@ class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
         })
 
         viewModel.showProgress.observe(viewLifecycleOwner, Observer {
-            if (it){
-                progressBar?.visibility = View.VISIBLE
-            }
-            else {
-                progressBar?.visibility = View.GONE
-            }
+            if (it) progressBar?.visibility = View.VISIBLE
+            else progressBar?.visibility = View.GONE
         })
 
         viewModel.itemList.observe(viewLifecycleOwner, Observer {

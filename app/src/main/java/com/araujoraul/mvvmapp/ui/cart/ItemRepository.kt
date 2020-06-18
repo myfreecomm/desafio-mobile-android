@@ -8,9 +8,11 @@ import com.araujoraul.mvvmapp.data.api.ApiService
 import com.araujoraul.mvvmapp.db.ItemDatabase
 import com.araujoraul.mvvmapp.db.ItemEntity
 import com.google.gson.Gson
+import com.google.gson.JsonArray
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,6 +21,7 @@ class ItemRepository(var application: Application) {
 
     val showProgress = MutableLiveData<Boolean>()
     val itemList = MutableLiveData<List<ItemEntity>>()
+    val cartSize = MutableLiveData<Int>()
     val noInternet = MutableLiveData<Boolean>()
 
     fun loadItems(){
@@ -42,6 +45,11 @@ class ItemRepository(var application: Application) {
                     showProgress.value = false
                     insert(response.body()!!)
                     itemList.value = response.body()
+
+
+                    val size: Int = response.body()!!.size
+
+                    cartSize.value = size
 
                 }
 
