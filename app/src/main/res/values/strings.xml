@@ -15,4 +15,5 @@
     <string name="btn_remove_cart_txt">remove from cart</string>
     <string name="title_product_details">Product Details</string>
     <string name="txt_no_internet">No internet ;(</string>
+    <string name="cifrao">$</string>
 </resources>

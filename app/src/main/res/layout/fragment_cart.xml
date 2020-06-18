@@ -84,6 +84,18 @@
         />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cifrao"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintTop_toTopOf="@+id/totalValue"
+        app:layout_constraintBottom_toBottomOf="@+id/totalValue"
+        app:layout_constraintEnd_toStartOf="@+id/totalValue"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textStyle="bold"
+        android:textColor="@android:color/holo_green_dark" />
+
+    <TextView
         android:id="@+id/totalValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -91,6 +103,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/txtTotal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/txtTotal"
+        app:layout_constraintVertical_bias="1.0"
         tools:text="41.24" />
 
     <TextView

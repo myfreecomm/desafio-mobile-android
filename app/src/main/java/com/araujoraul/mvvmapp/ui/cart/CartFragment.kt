@@ -16,6 +16,10 @@ class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
 
     private val viewModel by lazy { ViewModelProvider(this).get(CartViewModel::class.java) }
     private val txtItemCount by lazy { view?.findViewById<TextView>(R.id.txtCountItems) }
+    private val txtShipping by lazy { view?.findViewById<TextView>(R.id.shippingValue) }
+    private val txtTax by lazy { view?.findViewById<TextView>(R.id.taxValue) }
+    private val txtSubtotal by lazy { view?.findViewById<TextView>(R.id.subtotalValue) }
+    private val txtTotal by lazy { view?.findViewById<TextView>(R.id.totalValue) }
     private val adapter by lazy { CartAdapter(emptyList(), this) }
     private val recyclerView by lazy { view?.findViewById<RecyclerView>(R.id.recyclerView_cart) }
     private val progressBar by lazy { view?.findViewById<ProgressBar>(R.id.progressBar_cart) }
@@ -35,6 +39,22 @@ class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
 
         viewModel.cartSize.observe(viewLifecycleOwner, Observer {
             txtItemCount?.text = "$it Items in your cart"
+        })
+
+        viewModel.shipping.observe(viewLifecycleOwner, Observer {
+            txtShipping?.text = "$it"
+        })
+
+        viewModel.tax.observe(viewLifecycleOwner, Observer {
+            txtTax?.text = "$it"
+        })
+
+        viewModel.subTotal.observe(viewLifecycleOwner, Observer {
+            txtSubtotal?.text = "$it"
+        })
+
+        viewModel.total.observe(viewLifecycleOwner, Observer {
+            txtTotal?.text = "$it"
         })
 
         viewModel.txtNoInternet.observe(viewLifecycleOwner, Observer {

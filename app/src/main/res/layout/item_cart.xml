@@ -46,6 +46,19 @@
             app:layout_constraintTop_toBottomOf="@+id/item_txtTitle" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cifrao"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintTop_toTopOf="@+id/txtPrice"
+            app:layout_constraintBottom_toBottomOf="@id/txtPrice"
+            app:layout_constraintEnd_toStartOf="@+id/txtPrice"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionMode.Subtitle"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_green_dark" />
+
+
+        <TextView
             android:id="@+id/txtPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
