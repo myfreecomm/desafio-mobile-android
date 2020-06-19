@@ -2,10 +2,7 @@ package com.araujoraul.mvvmapp.ui.cart
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.DialogFragment
 import com.araujoraul.mvvmapp.R
 import com.araujoraul.mvvmapp.extension.loadImage
@@ -47,7 +44,7 @@ class DetailsDialogFragment : DialogFragment(){
         mImage?.loadImage(image)
 
         btnImageClose?.setOnClickListener{ dismiss() }
-        btnRemoveFromCart?.setOnClickListener { TODO() }
+        btnRemoveFromCart?.setOnClickListener { Toast.makeText(activity?.applicationContext, "Not Implemented", Toast.LENGTH_SHORT).show() }
 
     }
 

@@ -29,8 +29,8 @@ class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-     viewModel.loadItems()
+        viewModel.getCartLifecycles(lifecycle)
+        viewModel.apply { loadItems() }
 
     }
 
@@ -67,7 +67,7 @@ class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
             else progressBar?.visibility = View.GONE
         })
 
-        viewModel.itemList.observe(viewLifecycleOwner, Observer {
+        viewModel.liveData.observe(viewLifecycleOwner, Observer {
                 adapter.setItems(it)
 
         })

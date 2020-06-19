@@ -12,7 +12,9 @@ abstract class ItemDatabase : RoomDatabase(){
 
     companion object {
         fun getDatabase(application: Application): ItemDatabase{
-            return Room.databaseBuilder(application, ItemDatabase::class.java, "item_database").build()
+            return Room.databaseBuilder(application, ItemDatabase::class.java, "item_database")
+                .allowMainThreadQueries()
+                .build()
         }
     }
 
