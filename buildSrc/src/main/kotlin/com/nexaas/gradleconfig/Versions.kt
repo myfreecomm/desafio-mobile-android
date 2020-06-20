@@ -9,7 +9,6 @@ object Versions {
     const val compileSdkVersion = 28
 
     // Libs and Dependencies versions (in alphabetical order)
-    const val android_viewpager_transformers: String = "1.0.1"
     const val androidx_test: String = "1.2.0"
     const val appcompat: String = "1.1.0-alpha05"
     const val cardview: String = "1.0.0"
@@ -23,7 +22,6 @@ object Versions {
     const val glide: String = "4.10.0"
     const val gradle_versions: String = "0.27.0"
     const val gradle: String = "3.5.3"
-    const val javax_annotation_api: String = "1.3.2"
     const val junit: String = "4.12"
     const val kakao: String = "2.0.0"
     const val kittinunf_result: String = "2.0.0"
@@ -39,19 +37,9 @@ object Versions {
     const val multidex: String = "1.0.3"
     const val okhttp: String = "3.14.2"
     const val plugin: String = "0.7.0"
-    const val react_native: String = "0.59.10"
     const val recyclerview: String = "1.0.0"
     const val retrofit: String = "2.6.0"
-    const val salesforce_push: String = "7.0.0"
     const val stetho: String = "1.5.1"
     const val retrofit2_coroutines_adapter: String = "0.9.2"
-    const val salesavailability: String = "1.0.1@aar"
-    const val scarlet: String = "0.2.4"
     const val shimmer: String = "0.4.0"
-    const val stories: String = "1.0.0"
-    const val support_test_runner: String = "1.1.1-alpha01"
-    const val subscriberclub: String = "2.2.3"
-    const val timber: String = "4.7.1"
-    const val transitionseverywhere: String = "2.0.0"
-    const val urbanairship_fcm: String = "11.0.3"
 }

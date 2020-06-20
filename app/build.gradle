@@ -35,9 +35,15 @@ dependencies {
     implementation Libs.Core.kotlin_stdlib_jdk8
     implementation Libs.Core.kotlinx_coroutines_core
     implementation Libs.Core.kotlinx_coroutines_android
+
     implementation Libs.Data.retrofit2_coroutines_adapter
     implementation Libs.Data.result
     implementation Libs.Data.result_coroutines
+    implementation Libs.Data.converter_gson
+    implementation Libs.Data.stetho
+    implementation Libs.Data.stetho_Okhttp3
+    implementation Libs.Data.okhttp
+    implementation Libs.Data.logging_interceptor
 
     implementation Libs.Core.appcompat
     implementation Libs.UI.constraintlayout

@@ -100,6 +100,13 @@ object Libs {
                 Versions.converter_gson
 
         /**
+         * http://facebook.github.io/stetho/
+         */
+        const val stetho: String = "com.facebook.stetho:stetho:" + Versions.stetho
+        const val stetho_Okhttp3: String = "com.facebook.stetho:stetho-okhttp3:" + Versions.stetho
+
+
+        /**
          * https://github.com/JakeWharton/retrofit2-kotlin-coroutines-adapter/
          */
         const val retrofit2_coroutines_adapter: String =
