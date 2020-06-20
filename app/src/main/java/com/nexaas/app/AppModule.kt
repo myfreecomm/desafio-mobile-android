@@ -32,7 +32,6 @@ val appModule = module {
         ) as CartRepository
     }
 
-
     single {
         Room.databaseBuilder(androidApplication(), CartDatabase::class.java, "cart-db").build()
     }

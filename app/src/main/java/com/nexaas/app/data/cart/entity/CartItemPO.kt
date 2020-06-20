@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "cart")
-class CartItemPO(
+data class CartItemPO(
     val name: String,
     val quantity: Int,
     val stock: Int,

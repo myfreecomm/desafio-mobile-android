@@ -195,6 +195,8 @@ object Libs {
          */
         const val mockwebserver: String =
                 "com.squareup.okhttp3:mockwebserver:" + Versions.mockwebserver
+
+        const val room_testing: String = "androidx.room:room-testing:" + Versions.room
     }
 
 }

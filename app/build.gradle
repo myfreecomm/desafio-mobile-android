@@ -27,6 +27,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -70,8 +75,10 @@ dependencies {
 
     testImplementation Libs.Testing.junit
     testImplementation Libs.Testing.mockk
+    testImplementation Libs.Testing.mockwebserver
     testImplementation Libs.Testing.core_testing
     testImplementation Libs.Testing.kotlinx_coroutines_test
+    testImplementation Libs.Testing.room_testing
 
     androidTestImplementation Libs.Testing.androidx_espresso_core
     androidTestImplementation Libs.Testing.androidx_test_runner
