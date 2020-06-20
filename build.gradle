@@ -1,0 +1,44 @@
+import com.nexaas.gradleconfig.*
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath Libs.Tools.gradle
+        classpath Libs.Plugins.gradle_versions
+        classpath Libs.Plugins.kotlin
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+
+// ktlint setup
+apply plugin: "java"
+
+configurations {
+    ktlint
+}
+
+dependencies {
+    ktlint Libs.Plugins.ktlint
+}
+
+task ktlint(type: JavaExec, group: "formatting") {
+    description = "Check Kotlin code style."
+    main = "com.pinterest.ktlint.Main"
+    classpath = configurations.ktlint
+    args "-F", "**/*.kt", "!**/bin/**/*.kt", "!**/*InstrumentedTest.kt", "!**/.gradle/",
+            "--reporter=plain?group_by_file&color", "no-wildcard-imports = false"
+}
+
+check.dependsOn ktlint
