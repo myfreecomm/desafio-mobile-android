@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.araujoraul.mvvmapp.R
 import com.araujoraul.mvvmapp.db.ItemEntity
+import com.araujoraul.mvvmapp.ui.cartdetails.DetailsDialogFragment
 
 class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
 
@@ -25,7 +26,8 @@ class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
     private val progressBar by lazy { view?.findViewById<ProgressBar>(R.id.progressBar_cart) }
     private val txtNoInternet by lazy { view?.findViewById<TextView>(R.id.noInternet) }
     private val fragManager by lazy { activity?.supportFragmentManager }
-    private val fullDialog = DetailsDialogFragment()
+    private val fullDialog =
+        DetailsDialogFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

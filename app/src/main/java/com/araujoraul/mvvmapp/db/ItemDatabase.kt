@@ -11,9 +11,13 @@ abstract class ItemDatabase : RoomDatabase(){
     abstract fun getItemDao(): ItemDao
 
     companion object {
+
+        private const val DATABASE_NAME = "item_database"
+
         fun getDatabase(application: Application): ItemDatabase{
-            return Room.databaseBuilder(application, ItemDatabase::class.java, "item_database")
+            return Room.databaseBuilder(application, ItemDatabase::class.java, DATABASE_NAME)
                 .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
                 .build()
         }
     }

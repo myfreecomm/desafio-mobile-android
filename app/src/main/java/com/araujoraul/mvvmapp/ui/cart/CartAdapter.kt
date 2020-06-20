@@ -16,6 +16,8 @@ interface ItemCartClickListener{
 
 class CartAdapter(private var itemsList: List<ItemEntity>, private val clickListener: ItemCartClickListener): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
+
+
     fun setItems(itemsList: List<ItemEntity>){
         this.itemsList = itemsList
         notifyDataSetChanged()
@@ -28,6 +30,7 @@ class CartAdapter(private var itemsList: List<ItemEntity>, private val clickList
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         val item = itemsList[position]
         holder.bind(item)
+
     }
 
     override fun getItemCount(): Int = itemsList.count()

@@ -16,6 +16,6 @@ interface ItemDao {
     fun insertIntoDatabase(items: List<ItemEntity>)
 
     @Query("DELETE FROM item_table")
-    fun deleteAllFromDatabase()
+     fun deleteAllFromDatabase()
 
 }

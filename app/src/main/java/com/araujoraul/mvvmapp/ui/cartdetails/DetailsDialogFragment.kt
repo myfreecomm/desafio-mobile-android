@@ -1,9 +1,10 @@
-package com.araujoraul.mvvmapp.ui.cart
+package com.araujoraul.mvvmapp.ui.cartdetails
 
 import android.os.Bundle
 import android.view.*
 import android.widget.*
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.ViewModelProvider
 import com.araujoraul.mvvmapp.R
 import com.araujoraul.mvvmapp.extension.loadImage
 
@@ -44,9 +45,7 @@ class DetailsDialogFragment : DialogFragment(){
         mImage?.loadImage(image)
 
         btnImageClose?.setOnClickListener{ dismiss() }
-        btnRemoveFromCart?.setOnClickListener { Toast.makeText(activity?.applicationContext, "Not Implemented", Toast.LENGTH_SHORT).show() }
-
-    }
+        btnRemoveFromCart?.setOnClickListener { Toast.makeText(activity?.applicationContext, "Item is removed!", Toast.LENGTH_SHORT).show() } }
 
 
 }
