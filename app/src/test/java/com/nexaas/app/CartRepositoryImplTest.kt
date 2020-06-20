@@ -10,10 +10,8 @@ import com.nexaas.app.data.mappers.CartItemDTOToPOMapper
 import com.nexaas.app.data.mappers.CartItemPOToVOMapper
 import com.nexaas.app.domain.entity.CartItem
 import io.mockk.MockKAnnotations
-import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
-import io.mockk.verify
 import junit.framework.TestCase
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
