@@ -1,7 +1,7 @@
 package com.nexaas.app.mappers
 
-import com.nexaas.app.data.cart.entity.CartItemDTO
-import com.nexaas.app.data.cart.entity.CartItemPO
+import com.nexaas.app.data.entity.CartItemDTO
+import com.nexaas.app.data.entity.CartItemPO
 import com.nexaas.app.data.mappers.CartItemDTOToPOMapper
 import junit.framework.TestCase
 import org.junit.Test

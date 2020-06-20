@@ -1,6 +1,6 @@
-package com.nexaas.app.data.cart
+package com.nexaas.app.data
 
-import com.nexaas.app.data.cart.entity.CartItemDTO
+import com.nexaas.app.data.entity.CartItemDTO
 import retrofit2.http.GET
 
 interface CartService {

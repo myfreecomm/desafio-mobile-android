@@ -4,15 +4,19 @@ import androidx.multidex.BuildConfig
 import androidx.room.Room
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.nexaas.app.data.cart.CartDatabase
-import com.nexaas.app.data.cart.CartRepositoryImpl
-import com.nexaas.app.data.cart.CartService
+import com.nexaas.app.data.CartDatabase
+import com.nexaas.app.data.CartRepositoryImpl
+import com.nexaas.app.data.CartService
 import com.nexaas.app.data.mappers.CartItemDTOToPOMapper
 import com.nexaas.app.data.mappers.CartItemPOToVOMapper
 import com.nexaas.app.domain.repository.CartRepository
+import com.nexaas.app.domain.repository.CartUseCase
+import com.nexaas.app.domain.usecase.CartUseCaseImpl
+import com.nexaas.app.features.CartViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidApplication
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.parameter.parametersOf
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -23,12 +27,20 @@ const val BASE_API_URL =
 
 val appModule = module {
 
+    viewModel {
+        CartViewModel(
+            get<CartUseCase>()
+        )
+    }
+
+    factory { CartUseCaseImpl(get<CartRepository>()) as CartUseCase }
+
     factory {
         CartRepositoryImpl(
             get<CartDatabase>().cartItemDAO(),
             get<CartService>(),
-            get<CartItemDTOToPOMapper>(),
-            get<CartItemPOToVOMapper>()
+            CartItemDTOToPOMapper(),
+            CartItemPOToVOMapper()
         ) as CartRepository
     }
 

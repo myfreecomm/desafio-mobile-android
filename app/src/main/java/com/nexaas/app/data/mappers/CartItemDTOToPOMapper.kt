@@ -1,7 +1,7 @@
 package com.nexaas.app.data.mappers
 
-import com.nexaas.app.data.cart.entity.CartItemDTO
-import com.nexaas.app.data.cart.entity.CartItemPO
+import com.nexaas.app.data.entity.CartItemDTO
+import com.nexaas.app.data.entity.CartItemPO
 
 class CartItemDTOToPOMapper : BaseMapper<CartItemDTO, CartItemPO>() {
     override fun transform(entity: CartItemDTO): CartItemPO {

@@ -1,4 +1,4 @@
-package com.nexaas.app.data.cart
+package com.nexaas.app.data
 
 import com.github.kittinunf.result.coroutines.SuspendableResult
 import com.nexaas.app.data.mappers.CartItemDTOToPOMapper
@@ -14,13 +14,11 @@ class CartRepositoryImpl(
 
 ) : CartRepository {
 
-    override suspend fun getGamesLocal(): List<CartItem> = cartItemDAO.getCartItems().map (cartItemPOToVOMapper::transform)
-
-    override suspend fun getCartRemote(): SuspendableResult<List<CartItem>, Exception> {
+    override suspend fun getCart(): SuspendableResult<List<CartItem>, Exception> {
         val cartItems = cartService.getItems().map(cartItemDTOToPOMapper::transform)
         cartItems.forEach(cartItemDAO::insert)
         return SuspendableResult.of {
-            cartItems.map(cartItemPOToVOMapper::transform)
+            cartItemDAO.getCartItems().map(cartItemPOToVOMapper::transform)
         }
     }
 }

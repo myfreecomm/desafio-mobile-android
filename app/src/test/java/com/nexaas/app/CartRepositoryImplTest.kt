@@ -1,11 +1,11 @@
 package com.nexaas.app
 
 import com.github.kittinunf.result.coroutines.SuspendableResult
-import com.nexaas.app.data.cart.CartItemDAO
-import com.nexaas.app.data.cart.CartRepositoryImpl
-import com.nexaas.app.data.cart.CartService
-import com.nexaas.app.data.cart.entity.CartItemDTO
-import com.nexaas.app.data.cart.entity.CartItemPO
+import com.nexaas.app.data.CartItemDAO
+import com.nexaas.app.data.CartRepositoryImpl
+import com.nexaas.app.data.CartService
+import com.nexaas.app.data.entity.CartItemDTO
+import com.nexaas.app.data.entity.CartItemPO
 import com.nexaas.app.data.mappers.CartItemDTOToPOMapper
 import com.nexaas.app.data.mappers.CartItemPOToVOMapper
 import com.nexaas.app.domain.entity.CartItem
@@ -70,7 +70,7 @@ class CartRepositoryImplTest : BaseWebTest() {
 
         // When
         val result = runBlocking {
-            cartRepositoryImpl.getCartRemote()
+            cartRepositoryImpl.getCart()
         }
 
         TestCase.assertTrue(result is SuspendableResult.Success<*, *>)

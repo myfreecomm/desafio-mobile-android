@@ -1,4 +1,4 @@
-package com.nexaas.app.data.cart.entity
+package com.nexaas.app.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

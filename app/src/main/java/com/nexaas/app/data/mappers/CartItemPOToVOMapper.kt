@@ -1,6 +1,6 @@
 package com.nexaas.app.data.mappers
 
-import com.nexaas.app.data.cart.entity.CartItemPO
+import com.nexaas.app.data.entity.CartItemPO
 import com.nexaas.app.domain.entity.CartItem
 
 class CartItemPOToVOMapper : BaseMapper<CartItemPO, CartItem>() {

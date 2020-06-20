@@ -1,10 +1,10 @@
-package com.nexaas.app.data.cart
+package com.nexaas.app.data
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.nexaas.app.data.cart.entity.CartItemPO
+import com.nexaas.app.data.entity.CartItemPO
 
 @Dao
 interface CartItemDAO {
