@@ -44,6 +44,8 @@ dependencies {
     implementation Libs.Data.stetho_Okhttp3
     implementation Libs.Data.okhttp
     implementation Libs.Data.logging_interceptor
+    implementation Libs.Data.room_runtine
+    kapt Libs.Data.room_compiler
 
     implementation Libs.Core.appcompat
     implementation Libs.UI.constraintlayout

@@ -1,6 +1,7 @@
 package com.nexaas.gradleconfig
 
 object Versions {
+
     // Overall Build Config Specific versions
     const val versionCode = 1
     const val versionName = "1.0"
@@ -39,6 +40,7 @@ object Versions {
     const val plugin: String = "0.7.0"
     const val recyclerview: String = "1.0.0"
     const val retrofit: String = "2.6.0"
+    const val room: String = "2.2.5"
     const val stetho: String = "1.5.1"
     const val retrofit2_coroutines_adapter: String = "0.9.2"
     const val shimmer: String = "0.4.0"

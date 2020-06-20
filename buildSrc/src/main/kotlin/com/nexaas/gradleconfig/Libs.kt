@@ -112,6 +112,9 @@ object Libs {
         const val retrofit2_coroutines_adapter: String =
                 "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:" +
                         Versions.retrofit2_coroutines_adapter
+        
+        const val room_runtine: String = "androidx.room:room-runtime:" + Versions.room
+        const val room_compiler: String = "androidx.room:room-compiler:" + Versions.room
     }
 
     object UI {
