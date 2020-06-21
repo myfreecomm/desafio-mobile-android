@@ -6,6 +6,7 @@ import com.nexaas.app.domain.entity.CartItem
 class CartItemPOToVOMapper : BaseMapper<CartItemPO, CartItem>() {
     override fun transform(entity: CartItemPO): CartItem {
         return CartItem(
+            id = entity.id,
             name = entity.name,
             quantity = entity.quantity,
             stock = entity.stock,

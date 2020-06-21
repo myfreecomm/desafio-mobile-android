@@ -54,7 +54,6 @@ dependencies {
 
     implementation Libs.Core.appcompat
     implementation Libs.UI.constraintlayout
-    implementation Libs.UI.cardview
     implementation Libs.Core.core_ktx
     implementation Libs.UI.fragment_ktx
     implementation Libs.Core.lifecycle_extensions

@@ -1,9 +1,10 @@
 package com.nexaas.app.data.entity
 
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "cart")
+@Entity(tableName = "cart", indices = [Index(value = ["name"], unique = true)])
 data class CartItemPO(
     val name: String,
     val quantity: Int,

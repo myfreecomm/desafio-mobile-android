@@ -30,7 +30,6 @@ class CartRepositoryImplTest : BaseWebTest() {
     @MockK
     private lateinit var cartItemPOToVOMapper: CartItemPOToVOMapper
 
-
     private val cartRepositoryImpl by lazy {
         CartRepositoryImpl(
             cartItemDAO,
@@ -43,7 +42,6 @@ class CartRepositoryImplTest : BaseWebTest() {
     @Before
     fun onSetup() {
         MockKAnnotations.init(this, relaxUnitFun = true)
-
         startMockWebServer()
     }
 
@@ -59,6 +57,10 @@ class CartRepositoryImplTest : BaseWebTest() {
             MockResponse()
                 .setBody(getJson(CART_ITEM_RESPONSE_JSON))
         )
+
+        every {
+            cartItemDAO.getCartItems()
+        } returns MOCK_CART_ITEM_PO_LIST
 
         every {
             cartItemDTOToPOMapper.transform(any<CartItemDTO>())
@@ -91,6 +93,7 @@ class CartRepositoryImplTest : BaseWebTest() {
         )
 
         private val MOCK_CART_ITEM = CartItem(
+            0,
             "",
             1,
             1,
@@ -100,5 +103,7 @@ class CartRepositoryImplTest : BaseWebTest() {
             1,
             ""
         )
+
+        private val MOCK_CART_ITEM_PO_LIST = listOf<CartItemPO>(MOCK_CART_ITEM_PO)
     }
 }

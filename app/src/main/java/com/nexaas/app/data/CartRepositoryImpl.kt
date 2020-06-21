@@ -15,8 +15,10 @@ class CartRepositoryImpl(
 ) : CartRepository {
 
     override suspend fun getCart(): SuspendableResult<List<CartItem>, Exception> {
-        val cartItems = cartService.getItems().map(cartItemDTOToPOMapper::transform)
-        cartItems.forEach(cartItemDAO::insert)
+        cartService.getItems()
+            .map(cartItemDTOToPOMapper::transform)
+            .forEach(cartItemDAO::insert)
+
         return SuspendableResult.of {
             cartItemDAO.getCartItems().map(cartItemPOToVOMapper::transform)
         }

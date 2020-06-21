@@ -14,7 +14,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@null"/>
+        app:title="@null">
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/cart_toolbar_title"
+            android:text="@string/cart" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:textColor="@color/cart_title"
+        app:layout_constraintStart_toStartOf="@+id/cartList"
+        app:layout_constraintTop_toBottomOf="@+id/cartToolbar"
+        tools:text="TextView"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cartList"
@@ -25,7 +45,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cartToolbar" />
-
+        app:layout_constraintTop_toBottomOf="@id/title"
+        tools:listitem="@layout/cart_item_list"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

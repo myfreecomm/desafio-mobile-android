@@ -3,4 +3,14 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <color name="black">#000</color>
+    <color name="grey">#7A7A7A</color>
+    <color name="white">#FFF</color>
+
+    <color name="cart_toolbar_title">@color/white</color>
+    <color name="cart_title">@color/black</color>
+    <color name="card_item_name">@color/black</color>
+    <color name="card_item_stock">@color/grey</color>
+    <color name="card_item_price">@color/black</color>
 </resources>

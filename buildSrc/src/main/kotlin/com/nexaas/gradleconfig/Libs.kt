@@ -137,8 +137,6 @@ object Libs {
         const val recyclerview: String =
                 "androidx.recyclerview:recyclerview:" + Versions.recyclerview
 
-        const val cardview: String = "androidx.cardview:cardview:" + Versions.cardview
-
         const val constraintlayout: String = "androidx.constraintlayout:constraintlayout:" +
                 Versions.constraintlayout
 

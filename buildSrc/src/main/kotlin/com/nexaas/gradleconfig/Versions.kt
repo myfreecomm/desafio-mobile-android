@@ -12,7 +12,6 @@ object Versions {
     // Libs and Dependencies versions (in alphabetical order)
     const val androidx_test: String = "1.2.0"
     const val appcompat: String = "1.1.0-alpha05"
-    const val cardview: String = "1.0.0"
     const val constraintlayout: String = "2.0.0-alpha2"
     const val converter_gson: String = "2.6.0"
     const val converter_jackson: String = "2.4.0"
