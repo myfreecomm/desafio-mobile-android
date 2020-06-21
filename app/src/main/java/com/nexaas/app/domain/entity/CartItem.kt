@@ -1,5 +1,7 @@
 package com.nexaas.app.domain.entity
 
+import java.math.BigDecimal
+
 class CartItem(
     val id: Int,
     val name: String,

@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer
 import com.nexaas.app.BaseActivity
 import com.nexaas.app.R
 import com.nexaas.app.domain.entity.CartItem
+import com.nexaas.app.features.extensions.toCurrencyPrice
 import kotlinx.android.synthetic.main.activity_cart.*
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -45,6 +46,10 @@ class CartActivity : BaseActivity(R.layout.activity_cart), CartUiEvents {
     private fun onReceiveEvents() = with(viewModel) {
         cartItemsLv.observe(this@CartActivity, Observer { cartItems ->
             cartTitle.text = getString(R.string.cart_title, getCartTitle(cartItems))
+            cartTotal.text = getCartValue(cartItems, TOTAL)
+            cartSubTotal.text = getCartValue(cartItems, SUBTOTAL)
+            cartShipping.text = getCartValue(cartItems, SHIPPING)
+            cartTax.text = getCartValue(cartItems, TAX)
             adapter.updateList(cartItems)
         })
     }
@@ -52,7 +57,31 @@ class CartActivity : BaseActivity(R.layout.activity_cart), CartUiEvents {
     override fun clickItem(id: Int) {
     }
 
-    private fun getCartTitle(cartItems : List<CartItem>) : Int{
+    private fun getCartTitle(cartItems: List<CartItem>): Int {
         return cartItems.sumBy { cartItem -> cartItem.quantity }
+    }
+
+    private fun getCartValue(cartItems: List<CartItem>, type: String): CharSequence? =
+        when (type) {
+            TOTAL -> {
+                cartItems.sumBy { cartItem -> (cartItem.price * cartItem.quantity) + cartItem.tax + cartItem.shipping }
+            }
+            SUBTOTAL -> {
+                cartItems.sumBy { cartItem -> (cartItem.price * cartItem.quantity) }
+            }
+            SHIPPING -> {
+                cartItems.sumBy { cartItem -> cartItem.shipping }
+            }
+            TAX -> {
+                cartItems.sumBy { cartItem -> cartItem.tax }
+            }
+            else -> cartItems.sumBy { cartItem -> (cartItem.price * cartItem.quantity) + cartItem.tax + cartItem.shipping }
+        }.toCurrencyPrice()
+
+    companion object {
+        const val TOTAL = "TOTAL"
+        const val SUBTOTAL = "SUBTOTAL"
+        const val SHIPPING = "SHIPPING"
+        const val TAX = "TAX"
     }
 }

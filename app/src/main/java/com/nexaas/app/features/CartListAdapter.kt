@@ -12,6 +12,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.nexaas.app.R
 import com.nexaas.app.domain.entity.CartItem
+import com.nexaas.app.features.extensions.toCurrencyPrice
 import java.text.NumberFormat
 import java.util.*
 
@@ -57,7 +58,7 @@ class CartItemHolder(view: View) : RecyclerView.ViewHolder(view) {
         stock.text = context.getString(R.string.cart_item_only_once)
         if (cartItem.stock > 1)
             stock.text = context.getString(R.string.cart_item_in_stock)
-        price.text = getPrice(cartItem.price, cartItem.quantity)
+        price.text = (cartItem.price * cartItem.quantity).toCurrencyPrice()
 
         Glide.with(context)
             .load(cartItem.image_url)
@@ -74,13 +75,6 @@ class CartItemHolder(view: View) : RecyclerView.ViewHolder(view) {
         }
     }
 
-    private fun getPrice(price: Int, quantity: Int): String {
-        return NumberFormat.getCurrencyInstance(
-            Locale(LOCALE_LANGUAGE, LOCALE_COUNTRY)).format(((price * quantity)/100)
-        )
-
-    }
-
     companion object {
         const val IMAGE_WIDTH = 50
         const val IMAGE_HEIGHT = 50
@@ -88,3 +82,5 @@ class CartItemHolder(view: View) : RecyclerView.ViewHolder(view) {
         const val LOCALE_COUNTRY = "US"
     }
 }
+
+

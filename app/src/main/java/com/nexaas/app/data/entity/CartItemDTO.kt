@@ -1,6 +1,7 @@
 package com.nexaas.app.data.entity
 
 import com.google.gson.annotations.SerializedName
+import java.math.BigDecimal
 
 data class CartItemDTO(
     @SerializedName("name") val name: String,

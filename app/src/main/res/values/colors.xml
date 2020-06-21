@@ -6,6 +6,7 @@
 
     <color name="black">#000</color>
     <color name="grey">#7A7A7A</color>
+    <color name="white_grey">#D6D6D6</color>
     <color name="white">#FFF</color>
 
     <color name="cart_toolbar_title">@color/white</color>
@@ -13,4 +14,13 @@
     <color name="card_item_name">@color/black</color>
     <color name="card_item_stock">@color/grey</color>
     <color name="card_item_price">@color/black</color>
+    <color name="cart_divider">@color/white_grey</color>
+    <color name="cart_total_tv">@color/grey</color>
+    <color name="cart_total">@color/black</color>
+    <color name="cart_subtotal_tv">@color/black</color>
+    <color name="cart_subtotal">@color/grey</color>
+    <color name="cart_shipping_tv">@color/black</color>
+    <color name="cart_shipping">@color/grey</color>
+    <color name="cart_tax_tv">@color/black</color>
+    <color name="cart_tax">@color/grey</color>
 </resources>

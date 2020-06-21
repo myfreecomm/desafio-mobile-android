@@ -14,7 +14,7 @@ data class CartItemPO(
     val tax: Int,
     val shipping: Int,
     val description: String
-){
+) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
 }
