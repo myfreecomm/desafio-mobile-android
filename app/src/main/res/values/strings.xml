@@ -5,4 +5,6 @@
     <string name="cart_title">%1$d Items in your cart</string>
     <string name="cart_item_in_stock">in stock</string>
     <string name="cart_item_only_once">only 1 left in stock</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
 </resources>

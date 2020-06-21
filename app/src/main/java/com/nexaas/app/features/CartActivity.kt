@@ -1,9 +1,11 @@
 package com.nexaas.app.features
 
 import android.os.Bundle
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.lifecycle.Observer
 import com.nexaas.app.BaseActivity
 import com.nexaas.app.R
+import com.nexaas.app.domain.entity.CartItem
 import kotlinx.android.synthetic.main.activity_cart.*
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -16,9 +18,18 @@ class CartActivity : BaseActivity(R.layout.activity_cart), CartUiEvents {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupActionBar()
         initCart()
         setUpList()
         onReceiveEvents()
+    }
+
+    private fun setupActionBar() {
+        setSupportActionBar(cartToolbar)
+        val drawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        drawerLayout.addDrawerListener(drawerToggle)
+        drawerToggle.syncState()
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun initCart() = with(viewModel) {
@@ -32,11 +43,16 @@ class CartActivity : BaseActivity(R.layout.activity_cart), CartUiEvents {
     }
 
     private fun onReceiveEvents() = with(viewModel) {
-        viewModel.cartItemsLv.observe(this@CartActivity, Observer {
-            adapter.updateList(it)
+        cartItemsLv.observe(this@CartActivity, Observer { cartItems ->
+            cartTitle.text = getString(R.string.cart_title, getCartTitle(cartItems))
+            adapter.updateList(cartItems)
         })
     }
 
     override fun clickItem(id: Int) {
+    }
+
+    private fun getCartTitle(cartItems : List<CartItem>) : Int{
+        return cartItems.sumBy { cartItem -> cartItem.quantity }
     }
 }
