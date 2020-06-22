@@ -84,6 +84,8 @@ dependencies {
 
 
     //Testes
+    testImplementation "io.mockk:mockk:$mockk"
+    testImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
     testImplementation "androidx.room:room-testing:$room_version"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

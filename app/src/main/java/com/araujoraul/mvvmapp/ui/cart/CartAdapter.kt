@@ -23,6 +23,8 @@ class CartAdapter(private var itemsList: List<ItemEntity>, private val clickList
         notifyDataSetChanged()
     }
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         return CartViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_cart, parent, false), clickListener)
     }

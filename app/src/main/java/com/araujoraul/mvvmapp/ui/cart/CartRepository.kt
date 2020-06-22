@@ -30,8 +30,9 @@ class CartRepository(var application: Application) {
     val tax = MutableLiveData<Int>()
 
 
-    fun loadItems() {
 
+
+    fun loadItems(): List<ItemEntity> {
 
 
 
@@ -92,7 +93,7 @@ class CartRepository(var application: Application) {
             })
 
 
-
+        return listOf()
 
     }
 
