@@ -11,7 +11,7 @@ import androidx.room.Query
 interface ItemDao {
 
     @Query("SELECT * FROM item_table ")
-    fun getItemsFromDatabase() : List<ItemEntity>
+    fun getItemsFromDatabase() : LiveData<List<ItemEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertIntoDatabase(items: List<ItemEntity>)

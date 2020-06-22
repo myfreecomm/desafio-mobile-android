@@ -1,26 +1,26 @@
-package com.araujoraul.mvvmapp.ui.cart
+package com.araujoraul.mvvmapp.data
 
 import android.app.Application
 import android.util.Log
 import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.araujoraul.mvvmapp.data.api.ApiService
 import com.araujoraul.mvvmapp.db.ItemDatabase
 import com.araujoraul.mvvmapp.db.ItemEntity
+import com.araujoraul.mvvmapp.util.Coroutines
 import com.google.gson.Gson
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
+import java.time.LocalDateTime
+import java.time.temporal.ChronoUnit
+import java.util.logging.Handler
+
 
 class CartRepository(var application: Application) {
-
-    private val itemDatabase by lazy { ItemDatabase.getDatabase(application).getItemDao() }
-
-    val liveData = MutableLiveData<List<ItemEntity>>()
 
     val showProgress = MutableLiveData<Boolean>()
     val cartSize = MutableLiveData<Int>()
@@ -29,13 +29,34 @@ class CartRepository(var application: Application) {
     val shipping = MutableLiveData<Int>()
     val tax = MutableLiveData<Int>()
 
+    private val itemDatabase by lazy { ItemDatabase.getDatabase(application).getItemDao() }
+    private val isItemsExists = itemDatabase.getItemsFromDatabase()
+    private val liveData = MutableLiveData<List<ItemEntity>>()
+    private val handler by lazy { android.os.Handler() }
 
-    fun loadItems(): List<ItemEntity> {
+
+    init {
+        liveData.observeForever{
+            saveItemsIntoDatabase(it)
+        }
+    }
+
+    suspend fun getItems(): LiveData<List<ItemEntity>>{
+        return withContext(Dispatchers.IO){
+
+
+            if (isItemsExists.value.isNullOrEmpty()) loadItems()
+              itemDatabase.getItemsFromDatabase()
+
+
+        }
+    }
 
 
 
+    fun loadItems() : List<ItemEntity> {
 
-            showProgress.postValue(true)
+        showProgress.postValue(true)
 
             val call = ApiService.createInstance().getItemsResults()
             call.enqueue(object : Callback<List<ItemEntity>>{
@@ -49,7 +70,7 @@ class CartRepository(var application: Application) {
 
                         val itemList = response.body()!!
                         liveData.postValue(itemList)
-                        insert(itemList)
+
 
                         val size: Int = itemList.size
                         var maxShipping = -1
@@ -86,23 +107,24 @@ class CartRepository(var application: Application) {
                 override fun onFailure(call: Call<List<ItemEntity>>, t: Throwable) {
                     showProgress.postValue(false)
                     noInternet.postValue(true)
-                    loadItems()
+
+                    handler.postDelayed(Runnable {
+                        loadItems()
+                    },10000)
+
+
                 }
 
             })
 
 
-return listOf()
-
+     return listOf()
     }
 
-    fun insert(list: List<ItemEntity>) = CoroutineScope(Dispatchers.Main).launch {
-        itemDatabase.insertIntoDatabase(list)
+    private fun saveItemsIntoDatabase(items: List<ItemEntity>){
+       Coroutines.io {
+           itemDatabase.insertIntoDatabase(items)
+       }
     }
 
-    fun getData() = CoroutineScope(Dispatchers.Main).launch {
-        itemDatabase.getItemsFromDatabase()
     }
-
-
-}

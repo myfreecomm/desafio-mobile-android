@@ -1,7 +1,9 @@
 package com.araujoraul.mvvmapp.ui.cart
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.araujoraul.mvvmapp.R
 import com.araujoraul.mvvmapp.db.ItemEntity
 import com.araujoraul.mvvmapp.ui.cartdetails.DetailsDialogFragment
+import com.araujoraul.mvvmapp.util.Coroutines
 
 class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
 
@@ -21,18 +24,20 @@ class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
     private val txtTax by lazy { view?.findViewById<TextView>(R.id.taxValue) }
     private val txtSubtotal by lazy { view?.findViewById<TextView>(R.id.subtotalValue) }
     private val txtTotal by lazy { view?.findViewById<TextView>(R.id.totalValue) }
-    private val adapter by lazy { CartAdapter(emptyList(), this) }
+    private lateinit var adapter: CartAdapter
     private val recyclerView by lazy { view?.findViewById<RecyclerView>(R.id.recyclerView_cart) }
     private val progressBar by lazy { view?.findViewById<ProgressBar>(R.id.progressBar_cart) }
     private val txtNoInternet by lazy { view?.findViewById<TextView>(R.id.noInternet) }
     private val fragManager by lazy { activity?.supportFragmentManager }
-    private val fullDialog =
-        DetailsDialogFragment()
+    private val fullDialog = DetailsDialogFragment()
+
+    init {
+        adapter = CartAdapter(emptyList(), this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getCartLifecycles(lifecycle)
-        viewModel.apply { loadItems() }
 
     }
 
@@ -69,16 +74,22 @@ class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
             else progressBar?.visibility = View.GONE
         })
 
-        viewModel.liveData.observe(viewLifecycleOwner, Observer {
-                adapter.setItems(it)
-
-        })
-
+            bindUI()
             setupRecyclerView()
     }
 
+    private fun bindUI() = Coroutines.main {
+        viewModel.items.await().observe(viewLifecycleOwner, Observer{
+            adapter.setItems(it)
+        } )
+    }
+
     fun setupRecyclerView(){
+
+
+
         recyclerView.let {
+            it?.setHasFixedSize(true)
             it?.adapter = adapter
             it?.layoutManager = LinearLayoutManager(activity)
         }

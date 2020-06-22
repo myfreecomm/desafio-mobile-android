@@ -2,20 +2,20 @@ package com.araujoraul.mvvmapp.ui.cart
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.araujoraul.mvvmapp.data.CartRepository
 import com.araujoraul.mvvmapp.db.ItemEntity
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import com.araujoraul.mvvmapp.util.lazyDeferred
 
 class CartViewModel(application: Application): AndroidViewModel(application) {
 
     private val cartLifecycle by lazy { CartLifecycle(application) }
     private val repository = CartRepository(application)
 
-    fun loadItems(){
-        repository.loadItems()
+
+    val items by lazyDeferred {
+        repository.getItems()
     }
 
-    val liveData: LiveData<List<ItemEntity>> = repository.liveData
     val cartSize: LiveData<Int> = repository.cartSize
     val showProgress: LiveData<Boolean> = repository.showProgress
     val txtNoInternet : LiveData<Boolean> = repository.noInternet

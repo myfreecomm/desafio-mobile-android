@@ -83,11 +83,11 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
 
 
-    //Testes
+    //Unit Tests
     testImplementation "io.mockk:mockk:$mockk"
-    testImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
-    testImplementation "androidx.room:room-testing:$room_version"
     testImplementation 'junit:junit:4.12'
+
+    //UI Tests
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
