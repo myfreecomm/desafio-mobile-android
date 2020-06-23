@@ -13,10 +13,12 @@ interface ItemDao {
     @Query("SELECT * FROM item_table ")
     fun getItemsFromDatabase() : LiveData<List<ItemEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertIntoDatabase(items: List<ItemEntity>)
 
+    //Not implemented
     @Query("DELETE FROM item_table")
      fun deleteAllFromDatabase()
+
 
 }

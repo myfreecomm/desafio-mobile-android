@@ -3,6 +3,7 @@ package com.araujoraul.mvvmapp.data
 import android.app.Application
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.widget.ViewUtils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.araujoraul.mvvmapp.data.api.ApiService
@@ -31,23 +32,17 @@ class CartRepository(var application: Application) {
 
     private val itemDatabase by lazy { ItemDatabase.getDatabase(application).getItemDao() }
     private val isItemsExists = itemDatabase.getItemsFromDatabase()
-    private val liveData = MutableLiveData<List<ItemEntity>>()
     private val handler by lazy { android.os.Handler() }
 
+    private val liveData = MutableLiveData<List<ItemEntity>>()
 
-    init {
-        liveData.observeForever{
-            saveItemsIntoDatabase(it)
-        }
-    }
+    init { liveData.observeForever{ saveItemsIntoDatabase(it) } }
 
     suspend fun getItems(): LiveData<List<ItemEntity>>{
         return withContext(Dispatchers.IO){
 
-
             if (isItemsExists.value.isNullOrEmpty()) loadItems()
               itemDatabase.getItemsFromDatabase()
-
 
         }
     }
@@ -99,6 +94,7 @@ class CartRepository(var application: Application) {
                         // handle the case when the API request gets a error response.
                     } else {
                         Toast.makeText(application, "Internal server error, try later again...", Toast.LENGTH_LONG).show()
+
                     }
 
                 }

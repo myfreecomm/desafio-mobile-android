@@ -10,9 +10,12 @@ class CartLifecycle(val application: Application) : LifecycleObserver {
 
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun getOnResume(){
+    fun getOnResume() {
         Toast.makeText(application.applicationContext, "Testing OnResume OK", Toast.LENGTH_SHORT).show()
 
     }
+
+
+
 
 }

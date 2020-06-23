@@ -2,11 +2,9 @@ package com.araujoraul.mvvmapp.ui.cart
 
 import com.araujoraul.mvvmapp.data.CartRepository
 import com.araujoraul.mvvmapp.db.ItemDao
-import com.araujoraul.mvvmapp.db.ItemEntity
 import io.mockk.*
 import junit.framework.Assert.*
 import org.junit.Test
-
 
 class CartTest {
 
@@ -14,7 +12,7 @@ class CartTest {
     val itemDao = mockk<ItemDao>(relaxed = true)
 
     @Test
-    fun `checking data`(){
+    fun `check if request to api is fetching data`(){
 
         val listOfItemsEntity = repository.loadItems()
 
@@ -29,34 +27,25 @@ class CartTest {
     @Test
     fun `check inserting database`(){
 
-        val listResponse = listOf<ItemEntity>()
+        val listResponse = repository.loadItems()
 
-        val inserted = itemDao.insertIntoDatabase(listResponse)
-
-        assertNotNull(inserted)
+        assertNotNull(itemDao.insertIntoDatabase(listResponse))
 
     }
 
     @Test
-    fun `when loadItems is sucessfull called, liveData should be not null`(){
-        val listItems = listOf<ItemEntity>()
+    fun `check getting data from database`(){
 
-        every { repository.loadItems() } returns listItems
+        assertNotNull(itemDao.getItemsFromDatabase())
 
     }
 
     @Test
-    fun `getting data from database and check if is not null`(){
+    fun`check deleting data from database`(){
 
-        val listItems = repository.loadItems()
+        val itemsDeleted = itemDao.deleteAllFromDatabase()
 
-        every { itemDao.getItemsFromDatabase() } returns listOf()
-
-        itemDao.insertIntoDatabase(repository.loadItems())
-        itemDao.getItemsFromDatabase()
-
-        verify { itemDao.getItemsFromDatabase() }
-        assertNull(itemDao.getItemsFromDatabase())
+        assertNotNull(itemsDeleted)
 
     }
 

@@ -2,6 +2,8 @@ package com.araujoraul.mvvmapp
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,6 +13,9 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.araujoraul.mvvmapp.db.ItemDatabase
+import com.araujoraul.mvvmapp.ui.cart.CartAdapter
+import com.araujoraul.mvvmapp.util.Coroutines
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private val drawerLayout by lazy { findViewById<DrawerLayout>(R.id.drawer_layout) }
     private val navView by lazy { findViewById<NavigationView>(R.id.nav_view) }
     private val navController by lazy { findNavController(R.id.nav_host_fragment) }
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

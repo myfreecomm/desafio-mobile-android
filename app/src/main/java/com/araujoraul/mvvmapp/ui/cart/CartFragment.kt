@@ -2,10 +2,12 @@ package com.araujoraul.mvvmapp.ui.cart
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -34,7 +36,6 @@ class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.getCartLifecycles(lifecycle)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -82,8 +83,6 @@ class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
 
     fun setupRecyclerView(){
 
-
-
         recyclerView.let {
             it?.setHasFixedSize(true)
             it?.adapter = adapter
@@ -105,6 +104,5 @@ class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
         fullDialog.show(fragManager!!, "tag")
 
     }
-
 
 }

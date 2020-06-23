@@ -1,10 +1,12 @@
 package com.araujoraul.mvvmapp.ui.cart
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.araujoraul.mvvmapp.R
 import com.araujoraul.mvvmapp.db.ItemEntity
@@ -17,12 +19,10 @@ interface ItemCartClickListener{
 class CartAdapter(private var itemsList: List<ItemEntity>, private val clickListener: ItemCartClickListener): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
 
-
     fun setItems(itemsList: List<ItemEntity>){
-        this.itemsList = itemsList
-        notifyDataSetChanged()
+            this.itemsList = itemsList
+            notifyDataSetChanged()
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         return CartViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_cart, parent, false), clickListener)
