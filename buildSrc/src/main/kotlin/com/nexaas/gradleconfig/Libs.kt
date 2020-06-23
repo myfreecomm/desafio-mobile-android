@@ -13,13 +13,6 @@ object Libs {
          * https://github.com/pinterest/ktlint
          */
         const val ktlint: String = "com.pinterest:ktlint:" + Versions.ktlint
-
-        /**
-         * https://github.com/ben-manes/gradle-versions-plugin
-         */
-        const val gradle_versions: String = "com.github.ben-manes:gradle-versions-plugin:" +
-                Versions.gradle_versions
-
     }
 
     object Core {
@@ -29,7 +22,7 @@ object Libs {
         const val kotlin_stdlib: String = "org.jetbrains.kotlin:kotlin-stdlib:" + Versions.kotlin
 
         const val kotlin_stdlib_jdk8: String =
-                "org.jetbrains.kotlin:kotlin-stdlib-jdk8:" + Versions.kotlin
+            "org.jetbrains.kotlin:kotlin-stdlib-jdk8:" + Versions.kotlin
 
         const val lifecycle_extensions: String = "androidx.lifecycle:lifecycle-extensions:" +
                 Versions.lifecycle_extensions
@@ -44,11 +37,11 @@ object Libs {
          * https://github.com/Kotlin/kotlinx.coroutines
          */
         const val kotlinx_coroutines_android: String =
-                "org.jetbrains.kotlinx:kotlinx-coroutines-android:" + Versions.kotlinx_coroutines
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:" + Versions.kotlinx_coroutines
 
         const val kotlinx_coroutines_core: String =
-                "org.jetbrains.kotlinx:kotlinx-coroutines-core:" +
-                        Versions.kotlinx_coroutines
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core:" +
+                    Versions.kotlinx_coroutines
 
         /**
          * http://developer.android.com/tools/extras/support-library.html
@@ -68,7 +61,7 @@ object Libs {
         const val koin_android: String = "org.koin:koin-android:" + Versions.koin
 
         const val koin_androidx_viewmodel: String =
-                "org.koin:koin-androidx-viewmodel:" + Versions.koin
+            "org.koin:koin-androidx-viewmodel:" + Versions.koin
     }
 
     object Data {
@@ -110,9 +103,9 @@ object Libs {
          * https://github.com/JakeWharton/retrofit2-kotlin-coroutines-adapter/
          */
         const val retrofit2_coroutines_adapter: String =
-                "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:" +
-                        Versions.retrofit2_coroutines_adapter
-        
+            "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:" +
+                    Versions.retrofit2_coroutines_adapter
+
         const val room_runtine: String = "androidx.room:room-runtime:" + Versions.room
         const val room_compiler: String = "androidx.room:room-compiler:" + Versions.room
     }
@@ -124,7 +117,7 @@ object Libs {
         const val glide: String = "com.github.bumptech.glide:glide:" + Versions.glide
 
         const val glide_annotations: String =
-                "com.github.bumptech.glide:annotations:" + Versions.glide
+            "com.github.bumptech.glide:annotations:" + Versions.glide
 
         const val glide_compiler: String = "com.github.bumptech.glide:compiler:" + Versions.glide
 
@@ -135,7 +128,7 @@ object Libs {
         const val fragment_ktx: String = "androidx.fragment:fragment-ktx:" + Versions.fragment_ktx
 
         const val recyclerview: String =
-                "androidx.recyclerview:recyclerview:" + Versions.recyclerview
+            "androidx.recyclerview:recyclerview:" + Versions.recyclerview
 
         const val constraintlayout: String = "androidx.constraintlayout:constraintlayout:" +
                 Versions.constraintlayout
@@ -166,6 +159,13 @@ object Libs {
 
         const val androidx_espresso_core: String = "androidx.test.espresso:espresso-core:" +
                 Versions.espresso_core
+
+        const val androidx_espresso_contrib: String =
+            "androidx.test.espresso:espresso-contrib:" + Versions.espresso_core
+
+        const val androidx_espresso_idling_resource: String =
+            "androidx.test.espresso:espresso-idling-resource:" + Versions.espresso_core
+
         /**
          * https://github.com/agoda-com/Kakao
          */
@@ -185,14 +185,14 @@ object Libs {
          * https://github.com/Kotlin/kotlinx.coroutines
          */
         const val kotlinx_coroutines_test: String =
-                "org.jetbrains.kotlinx:kotlinx-coroutines-test:" +
-                        Versions.kotlinx_coroutines_test
+            "org.jetbrains.kotlinx:kotlinx-coroutines-test:" +
+                    Versions.kotlinx_coroutines_test
 
         /**
          * https://github.com/square/okhttp/tree/master/mockwebserver
          */
         const val mockwebserver: String =
-                "com.squareup.okhttp3:mockwebserver:" + Versions.mockwebserver
+            "com.squareup.okhttp3:mockwebserver:" + Versions.mockwebserver
 
         const val room_testing: String = "androidx.room:room-testing:" + Versions.room
     }

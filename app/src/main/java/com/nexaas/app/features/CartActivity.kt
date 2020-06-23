@@ -1,6 +1,5 @@
 package com.nexaas.app.features
 
-import android.app.ProgressDialog.show
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -19,7 +18,7 @@ class CartActivity : BaseActivity(R.layout.activity_cart), CartUiEvents {
 
     private val adapter = CartListAdapter(this as CartUiEvents, this, mutableListOf())
 
-    private lateinit var cartDetailDialogFragment : CartDetailDialogFragment
+    private lateinit var cartDetailDialogFragment: CartDetailDialogFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

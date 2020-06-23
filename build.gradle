@@ -9,7 +9,6 @@ buildscript {
     }
     dependencies {
         classpath Libs.Tools.gradle
-        classpath Libs.Plugins.gradle_versions
         classpath Libs.Plugins.kotlin
     }
 }

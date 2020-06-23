@@ -79,6 +79,9 @@ dependencies {
     testImplementation Libs.Testing.kotlinx_coroutines_test
     testImplementation Libs.Testing.room_testing
 
+    implementation Libs.Testing.androidx_espresso_idling_resource
+    androidTestImplementation Libs.Testing.androidx_core
+    androidTestImplementation Libs.Testing.androidx_espresso_contrib
     androidTestImplementation Libs.Testing.androidx_espresso_core
     androidTestImplementation Libs.Testing.androidx_test_runner
     androidTestImplementation Libs.Testing.androidx_test_rules
