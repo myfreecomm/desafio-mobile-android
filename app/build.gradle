@@ -5,6 +5,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
+    flavorDimensions "default"
 
     defaultConfig {
         applicationId "com.welbertsoft.androidteste"
@@ -21,6 +22,24 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+
+        productFlavors {
+
+            dev {
+                buildConfigField("String", "BASEAPI", '"https://raw.githubusercontent.com/myfreecomm/desafio-mobile-android/master/api"');
+            }
+
+            preprod {
+                buildConfigField("String", "BASEAPI", '"https://raw.githubusercontent.com/myfreecomm/desafio-mobile-android/master/api/"');
+            }
+
+            prod {
+                buildConfigField("String", "BASEAPI", '"https://raw.githubusercontent.com/myfreecomm/desafio-mobile-android/master/api"');
+            }
+
+        }
+
     }
 
 }
