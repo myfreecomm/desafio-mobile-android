@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="black">#000</color>
+    <color name="grey">#7A7A7A</color>
+    <color name="white_grey">#D6D6D6</color>
+    <color name="white">#FFF</color>
+
+    <color name="cart_toolbar_title">@color/white</color>
+    <color name="cart_title">@color/black</color>
+    <color name="card_item_name">@color/black</color>
+    <color name="card_item_stock">@color/grey</color>
+    <color name="card_item_price">@color/black</color>
+    <color name="cart_divider">@color/white_grey</color>
+    <color name="cart_total_tv">@color/grey</color>
+    <color name="cart_total">@color/black</color>
+    <color name="cart_subtotal_tv">@color/black</color>
+    <color name="cart_subtotal">@color/grey</color>
+    <color name="cart_shipping_tv">@color/black</color>
+    <color name="cart_shipping">@color/grey</color>
+    <color name="cart_tax_tv">@color/black</color>
+    <color name="cart_tax">@color/grey</color>
+    <color name="cart_detail_toolbar_title">@color/black</color>
+    <color name="cart_detail_name">@color/black</color>
+    <color name="cart_detail_price">@color/grey</color>
+    <color name="cart_detail_stock">@color/grey</color>
+    <color name="cart_detail_description">@color/black</color>
+</resources>

@@ -1,0 +1,89 @@
+import com.nexaas.gradleconfig.Libs
+import com.nexaas.gradleconfig.Versions
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Versions.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.nexaas"
+        minSdkVersion Versions.minSdkVersion
+        targetSdkVersion Versions.targetSdkVersion
+        versionCode Versions.versionCode
+        versionName Versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        applicationIdSuffix ".app"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation Libs.Core.kotlin_stdlib_jdk8
+    implementation Libs.Core.kotlinx_coroutines_core
+    implementation Libs.Core.kotlinx_coroutines_android
+
+    implementation Libs.Data.retrofit2_coroutines_adapter
+    implementation Libs.Data.result
+    implementation Libs.Data.result_coroutines
+    implementation Libs.Data.converter_gson
+    implementation Libs.Data.stetho
+    implementation Libs.Data.stetho_Okhttp3
+    implementation Libs.Data.okhttp
+    implementation Libs.Data.logging_interceptor
+    implementation Libs.Data.room_runtine
+    kapt Libs.Data.room_compiler
+
+    implementation Libs.Core.appcompat
+    implementation Libs.UI.constraintlayout
+    implementation Libs.Core.core_ktx
+    implementation Libs.UI.fragment_ktx
+    implementation Libs.Core.lifecycle_extensions
+    implementation Libs.UI.recyclerview
+    implementation Libs.UI.shimmer
+    implementation Libs.UI.material
+
+    implementation (Libs.UI.glide) {
+        exclude group: "com.android.support"
+    }
+    kapt Libs.UI.glide_annotations
+    kapt Libs.UI.glide_compiler
+
+    implementation Libs.Core.multidex
+
+    implementation Libs.DI.koin_android
+    implementation Libs.DI.koin_androidx_viewmodel
+
+    testImplementation Libs.Testing.junit
+    testImplementation Libs.Testing.mockk
+    testImplementation Libs.Testing.mockwebserver
+    testImplementation Libs.Testing.core_testing
+    testImplementation Libs.Testing.kotlinx_coroutines_test
+    testImplementation Libs.Testing.room_testing
+
+    implementation Libs.Testing.androidx_espresso_idling_resource
+    androidTestImplementation Libs.Testing.androidx_core
+    androidTestImplementation Libs.Testing.androidx_espresso_contrib
+    androidTestImplementation Libs.Testing.androidx_espresso_core
+    androidTestImplementation Libs.Testing.androidx_test_runner
+    androidTestImplementation Libs.Testing.androidx_test_rules
+    androidTestImplementation Libs.Testing.kakao
+}
