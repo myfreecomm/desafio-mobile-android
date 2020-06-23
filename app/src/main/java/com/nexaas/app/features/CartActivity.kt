@@ -1,6 +1,8 @@
 package com.nexaas.app.features
 
+import android.app.ProgressDialog.show
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.lifecycle.Observer
 import com.nexaas.app.BaseActivity
@@ -17,6 +19,8 @@ class CartActivity : BaseActivity(R.layout.activity_cart), CartUiEvents {
 
     private val adapter = CartListAdapter(this as CartUiEvents, this, mutableListOf())
 
+    private lateinit var cartDetailDialogFragment : CartDetailDialogFragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupActionBar()
@@ -24,6 +28,15 @@ class CartActivity : BaseActivity(R.layout.activity_cart), CartUiEvents {
         setUpList()
         onReceiveEvents()
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean =
+        when (item.itemId) {
+            android.R.id.home -> {
+                cartDetailDialogFragment.dismiss()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
 
     private fun setupActionBar() {
         setSupportActionBar(cartToolbar)
@@ -54,9 +67,6 @@ class CartActivity : BaseActivity(R.layout.activity_cart), CartUiEvents {
         })
     }
 
-    override fun clickItem(id: Int) {
-    }
-
     private fun getCartTitle(cartItems: List<CartItem>): Int {
         return cartItems.sumBy { cartItem -> cartItem.quantity }
     }
@@ -78,7 +88,19 @@ class CartActivity : BaseActivity(R.layout.activity_cart), CartUiEvents {
             else -> cartItems.sumBy { cartItem -> (cartItem.price * cartItem.quantity) + cartItem.tax + cartItem.shipping }
         }.toCurrencyPrice()
 
+    override fun clickItem(cartItem: CartItem) {
+        val beginTransaction = supportFragmentManager.beginTransaction()
+        val previous = supportFragmentManager.findFragmentByTag(CART_DETAIL_FRAGMENT)
+        if (previous != null)
+            beginTransaction.remove(previous)
+        beginTransaction.addToBackStack(null)
+
+        cartDetailDialogFragment = CartDetailDialogFragment.newInstance(cartItem)
+        cartDetailDialogFragment.show(beginTransaction, CART_DETAIL_FRAGMENT)
+    }
+
     companion object {
+        const val CART_DETAIL_FRAGMENT = "CART_DETAIL_FRAGMENT"
         const val TOTAL = "TOTAL"
         const val SUBTOTAL = "SUBTOTAL"
         const val SHIPPING = "SHIPPING"

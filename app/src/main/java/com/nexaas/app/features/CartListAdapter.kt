@@ -43,7 +43,6 @@ class CartListAdapter(
         this.cartItems = cartItems.toMutableList()
         notifyDataSetChanged()
     }
-
 }
 
 class CartItemHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -54,12 +53,6 @@ class CartItemHolder(view: View) : RecyclerView.ViewHolder(view) {
     private var stock = view.findViewById<TextView>(R.id.stock)
 
     fun bind(cartUiEvents: CartUiEvents, context: Context, cartItem: CartItem) {
-        name.text = cartItem.name
-        stock.text = context.getString(R.string.cart_item_only_once)
-        if (cartItem.stock > 1)
-            stock.text = context.getString(R.string.cart_item_in_stock)
-        price.text = (cartItem.price * cartItem.quantity).toCurrencyPrice()
-
         Glide.with(context)
             .load(cartItem.image_url)
             .override(IMAGE_WIDTH, IMAGE_HEIGHT)
@@ -70,8 +63,14 @@ class CartItemHolder(view: View) : RecyclerView.ViewHolder(view) {
             .placeholder(image.drawable)
             .into(image)
 
+        name.text = cartItem.name
+        stock.text = context.getString(R.string.cart_item_only_once)
+        if (cartItem.stock > 1)
+            stock.text = context.getString(R.string.cart_item_in_stock)
+        price.text = (cartItem.price * cartItem.quantity).toCurrencyPrice()
+
         container.setOnClickListener {
-            cartUiEvents.clickItem(cartItem.id)
+            cartUiEvents.clickItem(cartItem)
         }
     }
 

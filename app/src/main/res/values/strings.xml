@@ -7,9 +7,11 @@
     <string name="cart_item_only_once">only 1 left in stock</string>
     <string name="open">open</string>
     <string name="close">close</string>
-    <string name="cartTotal">TOTAL</string>
-    <string name="cartSubtotal">Subtotal</string>
-    <string name="cartShipping">Shipping</string>
-    <string name="cartTax">Tax</string>
+    <string name="cart_total">TOTAL</string>
+    <string name="cart_subtotal">Subtotal</string>
+    <string name="cart_shipping">Shipping</string>
+    <string name="cart_tax">Tax</string>
+    <string name="cart_checkout">Checkout</string>
+    <string name="cart_detail">Product details</string>
 
 </resources>
