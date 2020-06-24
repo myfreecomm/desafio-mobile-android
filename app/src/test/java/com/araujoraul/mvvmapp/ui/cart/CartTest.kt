@@ -1,9 +1,17 @@
 package com.araujoraul.mvvmapp.ui.cart
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.liveData
 import com.araujoraul.mvvmapp.data.CartRepository
 import com.araujoraul.mvvmapp.db.ItemDao
+import com.araujoraul.mvvmapp.db.ItemEntity
 import io.mockk.*
 import junit.framework.Assert.*
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.test.TestCoroutineScope
+import kotlinx.coroutines.test.runBlockingTest
+import org.junit.Rule
 import org.junit.Test
 
 class CartTest {
@@ -12,7 +20,7 @@ class CartTest {
     val itemDao = mockk<ItemDao>(relaxed = true)
 
     @Test
-    fun `check if request to api is fetching data`(){
+    fun `check if api request is fetching data`(){
 
         val listOfItemsEntity = repository.loadItems()
 
@@ -24,30 +32,34 @@ class CartTest {
 
     }
 
+    @ExperimentalCoroutinesApi
     @Test
     fun `check inserting database`(){
 
-        val listResponse = repository.loadItems()
 
-        assertNotNull(itemDao.insertIntoDatabase(listResponse))
+     runBlockingTest {
+
+         val listResponse = repository.loadItems()
+
+         val result = itemDao.insertIntoDatabase(listResponse)
+         val testingOtherResult = listOf("Test 1", "Test 2")
+
+         assertNotNull(result)
+         assertNotSame(result, testingOtherResult)
+
+     }
 
     }
 
     @Test
     fun `check getting data from database`(){
 
+        val dataFromDatabase = itemDao.getItemsFromDatabase()
+
+        every { itemDao.getItemsFromDatabase() } returns dataFromDatabase
+
         assertNotNull(itemDao.getItemsFromDatabase())
 
     }
-
-    @Test
-    fun`check deleting data from database`(){
-
-        val itemsDeleted = itemDao.deleteAllFromDatabase()
-
-        assertNotNull(itemsDeleted)
-
-    }
-
 
 }
