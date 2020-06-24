@@ -1,0 +1,4 @@
+<resources>
+    <!-- services config -->
+    <string name="url_service">https://raw.githubusercontent.com/</string>
+</resources>

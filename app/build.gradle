@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.example.testenexaas"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //Android
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin_version"
+    implementation "androidx.appcompat:appcompat:$versions.appcompat"
+    implementation "androidx.recyclerview:recyclerview:$versions.recyclerview"
+    implementation "androidx.core:core-ktx:$versions.ktx"
+    implementation "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+
+    //Life Cycle
+    implementation "androidx.lifecycle:lifecycle-extensions:$versions.lifecycles"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycles"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycles"
+
+    //Koin
+    implementation "org.koin:koin-androidx-viewmodel:$versions.koin"
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
+
+    //glide
+    implementation "com.github.bumptech.glide:glide:$versions.glide"
+
+    testImplementation "junit:junit:$versions.junit"
+    androidTestImplementation "androidx.test.ext:junit:$versions.ext_junit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.espresso"
+
+    implementation project(':domain')
+    implementation project(':data')
+}
