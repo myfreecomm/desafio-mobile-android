@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="0dp">
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:id="@+id/item_cart_image"
+            android:layout_width="@dimen/dp_72"
+            android:layout_height="@dimen/dp_72"
+            android:background="@color/cardview_light_background"
+            android:contentDescription="Item" />
+
+        <TextView
+            android:layout_toEndOf="@+id/item_cart_image"
+            android:textColor="@color/black"
+            android:id="@+id/tv_item_name"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="0dp"
+            android:maxLines="1"
+            android:maxEms="1"
+            android:textStyle="bold"
+            android:minWidth="220dp"
+            android:ellipsize="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_16"
+            tools:text=""/>
+
+        <TextView
+            android:gravity="end"
+            android:layout_toEndOf="@+id/tv_item_name"
+            android:textColor="@color/black"
+            android:id="@+id/item_cart_value"
+            android:layout_marginTop="0dp"
+            android:maxLines="1"
+            android:maxEms="1"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_16"
+            tools:text="1.50"/>
+
+        <TextView
+            android:layout_below="@+id/tv_item_name"
+            android:textColor="@color/black_30"
+            android:layout_marginStart="@dimen/dp_80"
+            android:id="@+id/tv_item_stock"
+            android:layout_marginTop="5dp"
+            android:maxLines="1"
+            android:maxEms="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_14"
+            tools:text="out of Stock"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
