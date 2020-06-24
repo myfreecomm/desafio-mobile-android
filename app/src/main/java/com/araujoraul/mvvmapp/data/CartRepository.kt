@@ -21,7 +21,7 @@ import java.time.temporal.ChronoUnit
 import java.util.logging.Handler
 
 
-class CartRepository(var application: Application) {
+class CartRepository(var application: Application)  {
 
     val showProgress = MutableLiveData<Boolean>()
     val cartSize = MutableLiveData<Int>()
@@ -49,9 +49,10 @@ class CartRepository(var application: Application) {
 
 
 
-    fun loadItems() : List<ItemEntity> {
+   private suspend fun loadItems() : List<ItemEntity> {
 
         showProgress.postValue(true)
+
 
             val call = ApiService.createInstance().getItemsResults()
             call.enqueue(object : Callback<List<ItemEntity>>{
@@ -104,10 +105,10 @@ class CartRepository(var application: Application) {
                     showProgress.postValue(false)
                     noInternet.postValue(true)
 
-                    handler.postDelayed(Runnable {
+                    Coroutines.io {
+                        delay(10000)
                         loadItems()
-                    },10000)
-
+                    }
 
                 }
 

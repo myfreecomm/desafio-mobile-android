@@ -11,12 +11,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.araujoraul.mvvmapp.R
 import com.araujoraul.mvvmapp.db.ItemEntity
 import com.araujoraul.mvvmapp.ui.cartdetails.DetailsDialogFragment
 import com.araujoraul.mvvmapp.util.Coroutines
+import kotlinx.coroutines.launch
 
 class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
 
@@ -71,8 +73,14 @@ class CartFragment : Fragment(R.layout.fragment_cart), ItemCartClickListener {
             else progressBar?.visibility = View.GONE
         })
 
+
+
+        lifecycleScope.launchWhenStarted {
             bindUI()
             setupRecyclerView()
+        }
+
+
     }
 
     private fun bindUI() = Coroutines.main {
