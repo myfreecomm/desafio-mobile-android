@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TesteNexaas</string>
+
+    <string name="btn_close">Fechar</string>
+</resources>
