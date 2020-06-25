@@ -21,4 +21,14 @@
         <item quantity="one">Only 1 left in stock</item>
         <item quantity="other">In stock</item>
     </plurals>
+    <string name="title_activity_item_detail">Product Details</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="checkout">checkout</string>
 </resources>

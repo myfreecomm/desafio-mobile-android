@@ -1,6 +1,8 @@
 package com.welbertsoft.androidteste.repository.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 /**
 Created By Welbert Moreira on 23/06/2020 : 20:19
@@ -9,6 +11,7 @@ Created By Welbert Moreira on 23/06/2020 : 20:19
 
 typealias DataResponse = ArrayList<DataResponseElement>
 
+@Parcelize
 data class DataResponseElement(
     val name: String,
     val quantity: Long,
@@ -20,7 +23,7 @@ data class DataResponseElement(
     val tax: Long,
     val shipping: Double,
     val description: String
-)
+):Parcelable
 
 fun DataResponse.getTotal(): Double {
     return getSubTotal()+getTax()

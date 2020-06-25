@@ -1,6 +1,7 @@
 package com.welbertsoft.androidteste.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.welbertsoft.androidteste.R
 import com.welbertsoft.androidteste.repository.response.DataResponseElement
+import com.welbertsoft.androidteste.ui.activity.detail.ItemDetailActivity
 import java.text.DecimalFormat
 
 /**
@@ -32,6 +34,10 @@ class ItemAdapter(
             txtTitle = view.findViewById(R.id.txt_title)
             txtDescription = view.findViewById(R.id.txt_description)
             txtPrice = view.findViewById(R.id.txt_price)
+            itemView.setOnClickListener{
+                context.startActivity(Intent(context,ItemDetailActivity::class.java)
+                    .putExtra("ITEM",list[adapterPosition]))
+            }
         }
     }
 

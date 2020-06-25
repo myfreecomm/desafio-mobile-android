@@ -14,8 +14,7 @@ import com.welbertsoft.androidteste.repository.response.*
 import java.text.DecimalFormat
 import java.text.MessageFormat
 
-class CartFragment : Fragment(),
-    CartFragmentView {
+class CartFragment : Fragment(), CartFragmentView {
 
     lateinit var txtTotalItens: TextView
     lateinit var rcItems: RecyclerView
