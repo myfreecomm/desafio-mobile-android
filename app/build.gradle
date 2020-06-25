@@ -27,7 +27,7 @@ android {
         productFlavors {
 
             dev {
-                buildConfigField("String", "BASEAPI", '"https://raw.githubusercontent.com/myfreecomm/desafio-mobile-android/master/api"');
+                buildConfigField("String", "BASEAPI", '"https://raw.githubusercontent.com/myfreecomm/desafio-mobile-android/master/api/"');
             }
 
             preprod {
@@ -35,7 +35,7 @@ android {
             }
 
             prod {
-                buildConfigField("String", "BASEAPI", '"https://raw.githubusercontent.com/myfreecomm/desafio-mobile-android/master/api"');
+                buildConfigField("String", "BASEAPI", '"https://raw.githubusercontent.com/myfreecomm/desafio-mobile-android/master/api/"');
             }
 
         }
