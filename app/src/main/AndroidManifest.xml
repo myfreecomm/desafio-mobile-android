@@ -15,14 +15,14 @@
         <activity
             android:name=".ui.activity.detail.ItemDetailActivity"
             android:label="@string/title_activity_item_detail"
-            android:screenOrientation="portrait"
-            android:theme="@style/LightTheme"></activity>
+            android:screenOrientation="fullSensor"
+            android:theme="@style/LightTheme">
+        </activity>
         <activity
             android:name=".ui.activity.MainActivity"
             android:label="@string/title_activity_main"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"></activity>
-        <activity android:name=".ui.activity.TelaSplach">
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
