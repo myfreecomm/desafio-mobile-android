@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Desafio</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="nav_header_title">Welbert Moreira</string>
+    <string name="nav_header_subtitle">welbertimoreira@hotmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_cart">Cart</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="home_second">Home Second</string>
+    <string name="items_in_your_cart">{0} items in your cart</string>
+    <string name="total">Total</string>
+    <string name="subtotal">Subtotal</string>
+
+    <plurals name="stock_text">
+        <item quantity="one">Only 1 left in stock</item>
+        <item quantity="other">In stock</item>
+    </plurals>
+    <string name="title_activity_item_detail">Product Details</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="checkout">checkout</string>
+</resources>
