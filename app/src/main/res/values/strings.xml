@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MVVMapp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">MENU</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_cart">Cart</string>
+
+    <string name="txt_total_cart">TOTAL</string>
+    <string name="txt_subtotal">Subtotal</string>
+    <string name="txt_shipping">Shipping</string>
+    <string name="txt_tax">Tax</string>
+    <string name="btn_remove_cart_txt">remove from cart</string>
+    <string name="title_product_details">Product Details</string>
+    <string name="txt_no_internet">No internet ;(</string>
+    <string name="cifrao">$</string>
+</resources>
