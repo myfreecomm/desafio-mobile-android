@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Teste Nexaas</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_dont_have_items">Dont have items!</string>
+
+</resources>

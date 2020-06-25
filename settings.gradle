@@ -1,0 +1,2 @@
+rootProject.name='Teste Nexaas'
+include ':app'
