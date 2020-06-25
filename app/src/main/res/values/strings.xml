@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">Desafio</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Welbert Moreira</string>
     <string name="nav_header_subtitle">welbertimoreira@hotmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
@@ -23,12 +21,6 @@
     </plurals>
     <string name="title_activity_item_detail">Product Details</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="checkout">checkout</string>
 </resources>
