@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NexaasChallenge</string>
+    <string name="product_description">Product</string>
+    <string name="total">Total</string>
+    <string name="label_subtotal">Subtotal</string>
+    <string name="label_shipping">Shipping</string>
+    <string name="label_tax">Tax</string>
+</resources>

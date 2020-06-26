@@ -1,0 +1,44 @@
+ext {
+    //Android Config
+    minSDK = 21
+    targetSDK = 29
+    compileSDK = 29
+
+    kotlinVersion = '1.3.72'
+
+    buildTools = '4.0.0'
+    buildToolsVersion = '29.0.3'
+
+    androidXCoreKtxVersion = '1.2.0'
+
+    appcompatVersion = '1.1.0'
+
+    //Android libs
+    materialVersion = '1.1.0'
+    constraintLayoutVersion = '1.1.3'
+
+    //Test
+    junitVersion = '4.13'
+    junitExtVersion = '1.1.1'
+    coroutineTestVersion = '1.3.0'
+    mockitoKotlinVersion = '2.1.0'
+    assertJCoreVersion = '3.11.1'
+    espressoVersion = '3.2.0'
+
+    dependencies = [
+        kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+        appcompat : "androidx.appcompat:appcompat:$appcompatVersion",
+        androidXCoreKtxVersion : "androidx.core:core-ktx:$androidXCoreKtxVersion",
+        materialdesign: "com.google.android.material:material:$materialVersion",
+        constraintLayout: "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    ]
+
+    testDependecies = [
+        junit    : "junit:junit:$junitVersion",
+        androixTestExt : "androidx.test.ext:junit:$junitExtVersion",
+        coroutineTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineTestVersion",
+        mockito :  "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
+        assertJCore : "org.assertj:assertj-core:$assertJCoreVersion",
+        espressoCore : "androidx.test.espresso:espresso-core:$espressoVersion"
+    ]
+}
