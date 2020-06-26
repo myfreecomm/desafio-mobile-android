@@ -15,6 +15,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/item_photo_background"
         app:srcCompat="@drawable/pencil" />
 
     <TextView
@@ -25,7 +26,7 @@
         android:textColor="@color/defaultTextColor"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Pencil" />
+        tools:text="@string/dummy_product_name" />
 
     <TextView
         android:id="@+id/stock_information"
@@ -35,14 +36,14 @@
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/product_name"
         app:layout_constraintTop_toBottomOf="@+id/product_name"
-        tools:text="In stock" />
+        tools:text="@string/dummy_product_stock_status" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/defaultTextColor"
-        tools:text="1.50"
+        tools:text="@string/dummy_product_price"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
