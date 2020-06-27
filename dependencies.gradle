@@ -20,6 +20,11 @@ ext {
     //JetPack
     roomDatabaseVersion = '2.2.5'
 
+    //Networking
+    retrofitVersion = '2.8.1'
+    okHttpVersion = '4.5.0'
+    gsonVersion = '2.8.6'
+
     //Test
     junitVersion = '4.13'
     junitExtVersion = '1.1.1'
@@ -37,6 +42,11 @@ ext {
         roomDatabase: "androidx.room:room-runtime:$roomDatabaseVersion",
         roomExtension: "androidx.room:room-ktx:$roomDatabaseVersion",
         roomKapt: "androidx.room:room-compiler:$roomDatabaseVersion",
+        okHttp          : "com.squareup.okhttp3:okhttp:$okHttpVersion",
+        okHttpLogger    : "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
+        retrofit        : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+        retrofitGsonConverter : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+        gson            : "com.google.code.gson:gson:$gsonVersion",
     ]
 
     testDependecies = [
