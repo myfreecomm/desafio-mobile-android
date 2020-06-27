@@ -17,6 +17,9 @@ ext {
     materialVersion = '1.1.0'
     constraintLayoutVersion = '1.1.3'
 
+    //JetPack
+    roomDatabaseVersion = '2.2.5'
+
     //Test
     junitVersion = '4.13'
     junitExtVersion = '1.1.1'
@@ -30,7 +33,10 @@ ext {
         appcompat : "androidx.appcompat:appcompat:$appcompatVersion",
         androidXCoreKtxVersion : "androidx.core:core-ktx:$androidXCoreKtxVersion",
         materialdesign: "com.google.android.material:material:$materialVersion",
-        constraintLayout: "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+        constraintLayout: "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+        roomDatabase: "androidx.room:room-runtime:$roomDatabaseVersion",
+        roomExtension: "androidx.room:room-ktx:$roomDatabaseVersion",
+        roomKapt: "androidx.room:room-compiler:$roomDatabaseVersion",
     ]
 
     testDependecies = [
