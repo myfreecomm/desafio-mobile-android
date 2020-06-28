@@ -1,4 +1,4 @@
-package com.renanparis.desafioandroid.model
+package com.renanparis.desafioandroid.data.model
 
 data class Products(
         val name: String = "",
