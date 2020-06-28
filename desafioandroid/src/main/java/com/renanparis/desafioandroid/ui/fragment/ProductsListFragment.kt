@@ -24,7 +24,8 @@ class ProductsListFragment : Fragment() {
     }
 
     private fun loadProducts() {
-        val product = Products(name = "Lapis", quantity = 1, stock = 2, price = 2)
+        val product = Products(name = "Lapis", quantity = 1, stock = 2, price = 2, image_url =
+        "https://github.com/myfreecomm/desafio-mobile-android/blob/master/assets/pencil.png?raw=true")
         val list = listOf(product, product)
         adapter.update(list)
     }

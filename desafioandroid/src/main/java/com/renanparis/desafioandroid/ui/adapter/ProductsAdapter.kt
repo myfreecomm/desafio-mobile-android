@@ -4,9 +4,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.renanparis.desafioandroid.R
 import com.renanparis.desafioandroid.data.model.Products
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_product.view.*
 
 class ProductsAdapter(
@@ -52,11 +54,14 @@ class ProductsAdapter(
 
         fun bind(product: Products) {
             this.product = product
-            imageField.imageAlpha = R.drawable.ic_launcher_background
             nameField.text = product.name
-            priceField.text = product.price.toString()
+            setImage(imageField, product.image_url)
             stockField.text = product.stock.toString()
+            priceField.text = product.price.toString()
         }
 
+        private fun setImage(imageField: ImageView?, imageUrl: String) {
+            Picasso.get().load(imageUrl).into(imageField)
+        }
     }
 }
