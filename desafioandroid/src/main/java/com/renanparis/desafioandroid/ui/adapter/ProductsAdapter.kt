@@ -28,12 +28,18 @@ class ProductsAdapter(
         holder.bind(products[position])
     }
 
+    fun update(list: List<Products>) {
+        products.clear()
+        products.addAll(list)
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private lateinit var product: Products
         private val nameField by lazy { itemView.name_product }
         private val priceField by lazy { itemView.price_product }
-        private val stockField by lazy { itemView.name_product }
+        private val stockField by lazy { itemView.stock_product}
         private val imageField by lazy { itemView.image_product }
 
         init {
