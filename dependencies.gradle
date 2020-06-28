@@ -19,6 +19,7 @@ ext {
 
     //JetPack
     roomDatabaseVersion = '2.2.5'
+    lifecycleVersion = '2.2.0'
 
     //Networking
     retrofitVersion = '2.8.1'
@@ -32,6 +33,7 @@ ext {
     mockitoKotlinVersion = '2.1.0'
     assertJCoreVersion = '3.11.1'
     espressoVersion = '3.2.0'
+    archVersion = '2.1.0'
 
     dependencies = [
         kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
@@ -47,11 +49,16 @@ ext {
         retrofit        : "com.squareup.retrofit2:retrofit:$retrofitVersion",
         retrofitGsonConverter : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
         gson            : "com.google.code.gson:gson:$gsonVersion",
+        // ViewModel
+        viewModelExt: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion",
+        // LiveData
+        livedataExt: "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion",
     ]
 
     testDependecies = [
         junit    : "junit:junit:$junitVersion",
         androixTestExt : "androidx.test.ext:junit:$junitExtVersion",
+        androidxArch: "androidx.arch.core:core-testing:$archVersion",
         coroutineTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineTestVersion",
         mockito :  "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
         assertJCore : "org.assertj:assertj-core:$assertJCoreVersion",

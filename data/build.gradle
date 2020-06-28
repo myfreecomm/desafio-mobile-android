@@ -54,5 +54,6 @@ dependencies {
     androidTestImplementation testDependencies.espressoCore
 
     implementation(project(":domain"))
+    implementation(project(":network"))
 
 }

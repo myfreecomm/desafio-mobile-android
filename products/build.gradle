@@ -3,14 +3,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["compileSDK"]
+    buildToolsVersion globalConfiguration["buildToolsVersion"]
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion globalConfiguration["minSDK"]
+        targetSdkVersion globalConfiguration["targetSDK"]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -34,9 +34,17 @@ dependencies {
     implementation dependencies.androidXCoreKtxVersion
     implementation dependencies.materialdesign
     implementation dependencies.constraintLayout
+    implementation dependencies.viewModelExt
+    implementation dependencies.livedataExt
 
     testImplementation testDependencies.junit
+    testImplementation testDependencies.assertJCore
+    testImplementation testDependencies.coroutineTest
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.androidxArch
     androidTestImplementation testDependencies.androixTestExt
     androidTestImplementation testDependencies.espressoCore
+
+    implementation(project(':domain'))
 
 }
