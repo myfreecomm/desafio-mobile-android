@@ -1,6 +1,5 @@
 package com.renanparis.desafioandroid.data.api
 
-import com.renanparis.desafioandroid.data.model.Products
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
