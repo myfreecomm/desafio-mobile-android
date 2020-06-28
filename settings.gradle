@@ -1,3 +1,4 @@
+include ':products'
 include ':network'
 include ':data'
 include ':domain'

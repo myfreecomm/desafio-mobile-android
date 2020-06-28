@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">NexaasChallenge</string>
+    <string name="product_description">Product</string>
+    <string name="total">Total</string>
+    <string name="label_subtotal">Subtotal</string>
+    <string name="label_shipping">Shipping</string>
+    <string name="label_tax">Tax</string>
+    <string name="dummy_product_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nunc magna, gravida ut orci non, egestas venenatis libero. Sed luctus, turpis at porta commodo, ipsum orci volutpat sapien, ut scelerisque diam massa lobortis odioc</string>
+    <string name="dummy_product_price">$1.50</string>
+    <string name="dummy_product_stock_status">In stock</string>
+    <string name="dummy_product_name">Pencil</string>
+    <string name="app_bar_product_detail">Product Detail</string>
+    <string name="btn_remove_from_cart">Remove from cart</string>
+</resources>
