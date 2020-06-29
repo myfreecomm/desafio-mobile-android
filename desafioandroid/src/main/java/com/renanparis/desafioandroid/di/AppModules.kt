@@ -12,7 +12,14 @@ import org.koin.dsl.module
 
 private const val NAME_DATA_BASE = "products.db"
 
-val databaseModule = module {
+val uiModule = module {
+    factory<ProductsAdapter> { ProductsAdapter(get()) }
+}
+
+val dataModule = module {
+    single<ProductsWebClient> { ProductsWebClient() }
+    single<ProductsRepository> { ProductsRepository(get(), get()) }
+    single<ProductDao> { get<AppDataBase>().productDao() }
     single<AppDataBase> {
         Room.databaseBuilder(
                 get(),
@@ -20,15 +27,6 @@ val databaseModule = module {
                 NAME_DATA_BASE
         ).build()
     }
-}
-val uiModule = module {
-    factory<ProductsAdapter> { ProductsAdapter(get()) }
-}
-
-val dataModule = module {
-    single<ProductsWebClient> { ProductsWebClient() }
-    single<ProductsRepository> { ProductsRepository(get()) }
-    single<ProductDao> { get<AppDataBase>().productDao() }
 }
 
 val viewModelModule = module {

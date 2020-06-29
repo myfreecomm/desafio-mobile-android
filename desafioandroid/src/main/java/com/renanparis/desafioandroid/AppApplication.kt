@@ -22,5 +22,4 @@ class AppApplication : Application() {
             )
         }
     }
-
 }
