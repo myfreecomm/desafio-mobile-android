@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Nexaas</string>
+    <string name="product_details_title">Product Details</string>
+    <string name="btn_remove_from_cart_text">Remove From Cart</string>
+    <string name="base_url">https://raw.githubusercontent.com</string>
+    <string name="data_url">/myfreecomm/desafio-mobile-android/master/api/data.json</string>
+    <string name="item_qty_text"> item(s) in your cart</string>
+    <string name="text_search">Buscar</string>
+    <string name="btn_checkout_text">Checkout</string>
+    <string name="generic_error">Oops! Não foi possível completar sua requisição....</string>
+    <string name="title_card">Cart</string>
+
+
+    <string name="default_text_value">-</string>
+
+    <string name="total_checkout_total_text">TOTAL</string>
+    <string name="total_checkout_subtotal_text">SubTotal</string>
+    <string name="total_checkout_shipping_text">Shipping</string>
+    <string name="total_checkout_task_text">Tax</string>
+
+</resources>
