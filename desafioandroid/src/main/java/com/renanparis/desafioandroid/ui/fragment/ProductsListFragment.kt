@@ -32,15 +32,17 @@ class ProductsListFragment : Fragment() {
                 when(resource.status) {
 
                     Status.SUCCESS -> {
+                        products_list_progress.visibility = View.GONE
                         products_list_rv.visibility = View.VISIBLE
-                        resource.data?.let { products -> adapter.update(products) }
+                        resource.data?.let { products-> adapter.update(products) }
                     }
                     Status.ERROR -> {
+                        products_list_progress.visibility = View.GONE
                         products_list_rv.visibility = View.VISIBLE
                         Toast.makeText(this.context, it.message, Toast.LENGTH_LONG).show()
                     }
                     Status.LOADING -> {
-
+                        products_list_progress.visibility =View.VISIBLE
                     }
                 }
             }

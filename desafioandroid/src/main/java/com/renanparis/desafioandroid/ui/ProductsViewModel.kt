@@ -13,7 +13,7 @@ class ProductsViewModel(private val repository: ProductsRepository): ViewModel()
         emit(Resource.loading(data = null))
         try {
             emit(Resource.success(data = repository.getProducts()))
-            repository.saveProductsDb(repository.getProducts())
+
         }catch (exception: Exception) {
             emit(Resource.error(data = null, message = exception.message.toString()))
         }

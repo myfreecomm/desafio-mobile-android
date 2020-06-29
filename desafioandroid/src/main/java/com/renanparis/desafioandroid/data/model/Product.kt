@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 
 @Entity
-data class Products(
+data class Product(
         @PrimaryKey(autoGenerate = true)
         @Expose
         val id: Long = 0,

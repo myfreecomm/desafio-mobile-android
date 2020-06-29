@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.renanparis.desafioandroid.R
-import com.renanparis.desafioandroid.data.model.Products
+import com.renanparis.desafioandroid.data.model.Product
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_product.view.*
 
 class ProductsAdapter(
         private val context: Context,
-        private val products: MutableList<Products> = mutableListOf(),
-        var onItemClickListener: (product: Products) -> Unit = {}
+        private val products: MutableList<Product> = mutableListOf(),
+        var onItemClickListener: (product: Product) -> Unit = {}
 ) : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,7 +30,7 @@ class ProductsAdapter(
         holder.bind(products[position])
     }
 
-    fun update(list: List<Products>) {
+    fun update(list: List<Product>) {
         products.clear()
         products.addAll(list)
         notifyDataSetChanged()
@@ -38,7 +38,7 @@ class ProductsAdapter(
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        private lateinit var product: Products
+        private lateinit var product: Product
         private val nameField by lazy { itemView.name_product }
         private val priceField by lazy { itemView.price_product }
         private val stockField by lazy { itemView.stock_product}
@@ -52,7 +52,7 @@ class ProductsAdapter(
             }
         }
 
-        fun bind(product: Products) {
+        fun bind(product: Product) {
             this.product = product
             nameField.text = product.name
             setImage(imageField, product.image_url)

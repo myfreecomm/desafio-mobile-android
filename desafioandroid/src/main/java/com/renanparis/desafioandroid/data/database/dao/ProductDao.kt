@@ -4,17 +4,18 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.renanparis.desafioandroid.data.model.Products
+import com.renanparis.desafioandroid.data.model.Product
+import kotlinx.coroutines.Deferred
 
 @Dao
 interface ProductDao {
 
-    @Query("SELECT * FROM Products")
-    fun getAllProducts(): List<Products>
+    @Query("SELECT * FROM Product")
+    suspend fun getAllProducts(): List<Product>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun save(vararg products: List<Products>)
+   suspend fun save(products: List<Product>)
 
-    @Query("SELECT * FROM Products WHERE id = :id")
-    fun searchById(id: Long): Products
+    @Query("SELECT * FROM Product WHERE id = :id")
+    suspend fun searchById(id: Long): Product
 }
