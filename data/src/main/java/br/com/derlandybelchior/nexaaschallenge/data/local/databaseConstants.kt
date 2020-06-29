@@ -1,4 +1,4 @@
-package br.com.derlandybelchior.nexaaschallenge.data
+package br.com.derlandybelchior.nexaaschallenge.data.local
 
 const val DATABASE_VERSION = 1
 const val DATABASE_NAME = "nexaas_test"

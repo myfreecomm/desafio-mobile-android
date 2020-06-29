@@ -11,4 +11,7 @@
     <string name="dummy_product_name">Pencil</string>
     <string name="app_bar_product_detail">Product Detail</string>
     <string name="btn_remove_from_cart">Remove from cart</string>
+    <string name="total_cart_items">%s items in your cart</string>
+    <string name="error_image">Error image</string>
+    <string name="btn_text_try_again">try again</string>
 </resources>

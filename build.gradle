@@ -9,6 +9,8 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:$buildTools"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion"
+        classpath rootProject.extensions.getByName("ext").dependencies.navigationClasspath
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

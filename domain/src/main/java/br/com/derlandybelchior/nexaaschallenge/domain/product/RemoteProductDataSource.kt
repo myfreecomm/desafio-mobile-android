@@ -1,7 +1,5 @@
 package br.com.derlandybelchior.nexaaschallenge.domain.product
 
-interface ProductDataSource {
+interface RemoteProductDataSource {
     suspend fun fetchProducts() : List<Product>
-
-    suspend fun save(products: List<Product>)
 }

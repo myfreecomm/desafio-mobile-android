@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitService {
 
-    operator fun invoke(baseUrl: String, httpClient: OkHttpClient) = with(Retrofit.Builder()) {
+    operator fun invoke(baseUrl: String, httpClient: OkHttpClient): Retrofit = with(Retrofit.Builder()) {
         baseUrl(baseUrl)
         client(httpClient)
         addConverterFactory(GsonConverterFactory.create())

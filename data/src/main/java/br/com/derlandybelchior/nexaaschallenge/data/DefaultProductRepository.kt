@@ -1,13 +1,14 @@
 package br.com.derlandybelchior.nexaaschallenge.data
 
 import br.com.derlandybelchior.nexaaschallenge.domain.error.ProductsNotFound
+import br.com.derlandybelchior.nexaaschallenge.domain.product.LocalProductDataSource
 import br.com.derlandybelchior.nexaaschallenge.domain.product.Product
-import br.com.derlandybelchior.nexaaschallenge.domain.product.ProductDataSource
+import br.com.derlandybelchior.nexaaschallenge.domain.product.RemoteProductDataSource
 import br.com.derlandybelchior.nexaaschallenge.domain.product.ProductRepository
 
 class DefaultProductRepository(
-    private val remoteDataSource: ProductDataSource,
-    private val localDataSource: ProductDataSource
+    private val remoteDataSource: RemoteProductDataSource,
+    private val localDataSource: LocalProductDataSource
 ) : ProductRepository {
     override suspend fun fetchAll(forceUpdate: Boolean): List<Product> {
         return when(forceUpdate) {

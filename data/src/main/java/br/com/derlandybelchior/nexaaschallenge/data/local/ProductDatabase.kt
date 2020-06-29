@@ -1,4 +1,4 @@
-package br.com.derlandybelchior.nexaaschallenge.data
+package br.com.derlandybelchior.nexaaschallenge.data.local
 
 import android.content.Context
 import androidx.room.Database

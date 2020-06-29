@@ -1,8 +1,10 @@
-package br.com.derlandybelchior.nexaaschallenge.data
+package br.com.derlandybelchior.nexaaschallenge.data.local
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import br.com.derlandybelchior.nexaaschallenge.data.local.COLUMN_ID
+import br.com.derlandybelchior.nexaaschallenge.data.local.TABLE_PRODUCTS
 
 @Entity(tableName = TABLE_PRODUCTS)
 data class ProductDTO(

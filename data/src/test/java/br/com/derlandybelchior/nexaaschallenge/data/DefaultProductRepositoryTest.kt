@@ -1,8 +1,9 @@
 package br.com.derlandybelchior.nexaaschallenge.data
 
 import br.com.derlandybelchior.nexaaschallenge.domain.error.ProductsNotFound
+import br.com.derlandybelchior.nexaaschallenge.domain.product.LocalProductDataSource
 import br.com.derlandybelchior.nexaaschallenge.domain.product.Product
-import br.com.derlandybelchior.nexaaschallenge.domain.product.ProductDataSource
+import br.com.derlandybelchior.nexaaschallenge.domain.product.RemoteProductDataSource
 import br.com.derlandybelchior.nexaaschallenge.domain.product.ProductRepository
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
@@ -54,13 +55,13 @@ class DefaultProductRepositoryTest {
     private val localProductsList by lazy { listOf(product1, product2)}
     private val remoteProductsList by lazy { listOf(product1, product2, product3)}
 
-    private lateinit var remoteDataSource: ProductDataSource
-    private lateinit var localDataSource: ProductDataSource
+    private lateinit var remoteDataSource: RemoteProductDataSource
+    private lateinit var localDataSource: LocalProductDataSource
     private lateinit var productRepository: ProductRepository
 
     @Before fun setup () {
-        remoteDataSource = FakeDataSource(remoteProductsList.toMutableList())
-        localDataSource = FakeDataSource(localProductsList.toMutableList())
+        remoteDataSource = FakeRemoteDataSource(remoteProductsList.toMutableList())
+        localDataSource = FakeLocalDataSource(localProductsList.toMutableList())
         productRepository = DefaultProductRepository(remoteDataSource, localDataSource)
     }
 
@@ -79,8 +80,8 @@ class DefaultProductRepositoryTest {
     @Test fun `fetchAll should throw exception when retrieve a empty list`() = runBlockingTest {
 
         val result = kotlin.runCatching {
-            remoteDataSource = FakeDataSource(mutableListOf())
-            localDataSource = FakeDataSource(mutableListOf())
+            remoteDataSource = FakeRemoteDataSource(mutableListOf())
+            localDataSource = FakeLocalDataSource(mutableListOf())
             productRepository = DefaultProductRepository(remoteDataSource, localDataSource)
             productRepository.fetchAll(forceUpdate = false)
 

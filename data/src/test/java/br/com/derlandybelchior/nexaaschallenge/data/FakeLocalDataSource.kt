@@ -1,9 +1,9 @@
 package br.com.derlandybelchior.nexaaschallenge.data
 
+import br.com.derlandybelchior.nexaaschallenge.domain.product.LocalProductDataSource
 import br.com.derlandybelchior.nexaaschallenge.domain.product.Product
-import br.com.derlandybelchior.nexaaschallenge.domain.product.ProductDataSource
 
-class FakeDataSource(var productsList: MutableList<Product>? = mutableListOf()) : ProductDataSource {
+class FakeLocalDataSource(var productsList: MutableList<Product>? = mutableListOf()) : LocalProductDataSource {
     override suspend fun fetchProducts(): List<Product> {
         productsList?.let {
             return it

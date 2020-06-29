@@ -1,10 +1,10 @@
-package br.com.derlandybelchior.nexaaschallenge.data
+package br.com.derlandybelchior.nexaaschallenge.data.remote
 
 import br.com.derlandybelchior.nexaaschallenge.domain.product.Product
-import br.com.derlandybelchior.nexaaschallenge.domain.product.ProductDataSource
+import br.com.derlandybelchior.nexaaschallenge.domain.product.RemoteProductDataSource
 import br.com.derlandybelchior.nexaaschallenge.network.ProductServiceAPI
 
-class RemoteDataSource(private val serviceApi: ProductServiceAPI) : ProductDataSource {
+class RemoteDataSource(private val serviceApi: ProductServiceAPI) : RemoteProductDataSource {
 
     override suspend fun fetchProducts(): List<Product> {
         val response = serviceApi.products()
@@ -22,9 +22,5 @@ class RemoteDataSource(private val serviceApi: ProductServiceAPI) : ProductDataS
                 )
             }
         else emptyList()
-    }
-
-    override suspend fun save(products: List<Product>) {
-
     }
 }

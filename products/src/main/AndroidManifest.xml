@@ -1,5 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.derlandybelchior.nexaaschallenge.products">
 
-    /
+    <application>
+        <activity android:name="br.com.derlandybelchior.nexaaschallenge.products.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
 </manifest>

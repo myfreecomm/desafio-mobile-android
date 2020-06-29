@@ -3,6 +3,7 @@ package br.com.derlandybelchior.nexaaschallenge.products
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import br.com.derlandybelchior.nexaaschallenge.domain.error.ProductsNotFound
+import br.com.derlandybelchior.nexaaschallenge.domain.product.FetchProduct
 import br.com.derlandybelchior.nexaaschallenge.domain.product.Product
 import br.com.derlandybelchior.nexaaschallenge.domain.product.ProductRepository
 import com.nhaarman.mockitokotlin2.mock
@@ -28,6 +29,7 @@ class ProductViewModelTest {
     private val testDispatcher = TestCoroutineDispatcher()
     private lateinit var viewModel: ProductViewModel
     private val stateObserver: Observer<ViewState<List<Product>>> = mock()
+    private lateinit var usecase: FetchProduct
     private lateinit var repository: ProductRepository
     private val remoteProductsList by lazy { listOf(product1, product2, product3)}
 
@@ -68,8 +70,8 @@ class ProductViewModelTest {
     @Before fun setup() {
         Dispatchers.setMain(testDispatcher)
         repository = mock()
+        usecase = FetchProduct(repository)
         viewModel = viewModelInstance()
-
     }
 
     @After
@@ -80,7 +82,7 @@ class ProductViewModelTest {
 
     @Test fun `loadProducts should retrieve a list of products and set state to Success with data` () {
         runBlockingTest {
-            whenever(repository.fetchAll(true)).thenReturn(remoteProductsList)
+            whenever(repository.fetchAll(forceUpdate = true)).thenReturn(remoteProductsList)
             viewModel.loadProducts(forceUpdate = true)
             verify(stateObserver).onChanged(ViewState.Loading)
             verify(stateObserver).onChanged(ViewState.Success(remoteProductsList))
@@ -89,7 +91,7 @@ class ProductViewModelTest {
 
     @Test fun `loadProducts should retrieve a Throwable when server response is a emptylist` () {
         runBlockingTest {
-            whenever(repository.fetchAll(true)).thenThrow(ProductsNotFound)
+            whenever(repository.fetchAll(forceUpdate = true)).thenReturn(emptyList())
             viewModel.loadProducts(forceUpdate = true)
             verify(stateObserver).onChanged(ViewState.Loading)
 
@@ -98,7 +100,7 @@ class ProductViewModelTest {
     }
 
     private fun viewModelInstance() : ProductViewModel {
-        val viewModel = ProductViewModel(repository, testDispatcher)
+        val viewModel = ProductViewModel(usecase, testDispatcher)
         viewModel.viewState.observeForever(stateObserver)
 
         return viewModel

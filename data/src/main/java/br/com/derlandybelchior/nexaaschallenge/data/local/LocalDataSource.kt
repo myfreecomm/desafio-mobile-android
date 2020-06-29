@@ -1,11 +1,11 @@
-package br.com.derlandybelchior.nexaaschallenge.data
+package br.com.derlandybelchior.nexaaschallenge.data.local
 
+import br.com.derlandybelchior.nexaaschallenge.domain.product.LocalProductDataSource
 import br.com.derlandybelchior.nexaaschallenge.domain.product.Product
-import br.com.derlandybelchior.nexaaschallenge.domain.product.ProductDataSource
 
 class LocalDataSource(
     private val productDao: ProductDAO
-) : ProductDataSource {
+) : LocalProductDataSource {
     override suspend fun fetchProducts(): List<Product> {
         return productDao.fetchAll().map {
             Product(

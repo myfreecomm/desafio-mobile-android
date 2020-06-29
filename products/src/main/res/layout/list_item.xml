@@ -7,7 +7,7 @@
     android:layout_margin="16dp">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/product_image"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:contentDescription="@string/product_description"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:textColor="@color/defaultTextColor"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/product_image"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/dummy_product_name" />
 
@@ -33,13 +33,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/product_image"
         app:layout_constraintStart_toStartOf="@+id/product_name"
         app:layout_constraintTop_toBottomOf="@+id/product_name"
         tools:text="@string/dummy_product_stock_status" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/product_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/defaultTextColor"
