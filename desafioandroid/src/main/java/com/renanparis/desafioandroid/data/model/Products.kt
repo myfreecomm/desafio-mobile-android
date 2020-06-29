@@ -1,6 +1,14 @@
 package com.renanparis.desafioandroid.data.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.google.gson.annotations.Expose
+
+@Entity
 data class Products(
+        @PrimaryKey(autoGenerate = true)
+        @Expose
+        val id: Long = 0,
         val name: String = "",
         val quantity: Int = 0,
         val stock: Int = 0,

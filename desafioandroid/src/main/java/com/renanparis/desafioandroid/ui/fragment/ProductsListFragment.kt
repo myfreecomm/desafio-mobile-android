@@ -5,17 +5,20 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.lifecycle.Observer
 import com.renanparis.desafioandroid.R
-import com.renanparis.desafioandroid.data.model.Products
+import com.renanparis.desafioandroid.ui.ProductsViewModel
 import com.renanparis.desafioandroid.ui.adapter.ProductsAdapter
+import com.renanparis.desafioandroid.utils.Status
 import kotlinx.android.synthetic.main.fragment_products_list.*
 import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class ProductsListFragment : Fragment() {
 
+    private val viewModel: ProductsViewModel by viewModel()
     private val adapter: ProductsAdapter by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,10 +27,24 @@ class ProductsListFragment : Fragment() {
     }
 
     private fun loadProducts() {
-        val product = Products(name = "Lapis", quantity = 1, stock = 2, price = 2, image_url =
-        "https://github.com/myfreecomm/desafio-mobile-android/blob/master/assets/pencil.png?raw=true")
-        val list = listOf(product, product)
-        adapter.update(list)
+        viewModel.getProducts().observe(this, Observer {
+            it?.let {resource ->
+                when(resource.status) {
+
+                    Status.SUCCESS -> {
+                        products_list_rv.visibility = View.VISIBLE
+                        resource.data?.let { products -> adapter.update(products) }
+                    }
+                    Status.ERROR -> {
+                        products_list_rv.visibility = View.VISIBLE
+                        Toast.makeText(this.context, it.message, Toast.LENGTH_LONG).show()
+                    }
+                    Status.LOADING -> {
+
+                    }
+                }
+            }
+        })
     }
 
     override fun onCreateView(
@@ -46,8 +63,8 @@ class ProductsListFragment : Fragment() {
 
     private fun configRecyclerView() {
 
-        val divisor = DividerItemDecoration(context, LinearLayout.HORIZONTAL)
-        products_list_rv.addItemDecoration(divisor)
+//        val divisor = DividerItemDecoration(context, LinearLayout.HORIZONTAL)
+//        products_list_rv.addItemDecoration(divisor)
         adapter.onItemClickListener = {product ->
             Log.i("Nome", product.name)
         }
