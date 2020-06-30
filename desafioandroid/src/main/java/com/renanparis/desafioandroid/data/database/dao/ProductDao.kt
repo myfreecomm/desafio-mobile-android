@@ -16,6 +16,6 @@ interface ProductDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
    suspend fun save(products: List<Product>)
 
-    @Query("SELECT * FROM Product WHERE id = :id")
+    @Query("SELECT * FROM Product WHERE name = :id")
     suspend fun searchById(id: Long): Product
 }

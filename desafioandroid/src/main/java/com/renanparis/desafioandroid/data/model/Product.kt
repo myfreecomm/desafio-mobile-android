@@ -6,9 +6,8 @@ import com.google.gson.annotations.Expose
 
 @Entity
 data class Product(
-        @PrimaryKey(autoGenerate = true)
-        @Expose
-        val id: Long = 0,
+        
+        @PrimaryKey
         val name: String = "",
         val quantity: Int = 0,
         val stock: Int = 0,
@@ -18,4 +17,6 @@ data class Product(
         val shipping: Int = 0,
         val description: String = ""
 ) {
+
+
 }

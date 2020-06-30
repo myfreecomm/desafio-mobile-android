@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.renanparis.desafioandroid.R
@@ -33,6 +34,7 @@ class ProductsListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadProducts()
+
     }
 
     private fun loadProducts() {
@@ -50,9 +52,15 @@ class ProductsListFragment : Fragment() {
 
                     }
                     Status.ERROR -> {
-                        products_list_progress.visibility = View.GONE
-                        products_list_rv.visibility = View.VISIBLE
-                        Toast.makeText(this.context, it.message, Toast.LENGTH_LONG).show()
+                        if (it.data != null) {
+                            adapter.update(it.data)
+                            bindViews(it.data)
+                            products_list_progress.visibility = View.GONE
+                        }else {
+                            products_list_progress.visibility = View.GONE
+                            products_list_rv.visibility = View.VISIBLE
+                            Toast.makeText(this.context, it.message, Toast.LENGTH_LONG).show()
+                        }
                     }
                     Status.LOADING -> {
                         products_list_progress.visibility =View.VISIBLE

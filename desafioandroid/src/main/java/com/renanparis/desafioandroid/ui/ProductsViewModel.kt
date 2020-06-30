@@ -13,9 +13,10 @@ class ProductsViewModel(private val repository: ProductsRepository): ViewModel()
         emit(Resource.loading(data = null))
         try {
             emit(Resource.success(data = repository.getProducts()))
+            repository.savaProductDb()
 
         }catch (exception: Exception) {
-            emit(Resource.error(data = null, message = exception.message.toString()))
+            emit(Resource.error(data = repository.getProudctsDb(), message = exception.message.toString()))
         }
     }
 }
