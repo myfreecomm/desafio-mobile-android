@@ -1,6 +1,5 @@
 package com.renanparis.desafioandroid.ui.fragment
 
-import android.content.res.Resources
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,13 +8,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.ActionBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.renanparis.desafioandroid.R
 import com.renanparis.desafioandroid.data.model.Product
 import com.renanparis.desafioandroid.extensions.formatToStringWithPoint
-import com.renanparis.desafioandroid.ui.ProductsViewModel
+import com.renanparis.desafioandroid.ui.viewmodel.ProductsViewModel
 import com.renanparis.desafioandroid.ui.adapter.ProductsAdapter
 import com.renanparis.desafioandroid.utils.Status
 import kotlinx.android.synthetic.main.fragment_products_list.*

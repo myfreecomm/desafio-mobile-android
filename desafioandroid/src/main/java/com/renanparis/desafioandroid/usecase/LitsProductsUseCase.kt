@@ -1,13 +1,12 @@
-package com.renanparis.desafioandroid.ui
+package com.renanparis.desafioandroid.usecase
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.renanparis.desafioandroid.data.repository.ProductsRepository
 import com.renanparis.desafioandroid.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
 
-class ProductsViewModel(private val repository: ProductsRepository): ViewModel() {
+class ListProductsUseCase(private val repository: ProductsRepository) {
 
     fun getProducts() = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
