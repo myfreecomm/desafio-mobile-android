@@ -35,7 +35,15 @@ class LocalDataSource(
                 image = it.image
             )
         }.toTypedArray()
-
+        delete()
         productDao.insert(products = *data)
+    }
+
+    private fun delete() {
+        val old = productDao.fetchAll()
+        if(old.isNotEmpty()) {
+            productDao.delete(*old.toTypedArray())
+        }
+
     }
 }

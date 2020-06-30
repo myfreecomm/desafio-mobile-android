@@ -8,23 +8,24 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="?android:attr/actionBarSize"
         android:background="@android:color/white"
         android:elevation="5dp"
         android:theme="@style/ThemeOverlay.MaterialComponents.Light"
         app:title="@string/app_bar_product_detail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/product_image"/>
 
     <ImageView
         android:id="@+id/product_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="320dp"
         android:background="@drawable/item_photo_background"
-        android:contentDescription="@string/app_name"
+        android:contentDescription="@string/product_detail_page_title"
         android:fitsSystemWindows="true"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         android:src="@drawable/pencil"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +65,7 @@
         tools:text="@string/dummy_product_stock_status" />
 
     <TextView
+        android:id="@+id/product_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"

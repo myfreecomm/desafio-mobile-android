@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">NexaasChallenge</string>
     <string name="product_description">Product</string>
     <string name="total">Total</string>
     <string name="label_subtotal">Subtotal</string>
@@ -14,4 +13,8 @@
     <string name="total_cart_items">%s items in your cart</string>
     <string name="error_image">Error image</string>
     <string name="btn_text_try_again">try again</string>
+    <string name="product_list_page_title">Cart</string>
+    <string name="product_detail_page_title">Product detail</string>
+    <string name="formatted_product_price">$ %s</string>
+    <string name="menu_search">Search</string>
 </resources>

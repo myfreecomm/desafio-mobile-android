@@ -10,8 +10,7 @@ data class ProductPresentation(
     val price: String,
     val tax: String,
     val shipping: String,
-    val description: String,
-    val fromCache: Boolean = false
+    val description: String
 ) : Serializable
 
 data class TotalProductsPresentation(

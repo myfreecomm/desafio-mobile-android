@@ -83,6 +83,8 @@ ext {
         coroutineTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineTestVersion",
         mockito :  "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
         assertJCore : "org.assertj:assertj-core:$assertJCoreVersion",
-        espressoCore : "androidx.test.espresso:espresso-core:$espressoVersion"
+        espressoCore : "androidx.test.espresso:espresso-core:$espressoVersion",
+        espressoContrib : "androidx.test.espresso:espresso-contrib:$espressoVersion",
+        navigationTest: "androidx.navigation:navigation-testing:$navigationVersion"
     ]
 }

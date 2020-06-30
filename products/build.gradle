@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
@@ -26,6 +27,10 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
 
@@ -54,8 +59,13 @@ dependencies {
     testImplementation testDependencies.mockito
     testImplementation testDependencies.androidxArch
     androidTestImplementation testDependencies.androixTestExt
+    androidTestImplementation testDependencies.mockito
     androidTestImplementation testDependencies.espressoCore
+    androidTestImplementation testDependencies.espressoContrib
+    androidTestImplementation testDependencies.navigationTest
+    androidTestImplementation testDependencies.coroutineTest
+    androidTestImplementation dependencies.appcompat
+    debugImplementation "androidx.fragment:fragment-testing:1.2.5"
 
     implementation(project(':domain'))
-
 }
