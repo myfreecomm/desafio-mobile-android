@@ -2,7 +2,6 @@ package com.renanparis.desafioandroid.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.google.gson.annotations.Expose
 
 @Entity
 data class Product(
@@ -17,6 +16,5 @@ data class Product(
         val shipping: Int = 0,
         val description: String = ""
 ) {
-
 
 }
