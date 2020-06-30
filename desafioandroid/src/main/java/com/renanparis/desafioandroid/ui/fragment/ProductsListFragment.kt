@@ -1,5 +1,6 @@
 package com.renanparis.desafioandroid.ui.fragment
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.renanparis.desafioandroid.R
 import com.renanparis.desafioandroid.data.model.Product
+import com.renanparis.desafioandroid.extensions.formatToStringWithPoint
 import com.renanparis.desafioandroid.ui.ProductsViewModel
 import com.renanparis.desafioandroid.ui.adapter.ProductsAdapter
 import com.renanparis.desafioandroid.utils.Status
@@ -28,6 +30,7 @@ class ProductsListFragment : Fragment() {
     lateinit var subtotalField: TextView
     lateinit var shippingField: TextView
     lateinit var taxField: TextView
+    lateinit var titleField: TextView
     lateinit var button: Button
 
 
@@ -90,15 +93,15 @@ class ProductsListFragment : Fragment() {
         subtotalField = products_list_subtotal_value
         shippingField = products_list_shipping_value
         taxField = products_list_tax_value
+        titleField = products_list_title
         button = products_list_button
         initListener()
     }
 
     private fun initListener() {
         button.setOnClickListener {
-            activity?.supportFragmentManager?.popBackStack()
+            Log.i("Button", "Fui clicado")
         }
-
     }
 
     private fun configRecyclerView() {
@@ -118,11 +121,11 @@ class ProductsListFragment : Fragment() {
             shipping += product.shipping
             tax += product.tax
         }
-        subtotalField.text = subtotal.toString()
-        shippingField.text = shipping.toString()
-        taxField.text = tax.toString()
-        totalField.text = (subtotal + shipping + tax).toString()
+
+        titleField.text = (context?.getString(R.string.text_title, products.size))
+        subtotalField.text = subtotal.formatToStringWithPoint()
+        shippingField.text = shipping.formatToStringWithPoint()
+        taxField.text = tax.formatToStringWithPoint()
+        totalField.text = (subtotal + shipping + tax).formatToStringWithPoint()
     }
-
-
 }

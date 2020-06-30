@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.renanparis.desafioandroid.R
 import com.renanparis.desafioandroid.data.model.Product
+import com.renanparis.desafioandroid.extensions.formatToStringWithPoint
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_product.view.*
 
@@ -57,7 +58,7 @@ class ProductsAdapter(
             nameField.text = product.name
             setImage(product.image_url)
             setTextStock(product.stock)
-            priceField.text = product.price.toString()
+            priceField.text = product.price.formatToStringWithPoint()
         }
 
         private fun setTextStock(stock: Int) {
