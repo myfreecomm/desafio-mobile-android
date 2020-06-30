@@ -13,4 +13,6 @@
     <string name="more">Mais opções</string>
     <string name="content_description_more">Menu com mais opções</string>
     <string name="page_title">Cart</string>
+    <string name="product_detail_text_button">REMOVE FROM CART</string>
+    <string name="description_image_product_detail">Imagem do produto selecionado</string>
 </resources>

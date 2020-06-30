@@ -35,7 +35,6 @@ class ProductsListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadProducts()
-
     }
 
     private fun loadProducts() {
