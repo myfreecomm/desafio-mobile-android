@@ -2,4 +2,8 @@
     <string name="app_name">Desafio Android</string>
     <string name="text_title">Items in your cart</string>
     <string name="list_product_total">TOTAL</string>
+    <string name="list_product_subtotal">Subtotal</string>
+    <string name="list_product_shipping">Shipping</string>
+    <string name="list_product_tax">Tax</string>
+    <string name="list_product_button">CHECKOUT</string>
 </resources>

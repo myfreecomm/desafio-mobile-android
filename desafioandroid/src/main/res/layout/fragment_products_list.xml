@@ -22,66 +22,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/text_title"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/products_list_rv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/products_list_rv">
 
     </TextView>
-
-    <TextView
-        android:id="@+id/products_list_total"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/list_product_total"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/products_list_divider"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp">
-
-    </TextView>
-
-    <TextView
-        android:id="@+id/products_list_total_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/list_product_total"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        tools:text="40.00"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/products_list_divider"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp">
-
-    </TextView>
-
-    <View
-        android:id="@+id/products_list_divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintBottom_toTopOf="@+id/products_list_total"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/products_list_rv"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp">
-
-    </View>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/products_list_rv"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/products_list_divider"
         app:layout_constraintEnd_toEndOf="parent"
@@ -90,4 +45,151 @@
         tools:listitem="@layout/item_product">
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <View
+        android:id="@+id/products_list_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/products_list_total"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/products_list_rv">
+
+    </View>
+
+    <TextView
+        android:id="@+id/products_list_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/list_product_total"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/products_list_divider">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/products_list_total_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/list_product_total"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/products_list_divider"
+        tools:text="40.00">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/products_list_subtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/list_product_subtotal"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/products_list_total">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/products_list_subtotal_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/list_product_total"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/products_list_total_value"
+        tools:text="40.00">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/products_list_shipping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/list_product_shipping"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/products_list_subtotal">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/products_list_shipping_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/list_product_total"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/products_list_subtotal_value"
+        tools:text="40.00"/>
+
+    <TextView
+        android:id="@+id/products_list_tax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/list_product_tax"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/products_list_shipping">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/products_list_tax_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/list_product_total"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/products_list_shipping_value"
+        tools:text="40.00"/>
+
+    <Button
+        android:id="@+id/products_list_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/list_product_button"
+        android:textSize="24sp"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        style="@style/Widget.MaterialComponents.Button">
+
+    </Button>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
