@@ -11,6 +11,10 @@
         <action
             android:id="@+id/action_productsListFragment_to_productDetailsFragment"
             app:destination="@id/productDetailsFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/fragment_open_exit"
             app:popUpToInclusive="true">
             <argument
                 android:name="product"
@@ -24,7 +28,11 @@
         <action
             android:id="@+id/action_productDetailsFragment_to_productsListFragment"
             app:destination="@id/productsListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
             app:launchSingleTop="false"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="false"></action>
         <argument

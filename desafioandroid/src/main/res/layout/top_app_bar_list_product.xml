@@ -8,17 +8,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/topAppBar_list_product"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="@string/page_title"
             app:menu="@menu/menu_top_app_bar_list_product"
             app:navigationIcon="@drawable/ic_reorder_white_24dp"
             android:background="@color/colorPrimary"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"
-            />
-
+            style="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
     </com.google.android.material.appbar.AppBarLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -36,12 +36,11 @@ class ProductsListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     private fun loadProducts() {
-        viewModel.getProducts().observe(viewLifecycleOwner, Observer {
-            it?.let {resource ->
+        viewModel.getProducts().observe(viewLifecycleOwner, Observer { resource ->
+            resource?.let {resource ->
                 when(resource.status) {
 
                     Status.SUCCESS -> {
@@ -51,17 +50,16 @@ class ProductsListFragment : Fragment() {
                             adapter.update(products)
                             bindViews(products)
                         }
-
                     }
                     Status.ERROR -> {
-                        if (it.data != null) {
-                            adapter.update(it.data)
-                            bindViews(it.data)
+                        if (resource.data != null) {
+                            adapter.update(resource.data)
+                            bindViews(resource.data)
                             products_list_progress.visibility = View.GONE
                         }else {
                             products_list_progress.visibility = View.GONE
                             products_list_rv.visibility = View.VISIBLE
-                            Toast.makeText(this.context, it.message, Toast.LENGTH_LONG).show()
+                            Toast.makeText(this.context, resource.message, Toast.LENGTH_LONG).show()
                         }
                     }
                     Status.LOADING -> {
@@ -116,7 +114,6 @@ class ProductsListFragment : Fragment() {
         var subtotal = 0
         var shipping = 0
         var tax = 0
-
         for (product in products) {
             subtotal += product.price
             shipping += product.shipping
