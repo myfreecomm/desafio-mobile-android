@@ -1,7 +1,6 @@
 package com.renanparis.desafioandroid.ui.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +9,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.renanparis.desafioandroid.R
 import com.renanparis.desafioandroid.data.model.Product
 import com.renanparis.desafioandroid.extensions.formatToStringWithPoint
 import com.renanparis.desafioandroid.ui.viewmodel.ProductsViewModel
 import com.renanparis.desafioandroid.ui.adapter.ProductsAdapter
+import com.renanparis.desafioandroid.ui.fragment.ProductsListFragmentDirections.Companion.actionProductsListFragmentToProductDetailsFragment
 import com.renanparis.desafioandroid.utils.Status
 import kotlinx.android.synthetic.main.fragment_products_list.*
 import org.koin.android.ext.android.inject
@@ -24,6 +25,7 @@ class ProductsListFragment : Fragment() {
 
     private val viewModel: ProductsViewModel by viewModel()
     private val adapter: ProductsAdapter by inject()
+    private val controller by lazy { findNavController() }
     lateinit var totalField: TextView
     lateinit var subtotalField: TextView
     lateinit var shippingField: TextView
@@ -34,11 +36,11 @@ class ProductsListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loadProducts()
+
     }
 
     private fun loadProducts() {
-        viewModel.getProducts().observe(this, Observer {
+        viewModel.getProducts().observe(viewLifecycleOwner, Observer {
             it?.let {resource ->
                 when(resource.status) {
 
@@ -83,6 +85,7 @@ class ProductsListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         configRecyclerView()
         initViews()
+        loadProducts()
     }
 
     private fun initViews() {
@@ -96,14 +99,15 @@ class ProductsListFragment : Fragment() {
     }
 
     private fun initListener() {
+
         button.setOnClickListener {
-            Log.i("Button", "Fui clicado")
+
         }
     }
-
     private fun configRecyclerView() {
         adapter.onItemClickListener = {product ->
-            Log.i("Nome", product.name)
+            val directions = actionProductsListFragmentToProductDetailsFragment(product)
+            controller.navigate(directions)
         }
         products_list_rv.adapter = adapter
     }

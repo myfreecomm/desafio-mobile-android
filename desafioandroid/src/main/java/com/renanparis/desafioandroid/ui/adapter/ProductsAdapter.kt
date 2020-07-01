@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.renanparis.desafioandroid.R
 import com.renanparis.desafioandroid.data.model.Product
 import com.renanparis.desafioandroid.extensions.formatToStringWithPoint
+import com.renanparis.desafioandroid.utils.FormatViews
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_product.view.*
 
@@ -38,7 +39,6 @@ class ProductsAdapter(
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-
         private lateinit var product: Product
         private val nameField by lazy { itemView.name_product }
         private val priceField by lazy { itemView.price_product }
@@ -57,22 +57,8 @@ class ProductsAdapter(
             this.product = product
             nameField.text = product.name
             setImage(product.image_url)
-            setTextStock(product.stock)
+            FormatViews.covertNumberToStockText(product.stock, stockField, context)
             priceField.text = product.price.formatToStringWithPoint()
-        }
-
-        private fun setTextStock(stock: Int) {
-            when {
-                stock == 1 -> {
-                    stockField.text = ONE_LEFT
-                }
-                stock < 1 -> {
-                    stockField.text = MISSING_PRODUCT
-                }
-                else -> {
-                    stockField.text = IN_STOCK
-                }
-            }
         }
 
         private fun setImage(imageUrl: String) {
@@ -82,11 +68,5 @@ class ProductsAdapter(
 
     }
 
-    companion object {
-        private const val ONE_LEFT = "only 1 left in stock"
-        private const val MISSING_PRODUCT = "missing product"
-        private const val IN_STOCK = "in stock"
-
-    }
 
 }

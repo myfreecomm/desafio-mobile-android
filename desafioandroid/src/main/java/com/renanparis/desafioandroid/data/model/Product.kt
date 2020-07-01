@@ -1,8 +1,11 @@
 package com.renanparis.desafioandroid.data.model
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity
 data class Product(
         
@@ -15,6 +18,6 @@ data class Product(
         val tax: Int = 0,
         val shipping: Int = 0,
         val description: String = ""
-) {
+) : Parcelable {
 
 }

@@ -15,4 +15,7 @@
     <string name="page_title">Cart</string>
     <string name="product_detail_text_button">REMOVE FROM CART</string>
     <string name="description_image_product_detail">Imagem do produto selecionado</string>
+    <string name="TextStockOneItem">only 1 left in stock</string>
+    <string name="TextStockNoProduct">missing product</string>
+    <string name="TextStockFull">in stock</string>
 </resources>
