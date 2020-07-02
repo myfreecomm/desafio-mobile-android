@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/productsListFragment">
+    <fragment
+        android:id="@+id/productsListFragment"
+        android:name="com.renanparis.desafioandroid.ui.fragment.ProductsListFragment"
+        android:label="@string/title_toolbar_list_product" >
+        <action
+            android:id="@+id/action_productsListFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/fragment_open_exit"
+            app:popUpToInclusive="true">
+            <argument
+                android:name="product"
+                app:argType="com.renanparis.desafioandroid.data.model.Product" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.renanparis.desafioandroid.ui.fragment.ProductDetailsFragment"
+        android:label="@string/title_toolbar_product_detail" >
+        <action
+            android:id="@+id/action_productDetailsFragment_to_productsListFragment"
+            app:destination="@id/productsListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="false">
+
+        </action>
+        <argument
+            android:name="product"
+            app:argType="com.renanparis.desafioandroid.data.model.Product" />
+    </fragment>
+</navigation>
