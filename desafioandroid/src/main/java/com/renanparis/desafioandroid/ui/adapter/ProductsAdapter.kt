@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.renanparis.desafioandroid.R
 import com.renanparis.desafioandroid.data.model.Product
+import com.renanparis.desafioandroid.extensions.formatToStockText
 import com.renanparis.desafioandroid.extensions.formatToStringWithPoint
-import com.renanparis.desafioandroid.utils.FormatViews
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_product.view.*
 
@@ -57,7 +57,7 @@ class ProductsAdapter(
             this.product = product
             nameField.text = product.name
             setImage(product.image_url)
-            FormatViews.covertNumberToStockText(product.stock, stockField, context)
+            stockField.text = product.stock.formatToStockText()
             priceField.text = product.price.formatToStringWithPoint()
         }
 

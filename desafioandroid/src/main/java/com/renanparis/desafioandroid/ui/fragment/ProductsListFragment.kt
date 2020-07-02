@@ -13,18 +13,19 @@ import com.renanparis.desafioandroid.data.model.Product
 import com.renanparis.desafioandroid.extensions.formatToStringWithPoint
 import com.renanparis.desafioandroid.ui.adapter.ProductsAdapter
 import com.renanparis.desafioandroid.ui.fragment.ProductsListFragmentDirections.Companion.actionProductsListFragmentToProductDetailsFragment
+import com.renanparis.desafioandroid.ui.helper.ProductListFragmentHelper
 import com.renanparis.desafioandroid.ui.viewmodel.ProductsViewModel
 import com.renanparis.desafioandroid.utils.Status
 import kotlinx.android.synthetic.main.fragment_products_list.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
-import kotlin.concurrent.fixedRateTimer
 
 class ProductsListFragment : Fragment() {
 
     private val viewModel: ProductsViewModel by viewModel()
     private val adapter: ProductsAdapter by inject()
     private val controller by lazy { findNavController() }
+    private val helper by lazy { ProductListFragmentHelper() }
     lateinit var totalField: TextView
     private lateinit var subtotalField: TextView
     private lateinit var shippingField: TextView
@@ -114,19 +115,10 @@ class ProductsListFragment : Fragment() {
     }
 
     private fun bindViews(products: List<Product>) {
-        var subtotal = 0
-        var shipping = 0
-        var tax = 0
-        for (product in products) {
-            subtotal += product.price
-            shipping += product.shipping
-            tax += product.tax
-        }
-
         titleField.text = (context?.getString(R.string.text_title, products.size))
-        subtotalField.text = subtotal.formatToStringWithPoint()
-        shippingField.text = shipping.formatToStringWithPoint()
-        taxField.text = tax.formatToStringWithPoint()
-        totalField.text = (subtotal + shipping + tax).formatToStringWithPoint()
+        subtotalField.text = helper.sumPrice(products).formatToStringWithPoint()
+        shippingField.text = helper.sumShipping(products).formatToStringWithPoint()
+        taxField.text = helper.sumTax(products).formatToStringWithPoint()
+        totalField.text = helper.getTotal(products).formatToStringWithPoint()
     }
 }

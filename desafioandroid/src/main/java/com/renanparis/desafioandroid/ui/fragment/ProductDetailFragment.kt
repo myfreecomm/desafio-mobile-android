@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.renanparis.desafioandroid.R
+import com.renanparis.desafioandroid.extensions.formatToStockText
 import com.renanparis.desafioandroid.extensions.formatToStringWithPoint
 import com.renanparis.desafioandroid.ui.fragment.ProductDetailsFragmentDirections.Companion.actionProductDetailsFragmentToProductsListFragment
-import com.renanparis.desafioandroid.utils.FormatViews
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_product_details.*
 
@@ -54,7 +54,7 @@ class ProductDetailsFragment: Fragment() {
     private fun bindViews() {
         setImage()
         nameField.text = product.name
-        FormatViews.covertNumberToStockText(product.stock, stockField, context)
+        stockField.text = product.stock.formatToStockText()
         priceField.text = product.price.formatToStringWithPoint()
         descriptionField.text = product.description
     }
