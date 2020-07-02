@@ -14,7 +14,7 @@ import com.renanparis.desafioandroid.data.model.Product
 import com.renanparis.desafioandroid.extensions.formatToStringWithPoint
 import com.renanparis.desafioandroid.ui.adapter.ProductsAdapter
 import com.renanparis.desafioandroid.ui.fragment.ProductsListFragmentDirections.Companion.actionProductsListFragmentToProductDetailsFragment
-import com.renanparis.desafioandroid.ui.helper.ProductListFragmentHelper
+import com.renanparis.desafioandroid.ui.helper.FragmentsHelper
 import com.renanparis.desafioandroid.ui.viewmodel.ProductsViewModel
 import com.renanparis.desafioandroid.utils.Status
 import kotlinx.android.synthetic.main.fragment_products_list.*
@@ -26,7 +26,6 @@ class ProductsListFragment : Fragment() {
     private val viewModel: ProductsViewModel by viewModel()
     private val adapter: ProductsAdapter by inject()
     private val controller by lazy { findNavController() }
-    private val helper by lazy { ProductListFragmentHelper() }
     private lateinit var totalField: TextView
     private lateinit var subtotalField: TextView
     private lateinit var shippingField: TextView
@@ -117,9 +116,9 @@ class ProductsListFragment : Fragment() {
 
     private fun bindViews(products: List<Product>) {
         titleField.text = (context?.getString(R.string.text_title, products.size))
-        subtotalField.text = helper.sumPrice(products).formatToStringWithPoint()
-        shippingField.text = helper.sumShipping(products).formatToStringWithPoint()
-        taxField.text = helper.sumTax(products).formatToStringWithPoint()
-        totalField.text = helper.getTotal(products).formatToStringWithPoint()
+        subtotalField.text = FragmentsHelper.sumPrice(products).formatToStringWithPoint()
+        shippingField.text = FragmentsHelper.sumShipping(products).formatToStringWithPoint()
+        taxField.text = FragmentsHelper.sumTax(products).formatToStringWithPoint()
+        totalField.text = FragmentsHelper.getTotal(products).formatToStringWithPoint()
     }
 }
