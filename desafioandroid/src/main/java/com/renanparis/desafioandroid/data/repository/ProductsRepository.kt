@@ -8,7 +8,7 @@ class ProductsRepository(private val webClient: ProductsWebClient,
 
     suspend fun getProducts() = webClient.getProducts()
 
-    suspend fun savaProductDb() = dao.save(webClient.getProducts())
+    suspend fun saveProductDb() = dao.save(webClient.getProducts())
 
-    suspend fun getProudctsDb() = dao.getAllProducts()
+    suspend fun getProductsDb() = dao.getAllProducts()
 }

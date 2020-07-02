@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/productsListFragment"
         android:name="com.renanparis.desafioandroid.ui.fragment.ProductsListFragment"
-        android:label="ProductsListFragment" >
+        android:label="@string/title_toolbar_list_product" >
         <action
             android:id="@+id/action_productsListFragment_to_productDetailsFragment"
             app:destination="@id/productDetailsFragment"
@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/productDetailsFragment"
         android:name="com.renanparis.desafioandroid.ui.fragment.ProductDetailsFragment"
-        android:label="ProductDetailsFragment" >
+        android:label="@string/title_toolbar_product_detail" >
         <action
             android:id="@+id/action_productDetailsFragment_to_productsListFragment"
             app:destination="@id/productsListFragment"
@@ -34,7 +34,9 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/nav_graph"
-            app:popUpToInclusive="false"></action>
+            app:popUpToInclusive="false">
+
+        </action>
         <argument
             android:name="product"
             app:argType="com.renanparis.desafioandroid.data.model.Product" />

@@ -18,4 +18,7 @@
     <string name="TextStockOneItem">only 1 left in stock</string>
     <string name="TextStockNoProduct">missing product</string>
     <string name="TextStockFull">in stock</string>
+    <string name="page_title_detail">Product details</string>
+    <string name="title_toolbar_list_product">Cart</string>
+    <string name="title_toolbar_product_detail">Product details</string>
 </resources>

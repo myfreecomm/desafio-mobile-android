@@ -72,15 +72,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/shape_button_product_detail"
         android:text="@string/product_detail_text_button"
         android:textColor="@android:color/black"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/product_detail_description"
-        app:layout_constraintVertical_bias="0.752">
+        app:layout_constraintVertical_bias="1.0">
 
     </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

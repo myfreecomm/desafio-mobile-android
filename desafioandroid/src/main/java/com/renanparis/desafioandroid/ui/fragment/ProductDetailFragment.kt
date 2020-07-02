@@ -1,9 +1,7 @@
 package com.renanparis.desafioandroid.ui.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -32,8 +30,12 @@ class ProductDetailsFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setHasOptionsMenu(true)
 }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_top_app_bar_product_detail, menu)
+    }
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -41,7 +43,6 @@ class ProductDetailsFragment: Fragment() {
             savedInstanceState: Bundle?):
             View? {
         return inflater.inflate(R.layout.fragment_product_details, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -71,12 +72,10 @@ class ProductDetailsFragment: Fragment() {
         button = product_detail_button
         initListener()
     }
-
     private fun initListener() {
         button.setOnClickListener {
             val direction = actionProductDetailsFragmentToProductsListFragment()
             controller.navigate(direction)
         }
-
     }
 }

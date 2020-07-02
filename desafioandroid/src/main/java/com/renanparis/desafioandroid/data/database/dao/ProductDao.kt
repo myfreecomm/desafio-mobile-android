@@ -5,7 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.renanparis.desafioandroid.data.model.Product
-import kotlinx.coroutines.Deferred
 
 @Dao
 interface ProductDao {
@@ -15,7 +14,4 @@ interface ProductDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
    suspend fun save(products: List<Product>)
-
-    @Query("SELECT * FROM Product WHERE name = :id")
-    suspend fun searchById(id: Long): Product
 }

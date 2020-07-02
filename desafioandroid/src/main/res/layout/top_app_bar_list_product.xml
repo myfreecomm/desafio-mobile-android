@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar_products"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/colorPrimary"
+    app:navigationIcon="@drawable/ic_reorder_white_24dp"
+    app:titleTextColor="@android:color/white"
+    app:titleMarginStart="40dp"
+    style="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+</androidx.appcompat.widget.Toolbar>
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/topAppBar_list_product"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="@string/page_title"
-            app:menu="@menu/menu_top_app_bar_list_product"
-            app:navigationIcon="@drawable/ic_reorder_white_24dp"
-            android:background="@color/colorPrimary"
-            style="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
-    </com.google.android.material.appbar.AppBarLayout>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>

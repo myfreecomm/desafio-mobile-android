@@ -64,9 +64,5 @@ class ProductsAdapter(
         private fun setImage(imageUrl: String) {
             Picasso.get().load(imageUrl).into(imageField)
         }
-
-
     }
-
-
 }

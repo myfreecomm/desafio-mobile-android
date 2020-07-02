@@ -12,10 +12,10 @@ class ListProductsUseCase(private val repository: ProductsRepository) {
         emit(Resource.loading(data = null))
         try {
             emit(Resource.success(data = repository.getProducts()))
-            repository.savaProductDb()
+            repository.saveProductDb()
 
         }catch (exception: Exception) {
-            emit(Resource.error(data = repository.getProudctsDb(), message = exception.message.toString()))
+            emit(Resource.error(data = repository.getProductsDb(), message = exception.message.toString()))
         }
     }
 }

@@ -1,9 +1,7 @@
 package com.renanparis.desafioandroid.ui.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -13,13 +11,14 @@ import androidx.navigation.fragment.findNavController
 import com.renanparis.desafioandroid.R
 import com.renanparis.desafioandroid.data.model.Product
 import com.renanparis.desafioandroid.extensions.formatToStringWithPoint
-import com.renanparis.desafioandroid.ui.viewmodel.ProductsViewModel
 import com.renanparis.desafioandroid.ui.adapter.ProductsAdapter
 import com.renanparis.desafioandroid.ui.fragment.ProductsListFragmentDirections.Companion.actionProductsListFragmentToProductDetailsFragment
+import com.renanparis.desafioandroid.ui.viewmodel.ProductsViewModel
 import com.renanparis.desafioandroid.utils.Status
 import kotlinx.android.synthetic.main.fragment_products_list.*
 import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
+import kotlin.concurrent.fixedRateTimer
 
 class ProductsListFragment : Fragment() {
 
@@ -27,15 +26,21 @@ class ProductsListFragment : Fragment() {
     private val adapter: ProductsAdapter by inject()
     private val controller by lazy { findNavController() }
     lateinit var totalField: TextView
-    lateinit var subtotalField: TextView
-    lateinit var shippingField: TextView
-    lateinit var taxField: TextView
-    lateinit var titleField: TextView
-    lateinit var button: Button
+    private lateinit var subtotalField: TextView
+    private lateinit var shippingField: TextView
+    private lateinit var taxField: TextView
+    private lateinit var titleField: TextView
+    private lateinit var button: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_top_app_bar_list_product, menu)
     }
 
     private fun loadProducts() {
@@ -76,7 +81,6 @@ class ProductsListFragment : Fragment() {
             savedInstanceState: Bundle?):
             View? {
         return inflater.inflate(R.layout.fragment_products_list, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -97,9 +101,8 @@ class ProductsListFragment : Fragment() {
     }
 
     private fun initListener() {
-
         button.setOnClickListener {
-
+            super.getActivity()?.finish()
         }
     }
     private fun configRecyclerView() {
