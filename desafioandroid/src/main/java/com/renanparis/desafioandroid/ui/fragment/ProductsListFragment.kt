@@ -27,7 +27,7 @@ class ProductsListFragment : Fragment() {
     private val adapter: ProductsAdapter by inject()
     private val controller by lazy { findNavController() }
     private val helper by lazy { ProductListFragmentHelper() }
-    lateinit var totalField: TextView
+    private lateinit var totalField: TextView
     private lateinit var subtotalField: TextView
     private lateinit var shippingField: TextView
     private lateinit var taxField: TextView

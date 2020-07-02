@@ -18,6 +18,4 @@ data class Product(
         val tax: Int = 0,
         val shipping: Int = 0,
         val description: String = ""
-) : Parcelable {
-
-}
+) : Parcelable
