@@ -1,0 +1,13 @@
+<resources>
+    <declare-styleable name="DescriptionValueTextView">
+        <attr name="description" format="string" />
+        <attr name="value" format="string" />
+        <attr name="descriptionTextColor" format="color|reference"/>
+        <attr name="descriptionTextStyle">
+            <flag name="normal" value="0" />
+            <flag name="bold" value="1" />
+            <flag name="italic" value="2" />
+        </attr>
+        <attr name="IsSubItemTitle" format="boolean"/>
+    </declare-styleable>
+</resources>

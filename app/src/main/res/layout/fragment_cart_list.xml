@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        tools:context=".ui.cart.fragment.CartListFragment">
+
+        <TextView
+            android:id="@+id/tvNumberItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/cart_item_number"
+            android:layout_marginTop="@dimen/default_margin_16"
+            android:layout_marginStart="@dimen/default_margin_16"
+            android:textStyle="bold"
+            android:textColor="@color/colorFontBlack" />
+
+        <View
+            android:id="@+id/vwListLine"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="@dimen/default_margin_16"
+            android:background="@drawable/shape_line"
+            android:backgroundTint="@color/colorgrey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNumberItems"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvItems"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="true"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vwListLine"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_cart" />
+
+        <Button
+            android:id="@+id/btCheckout"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/default_cart_button_size"
+            android:layout_margin="@dimen/default_margin_16"
+            android:background="@drawable/filled_purple_button"
+            android:text="@string/cart_checkout"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dvtTax" />
+
+        <com.example.desafioandroid.ui.shared.customView.DescriptionValueTextView
+            android:id="@+id/dvtTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_16"
+            app:description="@string/default_total"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvItems"
+            app:value="$1.10" />
+
+        <com.example.desafioandroid.ui.shared.customView.DescriptionValueTextView
+            android:id="@+id/dvtSubTotal"
+            style="@style/list_total_subitem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_16"
+            app:IsSubItemTitle="true"
+            app:description="@string/default_subtotal"
+            app:descriptionTextStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dvtTotal"
+            app:value="$1.10" />
+
+        <com.example.desafioandroid.ui.shared.customView.DescriptionValueTextView
+            android:id="@+id/dvtShipping"
+            style="@style/list_total_subitem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin_16"
+            android:layout_marginTop="@dimen/default_margin_8"
+            android:layout_marginEnd="@dimen/default_margin_16"
+            app:IsSubItemTitle="true"
+            app:description="@string/default_shipping"
+            app:descriptionTextStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dvtSubTotal"
+            app:value="$1.10" />
+
+        <com.example.desafioandroid.ui.shared.customView.DescriptionValueTextView
+            android:id="@+id/dvtTax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin_16"
+            android:layout_marginTop="@dimen/default_margin_8"
+            android:layout_marginEnd="@dimen/default_margin_16"
+            app:IsSubItemTitle="true"
+            app:description="@string/default_tax"
+            app:descriptionTextStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dvtShipping"
+            app:value="$1.10" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
