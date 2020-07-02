@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.renanparis.desafioandroid.R
+import com.renanparis.desafioandroid.constants.Constants
 import com.renanparis.desafioandroid.data.model.Product
 import com.renanparis.desafioandroid.extensions.formatToStringWithPoint
 import com.renanparis.desafioandroid.ui.adapter.ProductsAdapter
@@ -65,7 +66,7 @@ class ProductsListFragment : Fragment() {
                         }else {
                             products_list_progress.visibility = View.GONE
                             products_list_rv.visibility = View.VISIBLE
-                            Toast.makeText(this.context, resource.message, Toast.LENGTH_LONG).show()
+                            Toast.makeText(this.context, Constants.MESSAGE_LOAD_LIST, Toast.LENGTH_LONG).show()
                         }
                     }
                     Status.LOADING -> {
