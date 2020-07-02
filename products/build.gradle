@@ -1,0 +1,72 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["compileSDK"]
+    buildToolsVersion globalConfiguration["buildToolsVersion"]
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["minSDK"]
+        targetSdkVersion globalConfiguration["targetSDK"]
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+dependencies {
+    def dependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependecies
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation dependencies.kotlin
+    implementation dependencies.appcompat
+    implementation dependencies.androidXCoreKtxVersion
+    implementation dependencies.materialdesign
+    implementation dependencies.constraintLayout
+    implementation dependencies.viewModelExt
+    implementation dependencies.livedataExt
+    implementation dependencies.navigation
+    implementation dependencies.navigationUi
+    implementation dependencies.koin
+    implementation dependencies.koinViewModel
+    implementation dependencies.swiperefreshlayout
+    implementation dependencies.picasso
+
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.assertJCore
+    testImplementation testDependencies.coroutineTest
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.androidxArch
+    androidTestImplementation testDependencies.androixTestExt
+    androidTestImplementation testDependencies.mockito
+    androidTestImplementation testDependencies.dexMaker
+    androidTestImplementation testDependencies.espressoCore
+    androidTestImplementation testDependencies.espressoContrib
+    androidTestImplementation testDependencies.navigationTest
+    androidTestImplementation testDependencies.coroutineTest
+    androidTestImplementation dependencies.appcompat
+    debugImplementation testDependencies.fragmentTesting
+
+    implementation(project(':domain'))
+}

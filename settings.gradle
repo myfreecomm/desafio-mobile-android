@@ -1,0 +1,6 @@
+include ':products'
+include ':network'
+include ':data'
+include ':domain'
+include ':app'
+rootProject.name = "NexaasChallenge"

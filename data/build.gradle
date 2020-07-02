@@ -1,0 +1,65 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["compileSDK"]
+    buildToolsVersion globalConfiguration["buildToolsVersion"]
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["minSDK"]
+        targetSdkVersion globalConfiguration["targetSDK"]
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [
+                    "room.incremental":"true"
+                ]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    def dependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependecies
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation dependencies.kotlin
+    implementation dependencies.appcompat
+    implementation dependencies.androidXCoreKtxVersion
+    implementation dependencies.roomDatabase
+    implementation dependencies.roomExtension
+    kapt dependencies.roomKapt
+    implementation dependencies.koin
+
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.assertJCore
+    testImplementation testDependencies.coroutineTest
+    testImplementation testDependencies.mockito
+    androidTestImplementation testDependencies.androixTestExt
+    androidTestImplementation testDependencies.espressoCore
+
+    implementation(project(":domain"))
+    implementation(project(":network"))
+
+}

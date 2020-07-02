@@ -1,0 +1,20 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+
+    def dependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependecies
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation dependencies.kotlin
+    implementation dependencies.koin
+
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.assertJCore
+    testImplementation testDependencies.mockito
+    testImplementation testDependencies.coroutineTest
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8

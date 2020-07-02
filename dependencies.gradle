@@ -1,0 +1,94 @@
+ext {
+    //Android Config
+    minSDK = 21
+    targetSDK = 29
+    compileSDK = 29
+
+    kotlinVersion = '1.3.72'
+
+    buildTools = '4.0.0'
+    buildToolsVersion = '29.0.3'
+
+    androidXCoreKtxVersion = '1.2.0'
+
+    appcompatVersion = '1.1.0'
+
+    //Android libs
+    materialVersion = '1.1.0'
+    constraintLayoutVersion = '1.1.3'
+    swiperefreshlayoutVersion = '1.1.0'
+    picassoVersion = '2.71828'
+
+    //JetPack
+    roomDatabaseVersion = '2.2.5'
+    lifecycleVersion = '2.2.0'
+    navigationVersion = '2.3.0'
+
+    //Networking
+    retrofitVersion = '2.8.1'
+    okHttpVersion = '4.5.0'
+    gsonVersion = '2.8.6'
+    retrofitKotlinSerialization = "0.4.0"
+    kotlinSerializationVersion = '0.20.0'
+
+    //DI
+    koinVersion = '2.1.6'
+
+    //Test
+    junitVersion = '4.13'
+    junitExtVersion = '1.1.1'
+    coroutineTestVersion = '1.3.0'
+    mockitoKotlinVersion = '2.2.0'
+    dexMakerVersion = '2.19.0'
+    assertJCoreVersion = '3.11.1'
+    espressoVersion = '3.2.0'
+    archVersion = '2.1.0'
+    fragmentTestingVersion = '1.2.5'
+
+    dependencies = [
+        kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+        appcompat : "androidx.appcompat:appcompat:$appcompatVersion",
+        androidXCoreKtxVersion : "androidx.core:core-ktx:$androidXCoreKtxVersion",
+        materialdesign: "com.google.android.material:material:$materialVersion",
+        constraintLayout: "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+        roomDatabase: "androidx.room:room-runtime:$roomDatabaseVersion",
+        roomExtension: "androidx.room:room-ktx:$roomDatabaseVersion",
+        roomKapt: "androidx.room:room-compiler:$roomDatabaseVersion",
+        okHttp          : "com.squareup.okhttp3:okhttp:$okHttpVersion",
+        okHttpLogger    : "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
+        retrofit        : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+        retrofitGsonConverter : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+        gson            : "com.google.code.gson:gson:$gsonVersion",
+        // ViewModel
+        viewModelExt: "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion",
+        // LiveData
+        livedataExt: "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion",
+        //Jetpack Navigation
+        navigation: "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+        navigationUi: "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+
+        //Jetpack Navigation classpath
+        navigationClasspath: "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion",
+        //Koin
+        koin: "org.koin:koin-android:$koinVersion",
+        koinViewModel: "org.koin:koin-android-viewmodel:$koinVersion",
+        swiperefreshlayout: "androidx.swiperefreshlayout:swiperefreshlayout:$swiperefreshlayoutVersion",
+        picasso: "com.squareup.picasso:picasso:$picassoVersion",
+        retrofitKotlinSerialization: "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$retrofitKotlinSerialization",
+        kotlinSerialization: "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlinSerializationVersion",
+    ]
+
+    testDependecies = [
+        junit    : "junit:junit:$junitVersion",
+        androixTestExt : "androidx.test.ext:junit:$junitExtVersion",
+        androidxArch: "androidx.arch.core:core-testing:$archVersion",
+        coroutineTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineTestVersion",
+        mockito :  "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
+        assertJCore : "org.assertj:assertj-core:$assertJCoreVersion",
+        espressoCore : "androidx.test.espresso:espresso-core:$espressoVersion",
+        espressoContrib : "androidx.test.espresso:espresso-contrib:$espressoVersion",
+        navigationTest: "androidx.navigation:navigation-testing:$navigationVersion",
+        dexMaker: "com.linkedin.dexmaker:dexmaker-mockito:$dexMakerVersion",
+        fragmentTesting: "androidx.fragment:fragment-testing:$fragmentTestingVersion"
+    ]
+}
