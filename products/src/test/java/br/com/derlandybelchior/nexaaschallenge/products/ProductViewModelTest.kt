@@ -28,7 +28,7 @@ class ProductViewModelTest {
 
     private val testDispatcher = TestCoroutineDispatcher()
     private lateinit var viewModel: ProductViewModel
-    private val stateObserver: Observer<ViewState<List<Product>>> = mock()
+    private val stateObserver: Observer<ViewState<List<ProductPresentation>>> = mock()
     private lateinit var usecase: FetchProduct
     private lateinit var repository: ProductRepository
     private val remoteProductsList by lazy { listOf(product1, product2, product3)}
@@ -85,7 +85,18 @@ class ProductViewModelTest {
             whenever(repository.fetchAll(forceUpdate = true)).thenReturn(remoteProductsList)
             viewModel.loadProducts(forceUpdate = true)
             verify(stateObserver).onChanged(ViewState.Loading)
-            verify(stateObserver).onChanged(ViewState.Success(remoteProductsList))
+            verify(stateObserver).onChanged(ViewState.Success(remoteProductsList.map {
+                ProductPresentation(
+                    name = it.name,
+                    price = "${it.price}",
+                    quantity = it.quantity,
+                    shipping = "${it.shipping}",
+                    stock = "In stock",
+                    tax = "${it.tax}",
+                    description = it.description,
+                    imageUrl = it.image
+                )
+            }))
         }
     }
 

@@ -60,12 +60,13 @@ dependencies {
     testImplementation testDependencies.androidxArch
     androidTestImplementation testDependencies.androixTestExt
     androidTestImplementation testDependencies.mockito
+    androidTestImplementation testDependencies.dexMaker
     androidTestImplementation testDependencies.espressoCore
     androidTestImplementation testDependencies.espressoContrib
     androidTestImplementation testDependencies.navigationTest
     androidTestImplementation testDependencies.coroutineTest
     androidTestImplementation dependencies.appcompat
-    debugImplementation "androidx.fragment:fragment-testing:1.2.5"
+    debugImplementation testDependencies.fragmentTesting
 
     implementation(project(':domain'))
 }

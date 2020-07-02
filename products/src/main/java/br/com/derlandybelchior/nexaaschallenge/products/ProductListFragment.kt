@@ -1,17 +1,13 @@
 package br.com.derlandybelchior.nexaaschallenge.products
 
-import android.app.SearchManager
-import android.content.Context
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.widget.SearchView
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.fragment_product_list.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -27,19 +23,11 @@ class ProductListFragment : Fragment(),
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_product_list, container, false)
-        setHasOptionsMenu(true)
-        return view
+        return inflater.inflate(R.layout.fragment_product_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val navController = findNavController()
-        val appBarConfiguration = AppBarConfiguration(navController.graph)
-
-        view.findViewById<Toolbar>(R.id.toolbar)
-            .setupWithNavController(navController, appBarConfiguration)
 
         setupRefresh()
 
@@ -95,51 +83,5 @@ class ProductListFragment : Fragment(),
     override fun onClick(productPresentation: ProductPresentation) {
         val action = ProductListFragmentDirections.actionProductListFragmentToProductDetailFragment(productPresentation)
         findNavController().navigate(action)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-
-        inflater.inflate(R.menu.app_bar, menu)
-
-        requireActivity().findViewById<Toolbar>(R.id.toolbar).setupWithNavController(findNavController(), AppBarConfiguration(menu))
-
-        val menuItem: MenuItem? = menu.findItem(R.id.search_icon)
-        val searchManager = context?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchView: SearchView? = menuItem?.actionView as SearchView
-        searchView?.setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
-        searchView?.queryHint = "Search here!"
-
-        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
-
-            override fun onQueryTextChange(text: String?): Boolean {
-
-                text?.let {query ->
-
-                    if (query.isNotEmpty()) {
-                        adapter.items = if(::productList.isInitialized) productList else listOf()
-                        val productsFiltered = adapter.items.filter { productItemPresentation ->
-                            productItemPresentation.name.contains(text, true)
-                                    || productItemPresentation.price.contains(text, true)
-                                    || productItemPresentation.description.contains(text, true)
-                        }
-
-                        adapter.items = productsFiltered
-                        adapter.notifyDataSetChanged()
-
-                    } else {
-                        showContent(productList)
-                    }
-
-                    return true
-                }
-
-                return false
-            }
-        })
-
-        super.onCreateOptionsMenu(menu, inflater)
     }
 }

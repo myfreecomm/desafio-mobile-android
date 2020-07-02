@@ -41,7 +41,6 @@ class ProductListAdapter(private val totalPresentation: TotalProductsPresentatio
         private fun loadImage(url: String) = with(itemView){
             val picassoBuilder = Picasso.Builder(itemView.context)
                 .loggingEnabled(true)
-                .indicatorsEnabled(true)
 
             val creator = picassoBuilder.build().load(url).fit()
             creator.into(product_image)

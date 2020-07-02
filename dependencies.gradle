@@ -38,10 +38,12 @@ ext {
     junitVersion = '4.13'
     junitExtVersion = '1.1.1'
     coroutineTestVersion = '1.3.0'
-    mockitoKotlinVersion = '2.1.0'
+    mockitoKotlinVersion = '2.2.0'
+    dexMakerVersion = '2.19.0'
     assertJCoreVersion = '3.11.1'
     espressoVersion = '3.2.0'
     archVersion = '2.1.0'
+    fragmentTestingVersion = '1.2.5'
 
     dependencies = [
         kotlin    : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
@@ -85,6 +87,8 @@ ext {
         assertJCore : "org.assertj:assertj-core:$assertJCoreVersion",
         espressoCore : "androidx.test.espresso:espresso-core:$espressoVersion",
         espressoContrib : "androidx.test.espresso:espresso-contrib:$espressoVersion",
-        navigationTest: "androidx.navigation:navigation-testing:$navigationVersion"
+        navigationTest: "androidx.navigation:navigation-testing:$navigationVersion",
+        dexMaker: "com.linkedin.dexmaker:dexmaker-mockito:$dexMakerVersion",
+        fragmentTesting: "androidx.fragment:fragment-testing:$fragmentTestingVersion"
     ]
 }
