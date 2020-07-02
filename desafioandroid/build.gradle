@@ -87,5 +87,9 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.0"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.0"
 
+    //Test
+    testImplementation "junit:junit:4.12"
+    testImplementation "io.mockk:mockk:1.10.0"
+
 
 }
