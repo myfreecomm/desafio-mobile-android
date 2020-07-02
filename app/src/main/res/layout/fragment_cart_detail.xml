@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <ImageView
+            android:id="@+id/ivDetailsProductPhoto"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/details_photo_size"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvProductDetailName"
+            style="@style/list_item_title_theme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin_16"
+            android:layout_marginTop="@dimen/default_margin_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivDetailsProductPhoto"
+            tools:text="@tools:sample/first_names" />
+
+        <TextView
+            android:id="@+id/tvProductDetailDisponibility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin_16"
+            android:layout_marginTop="@dimen/default_margin_4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProductDetailName"
+            tools:text="in stock" />
+
+        <TextView
+            android:id="@+id/tvProductDetailDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin_16"
+            app:layout_constraintBottom_toTopOf="@id/btRemoveFromCart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProductDetailDisponibility"
+            tools:text="@tools:sample/lorem/random" />
+
+        <TextView
+            android:id="@+id/ivProductDetailValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin_16"
+            android:layout_marginEnd="@dimen/default_margin_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivDetailsProductPhoto"
+            tools:text="$1.50" />
+
+        <Button
+            android:id="@+id/btRemoveFromCart"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_cart_button_size"
+            android:layout_margin="@dimen/default_margin_16"
+            android:background="@drawable/outlined_white_button"
+            android:text="@string/cart_remove_item"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

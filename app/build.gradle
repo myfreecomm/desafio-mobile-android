@@ -1,0 +1,95 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'koin'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs"
+
+android {
+    compileSdkVersion 29
+
+    compileOptions {
+        targetCompatibility = "8"
+        sourceCompatibility = "8"
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    defaultConfig {
+        applicationId "com.example.desafioandroid"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext{
+    koin_version= "2.1.6"
+    retrofit_version = "2.9.0"
+    lifecycle_version = "2.2.0"
+    nav_version = "2.3.0"
+    room_version = "2.2.5"
+    mockk_version = "1.10.0"
+    arch_version = "2.1.0"
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    // Navigator
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    // room
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    testImplementation "androidx.room:room-testing:$room_version"
+    kapt "android.arch.persistence.room:compiler:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    // koin
+    implementation "org.koin:koin-core:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-ext:$koin_version"
+    // mockK
+    testImplementation "io.mockk:mockk:$mockk_version"
+
+    //misc
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'org.robolectric:robolectric:4.3'
+    testImplementation "androidx.arch.core:core-testing:$arch_version"
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
+}

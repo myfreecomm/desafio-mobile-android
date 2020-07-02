@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">DesafioAndroid</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cart_checkout">Checkout</string>
+    <string name="cart_remove_item">remove from cart</string>
+    <string name="default_total">TOTAL</string>
+    <string name="default_subtotal">Subtotal</string>
+    <string name="default_shipping">Shipping</string>
+    <string name="default_tax">Tax</string>
+    <string name="cart_stock_1_left">Only 1 left in stock</string>
+    <string name="cart_stock_available">in stock</string>
+    <string name="cart_stock_unavailable">out of stock</string>
+    <string name="cart_item_number">%d items on your cart</string>
+    <string name="unexpected_error">Erro inesperado.</string>
+    <string name="unexpected_error_description">Não foi possivel carregar a lista. \n Tente novamente mais tarde.</string>
+</resources>
