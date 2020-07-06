@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Desafio</string>
+    <string name="product_detail">Product Detail</string>
+
+    <!-- Setup NavigationView -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- Left menu -->
+    <string name="plane">Viagem</string>
+    <string name="music">Som</string>
+    <string name="beach">Praia</string>
+
+    <!-- Right menu -->
+    <string name="cat_bottomappbar_3d">3D</string>
+    <string name="cat_bottomappbar_accelerator">Accelerator</string>
+    <string name="cat_bottomappbar_search">Search</string>
+    <string name="cat_bottomappbar_dashboard">Dashboard</string>
+
+    <!-- General -->
+    <string name="empty">Lista vazia!</string>
+    <string name="failed">Erro ao carregar lista!</string>
+
+    <string name="image_description">image_description</string>
+    <string name="name_description">name</string>
+    <string name="price_description">price</string>
+    <string name="description_description">description</string>
+
+</resources>
