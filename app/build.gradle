@@ -1,0 +1,98 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "br.com.desafio"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+        dev {
+            dimension "version"
+            sourceSets{
+                main { java.srcDirs = ['src/main/java'] }
+                androidTest { java.srcDirs = ['src/androidTest/java'] }
+            }
+        }
+        prod {
+            dimension "version"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation 'org.koin:koin-android:1.0.1'
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    implementation 'com.google.android.material:material:1.3.0-alpha01'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    // Http
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.moshi:moshi:1.9.3'
+    kapt('com.squareup.moshi:moshi-kotlin-codegen:1.9.3')
+
+    def nav_version = "2.3.0"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    // Teste
+    testImplementation 'junit:junit:4.13'
+    devImplementation 'com.squareup.okhttp:mockwebserver:2.5.0'
+    devImplementation 'androidx.test.ext:junit:1.1.1'
+    devImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    devImplementation 'androidx.test:runner:1.2.0'
+    devImplementation 'androidx.test:rules:1.2.0'
+    devImplementation 'com.android.support.test.espresso:espresso-intents:3.0.2'
+    devImplementation('com.android.support.test.espresso:espresso-core:3.0.2') {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+
+    def lifecycle_version = "1.1.1"
+    implementation "android.arch.lifecycle:extensions:$lifecycle_version"
+    def room_version = "1.1.1"
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    kapt "android.arch.persistence.room:compiler:$room_version"
+
+    kapt 'com.android.databinding:compiler:3.1.4'
+
+    implementation 'androidx.multidex:multidex:2.0.1'
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <item
+      android:id="@+id/search"
+      android:icon="@drawable/ic_search_24px"
+      android:title="@string/cat_bottomappbar_search"
+      app:showAsAction="ifRoom"/>
+  <item
+      android:id="@+id/_3d"
+      android:icon="@drawable/ic_3d_rotation_24px"
+      android:title="@string/cat_bottomappbar_3d"
+      app:showAsAction="never"/>
+  <item
+      android:id="@+id/accelerator"
+      android:icon="@drawable/ic_accelerator_24px"
+      android:title="@string/cat_bottomappbar_accelerator"
+      app:showAsAction="never"/>
+  <item
+      android:id="@+id/dashboard"
+      android:icon="@drawable/ic_dashboard_24px"
+      android:title="@string/cat_bottomappbar_dashboard"
+      app:showAsAction="never"/>
+
+</menu>
