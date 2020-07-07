@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/desafio-mobile-android.iml" filepath="$PROJECT_DIR$/.idea/desafio-mobile-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Cart.iml" filepath="$PROJECT_DIR$/.idea/modules/Cart.iml" group="Cart" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Cart/app" />
     </modules>
   </component>
 </project>
