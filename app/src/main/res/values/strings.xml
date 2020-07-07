@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Cart</string>
+    <string name="search">Search</string>
+    <string name="title_detail_cart_item_toolbar">Product details</string>
+    <string name="txt_try_again_dialog">Try Again</string>
+    <string name="txt_count_items_cart">%s ITEMS IN YOUR CART</string>
+    <string name="txt_total">TOTAL</string>
+    <string name="txt_subtotal">Subtotal</string>
+    <string name="txt_shipping">Shipping</string>
+    <string name="txt_tax">Tax</string>
+    <string name="txt_btn_checkout">CHECKOUT</string>
+    <string name="txt_btn_remove_item_cart">REMOVE FROM CART</string>
+</resources>
