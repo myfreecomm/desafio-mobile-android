@@ -7,6 +7,13 @@ dependencies {
     implementation deps.kotlin.jdk
     // DI
     implementation deps.koin.core
+
+    // Test
+    testImplementation deps.junit
+    testImplementation deps.mockito.core
+    testImplementation deps.hamcrest.library
+    testImplementation deps.koin.test
+    testImplementation deps.coroutines.test
 }
 
 sourceCompatibility = versions.javaVersion
