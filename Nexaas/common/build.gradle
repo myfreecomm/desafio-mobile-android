@@ -34,6 +34,10 @@ dependencies {
     api deps.koin.android
     api deps.koin.viewmodel
 
+    // Coroutines
+    api deps.coroutines.core
+    api deps.coroutines.android
+
     // UI
     api deps.androidx.core
     api deps.androidx.appcompat

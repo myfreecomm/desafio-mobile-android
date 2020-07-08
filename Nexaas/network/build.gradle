@@ -30,6 +30,12 @@ dependencies {
 
     implementation(project(":common"))
 
+    // Networking
+    api deps.retrofit.core
+    api deps.retrofit.converter
+    implementation deps.okhttp.core
+    implementation deps.okhttp.logging
+
     // Test
     testImplementation deps.junit
     androidTestImplementation deps.androidx.test.junit
