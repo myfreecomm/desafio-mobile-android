@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply from: "$rootDir/flavors.gradle"
 
 android {
@@ -23,6 +24,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
@@ -33,8 +38,17 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":network"))
 
+    implementation deps.androidx.lifecycle.livedata
+    implementation deps.androidx.lifecycle.viewmodel
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
     // Test
     testImplementation deps.junit
+    testImplementation deps.mockito.core
+    testImplementation deps.hamcrest.library
+    testImplementation deps.koin.test
+    testImplementation deps.coroutines.test
+    testImplementation deps.androidx.test.arch
     androidTestImplementation deps.androidx.test.junit
     androidTestImplementation deps.androidx.test.espresso
 

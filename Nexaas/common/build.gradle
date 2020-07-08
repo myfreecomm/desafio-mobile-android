@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply from: "$rootDir/flavors.gradle"
 
 android {
@@ -23,6 +24,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
@@ -42,6 +47,10 @@ dependencies {
     api deps.androidx.core
     api deps.androidx.appcompat
     api deps.androidx.constraintlayout
+    api deps.google.material
+
+    // IMAGE
+    implementation deps.coil
 
     // Test
     testImplementation deps.junit

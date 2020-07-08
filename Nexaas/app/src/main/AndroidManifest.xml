@@ -10,7 +10,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".features.product.ProductDetailsActivity"></activity>
         <activity android:name=".features.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +18,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".features.cart.CartActivity" />
+        <activity
+            android:theme="@style/AppTheme.NoActionBar"
+            android:name=".features.product.ProductDetailsActivity" />
     </application>
 
 </manifest>
