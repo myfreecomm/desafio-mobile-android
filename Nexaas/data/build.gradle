@@ -34,6 +34,10 @@ dependencies {
 
     // Test
     testImplementation deps.junit
+    testImplementation deps.mockito.core
+    testImplementation deps.hamcrest.library
+    testImplementation deps.koin.test
+    testImplementation deps.coroutines.test
     androidTestImplementation deps.androidx.test.junit
     androidTestImplementation deps.androidx.test.espresso
 
