@@ -17,4 +17,13 @@ android {
             buildConfigField "String", "BASE_URL", "\"https://raw.githubusercontent.com\""
         }
     }
+
+    compileOptions {
+        sourceCompatibility versions.javaVersion
+        targetCompatibility versions.javaVersion
+    }
+
+    kotlinOptions {
+        jvmTarget = versions.javaVersion
+    }
 }
