@@ -30,6 +30,10 @@ dependencies {
     // Kotlin
     api deps.kotlin.jdk
 
+    // DI
+    api deps.koin.android
+    api deps.koin.viewmodel
+
     // UI
     api deps.androidx.core
     api deps.androidx.appcompat
