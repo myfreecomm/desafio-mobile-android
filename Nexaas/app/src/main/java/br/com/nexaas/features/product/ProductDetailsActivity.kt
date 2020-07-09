@@ -2,6 +2,7 @@ package br.com.nexaas.features.product
 
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.navigation.navArgs
 import br.com.nexaas.R
 import br.com.nexaas.common.ui.base.BaseActivity
 import br.com.nexaas.databinding.ActivityProductDetailsBinding
@@ -11,6 +12,8 @@ class ProductDetailsActivity : BaseActivity<ActivityProductDetailsBinding>() {
 
     private val viewModel: ProductDetailsViewModel by viewModel()
 
+    private val args by navArgs<ProductDetailsActivityArgs>()
+
     override fun getLayoutRes(): Int {
         return R.layout.activity_product_details
     }
@@ -18,7 +21,7 @@ class ProductDetailsActivity : BaseActivity<ActivityProductDetailsBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
         binding.apply {
             this.viewmodel = viewModel
-            product = intent.getParcelableExtra("product")
+            product = args.product
         }
         binding.toolbar.setNavigationOnClickListener {
             finish()

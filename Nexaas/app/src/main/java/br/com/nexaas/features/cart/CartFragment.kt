@@ -1,28 +1,27 @@
 package br.com.nexaas.features.cart
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import br.com.nexaas.R
-import br.com.nexaas.common.ui.base.BaseActivity
+import br.com.nexaas.common.ui.base.BaseFragment
 import br.com.nexaas.common.ui.base.ViewState
-import br.com.nexaas.databinding.ActivityCartBinding
+import br.com.nexaas.databinding.FragmentCartBinding
 import br.com.nexaas.features.cart.data.entity.CartItemVO
 import br.com.nexaas.features.cart.data.mapper.CartItemToProductMapper
-import br.com.nexaas.features.product.ProductDetailsActivity
 import com.google.android.material.snackbar.Snackbar
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.io.IOException
 
-class CartActivity : BaseActivity<ActivityCartBinding>(), OnClickListener {
+class CartFragment : BaseFragment<FragmentCartBinding>(), OnClickListener {
 
     private val viewModel: CartViewModel by viewModel()
 
     private val cartAdapter by lazy { CartAdapter(this) }
 
     override fun getLayoutRes(): Int {
-        return R.layout.activity_cart
+        return R.layout.fragment_cart
     }
 
     override fun initView(savedInstanceState: Bundle?) {
@@ -42,7 +41,7 @@ class CartActivity : BaseActivity<ActivityCartBinding>(), OnClickListener {
     }
 
     private fun subscribeUi() {
-        viewModel.items.observe(this, Observer {
+        viewModel.items.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is ViewState.Success -> {
                     cartAdapter.submitList(it.data.items)
@@ -70,8 +69,7 @@ class CartActivity : BaseActivity<ActivityCartBinding>(), OnClickListener {
     override fun onClickProduct(itemVO: CartItemVO) {
         val product = CartItemToProductMapper().transform(itemVO)
 
-        startActivity(Intent(this, ProductDetailsActivity::class.java).apply {
-            putExtra("product", product)
-        })
+        val destinations = CartFragmentDirections.navigateToProductDetails(product)
+        findNavController().navigate(destinations)
     }
 }

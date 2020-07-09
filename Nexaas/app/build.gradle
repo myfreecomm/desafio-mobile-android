@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
 apply from: "$rootDir/flavors.gradle"
 
 android {
@@ -41,6 +42,10 @@ dependencies {
     implementation deps.androidx.lifecycle.livedata
     implementation deps.androidx.lifecycle.viewmodel
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    // Navigation
+    implementation deps.androidx.navigation.fragment
+    implementation deps.androidx.navigation.ui
 
     // Test
     testImplementation deps.junit
