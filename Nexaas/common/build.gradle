@@ -52,7 +52,8 @@ dependencies {
     api deps.google.material
 
     // IMAGE
-    implementation deps.coil
+    implementation deps.glide.core
+    kapt deps.glide.compiler
 
     // Test
     testImplementation deps.junit

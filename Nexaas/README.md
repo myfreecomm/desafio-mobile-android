@@ -15,7 +15,7 @@
     - [Navigation](https://developer.android.com/topic/libraries/architecture/navigation)
     - [Room](https://developer.android.com/topic/libraries/architecture/room)
 - Unit Testing with [JUnit4](https://github.com/junit-team/junit4), [Mockito](https://site.mockito.org/) and [Hamcrest](http://hamcrest.org/JavaHamcrest/tutorial)
-- Load images with [Coil](https://github.com/coil-kt/coil)
+- Load images with [Glide](https://github.com/bumptech/glide)
 
 ### App Modules
 ----------

@@ -5,12 +5,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import br.com.nexaas.common.utils.MoneyFormat
-import coil.api.load
+import com.bumptech.glide.Glide
 
 @BindingAdapter("imageUrl")
 fun ImageView.imageUrl(url: String?) {
     if (url.isNullOrEmpty()) return
-    load(url)
+    Glide.with(context).load(url).into(this)
 }
 
 @BindingAdapter("android:text")
