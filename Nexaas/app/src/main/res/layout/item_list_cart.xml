@@ -17,6 +17,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
         android:onClick="@{() -> listener.onClickProduct(item)}"
         android:paddingHorizontal="@dimen/margin_normal"
         android:paddingVertical="@dimen/margin_small">
