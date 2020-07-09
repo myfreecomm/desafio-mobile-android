@@ -29,3 +29,7 @@
 ### Screens
 ----------
 <img width="300" src="/Nexaas/screenshots/screenshot_cart.png"> <img width="300" src="/Nexaas/screenshots/screenshot_product_details.png">
+
+### Author
+----------
+Ricarlo Silva - [LinkedIn](https://www.linkedin.com/in/ricarlo-silva/)
