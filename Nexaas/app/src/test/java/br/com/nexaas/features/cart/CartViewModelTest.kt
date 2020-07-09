@@ -10,6 +10,7 @@ import br.com.nexaas.utils.CoroutinesDispatcherProviderTest
 import br.com.nexaas.utils.createCartModel
 import br.com.nexaas.utils.getOrAwaitValue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Before
@@ -69,7 +70,10 @@ class CartViewModelTest : AutoCloseKoinTest() {
             createCartModel(),
             createCartModel()
         )
-        `when`(mockGetCartUseCase.execute()).thenReturn(list)
+        val flow = flow {
+            emit(list)
+        }
+        `when`(mockGetCartUseCase.execute()).thenReturn(flow)
 
         // When load cart
         viewModel.loadCart()

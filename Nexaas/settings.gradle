@@ -1,3 +1,4 @@
+include ':storage'
 include ':network'
 include ':common'
 include ':data'

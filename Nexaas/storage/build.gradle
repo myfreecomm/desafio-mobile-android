@@ -20,30 +20,24 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation deps.kotlin.jdk
 
-    implementation(project(":common"))
-    implementation(project(":network"))
-    implementation(project(":domain"))
-    implementation(project(":storage"))
-
-    // Storage
+    // Room
     kapt deps.androidx.room.compiler
+    api deps.androidx.room.runtime
+    api deps.androidx.room.coroutine
 
     // Test
     testImplementation deps.junit
-    testImplementation deps.mockito.core
-    testImplementation deps.hamcrest.library
-    testImplementation deps.koin.test
-    testImplementation deps.coroutines.test
-    testImplementation deps.androidx.test.arch
     androidTestImplementation deps.androidx.test.junit
     androidTestImplementation deps.androidx.test.espresso
 

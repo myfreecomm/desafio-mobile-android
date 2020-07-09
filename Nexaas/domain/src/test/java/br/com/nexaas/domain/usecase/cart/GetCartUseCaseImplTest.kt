@@ -3,6 +3,9 @@ package br.com.nexaas.domain.usecase.cart
 import br.com.nexaas.domain.di.DomainModule
 import br.com.nexaas.domain.entity.CartModel
 import br.com.nexaas.domain.repository.ICartRepository
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.hasItems
@@ -72,14 +75,18 @@ internal class GetCartUseCaseImplTest : AutoCloseKoinTest() {
             )
         )
 
-        // When
-        `when`(mockCartRepository.getCart()).thenReturn(mockList)
+        val flow = flow {
+            emit(mockList)
+        }
 
-        val list = getCartUseCase.execute()
+        // When
+        `when`(mockCartRepository.getCart()).thenReturn(flow)
 
         // Then
-        assertEquals(1, list.size)
-        assertThat(list, hasItems(item))
+        getCartUseCase.execute().collect { list->
+            assertEquals(1, list.size)
+            assertThat(list, hasItems(item))
+        }
     }
 
 }

@@ -6,8 +6,8 @@ import br.com.nexaas.common.ui.base.ViewState
 import br.com.nexaas.domain.usecase.cart.IGetCartUseCase
 import br.com.nexaas.features.cart.data.entity.CartVO
 import br.com.nexaas.features.cart.data.mapper.CartItemVOMapper
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class CartViewModel(
     private val getCartUseCase: IGetCartUseCase,
@@ -46,17 +46,17 @@ class CartViewModel(
             try {
                 _items.value = ViewState.Loading()
 
-                val cartItems = withContext(dispatcher.computation()) { getCartUseCase.execute() }
-                val cartVO = CartVO(
-                    CartItemVOMapper().transform(cartItems)
-                )
-                _items.value = ViewState.Success(cartVO)
+                getCartUseCase.execute().collect { cartItems ->
 
-                _itemsCount.value = cartVO.itemsCount()
-                _total.value = cartVO.total()
-                _subtotal.value = cartVO.subtotal()
-                _shipping.value = cartVO.shipping()
-                _tax.value = cartVO.tax()
+                    val cartVO = CartVO(CartItemVOMapper().transform(cartItems))
+                    _items.value = ViewState.Success(cartVO)
+
+                    _itemsCount.value = cartVO.itemsCount()
+                    _total.value = cartVO.total()
+                    _subtotal.value = cartVO.subtotal()
+                    _shipping.value = cartVO.shipping()
+                    _tax.value = cartVO.tax()
+                }
 
             } catch (e: Exception) {
                 _items.value = ViewState.Error(e) { loadCart() }
