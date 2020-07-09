@@ -9,18 +9,22 @@ import org.hamcrest.Matchers.hasItems
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import org.koin.test.AutoCloseKoinTest
 import org.koin.test.inject
+import org.mockito.Mock
 import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
+import org.mockito.junit.MockitoJUnitRunner
 
+@RunWith(MockitoJUnitRunner::class)
 internal class GetCartUseCaseImplTest : AutoCloseKoinTest() {
 
     private val getCartUseCase: IGetCartUseCase by inject()
 
-    private val mockCartRepository = mock(ICartRepository::class.java)
+    @Mock
+    private lateinit var mockCartRepository: ICartRepository
 
     @Before
     fun setup() {

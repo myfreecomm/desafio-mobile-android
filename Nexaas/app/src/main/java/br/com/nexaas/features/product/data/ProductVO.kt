@@ -1,4 +1,4 @@
-package br.com.nexaas.features.product
+package br.com.nexaas.features.product.data
 
 import android.os.Parcelable
 import androidx.annotation.Keep

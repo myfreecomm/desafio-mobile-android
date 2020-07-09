@@ -19,8 +19,8 @@
         </activity>
         <activity android:name=".features.cart.CartActivity" />
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
-            android:name=".features.product.ProductDetailsActivity" />
+            android:name=".features.product.ProductDetailsActivity"
+            android:theme="@style/ProductTheme" />
     </application>
 
 </manifest>

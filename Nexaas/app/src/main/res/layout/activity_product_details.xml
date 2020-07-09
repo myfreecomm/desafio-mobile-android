@@ -7,7 +7,7 @@
 
         <variable
             name="product"
-            type="br.com.nexaas.features.product.ProductVO" />
+            type="br.com.nexaas.features.product.data.ProductVO" />
 
         <variable
             name="viewmodel"
@@ -24,16 +24,16 @@
             android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:fitsSystemWindows="true"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:fitsSystemWindows="true">
 
-            <androidx.appcompat.widget.Toolbar
+            <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbar"
+                app:menu="@menu/menu_product_details"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:navigationIcon="@drawable/ic_baseline_close_24"
                 app:title="@string/product_details_title" />
+
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
@@ -119,9 +119,9 @@
                     app:layout_constraintTop_toBottomOf="@id/tvStock"
                     tools:text="@tools:sample/lorem/random" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnRemoveFromCart"
-                    style="@style/Button.Secondary"
+                    style="@style/OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_large"

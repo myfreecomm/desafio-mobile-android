@@ -39,6 +39,8 @@ dependencies {
     api deps.koin.android
     api deps.koin.viewmodel
 
+    api deps.androidx.annotation
+
     // Coroutines
     api deps.coroutines.core
     api deps.coroutines.android

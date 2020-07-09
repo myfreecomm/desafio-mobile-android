@@ -7,6 +7,8 @@
 
     <dimen name="button_height">56dp</dimen>
 
+    <dimen name="cart_product_image_size">48dp</dimen>
+
     <!--  Fonts  -->
     <dimen name="font_large">18sp</dimen>
 </resources>

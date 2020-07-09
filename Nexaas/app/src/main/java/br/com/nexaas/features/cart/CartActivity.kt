@@ -1,15 +1,77 @@
 package br.com.nexaas.features.cart
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import br.com.nexaas.R
+import br.com.nexaas.common.ui.base.BaseActivity
+import br.com.nexaas.common.ui.base.ViewState
+import br.com.nexaas.databinding.ActivityCartBinding
+import br.com.nexaas.features.cart.data.entity.CartItemVO
+import br.com.nexaas.features.cart.data.mapper.CartItemToProductMapper
 import br.com.nexaas.features.product.ProductDetailsActivity
+import com.google.android.material.snackbar.Snackbar
+import org.koin.android.viewmodel.ext.android.viewModel
+import java.io.IOException
 
-class CartActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cart)
-        startActivity(Intent(this, ProductDetailsActivity::class.java))
+class CartActivity : BaseActivity<ActivityCartBinding>(), OnClickListener {
+
+    private val viewModel: CartViewModel by viewModel()
+
+    private val cartAdapter by lazy { CartAdapter(this) }
+
+    override fun getLayoutRes(): Int {
+        return R.layout.activity_cart
+    }
+
+    override fun initView(savedInstanceState: Bundle?) {
+        binding.apply {
+            this.viewmodel = viewModel
+        }
+        binding.rvItemsCart.apply {
+            adapter = cartAdapter
+            addItemDecoration(
+                DividerItemDecoration(
+                    context,
+                    DividerItemDecoration.VERTICAL
+                )
+            )
+        }
+        subscribeUi()
+    }
+
+    private fun subscribeUi() {
+        viewModel.items.observe(this, Observer {
+            when (it) {
+                is ViewState.Success -> {
+                    cartAdapter.submitList(it.data.items)
+                }
+                is ViewState.Error -> {
+                    val message = when (it.error) {
+                        is IOException -> {
+                            getString(R.string.network_error)
+                        }
+                        else -> {
+                            getString(R.string.generic_error)
+                        }
+                    }
+                    Snackbar.make(binding.root, message, Snackbar.LENGTH_INDEFINITE)
+                        .setAction(getString(R.string.action_try_again)) { _ ->
+                            it.retry?.invoke()
+                        }.show()
+                }
+                is ViewState.Loading -> {
+                }
+            }
+        })
+    }
+
+    override fun onClickProduct(itemVO: CartItemVO) {
+        val product = CartItemToProductMapper().transform(itemVO)
+
+        startActivity(Intent(this, ProductDetailsActivity::class.java).apply {
+            putExtra("product", product)
+        })
     }
 }

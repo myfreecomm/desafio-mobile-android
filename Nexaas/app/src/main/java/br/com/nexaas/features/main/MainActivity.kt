@@ -1,8 +1,8 @@
 package br.com.nexaas.features.main
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import br.com.nexaas.R
 import br.com.nexaas.features.cart.CartActivity
 
