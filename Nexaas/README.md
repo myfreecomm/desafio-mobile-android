@@ -26,4 +26,4 @@
 
 ### Screens
 ----------
-<img width="300" src="/Nexaas/screenshots/screenshot_cart.jpg"> <img width="300" src="/Nexaas/screenshots/screenshot_product_details.jpg">
+<img width="300" src="/Nexaas/screenshots/screenshot_cart.png"> <img width="300" src="/Nexaas/screenshots/screenshot_product_details.png">
