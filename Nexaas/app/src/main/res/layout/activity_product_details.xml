@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="product"
+            type="br.com.nexaas.features.product.data.ProductVO" />
+
+        <variable
+            name="viewmodel"
+            type="br.com.nexaas.features.product.ProductDetailsViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".features.product.ProductDetailsActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                app:menu="@menu/menu_product_details"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/ic_baseline_close_24"
+                app:title="@string/product_details_title" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="16dp" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="16dp" />
+
+                <ImageView
+                    android:id="@+id/ivImage"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@string/description_product_image"
+                    android:scaleType="fitCenter"
+                    app:imageUrl="@{product.imageUrl}"
+                    app:layout_constraintDimensionRatio="W,1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_max="500dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:text="@{product.name}"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toStartOf="@id/tvPrice"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/ivImage"
+                    tools:text="Pencil" />
+
+                <TextView
+                    android:id="@+id/tvStock"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{@plurals/stock(product.stock)}"
+                    app:layout_constraintEnd_toStartOf="@id/tvPrice"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/tvName"
+                    tools:text="in stock" />
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{product.price}"
+                    android:textSize="@dimen/font_large"
+                    app:layout_constraintBottom_toBottomOf="@id/tvStock"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline"
+                    app:layout_constraintTop_toTopOf="@id/tvName"
+                    tools:text="1.89" />
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:text="@{product.description}"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline"
+                    app:layout_constraintTop_toBottomOf="@id/tvStock"
+                    tools:text="@tools:sample/lorem/random" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRemoveFromCart"
+                    style="@style/OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:onClick="@{() -> viewmodel.clickRemoveFromCart()}"
+                    android:text="@string/action_remove_from_cart"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guideline"
+                    app:layout_constraintStart_toStartOf="@+id/start_guideline"
+
+                    app:layout_constraintTop_toBottomOf="@id/tvDescription" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

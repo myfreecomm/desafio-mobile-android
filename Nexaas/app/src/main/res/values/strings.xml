@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Nexaas</string>
+
+    <string name="network_error">Error… Check your connection!</string>
+    <string name="generic_error">Error…</string>
+    <string name="action_try_again">Try again</string>
+
+    <!--  CART -->
+    <string name="cart_title">Cart</string>
+    <string name="tax">Tax</string>
+    <string name="shipping">Shipping</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="total">Total</string>
+    <string name="action_checkout">Checkout</string>
+
+    <plurals name="stock">
+        <item quantity="zero"/>
+        <item quantity="one">only 1 left in stock</item>
+        <item quantity="other">in stock</item>
+    </plurals>
+
+    <plurals name="items_count">
+        <item quantity="zero"/>
+        <item quantity="one">%d Item in your cart</item>
+        <item quantity="other">%d Items in your cart</item>
+    </plurals>
+
+    <!--  PRODUCT  -->
+    <string name="product_details_title">Product details</string>
+    <string name="action_remove_from_cart">Remove from cart</string>
+    <string name="description_product_image">Product image</string>
+
+</resources>

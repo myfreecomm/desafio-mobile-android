@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/cartFragment">
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="br.com.nexaas.features.cart.CartFragment"
+        android:label="CartFragment"
+        tools:layout="@layout/fragment_cart">
+
+        <action
+            android:id="@+id/navigate_to_product_details"
+            app:destination="@id/productDetailsActivity" />
+
+    </fragment>
+
+    <activity
+        android:id="@+id/productDetailsActivity"
+        android:name="br.com.nexaas.features.product.ProductDetailsActivity"
+        android:label="ProductDetailsActivity"
+        tools:layout="@layout/activity_product_details">
+        <argument
+            android:name="product"
+            app:argType="br.com.nexaas.features.product.data.ProductVO" />
+    </activity>
+
+</navigation>

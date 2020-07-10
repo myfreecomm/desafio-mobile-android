@@ -1,0 +1,63 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: "$rootDir/flavors.gradle"
+
+android {
+    compileSdkVersion versions.compileSdkVersion
+    buildToolsVersion versions.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion versions.minSdkVersion
+        targetSdkVersion versions.targetSdkVersion
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    // Kotlin
+    api deps.kotlin.jdk
+
+    // DI
+    api deps.koin.android
+    api deps.koin.viewmodel
+
+    api deps.androidx.annotation
+
+    // Coroutines
+    api deps.coroutines.core
+    api deps.coroutines.android
+
+    // UI
+    api deps.androidx.core
+    api deps.androidx.appcompat
+    api deps.androidx.constraintlayout
+    api deps.google.material
+
+    // IMAGE
+    implementation deps.glide.core
+    kapt deps.glide.compiler
+
+    // Test
+    testImplementation deps.junit
+    androidTestImplementation deps.androidx.test.junit
+    androidTestImplementation deps.androidx.test.espresso
+
+}

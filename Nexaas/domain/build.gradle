@@ -1,0 +1,23 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Kotlin
+    implementation deps.kotlin.jdk
+    // DI
+    implementation deps.koin.core
+
+    // Coroutines
+    implementation deps.coroutines.core
+
+    // Test
+    testImplementation deps.junit
+    testImplementation deps.mockito.core
+    testImplementation deps.hamcrest.library
+    testImplementation deps.koin.test
+    testImplementation deps.coroutines.test
+}
+
+sourceCompatibility = versions.javaVersion
+targetCompatibility = versions.javaVersion

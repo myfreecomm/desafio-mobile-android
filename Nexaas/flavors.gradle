@@ -1,0 +1,35 @@
+android {
+
+    flavorDimensions "default"
+
+    productFlavors {
+
+        dev {
+            versionNameSuffix " DEV"
+            dimension "default"
+            // NETWORK
+            buildConfigField "String", "BASE_URL", "\"https://raw.githubusercontent.com\""
+
+            // STORAGE
+            buildConfigField "String", "DATABASE_NAME", "\"data-db-dev\""
+        }
+
+        prod {
+            dimension "default"
+            // NETWORK
+            buildConfigField "String", "BASE_URL", "\"https://raw.githubusercontent.com\""
+
+            // STORAGE
+            buildConfigField "String", "DATABASE_NAME", "\"data-db\""
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility versions.javaVersion
+        targetCompatibility versions.javaVersion
+    }
+
+    kotlinOptions {
+        jvmTarget = versions.javaVersion
+    }
+}
