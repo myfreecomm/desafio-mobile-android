@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.challenge.nexaas.R
+import org.koin.android.ext.android.inject
 
-class ProdutcListFragment: Fragment() {
+class ProdutcListFragment : Fragment() {
+
+    private val mViewModel: ProdutcListViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
