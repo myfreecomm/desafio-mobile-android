@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/produtcListFragment">
+
+    <fragment
+        android:id="@+id/produtcListFragment"
+        android:name="com.challenge.nexaas.ui.ProdutcListFragment"
+        android:label="Cart"
+        tools:layout="@layout/fragment_product_list" />
+</navigation>
