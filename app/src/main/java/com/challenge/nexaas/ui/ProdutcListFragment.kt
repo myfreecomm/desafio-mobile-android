@@ -1,9 +1,7 @@
 package com.challenge.nexaas.ui
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -27,6 +25,7 @@ class ProdutcListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
         observeProducts()
         observeLoading()
         observeError()
@@ -59,6 +58,11 @@ class ProdutcListFragment : Fragment() {
             recycler_view_products.adapter = adapter
             calculateTotal(it)
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_search, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     private fun calculateTotal(products: List<Product>) {

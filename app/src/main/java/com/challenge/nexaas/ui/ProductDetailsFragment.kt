@@ -1,9 +1,7 @@
 package com.challenge.nexaas.ui
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -29,6 +27,7 @@ class ProductDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
         setupView()
     }
 
@@ -38,5 +37,10 @@ class ProductDetailsFragment : Fragment() {
         txv_details_price.text = product.price.formatMonetary()
         txv_details_description.text = product.description
         Glide.with(this).load(product.imageUrl).into(img_product)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_settings, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 }
