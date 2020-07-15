@@ -1,13 +1,13 @@
 package com.challenge.nexaas.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.challenge.nexaas.R
+import kotlinx.android.synthetic.main.fragment_product_list.*
 import org.koin.android.ext.android.inject
 
 class ProdutcListFragment : Fragment() {
@@ -43,7 +43,8 @@ class ProdutcListFragment : Fragment() {
 
     private fun observeProducts() {
         mViewModel.products.observe(viewLifecycleOwner, Observer {
-
+            val adapter = ProductAdapter(it)
+            recycler_view_products.adapter = adapter
         })
     }
 }
