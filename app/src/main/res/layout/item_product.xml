@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_product"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textAppearance="?android:attr/textAppearanceListItem"
+        app:layout_constraintStart_toEndOf="@+id/img_product"
+        app:layout_constraintTop_toTopOf="@+id/img_product"
+        tools:text="Pencil" />
+
+    <TextView
+        android:id="@+id/txv_stock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="?android:attr/textAppearanceListItemSecondary"
+        app:layout_constraintBottom_toBottomOf="@+id/img_product"
+        app:layout_constraintStart_toStartOf="@+id/txv_name"
+        app:layout_constraintTop_toBottomOf="@+id/txv_name"
+        tools:text="In stock" />
+
+    <TextView
+        android:id="@+id/txv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textAppearance="?android:attr/textAppearanceListItem"
+        app:layout_constraintBottom_toBottomOf="@+id/img_product"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/img_product"
+        tools:text="$1.50" />
+</androidx.constraintlayout.widget.ConstraintLayout>
