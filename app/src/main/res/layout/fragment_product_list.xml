@@ -69,6 +69,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="TOTAL"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -78,6 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="41.24" />
@@ -88,6 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Subtotal"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -97,6 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Shipping"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             app:layout_constraintStart_toStartOf="@+id/textView3"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -106,6 +110,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Tax"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             app:layout_constraintStart_toStartOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 

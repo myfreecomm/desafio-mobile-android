@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.challenge.nexaas.R
 import com.challenge.nexaas.data.Product
-import com.challenge.nexaas.extension.toFormatMonetary
+import com.challenge.nexaas.extension.formatMonetary
 import kotlinx.android.synthetic.main.fragment_product_list.*
 import org.koin.android.ext.android.inject
 
@@ -65,16 +65,16 @@ class ProdutcListFragment : Fragment() {
             txv_total_items.text = "${products.size} ITEMS IN YOUR CART"
 
             val totalPrice = products.sumBy { it.price }
-            txv_total.text = totalPrice.toFormatMonetary()
+            txv_total.text = totalPrice.formatMonetary()
 
             val totalShipping = products.sumBy { it.shipping }
-            txv_total_shipping.text = totalShipping.toFormatMonetary()
+            txv_total_shipping.text = totalShipping.formatMonetary()
 
             val totalTax = products.sumBy { it.tax }
-            txv_total_tax.text = totalTax.toFormatMonetary()
+            txv_total_tax.text = totalTax.formatMonetary()
 
             val subTotal = (totalPrice - totalShipping - totalTax) / 100
-            txv_sub_total.text = subTotal.toFormatMonetary()
+            txv_sub_total.text = subTotal.formatMonetary()
     }
 
     private fun openDetails(product: Product) {
