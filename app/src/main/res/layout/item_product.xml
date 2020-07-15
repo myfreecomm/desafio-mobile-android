@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/img_product"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
@@ -22,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:textAppearance="?android:attr/textAppearanceListItem"
         app:layout_constraintStart_toEndOf="@+id/img_product"
         app:layout_constraintTop_toTopOf="@+id/img_product"
         tools:text="Pencil" />
@@ -31,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:textAppearance="?android:attr/textAppearanceListItemSecondary"
         app:layout_constraintBottom_toBottomOf="@+id/img_product"
         app:layout_constraintStart_toStartOf="@+id/txv_name"
         app:layout_constraintTop_toBottomOf="@+id/txv_name"
@@ -41,6 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
+        android:textAppearance="?android:attr/textAppearanceListItem"
         app:layout_constraintBottom_toBottomOf="@+id/img_product"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/img_product"

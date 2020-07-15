@@ -62,6 +62,8 @@ class ProdutcListFragment : Fragment() {
     }
 
     private fun calculateTotal(products: List<Product>) {
+            txv_total_items.text = "${products.size} ITEMS IN YOUR CART"
+
             val totalPrice = products.sumBy { it.price }
             txv_total.text = totalPrice.toFormatMonetary()
 
