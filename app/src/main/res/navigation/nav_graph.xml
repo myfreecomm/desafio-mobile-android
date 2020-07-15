@@ -9,5 +9,18 @@
         android:id="@+id/produtcListFragment"
         android:name="com.challenge.nexaas.ui.ProdutcListFragment"
         android:label="Cart"
-        tools:layout="@layout/fragment_product_list" />
+        tools:layout="@layout/fragment_product_list" >
+        <action
+            android:id="@+id/action_produtcListFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.challenge.nexaas.ui.ProductDetailsFragment"
+        android:label="Product details"
+        tools:layout="@layout/fragment_product_details">
+        <argument
+            android:name="product"
+            app:argType="com.challenge.nexaas.data.Product" />
+    </fragment>
 </navigation>
