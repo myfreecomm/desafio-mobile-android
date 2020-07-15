@@ -32,14 +32,21 @@ class ProdutcListFragment : Fragment() {
     }
 
     private fun observeError() {
-        mViewModel.onError.observe(viewLifecycleOwner, Observer {
-
+        mViewModel.onError.observe(viewLifecycleOwner, Observer { error ->
+            if (error.isNotEmpty()) {
+                txv_error.visibility = View.VISIBLE
+                txv_error.text = error
+            }
         })
     }
 
     private fun observeLoading() {
-        mViewModel.isLoading.observe(viewLifecycleOwner, Observer {
-
+        mViewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->
+            if (isLoading) {
+                progress_bar_loading.visibility = View.VISIBLE
+            } else {
+                progress_bar_loading.visibility = View.GONE
+            }
         })
     }
 
