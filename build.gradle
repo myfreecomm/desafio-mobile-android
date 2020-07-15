@@ -7,6 +7,8 @@ buildscript {
         coroutine_version = "1.3.7"
         retrofit_version = "2.6.0"
         room_version = "2.2.5"
+        arch_testing_version = '2.1.0'
+        truth_version = "0.44"
     }
     repositories {
         google()
