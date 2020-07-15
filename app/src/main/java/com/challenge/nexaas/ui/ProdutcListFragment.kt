@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.challenge.nexaas.R
 import com.challenge.nexaas.data.Product
+import com.challenge.nexaas.extension.toFormatMonetary
 import kotlinx.android.synthetic.main.fragment_product_list.*
 import org.koin.android.ext.android.inject
 
@@ -56,7 +57,22 @@ class ProdutcListFragment : Fragment() {
                 openDetails(product)
             }
             recycler_view_products.adapter = adapter
+            calculateTotal(it)
         })
+    }
+
+    private fun calculateTotal(products: List<Product>) {
+            val totalPrice = products.sumBy { it.price }
+            txv_total.text = totalPrice.toFormatMonetary()
+
+            val totalShipping = products.sumBy { it.shipping }
+            txv_total_shipping.text = totalShipping.toFormatMonetary()
+
+            val totalTax = products.sumBy { it.tax }
+            txv_total_tax.text = totalTax.toFormatMonetary()
+
+            val subTotal = (totalPrice - totalShipping - totalTax) / 100
+            txv_sub_total.text = subTotal.toFormatMonetary()
     }
 
     private fun openDetails(product: Product) {

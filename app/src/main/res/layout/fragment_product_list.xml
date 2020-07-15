@@ -62,7 +62,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/txv_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -99,29 +99,29 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/txv_sub_total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="@+id/txv_total"
             app:layout_constraintTop_toTopOf="@+id/textView3"
             tools:text="36.00" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/txv_total_shipping"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/textView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintEnd_toEndOf="@+id/txv_sub_total"
+            app:layout_constraintTop_toBottomOf="@+id/txv_sub_total"
             tools:text="2.00" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/txv_total_tax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/textView7"
-            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:layout_constraintEnd_toEndOf="@+id/txv_total_shipping"
+            app:layout_constraintTop_toBottomOf="@+id/txv_total_shipping"
             tools:text="3.24" />
 
         <com.google.android.material.button.MaterialButton
