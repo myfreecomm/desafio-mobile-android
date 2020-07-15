@@ -62,19 +62,19 @@ class ProdutcListFragment : Fragment() {
     }
 
     private fun calculateTotal(products: List<Product>) {
-            txv_total_items.text = "${products.size} ITEMS IN YOUR CART"
+        txv_total_items.text = "${products.size} ITEMS IN YOUR CART"
 
-            val totalPrice = products.sumBy { it.price }
-            txv_total.text = totalPrice.formatMonetary()
+        val totalPrice = products.sumBy { it.price }
+        txv_total.text = totalPrice.formatMonetary()
 
-            val totalShipping = products.sumBy { it.shipping }
-            txv_total_shipping.text = totalShipping.formatMonetary()
+        val totalShipping = products.sumBy { it.shipping }
+        txv_total_shipping.text = totalShipping.formatMonetary()
 
-            val totalTax = products.sumBy { it.tax }
-            txv_total_tax.text = totalTax.formatMonetary()
+        val totalTax = products.sumBy { it.tax }
+        txv_total_tax.text = totalTax.formatMonetary()
 
-            val subTotal = (totalPrice - totalShipping - totalTax) / 100
-            txv_sub_total.text = subTotal.formatMonetary()
+        val subTotal = (totalPrice - totalShipping - totalTax) / 100
+        txv_sub_total.text = subTotal.formatMonetary()
     }
 
     private fun openDetails(product: Product) {

@@ -2,6 +2,7 @@ package com.challenge.nexaas
 
 import android.app.Application
 import com.challenge.nexaas.di.apiModule
+import com.challenge.nexaas.di.daoModule
 import com.challenge.nexaas.di.repositoryModule
 import com.challenge.nexaas.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -13,7 +14,7 @@ class NexaasApplication : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@NexaasApplication)
-            modules(listOf(apiModule, repositoryModule, viewModelModule))
+            modules(listOf(apiModule, daoModule, repositoryModule, viewModelModule))
         }
     }
 }

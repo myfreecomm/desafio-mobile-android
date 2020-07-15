@@ -12,7 +12,7 @@ import com.challenge.nexaas.extension.formatMonetary
 import com.challenge.nexaas.extension.formatStock
 import kotlinx.android.synthetic.main.fragment_product_details.*
 
-class ProductDetailsFragment: Fragment() {
+class ProductDetailsFragment : Fragment() {
 
     private val arguments by navArgs<ProductDetailsFragmentArgs>()
     private val product by lazy {
@@ -37,6 +37,6 @@ class ProductDetailsFragment: Fragment() {
         txv_details_stock.text = product.stock.formatStock()
         txv_details_price.text = product.price.formatMonetary()
         txv_details_description.text = product.description
-        Glide.with(this).load(product.image_url).into(img_product)
+        Glide.with(this).load(product.imageUrl).into(img_product)
     }
 }

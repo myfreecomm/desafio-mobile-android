@@ -1,16 +1,22 @@
 package com.challenge.nexaas.data
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
+@Entity
 @Parcelize
 data class Product(
-    val description: String,
-    val image_url: String,
+    @PrimaryKey
     val name: String,
+    val description: String,
+    @SerializedName("image_url")
+    val imageUrl: String,
     val price: Int,
     val quantity: Int,
     val shipping: Int,
     val stock: Int,
     val tax: Int
-): Parcelable
+) : Parcelable

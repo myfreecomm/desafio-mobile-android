@@ -31,7 +31,7 @@ class ProductAdapter(private val list: List<Product>, private val onClick: (Prod
                 txv_name.text = item.name
                 txv_price.text = item.price.formatMonetary()
                 txv_stock.text = item.stock.formatStock()
-                Glide.with(this).load(item.image_url).into(img_product)
+                Glide.with(this).load(item.imageUrl).into(img_product)
                 setOnClickListener {
                     onClick(item)
                 }
