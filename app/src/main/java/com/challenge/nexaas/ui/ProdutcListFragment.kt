@@ -1,10 +1,12 @@
 package com.challenge.nexaas.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.challenge.nexaas.R
 import org.koin.android.ext.android.inject
 
@@ -22,5 +24,26 @@ class ProdutcListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observeProducts()
+        observeLoading()
+        observeError()
+    }
+
+    private fun observeError() {
+        mViewModel.onError.observe(viewLifecycleOwner, Observer {
+
+        })
+    }
+
+    private fun observeLoading() {
+        mViewModel.isLoading.observe(viewLifecycleOwner, Observer {
+
+        })
+    }
+
+    private fun observeProducts() {
+        mViewModel.products.observe(viewLifecycleOwner, Observer {
+
+        })
     }
 }
