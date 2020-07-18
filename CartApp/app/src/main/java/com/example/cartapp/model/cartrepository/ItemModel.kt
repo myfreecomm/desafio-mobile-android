@@ -11,37 +11,37 @@ data class ItemModel(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    val id: Int?,
+    var id: Int?,
 
     @ColumnInfo(name = "description")
     @SerializedName("description")
-    val description: String?,
+    var description: String?,
 
     @ColumnInfo(name = "image_url")
     @SerializedName("image_url")
-    val image_url: String?,
+    var image_url: String?,
 
     @ColumnInfo(name = "name")
     @SerializedName("name")
-    val name: String?,
+    var name: String?,
 
     @ColumnInfo(name = "price")
     @SerializedName("price")
-    val price: Int?,
+    var price: Int?,
 
     @ColumnInfo(name = "quantity")
     @SerializedName("quantity")
-    val quantity: Int?,
+    var quantity: Int?,
 
     @ColumnInfo(name = "shipping")
     @SerializedName("shipping")
-    val shipping: Int?,
+    var shipping: Int?,
 
     @ColumnInfo(name = "stock")
     @SerializedName("stock")
-    val stock: Int?,
+    var stock: Int?,
 
     @ColumnInfo(name = "tax")
     @SerializedName("tax")
-    val tax: Int?
+    var tax: Int?
 )

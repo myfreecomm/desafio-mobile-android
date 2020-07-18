@@ -1,9 +1,11 @@
 package com.example.cartapp.model.cartrepository.dao
 
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.cartapp.model.cartrepository.ItemModel
 
+@Dao
 interface CartDao {
     @Insert
     suspend fun insertAll(vararg items: ItemModel) : List<Long>
@@ -15,6 +17,6 @@ interface CartDao {
     suspend fun getItem(itemId: Int) : ItemModel
 
     @Query( "DELETE FROM itemmodel")
-    suspend fun deleteAllItem()
+    suspend fun deleteAllItens()
 
 }
