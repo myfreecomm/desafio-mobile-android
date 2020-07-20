@@ -1,9 +1,36 @@
 <resources>
     <string name="app_name">Desafio Android Nexaas Bruno</string>
-    <string name="api_error">Not found url</string>
 
+    <!--    Shopping Cart Activity  -->
     <string name="shopping_cart_title">Cart</string>
     <string name="shopping_cart_tv_items">%d items in your cart</string>
+    <string name="shopping_cart_tv_tax_label">Tax</string>
+    <string name="shopping_cart_tv_total_value">41.24</string>
+    <string name="shopping_cart_tv_total_label">TOTAL</string>
+    <string name="shopping_cart_tv_subtotal_label">Subtotal</string>
+    <string name="shopping_cart_tv_subtotal_value">36.00</string>
+    <string name="shopping_cart_tv_shipping_label">Shipping</string>
+    <string name="shopping_cart_tv_shipping_value">2.00</string>
 
+    <!--    Product Details Activity    -->
     <string name="product_details_title">Product Details</string>
+    <string name="product_details_tv_name">Pencil</string>
+    <string name="product_details_tv_stock">instock</string>
+    <string name="product_details_tv_price">$1.50</string>
+    <string name="product_details_btn_remove">REMOVE FROM CART</string>
+    <string name="product_details_dialog_title">Removido com sucesso</string>
+    <string name="product_details_dialog_message">Esse produto foi removido de carrinho de compra com sucesso!</string>
+    <string name="product_details_dialog_positive_button">OK</string>
+
+    <!--    Item Product    -->
+    <string name="item_product_iv_avatar_desc">Avatar Product</string>
+    <string name="item_product_tv_title">Title</string>
+    <string name="item_product_tv_stock">In Stock</string>
+    <string name="item_product_tv_price">10.00</string>
+
+    <!--    Main Menu   -->
+    <string name="menu_main_act_about">About</string>
+
+    <!--    Retrofit    -->
+    <string name="api_error">Ops, houve um erro ao carregar os produtos, verifique a conexão com a internet e tente novamente!</string>
 </resources>

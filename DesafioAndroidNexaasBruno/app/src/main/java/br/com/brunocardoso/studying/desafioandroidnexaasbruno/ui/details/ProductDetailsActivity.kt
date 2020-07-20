@@ -1,6 +1,8 @@
 package br.com.brunocardoso.studying.desafioandroidnexaasbruno.ui.details
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import br.com.brunocardoso.studying.desafioandroidnexaasbruno.R
 import br.com.brunocardoso.studying.desafioandroidnexaasbruno.base.BaseActivity
@@ -34,6 +36,19 @@ class ProductDetailsActivity : BaseActivity() {
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(product_details_iv_avatar)
             }
+        }
+
+        product_details_btn_remove.setOnClickListener {
+            AlertDialog.Builder(this@ProductDetailsActivity)
+                .apply {
+                    title = getString(R.string.product_details_dialog_title)
+                    setMessage(getString(R.string.product_details_dialog_message))
+                    setPositiveButton(
+                        getString(R.string.product_details_dialog_positive_button)
+                    ) { _, _ -> finish() }
+                }.run {
+                    this.create()
+                }
         }
     }
 

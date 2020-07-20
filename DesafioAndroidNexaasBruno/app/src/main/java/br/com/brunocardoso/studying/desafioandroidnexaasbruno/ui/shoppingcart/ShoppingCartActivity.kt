@@ -1,18 +1,28 @@
 package br.com.brunocardoso.studying.desafioandroidnexaasbruno.ui.shoppingcart
 
+import android.content.Intent
+import android.net.Uri
+import android.view.ContextMenu
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.brunocardoso.studying.desafioandroidnexaasbruno.R
 import br.com.brunocardoso.studying.desafioandroidnexaasbruno.base.BaseActivity
-import br.com.brunocardoso.studying.desafioandroidnexaasbruno.data.repository.ShoppingCartRepository
 import br.com.brunocardoso.studying.desafioandroidnexaasbruno.ui.details.ProductDetailsActivity
 import kotlinx.android.synthetic.main.activity_shopping_cart.*
 import kotlinx.android.synthetic.main.include_toolbar.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
+import org.koin.dsl.module
 
 class ShoppingCartActivity : BaseActivity() {
 
     override val layout: Int = R.layout.activity_shopping_cart
+
+    private val viewModel: ShoppingCartViewModel by viewModel()
 
     override fun activityCreated() {
         setupToolbar(toolbarMain, R.string.shopping_cart_title)
@@ -21,10 +31,6 @@ class ShoppingCartActivity : BaseActivity() {
     }
 
     private fun setupViewModel() {
-        val viewModel: ShoppingCartViewModel =
-            ShoppingCartViewModel.ViewModelFactory(ShoppingCartRepository())
-                .create(ShoppingCartViewModel::class.java)
-
         viewModel.productsLiveData.observe(this, Observer {
             it?.let { products ->
                 shopping_cart_tv_items.text =
@@ -68,5 +74,30 @@ class ShoppingCartActivity : BaseActivity() {
         })
 
         viewModel.fetchProducts()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.manu_main, menu)
+        return CREATE_OPTIONS_MENU
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean =
+        when (item.itemId) {
+            R.id.menu_act_about -> {
+                openGithub()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+
+    private fun openGithub() {
+        Intent(Intent.ACTION_VIEW, Uri.parse(GITHUB_URL)).run {
+            startActivity(this)
+        }
+    }
+
+    companion object {
+        private const val CREATE_OPTIONS_MENU = true
+        private const val GITHUB_URL = "https://github.com/bruunoh"
     }
 }
