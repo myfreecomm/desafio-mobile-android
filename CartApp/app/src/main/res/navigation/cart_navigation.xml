@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cart_navigation"
+    app:startDestination="@id/cartFragment">
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.cartapp.view.CartListFragment"
+        android:label="Cart">
+        <action
+            android:id="@+id/actionDetailFragment"
+            app:destination="@+id/itemDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:launchSingleTop="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemDetailsFragment"
+        android:name="com.example.cartapp.view.CartDetailsFragment"
+        android:label="Details">
+        <action
+            android:id="@+id/actionCartFragment"
+            app:destination="@id/cartFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:launchSingleTop="false"
+            app:popUpTo="@+id/cartFragment"
+            app:popUpToInclusive="true" />
+
+        <argument
+            android:name="itemId"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+</navigation>
