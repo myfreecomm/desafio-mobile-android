@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.cartapp.R
+import com.example.cartapp.model.cartrepository.ItemModel
 import org.koin.android.viewmodel.ext.android.viewModel
 import com.example.cartapp.viewmodel.CartListViewModel
 import kotlinx.android.synthetic.main.fragment_cart.*
@@ -53,6 +54,7 @@ class CartListFragment  : Fragment() {
                 cartList.visibility = View.VISIBLE
                 cartAdapter.updateCartList(it)
                 qtyItensCart.text = it.size.toString().plus(" " + getString(R.string.itens_cart))
+                calculateAmounts(it)
             }
         })
 
@@ -73,6 +75,30 @@ class CartListFragment  : Fragment() {
                 }
             }
         })
+    }
+
+    fun calculateAmounts(itensModel: List<ItemModel>){
+        var taxAmount = 0.0
+        var amountTotal = 0.0
+        var shippingAmount = 0.0
+        itensModel.forEach {
+            it.shipping?.let {
+                shippingAmount += it
+            }
+
+            it.price?.let {
+                amountTotal += it
+            }
+
+            it.tax?.let {
+                taxAmount += it
+            }
+        }
+
+        totalAmount.text = (amountTotal + taxAmount + shippingAmount).toString()
+        subTotal.text = amountTotal.toString()
+        shippingTotal.text = shippingAmount.toString()
+        taxTotal.text = taxAmount.toString()
     }
 
     fun removeObservers(){

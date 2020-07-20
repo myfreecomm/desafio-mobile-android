@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">CartApp</string>
     <string name="itens_cart">Items in your cart</string>
+    <string name="total">TOTAL</string>
+    <string name="subTotal">Subtotal</string>
+    <string name="shipping">Shipping</string>
+    <string name="tax">Tax</string>
 </resources>

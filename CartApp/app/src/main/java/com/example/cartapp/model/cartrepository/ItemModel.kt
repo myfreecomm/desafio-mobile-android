@@ -35,7 +35,7 @@ data class ItemModel(
 
     @ColumnInfo(name = "shipping")
     @SerializedName("shipping")
-    var shipping: Int?,
+    var shipping: Float?,
 
     @ColumnInfo(name = "stock")
     @SerializedName("stock")
@@ -43,5 +43,5 @@ data class ItemModel(
 
     @ColumnInfo(name = "tax")
     @SerializedName("tax")
-    var tax: Int?
+    var tax: Float?
 )
