@@ -60,7 +60,7 @@ object Modules {
     private val dbModule = module {
 
         single {
-            Room.databaseBuilder(androidContext(), CartDatabase::class.java,
+            Room.databaseBuilder(get(), CartDatabase::class.java,
                 "cartdatabase").build()
         }
 
@@ -69,7 +69,7 @@ object Modules {
     }
 
     val preferencesModule = module {
-        single(named("timePrefs")) { provideTimePreferences(androidApplication()) }
+        single(named("timePrefs")) { provideTimePreferences(get()) }
     }
 
     val timeCacheUtil = module {
