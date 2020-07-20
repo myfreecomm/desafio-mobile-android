@@ -17,9 +17,9 @@ data class ItemModel(
     @SerializedName("description")
     var description: String?,
 
-    @ColumnInfo(name = "image_url")
+    @ColumnInfo(name = "imageUrl")
     @SerializedName("image_url")
-    var image_url: String?,
+    var imageUrl: String?,
 
     @ColumnInfo(name = "name")
     @SerializedName("name")
@@ -27,7 +27,7 @@ data class ItemModel(
 
     @ColumnInfo(name = "price")
     @SerializedName("price")
-    var price: Int?,
+    var price: Float?,
 
     @ColumnInfo(name = "quantity")
     @SerializedName("quantity")

@@ -12,7 +12,7 @@ import com.example.cartapp.model.cartrepository.ItemModel
 import kotlinx.android.synthetic.main.fragment_cart.view.*
 import kotlinx.android.synthetic.main.item_cart.view.*
 
-class CartAdapter(val cartList: ArrayList<List<ItemModel>>) :
+class CartAdapter(val cartList: ArrayList<ItemModel>) :
     RecyclerView.Adapter<CartAdapter.CartViewHolder>(), CartItemClickListener{
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
@@ -26,20 +26,22 @@ class CartAdapter(val cartList: ArrayList<List<ItemModel>>) :
 
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
-        //holder.view.rate = cartList[position]
-        //holder.view.listener = this
+        holder.view.item = cartList[position]
+        holder.view.listener = this
     }
 
-    override fun onItemRateClick(v: View) {
+    override fun onItemRateClick(v: View, rateId: Int?) {
         val action = CartListFragmentDirections.actionDetailFragment()
-        action.itemId = v.cartId.text.toString().toInt()
+        rateId?.let {
+            action.itemId = it
+        }
         Navigation.findNavController(v).navigate(action)
 
     }
 
     fun updateCartList(cart: List<ItemModel>) {
         cartList.clear()
-        cartList.add(cart)
+        cartList.addAll(cart)
         notifyDataSetChanged()
     }
 

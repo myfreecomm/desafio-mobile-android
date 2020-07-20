@@ -4,8 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.cartapp.R
 import org.koin.android.viewmodel.ext.android.viewModel
 import com.example.cartapp.viewmodel.CartListViewModel
@@ -30,6 +34,7 @@ class CartListFragment  : Fragment() {
         viewModel.refresh()
 
         cartList.apply {
+            layoutManager = LinearLayoutManager(context)
             adapter = cartAdapter
         }
 
@@ -47,6 +52,7 @@ class CartListFragment  : Fragment() {
             it?.let {
                 cartList.visibility = View.VISIBLE
                 cartAdapter.updateCartList(it)
+                qtyItensCart.text = it.size.toString().plus(" " + getString(R.string.itens_cart))
             }
         })
 
