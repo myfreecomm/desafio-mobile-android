@@ -58,7 +58,7 @@ class CartListFragment  : Fragment() {
 
     fun observeVielModel(){
 
-        viewModel.cart.observe(this, Observer {
+        viewModel.cart.observe(viewLifecycleOwner, Observer {
             it?.let {
                 cartList.visibility = View.VISIBLE
                 qtyItensCart.visibility = View.VISIBLE
@@ -68,13 +68,13 @@ class CartListFragment  : Fragment() {
             }
         })
 
-        viewModel.cartLoadError.observe(this, Observer {
+        viewModel.cartLoadError.observe(viewLifecycleOwner, Observer {
             it?.let {
                 listError.visibility = if(it) View.VISIBLE else View.GONE
             }
         })
 
-        viewModel.loading.observe(this, Observer {
+        viewModel.loading.observe(viewLifecycleOwner, Observer {
             it?.let {
                 if(it){
                     loadingView.visibility = View.VISIBLE

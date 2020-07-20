@@ -30,9 +30,9 @@ class CartAdapter(val cartList: ArrayList<ItemModel>) :
         holder.view.listener = this
     }
 
-    override fun onItemRateClick(v: View, rateId: Int?) {
+    override fun onItemCartClick(v: View, cartId: Int?) {
         val action = CartListFragmentDirections.actionDetailFragment()
-        rateId?.let {
+        cartId?.let {
             action.itemId = it
         }
         Navigation.findNavController(v).navigate(action)

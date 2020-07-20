@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:onClick="@{(view) -> listener.onItemRateClick(view, item.id)}">
+        android:onClick="@{(view) -> listener.onItemCartClick(view, item.id)}">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/image"

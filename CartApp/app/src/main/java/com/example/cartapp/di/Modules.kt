@@ -11,6 +11,7 @@ import com.example.cartapp.model.cartrepository.dao.CartDao
 import com.example.cartapp.model.cartrepository.service.CartApiService
 import com.example.cartapp.notification.NotificationsHelper
 import com.example.cartapp.util.TimeCacheUtil
+import com.example.cartapp.viewmodel.CartDetailsViewModel
 import com.example.cartapp.viewmodel.CartListViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
@@ -29,6 +30,8 @@ object Modules {
 
     private val viewModelModule = module {
         viewModel { CartListViewModel(get(), get() as CartDao, get(named("timePrefs")), get(), get(named("timeCacheUtil"))) }
+        viewModel { CartDetailsViewModel( get() as CartDao) }
+
     }
 
     private val cartApiModule = module {
@@ -58,7 +61,7 @@ object Modules {
 
         single {
             Room.databaseBuilder(androidContext(), CartDatabase::class.java,
-                "ratedatabase").build()
+                "cartdatabase").build()
         }
 
         single { get<CartDatabase>().cartDao }
