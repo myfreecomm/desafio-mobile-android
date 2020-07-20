@@ -70,9 +70,9 @@
             android:layout_marginRight="8dp"
             android:text="@{ String.valueOf(item.price)}"
             android:textColor="@android:color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/stock"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/name"
             tools:text="Teste" />
 
 
