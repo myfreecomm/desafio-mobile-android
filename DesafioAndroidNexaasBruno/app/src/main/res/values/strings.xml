@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Desafio Android Nexaas Bruno</string>
+    <string name="api_error">Not found url</string>
+
+    <string name="shopping_cart_title">Cart</string>
+    <string name="shopping_cart_tv_items">%d items in your cart</string>
+
+    <string name="product_details_title">Product Details</string>
+</resources>
