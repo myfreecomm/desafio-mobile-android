@@ -32,7 +32,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/product_details_iv_avatar"
-        tools:text="Pencil" />
+        tools:text="@string/product_details_tv_name" />
 
     <TextView
         android:id="@+id/product_details_tv_price"
@@ -43,7 +43,7 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/product_details_iv_avatar"
-        tools:text="$1.50" />
+        tools:text="@string/product_details_tv_price" />
 
     <TextView
         android:id="@+id/product_details_tv_stock"
@@ -53,7 +53,7 @@
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/product_details_tv_name"
-        tools:text="instock" />
+        tools:text="@string/product_details_tv_stock" />
 
     <TextView
         android:id="@+id/product_details_tv_desc"
@@ -72,14 +72,14 @@
         tools:text="@tools:sample/lorem/random" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/product_details_btn_remove"
         style="@style/RemoveButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:text="REMOVE FROM CART"
+        android:text="@string/product_details_btn_remove"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

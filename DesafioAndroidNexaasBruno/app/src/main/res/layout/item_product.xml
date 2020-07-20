@@ -17,7 +17,8 @@
         app:layout_constraintEnd_toStartOf="@+id/item_product_ll_data"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="@string/item_product_iv_avatar_desc" />
 
     <LinearLayout
         android:id="@+id/item_product_ll_data"
@@ -35,14 +36,14 @@
             android:layout_height="wrap_content"
             android:textColor="#000"
             android:textSize="18sp"
-            tools:text="Title" />
+            tools:text="@string/item_product_tv_title" />
 
         <TextView
             android:id="@+id/item_product_tv_stock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#999"
-            tools:text="In Stock" />
+            tools:text="@string/item_product_tv_stock" />
 
     </LinearLayout>
 
@@ -55,6 +56,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="10.00" />
+        tools:text="@string/item_product_tv_price" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
