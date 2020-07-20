@@ -5,4 +5,7 @@
     <string name="subTotal">Subtotal</string>
     <string name="shipping">Shipping</string>
     <string name="tax">Tax</string>
+    <string name="noStock">No stock</string>
+    <string name="onlyOneInStock">Only 1 left in stock</string>
+    <string name="inStock">In stock</string>
 </resources>

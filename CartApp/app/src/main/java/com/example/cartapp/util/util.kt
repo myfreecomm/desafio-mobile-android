@@ -3,8 +3,11 @@ package com.example.cartapp.util
 import android.content.ContentValues
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.provider.Settings.System.getString
 import android.util.Log
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.widget.TextViewCompat
 import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
@@ -69,4 +72,15 @@ fun ImageView.loadImage(
 @BindingAdapter(value = ["android:imageUrl", "android:centerCropEnabled"], requireAll = true)
 fun loadImage(view: ImageView, url: String?, centerCropEnabled: Boolean) {
     view.loadImage(url, getProgressDrawable(view.context), centerCropEnabled)
+}
+
+@BindingAdapter(value = ["android:generateText"])
+fun text(view: TextView, qty: Int) {
+    if(qty == 0){
+        view.text = view.context.getString(R.string.noStock)
+    } else if(qty == 1){
+        view.text = view.context.getString(R.string.onlyOneInStock)
+    } else{
+        view.text = view.context.getString(R.string.inStock)
+    }
 }

@@ -39,6 +39,15 @@ class CartListFragment  : Fragment() {
             adapter = cartAdapter
         }
 
+        refreshLayout.setOnRefreshListener {
+            qtyItensCart.visibility = View.GONE
+            cartList.visibility = View.GONE
+            listError.visibility = View.GONE
+            loadingView.visibility = View.VISIBLE
+            viewModel.refreshBypassCache()
+            refreshLayout.isRefreshing = false
+        }
+
         observeVielModel()
     }
 
@@ -52,6 +61,7 @@ class CartListFragment  : Fragment() {
         viewModel.cart.observe(this, Observer {
             it?.let {
                 cartList.visibility = View.VISIBLE
+                qtyItensCart.visibility = View.VISIBLE
                 cartAdapter.updateCartList(it)
                 qtyItensCart.text = it.size.toString().plus(" " + getString(R.string.itens_cart))
                 calculateAmounts(it)
@@ -70,6 +80,7 @@ class CartListFragment  : Fragment() {
                     loadingView.visibility = View.VISIBLE
                     listError.visibility = View.GONE
                     cartList.visibility = View.GONE
+                    qtyItensCart.visibility = View.GONE
                 }else {
                     loadingView.visibility = View.GONE
                 }
