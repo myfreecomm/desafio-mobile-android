@@ -1,6 +1,7 @@
 package br.com.brunocardoso.studying.desafioandroidnexaasbruno
 
 import android.app.Application
+import br.com.brunocardoso.studying.desafioandroidnexaasbruno.di.networkModule
 import br.com.brunocardoso.studying.desafioandroidnexaasbruno.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -12,7 +13,7 @@ class App : Application() {
         startKoin {
             androidLogger()
             androidContext(this@App)
-            modules(viewModelModule)
+            modules(networkModule, viewModelModule)
         }
     }
 }

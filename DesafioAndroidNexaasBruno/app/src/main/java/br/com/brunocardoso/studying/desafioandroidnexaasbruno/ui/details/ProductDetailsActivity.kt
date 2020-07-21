@@ -47,7 +47,7 @@ class ProductDetailsActivity : BaseActivity() {
                         getString(R.string.product_details_dialog_positive_button)
                     ) { _, _ -> finish() }
                 }.run {
-                    this.create()
+                    this.create().show()
                 }
         }
     }
