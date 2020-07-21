@@ -7,7 +7,7 @@
     tools:context=".ui.details.ProductDetailsActivity">
 
     <include
-        layout="@layout/include_toolbar"
+        layout="@layout/details_toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -17,11 +17,12 @@
         android:layout_width="0dp"
         android:layout_height="350dp"
         android:scaleType="centerCrop"
-        tools:src="@tools:sample/backgrounds/scenic"
+        android:transitionName="showAnimation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarMain" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarDetails"
+        tools:src="@tools:sample/backgrounds/scenic" />
 
     <TextView
         android:id="@+id/product_details_tv_name"

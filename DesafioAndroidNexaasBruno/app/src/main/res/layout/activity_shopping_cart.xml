@@ -6,7 +6,7 @@
     tools:context="ui.shoppingcart.ShoppingCartActivity">
 
     <include
-        layout="@layout/include_toolbar"
+        layout="@layout/main_toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,11 +48,6 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 tools:listitem="@layout/item_product" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/gray" />
 
             <LinearLayout
                 android:layout_width="match_parent"

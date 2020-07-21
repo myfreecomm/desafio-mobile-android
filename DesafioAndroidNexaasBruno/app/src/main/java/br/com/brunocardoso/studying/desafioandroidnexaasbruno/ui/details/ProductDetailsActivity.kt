@@ -10,14 +10,20 @@ import br.com.brunocardoso.studying.desafioandroidnexaasbruno.data.model.Product
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.activity_product_details.*
-import kotlinx.android.synthetic.main.include_toolbar.*
+import kotlinx.android.synthetic.main.details_toolbar.*
+import kotlinx.android.synthetic.main.main_toolbar.*
 
 class ProductDetailsActivity : BaseActivity() {
 
     override val layout: Int = R.layout.activity_product_details
 
     override fun activityCreated() {
-        setupToolbar(toolbarMain, R.string.product_details_title, BACKBUTTON_SHOWING)
+        setupToolbarCustom(
+            toolbarDetails,
+            toolbarDetailsTitle,
+            R.string.product_details_title,
+            toolbarDetailsBackButtom
+        )
 
         intent.extras?.let { bundle ->
             bundle.getString(PRODUCT_NAME_EXTRA).let { product_details_tv_name.text = it }
@@ -60,7 +66,6 @@ class ProductDetailsActivity : BaseActivity() {
         private const val PRODUCT_DESCRIPTION_EXTRA = "description"
 
         private const val PRODUCT_IN_STOCK = 1
-        private const val BACKBUTTON_SHOWING = true
 
         fun getStartIntent(context: Context, product: Product) =
             Intent(context, ProductDetailsActivity::class.java).apply {

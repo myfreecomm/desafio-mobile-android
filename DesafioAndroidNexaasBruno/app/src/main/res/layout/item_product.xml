@@ -13,12 +13,13 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginEnd="16dp"
+        android:contentDescription="@string/item_product_iv_avatar_desc"
+        android:transitionName="showAnimation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/item_product_ll_data"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars"
-        android:contentDescription="@string/item_product_iv_avatar_desc" />
+        tools:src="@tools:sample/avatars" />
 
     <LinearLayout
         android:id="@+id/item_product_ll_data"

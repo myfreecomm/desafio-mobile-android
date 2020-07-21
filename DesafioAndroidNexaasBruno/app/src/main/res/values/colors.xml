@@ -8,4 +8,6 @@
     <color name="black">@android:color/black</color>
     <color name="gray">#DDD</color>
     <color name="darkGray">@android:color/darker_gray</color>
+
+    <color name="detailsColorPrimaryDark">@android:color/darker_gray</color>
 </resources>

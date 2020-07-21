@@ -16,7 +16,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.details.ProductDetailsActivity"
-            android:parentActivityName=".ui.shoppingcart.ShoppingCartActivity" />
+            android:parentActivityName=".ui.shoppingcart.ShoppingCartActivity"
+            android:theme="@style/DetailsTheme" />
         <activity android:name=".ui.shoppingcart.ShoppingCartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
