@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.item_product.view.*
 
 class ShoppingCartAdapter(
     private val data: List<Product>,
-    private val onItemClickListener: ((product: Product) -> Unit)
+    private val onItemClickListener: ((product: Product, view: View) -> Unit)
 ) : RecyclerView.Adapter<ShoppingCartAdapter.ShoppingCartViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoppingCartViewHolder =
@@ -30,7 +30,7 @@ class ShoppingCartAdapter(
 
     class ShoppingCartViewHolder(
         itemView: View,
-        private val onItemClickListener: ((product: Product) -> Unit)
+        private val onItemClickListener: ((product: Product, view: View) -> Unit)
     ) : RecyclerView.ViewHolder(itemView) {
 
         fun bindView(product: Product) {
@@ -39,7 +39,7 @@ class ShoppingCartAdapter(
                 if (product.stock > PRODUCT_IN_STOCK) "In Stock" else "only ${product.stock} left in stock"
             itemView.item_product_tv_price.text = product.price.toString()
             itemView.setOnClickListener {
-                onItemClickListener.invoke(product)
+                onItemClickListener.invoke(product, itemView.item_product_iv_avatar)
             }
             Glide.with(itemView)
                 .load(product.image_url)

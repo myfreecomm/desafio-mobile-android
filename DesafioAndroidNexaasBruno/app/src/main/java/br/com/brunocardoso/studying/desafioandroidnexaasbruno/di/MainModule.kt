@@ -1,6 +1,7 @@
 package br.com.brunocardoso.studying.desafioandroidnexaasbruno.di
 
 import android.os.Environment
+import android.view.View
 import br.com.brunocardoso.studying.desafioandroidnexaasbruno.BuildConfig
 import br.com.brunocardoso.studying.desafioandroidnexaasbruno.data.model.Product
 import br.com.brunocardoso.studying.desafioandroidnexaasbruno.data.repository.ShoppingCartRepository
@@ -56,6 +57,7 @@ fun provideShoppingCartService(retrofit: Retrofit): ShoppingCartService =
 fun getCacheDir(): File {
     return File("${Environment.getExternalStorageState()}/cache")
 }
+
 val viewModelModuleTest = module {
     viewModel { (repo: ShoppingCartRepositoryImpl) ->
         ShoppingCartViewModel(repo)
@@ -63,7 +65,7 @@ val viewModelModuleTest = module {
 }
 
 val adapterModule = module {
-    single { (data: List<Product>, onItemClickListener: ((product: Product) -> Unit)) ->
+    single { (data: List<Product>, onItemClickListener: ((product: Product, view: View) -> Unit)) ->
         ShoppingCartAdapter(
             data, onItemClickListener
         )

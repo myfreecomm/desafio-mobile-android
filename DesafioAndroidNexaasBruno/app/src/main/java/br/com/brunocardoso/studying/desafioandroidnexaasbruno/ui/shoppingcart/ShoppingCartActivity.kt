@@ -6,14 +6,17 @@ import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.brunocardoso.studying.desafioandroidnexaasbruno.R
 import br.com.brunocardoso.studying.desafioandroidnexaasbruno.base.BaseActivity
 import br.com.brunocardoso.studying.desafioandroidnexaasbruno.ui.details.ProductDetailsActivity
 import kotlinx.android.synthetic.main.activity_shopping_cart.*
-import kotlinx.android.synthetic.main.include_toolbar.*
+import kotlinx.android.synthetic.main.main_toolbar.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 import org.koin.dsl.module
@@ -52,13 +55,25 @@ class ShoppingCartActivity : BaseActivity() {
                     layoutManager =
                         LinearLayoutManager(this@ShoppingCartActivity, RecyclerView.VERTICAL, false)
                     setHasFixedSize(true)
-                    adapter = ShoppingCartAdapter(products) { product ->
+                    addItemDecoration(
+                        DividerItemDecoration(
+                            this.context,
+                            DividerItemDecoration.VERTICAL
+                        ).apply {
+                            setDrawable(getDrawable(R.drawable.divider)!!)
+                        })
+                    adapter = ShoppingCartAdapter(products) { product, itemView ->
                         val intent =
                             ProductDetailsActivity.getStartIntent(
                                 this@ShoppingCartActivity,
                                 product
                             )
-                        this@ShoppingCartActivity.startActivity(intent)
+                        val option = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            this@ShoppingCartActivity,
+                            itemView,
+                            itemView.transitionName
+                        )
+                        this@ShoppingCartActivity.startActivity(intent, option.toBundle())
                     }
                 }
             }
