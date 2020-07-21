@@ -1,7 +1,9 @@
 package br.com.brunocardoso.studying.desafioandroidnexaasbruno.data.model
 
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "product")
 data class Product(
     @SerializedName("name") val name: String,
     @SerializedName("quantity") val quantity: Int,

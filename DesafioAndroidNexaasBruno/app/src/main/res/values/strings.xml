@@ -5,6 +5,7 @@
     <string name="shopping_cart_title">Cart</string>
     <string name="shopping_cart_tv_items">%d items in your cart</string>
     <string name="shopping_cart_tv_tax_label">Tax</string>
+    <string name="shopping_cart_tv_tax_value">20.0</string>
     <string name="shopping_cart_tv_total_value">41.24</string>
     <string name="shopping_cart_tv_total_label">TOTAL</string>
     <string name="shopping_cart_tv_subtotal_label">Subtotal</string>

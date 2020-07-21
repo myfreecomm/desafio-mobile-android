@@ -19,7 +19,11 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            buildConfigField "String", "API_URL", '"https://raw.githubusercontent.com/myfreecomm/desafio-mobile-android/master/"'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField "String", "API_URL", '"https://raw.githubusercontent.com/myfreecomm/desafio-mobile-android/master/"'
         }
     }
 
@@ -34,6 +38,7 @@ ext {
     glideVersion = "4.11.0"
     koinVersion = "2.1.5"
     coroutine_version = "2.2.0"
+    lifecycle_version = "1.1.1"
 }
 
 dependencies {
@@ -59,15 +64,17 @@ dependencies {
     annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
 
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+
+    implementation "android.arch.persistence.room:runtime:$lifecycle_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$lifecycle_version"
 
     implementation "org.koin:koin-android:$koinVersion"
     implementation "org.koin:koin-androidx-scope:$koinVersion"
     implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
     implementation "org.koin:koin-androidx-fragment:$koinVersion"
     testImplementation "org.koin:koin-test:$koin_version"
-
 
     testImplementation 'junit:junit:4.12'
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
