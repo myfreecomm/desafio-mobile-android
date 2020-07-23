@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cart_navigation"
+    app:startDestination="@id/cartFragment">
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.nexaaschallenge.view.CartFragment"
+        android:label="Cart">
+        <action
+            android:id="@+id/actionDetailFragment"
+            app:destination="@+id/itemDetailsFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/itemDetailsFragment"
+        android:name="com.example.nexaaschallenge.view.ItemActivity"
+        android:label="ItemCart">
+        <argument
+            android:name="item"
+            app:argType="com.example.nexaaschallenge.model.ItemCartData" />
+    </activity>
+</navigation>
