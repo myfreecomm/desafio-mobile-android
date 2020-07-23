@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Cart</string>
+    <string name="qty_ref">Items in your cart</string>
+    <string name="total">TOTAL</string>
+    <string name="subTotal">Subtotal</string>
+    <string name="noStock">No stock</string>
+    <string name="oneInStock">Only 1 left in stock</string>
+    <string name="inStock">In stock</string>
+    <string name="shipping">Shipping</string>
+    <string name="tax">Tax</string>
+</resources>
