@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".presentation.details.PencilDetailsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBarDetail"
+        android:layout_width="0dp"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/whiteColor"
+        app:titleTextColor="@color/textColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/product_detail"
+        />
+
+
+    <ImageView
+        android:id="@+id/imageDetailItem"
+        android:layout_width="266dp"
+        android:layout_height="264dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginBottom="331dp"
+        android:contentDescription="@string/img_dsc"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.375" />
+
+    <LinearLayout
+        android:id="@+id/item_layout_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageDetailItem">
+
+        <LinearLayout
+            android:id="@+id/item_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/item_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColor"
+                tools:text="item"
+                android:layout_marginLeft="@dimen/margin_text_left"/>
+
+            <Space
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+            <TextView
+                android:id="@+id/price_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:gravity="top|right|right"
+                android:text="$14"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/font_price_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/stock_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorGrey"
+            tools:text="stock"
+            android:layout_marginLeft="@dimen/margin_text_left"/>
+
+        <TextView
+            android:id="@+id/item_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:textColor="@color/textColor"
+            app:layout_constraintBottom_toBottomOf="@+id/stock_item"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginLeft="@dimen/margin_text_left"
+            android:layout_marginTop="@dimen/margin_text_top"/>
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:id="@+id/remove_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/remove_button"
+            android:textStyle="bold"
+            android:shadowColor="@color/whiteColor"
+            android:textColor="@color/textColor"
+            android:layout_marginLeft="@dimen/margin_text_left"
+            app:strokeColor="@color/textColorGrey"
+            app:backgroundTint="@color/whiteColor"
+            app:strokeWidth="2dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
