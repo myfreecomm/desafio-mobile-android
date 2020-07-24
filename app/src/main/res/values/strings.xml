@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Nexaas</string>
+    <!-- Common -->
+
+    <!-- Pencils Activity -->
+    <string name="cart_title">Cart</string>
+    <string name="item_in_stock">in stock</string>
+    <string name="low_stock">only # left in stock</string>
+    <string name="cart_quantity"># items in your cart</string>
+    <string name="img_dsc">Item image</string>
+    <string name="total">TOTAL</string>
+    <string name="item">Item</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="shipping">Shipping</string>
+    <string name="tax">Tax</string>
+
+    <!-- Pencils Detail Activity -->
+    <string name="remove_button">REMOVE FROM CART</string>
+    <string name="product_detail">Product Detail</string>
+    <string name="title_activity_main">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>
