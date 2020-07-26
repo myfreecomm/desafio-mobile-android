@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Popular Repo App</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="activity_home_title">Github JavaPop</string>
+    <string name="activity_pull_request_repo_title">Nome Repositório</string>
+    <string name="activity_pull_request_repo_info_open_close">%1$s opened / %2$s closed</string>
+
+    <string name="message_erro">falha de conexão!</string>
+</resources>
