@@ -1,0 +1,10 @@
+*.iml
+/GithubJavaPop2/.gradle
+/GithubJavaPop2/local.properties
+/GithubJavaPop2/.idea/workspace.xml
+/GithubJavaPop2/.idea/libraries
+.DS_Store
+/GithubJavaPop2/build
+/GithubJavaPop2/captures
+.externalNativeBuild
+.idea
