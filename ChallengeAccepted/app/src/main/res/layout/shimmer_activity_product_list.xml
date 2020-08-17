@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@android:color/white"
+        android:elevation="2dp"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical"
+            android:paddingBottom="40dp">
+
+            <TextView
+                android:id="@+id/shim_tvItems"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:background="#ddd"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/shim_rvItems"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:background="#ddd"
+                app:layout_constraintTop_toBottomOf="@+id/shim_tvItems" />
+
+            <View
+                android:id="@+id/shim_vDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="#ddd"
+                app:layout_constraintTop_toBottomOf="@+id/shim_rvItems" />
+
+            <TextView
+                android:id="@+id/shim_tvTotalTitle"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#ddd"
+                app:layout_constraintBottom_toBottomOf="@+id/shim_tvTotal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shim_vDivider" />
+
+            <TextView
+                android:id="@+id/shim_tvTotal"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#ddd"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shim_vDivider" />
+
+            <TextView
+                android:id="@+id/shim_tvSubTotalTitle"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="#ddd"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shim_tvTotal" />
+
+            <TextView
+                android:id="@+id/shim_tvSubTotal"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="#ddd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shim_tvTotal" />
+
+            <TextView
+                android:id="@+id/shim_tvShippingTitle"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="#ddd"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shim_tvSubTotalTitle" />
+
+            <TextView
+                android:id="@+id/shim_tvShipping"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="#ddd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shim_tvSubTotal" />
+
+            <TextView
+                android:id="@+id/shim_tvTaxTitle"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="#ddd"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shim_tvShippingTitle" />
+
+            <TextView
+                android:id="@+id/shim_tvTax"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="#ddd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shim_tvShipping" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</com.facebook.shimmer.ShimmerFrameLayout>
