@@ -1,8 +1,9 @@
-package com.example.challengeaccepted.feature.product.presentation.list.presentation
+package com.example.challengeaccepted.feature.product.presentation.list
 
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.challengeaccepted.R
@@ -10,26 +11,24 @@ import com.example.challengeaccepted.databinding.ActivityProductListBinding
 import com.example.challengeaccepted.feature.product.domain.mapper.ProductDataMapper
 import com.example.challengeaccepted.feature.product.domain.mapper.ProductListDataMapper
 import com.example.challengeaccepted.feature.product.presentation.detail.ProductDetailActivity
-import com.example.challengeaccepted.feature.product.presentation.list.domain.ProductListNavigator
-import com.example.challengeaccepted.feature.product.presentation.list.presentation.adapter.ProductAdapter
+import com.example.challengeaccepted.feature.product.presentation.list.adapter.ProductAdapter
 import com.example.challengeaccepted.platform.base.BaseActivity
 import com.example.challengeaccepted.platform.base.BaseAdapter
 import kotlinx.android.synthetic.main.activity_product_list.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ProductListActivity : BaseActivity(), ProductListNavigator {
+class ProductListActivity : BaseActivity() {
 
     internal lateinit var binding: ActivityProductListBinding
     private val viewModel: ProductListViewModel by viewModel()
-    private val productAdapter = ProductAdapter(this)
 
-    override fun setShimmerLayoutId() = R.id.vShimmer
-    override fun setContentShimmerLayoutId(): Int? = R.id.vContent
+    private val productAdapter = ProductAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_product_list)
-        viewModel.setNavigator(this)
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
 
         initView()
         loadView()
@@ -52,13 +51,21 @@ class ProductListActivity : BaseActivity(), ProductListNavigator {
     }
 
     private fun loadView() {
-        viewModel.loadOrders()
+        viewModel.productLD().observe(this, productsObserver())
+
+        refreshView()
     }
 
-    override fun showProduts(product: ProductListDataMapper) {
-        binding.product = product
-        productAdapter.items = product.products.toMutableList()
+    private fun refreshView() {
+        srl.setOnRefreshListener {
+            srl.isRefreshing = false
+            viewModel.productLD(true).observe(this, productsObserver())
+        }
     }
 
+    private fun productsObserver() = Observer<ProductListDataMapper> {
+        binding.product = it
+        productAdapter.items = it?.products!!.toMutableList()
+    }
 
 }

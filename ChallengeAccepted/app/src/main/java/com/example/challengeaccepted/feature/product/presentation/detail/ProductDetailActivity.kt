@@ -10,7 +10,6 @@ import com.example.challengeaccepted.databinding.ActivityProductDetailBinding
 import com.example.challengeaccepted.feature.product.domain.mapper.ProductDataMapper
 import com.example.challengeaccepted.platform.base.BaseActivity
 
-
 class ProductDetailActivity : BaseActivity() {
 
     lateinit var binding: ActivityProductDetailBinding

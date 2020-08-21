@@ -15,7 +15,10 @@ open class BaseAdapter<T : Any?>(
 ) : ListAdapter<T, BaseViewHolder<T?>>(BaseDiffUtil<T>()) {
 
     var items: MutableList<T?> = mutableListOf()
-        set
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
     private val firstPositionIndex = 0
 
