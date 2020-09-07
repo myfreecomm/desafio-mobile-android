@@ -3,9 +3,11 @@ package br.com.mpc.android_challenge.repository
 import br.com.mpc.android_challenge.models.Item
 import br.com.mpc.android_challenge.repository.local.LocalDataSource
 import br.com.mpc.android_challenge.repository.remote.NexaasDataSource
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.map
+import br.com.mpc.android_challenge.utils.Event
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.withContext
+import timber.log.Timber
 
 class ApplicationRepository(
     private val localDataSource: LocalDataSource,
@@ -13,12 +15,18 @@ class ApplicationRepository(
 ) {
     private var hasCache: Boolean = false
 
-    fun getItems(): Flow<ArrayList<Item>?> {
-        return if (hasCache) {
-            localDataSource.getItems()
-        } else {
-            remoteDataSource.getItems()
-                .map { return@map if (it.isSuccess) it.result else null }
+    suspend fun getItems(): Flow<Event<ArrayList<Item>>> {
+        return if (hasCache) localDataSource.getItems().flowOn(Dispatchers.IO)
+        else {
+            val itemsFlow = remoteDataSource.getItems()
+            val items: ArrayList<Item>? = itemsFlow.reduce { _, value -> value }.content
+            if (items != null) {
+                hasCache = true
+                withContext(Dispatchers.IO){
+                    localDataSource.setItems(items.toList())
+                }
+            }
+            itemsFlow
         }
     }
 }

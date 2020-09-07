@@ -4,35 +4,32 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 import retrofit2.Response
-import java.lang.Exception
+import timber.log.Timber
 
-abstract class ServiceAbstraction : CoroutineScope {
+abstract class ServiceAbstraction {
 
     fun <T> doRequest(call: suspend () -> Response<T>): Flow<Event<T>> = flow {
+        emit(Event<T>())
 
-        launch {
+        emit(Event<T>().apply {
             try {
                 val response = withContext(Dispatchers.IO) { call.invoke() }
-                if (response.isSuccessful) emit(Event(result = response.body()))
-                else emit(Event(error = response.message()))
+                if (response.isSuccessful) content = response.body()
+                else error = "Falha ao processar solicitação"
             } catch (e: Exception) {
-                emit(Event(error = e.message))
-            }
-        }
-    }
+                error = e.message
+            } })
+    }.flowOn(Dispatchers.IO)
+}
 
-    class ResponseError(override val message: String?) : Exception()
+class Event<C>{
+    var isLoading = false
+        get() = content == null && error == null
+        private set
 
-    class Event<T>(
-        val result: T? = null,
-        val error: String? = null
-    ) {
-        var isSuccess = false
-            get() = result != null
-            private set
-
-    }
+    var content: C? = null
+    var error: String? = null
 }
