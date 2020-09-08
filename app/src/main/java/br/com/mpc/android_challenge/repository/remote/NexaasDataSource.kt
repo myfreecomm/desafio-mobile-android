@@ -11,7 +11,6 @@ import timber.log.Timber
 class NexaasDataSource(private val service: NexaasService) : ServiceAbstraction() {
 
     suspend fun getItems(): Flow<Event<ArrayList<Item>>> {
-        println("Teste 100")
         return doRequest(call = { service.getItems() }).map { return@map it }
     }
 }

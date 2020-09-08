@@ -18,7 +18,6 @@ class HomeViewModel(private val repository: ApplicationRepository) : ViewModel()
 
     fun getItems() {
         viewModelScope.launch {
-            Timber.d("Teste 1")
             repository.getItems().map { _state.value = it }.collect()
         }
     }

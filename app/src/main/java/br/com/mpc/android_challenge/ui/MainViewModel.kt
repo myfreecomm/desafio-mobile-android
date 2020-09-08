@@ -10,7 +10,6 @@ class MainViewModel(private val handle: SavedStateHandle) : ViewModel(), Lifecyc
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     private fun saveItem() {
-        println("saveItem")
         handle.set(SAVED_ITEM, item)
     }
 
