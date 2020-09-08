@@ -30,13 +30,12 @@ class ItemDetailFragment : Fragment() {
     }
 
     private fun setupContent() {
-        with(sharedViewModel){
-            itemImageView.load(item.image_url)
-            itemNameTextView.text = item.name
-            itemValueTextView.text = item.price.toMoneyFormat()
-            itemStateTextView.text = item.getItemAvailableSituation()
-            itemDescriptionTextView.text = item.description
+        sharedViewModel.item?.let {
+            itemImageView.load(it.image_url)
+            itemNameTextView.text = it.name
+            itemValueTextView.text = it.price.toMoneyFormat()
+            itemStateTextView.text = it.getItemAvailableSituation()
+            itemDescriptionTextView.text = it.description
         }
     }
-
 }

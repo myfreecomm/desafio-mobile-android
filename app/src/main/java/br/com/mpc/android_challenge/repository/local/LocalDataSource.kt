@@ -8,5 +8,6 @@ import kotlinx.coroutines.flow.Flow
 class LocalDataSource(private val dao: NexaasDao) {
 
     fun getItems(): Flow<Event<ArrayList<Item>>> = dao.getItemUntilChanged()
+    fun deleteItems() = dao.deleteAll()
     fun setItems(items: List<Item>) = dao.setItems(items)
 }

@@ -20,7 +20,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 @Entity
 data class Item (
-	@PrimaryKey val id: Long,
+	@PrimaryKey(autoGenerate = true) val id: Long,
 	@ColumnInfo(name = "name") val name : String?,
 	@ColumnInfo(name = "quantity") val quantity : Int?,
 	@ColumnInfo(name = "stock") val stock : Int?,

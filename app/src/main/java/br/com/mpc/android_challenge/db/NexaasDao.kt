@@ -1,9 +1,6 @@
 package br.com.mpc.android_challenge.db
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import br.com.mpc.android_challenge.models.Item
 import br.com.mpc.android_challenge.utils.Event
 import kotlinx.coroutines.flow.Flow
@@ -15,12 +12,12 @@ interface NexaasDao {
     @Query("SELECT * FROM item")
     abstract fun getItems(): Flow<List<Item>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    @JvmSuppressWildcards
+    @Insert(entity = Item::class, onConflict = OnConflictStrategy.REPLACE)
     fun setItems(items: List<Item>)
 
+    @Query("DELETE FROM item")
+    fun deleteAll()
+
     fun getItemUntilChanged(): Flow<Event<ArrayList<Item>>> =
-        getItems().map {
-            return@map Event<ArrayList<Item>>().apply { content = ArrayList(it) }
-        }
+        getItems().map { return@map Event<ArrayList<Item>>().apply { content = ArrayList(it) } }
 }
