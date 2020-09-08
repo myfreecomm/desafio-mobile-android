@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Android Challenge</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="home_fragment_label">Home Fragment</string>
+    <string name="item_detail_fragment_label">Item Detail Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+</resources>

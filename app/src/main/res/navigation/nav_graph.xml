@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/HomeFragment">
+
+    <fragment
+        android:id="@+id/HomeFragment"
+        android:name="br.com.mpc.android_challenge.ui.home.HomeFragment"
+        android:label="@string/home_fragment_label"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_HomeFragment_to_ItemDetailFragment"
+            app:destination="@id/ItemDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ItemDetailFragment"
+        android:name="br.com.mpc.android_challenge.ui.details.ItemDetailFragment"
+        android:label="@string/item_detail_fragment_label"
+        tools:layout="@layout/fragment_item_detail"/>
+</navigation>
